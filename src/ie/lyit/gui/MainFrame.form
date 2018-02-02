@@ -206,7 +206,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkInIcon" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkInLabel" min="-2" pref="40" max="-2" attributes="0"/>
@@ -415,7 +415,7 @@
                   <Component id="jLabel6" min="-2" pref="171" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator3" min="-2" pref="189" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="618" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1191,14 +1191,10 @@
                     <Property name="text" type="java.lang.String" value="Address:"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
-                </Component>
                 <Component class="javax.swing.JLabel" name="jLabel27">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Check-In:"/>
                   </Properties>
-                </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel28">
                   <Properties>
@@ -1220,6 +1216,10 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel6">
