@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package ie.lyit.testers;
-import ie.lyit.database.ConnectionToDb;
 import java.sql.*;
 
 /**
