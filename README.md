@@ -7,9 +7,9 @@
  -- Use the master branch for final deployment.
  
  # v0.01 
- # -- Template design and page layout(Home,Check-In,Check-Out,Search).
- # -- 
+   -- Template design and page layout(Home,Check-In,Check-Out,Search).
+
  
  # v0.02
- # -- Now with a working basic sever.
- # -- JTable's added to Home screen.
+   -- Now with a working basic sever.
+   -- JTable's added to Home screen.
