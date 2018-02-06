@@ -5,6 +5,7 @@
  */
 package ie.lyit.database;
 
+import static java.lang.Thread.sleep;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -32,7 +33,14 @@ public class Connect implements Runnable{
     
     }
     public void run(){
-    
+        
+        try{
+        connectToHotel();
+        sleep(2222);
+        }
+        catch(Exception e){
+        e.getMessage();
+        }
     }
     
     // Connect to our hotel database
@@ -49,7 +57,7 @@ public class Connect implements Runnable{
         try {
             // 1. Get a connection to database
             myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
-            check = true;
+           
 
             // 2. Create a statement
             myStmt = myConn.createStatement();
@@ -60,10 +68,13 @@ public class Connect implements Runnable{
             // 4. Process the result set
             while (myRs.next()) {
                 System.out.println(myRs.getString("surname") + ", " + myRs.getString("fname"));
+                
             }
+            check = true;
 
         } catch (Exception exc) {
             exc.printStackTrace();
+            check = false;
         } finally {
             if (myRs != null) {
                 myRs.close();
@@ -74,10 +85,15 @@ public class Connect implements Runnable{
             }
 
             if (myConn != null) {
+                
                 myConn.close();
             }
         }
-    }     
+        
+    }   
+    public void setStatus(){
+    check = false;
+    }
     public boolean getStatus(){ 
         return check;
     }
