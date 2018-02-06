@@ -6,7 +6,10 @@
  -- Create your own branch to play around with the code.
  -- Use the master branch for final deployment.
  
- v0.01 
- -- Template design and page layout
- v0.02
- -- Now with a working basic sever
+ # v0.01 
+ # -- Template design and page layout(Home,Check-In,Check-Out,Search).
+ # -- 
+ 
+ # v0.02
+ # -- Now with a working basic sever.
+ # -- JTable's added to Home screen.
