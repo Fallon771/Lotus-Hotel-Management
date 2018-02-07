@@ -4,17 +4,21 @@
  * and open the template in the editor.
  */
 package ie.lyit.users;
+import ie.lyit.hotel.Date;
+import ie.lyit.database.DBConnections;
 
 /**
  *
  * @author James F.
  */
-public class Receptionist {
+public class Receptionist implements DBConnections{
     
     private String fName;
     private String sName;
     private String emailAddress;
     private int id;
+
+    
     
     public Receptionist(String fName,String sName,int id,String email){
     
@@ -25,30 +29,16 @@ public class Receptionist {
         
     }
     // Action Methods
-    public void checkRoom(){
-    
-    }
-    public void checkInGuest(){
-    
-    }
-    public void checkOutGuest(){
-    
-    }
+   
     public  void generateBill(){
     
     }
-    public void bookRoom(){
     
-    }
     public void feedBack(){
     
     }
 
-    @Override
-    public String toString() {
-        return "Receptionist{" + "fName=" + fName + ", sName=" + sName + ", id=" + id + '}';
-    }
-
+    // Getter's & Setter's
     public String getfName() {
         return fName;
     }
@@ -71,6 +61,34 @@ public class Receptionist {
 
     public void setId(int id) {
         this.id = id;
+    }
+     // Abstract methods
+    
+    // Check in
+    @Override
+    public void addGuest() {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+    
+    // Check-out
+    @Override
+    public void removeGuest() {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+    
+    @Override
+    public void displayGuests() {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+
+    @Override
+    public void displayRooms() {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+    
+    @Override
+    public void bookRoom() {
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
     
 }
