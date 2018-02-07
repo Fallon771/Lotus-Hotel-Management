@@ -16,3 +16,8 @@
    -- Now with a working basic server.
    
    -- JTable's added to Home screen.
+   
+ # v0.03
+  -- Guest,Recptionist,Date,Bill classes added & updated
+   
+  -- Interface DBConnections added.
