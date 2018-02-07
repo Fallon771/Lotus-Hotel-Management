@@ -13,13 +13,15 @@ public class Receptionist {
     
     private String fName;
     private String sName;
+    private String emailAddress;
     private int id;
     
-    public Receptionist(String fName,String sName,int id){
+    public Receptionist(String fName,String sName,int id,String email){
     
         this.fName = fName;
         this.sName = sName;
         this.id = id;
+        this.emailAddress = email;
         
     }
     // Action Methods
