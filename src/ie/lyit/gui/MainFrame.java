@@ -62,11 +62,15 @@ public class MainFrame extends javax.swing.JFrame {
         searchIcon = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         lotusText = new javax.swing.JLabel();
         checkOutPanel = new javax.swing.JPanel();
         checkOutLab = new javax.swing.JLabel();
         checkOutIcon1 = new javax.swing.JLabel();
+        quitPanel = new javax.swing.JPanel();
+        searchLabel1 = new javax.swing.JLabel();
+        searchIcon1 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
         banner = new javax.swing.JPanel();
         dashLabel = new javax.swing.JLabel();
         topPanel = new javax.swing.JPanel();
@@ -359,6 +363,46 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        quitPanel.setBackground(new java.awt.Color(34, 104, 153));
+        quitPanel.setPreferredSize(new java.awt.Dimension(175, 74));
+        quitPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                quitPanelMouseMoved(evt);
+            }
+        });
+        quitPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                quitPanelMouseClicked(evt);
+            }
+        });
+
+        searchLabel1.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
+        searchLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        searchLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        searchLabel1.setText("Quit");
+        searchLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        searchIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Door_32px.png"))); // NOI18N
+
+        javax.swing.GroupLayout quitPanelLayout = new javax.swing.GroupLayout(quitPanel);
+        quitPanel.setLayout(quitPanelLayout);
+        quitPanelLayout.setHorizontalGroup(
+            quitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quitPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(searchIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(searchLabel1)
+                .addGap(34, 34, 34))
+        );
+        quitPanelLayout.setVerticalGroup(
+            quitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quitPanelLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(searchIcon1, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE))
+            .addComponent(searchLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout sideBarLayout = new javax.swing.GroupLayout(sideBar);
         sideBar.setLayout(sideBarLayout);
         sideBarLayout.setHorizontalGroup(
@@ -368,44 +412,44 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
             .addComponent(checkOutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
             .addGroup(sideBarLayout.createSequentialGroup()
-                .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(sideBarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator1))
-                    .addGroup(sideBarLayout.createSequentialGroup()
-                        .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(sideBarLayout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(jLabel3))
-                            .addGroup(sideBarLayout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addComponent(lotusText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(sideBarLayout.createSequentialGroup()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jSeparator2)
+            .addComponent(quitPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(sideBarLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(sideBarLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(lotusText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sideBarLayout.setVerticalGroup(
             sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideBarLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addComponent(lotusText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel5)
-                .addGap(43, 43, 43)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(homePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(checkPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(checkOutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(quitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
 
         banner.setBackground(new java.awt.Color(102, 153, 255));
@@ -1305,7 +1349,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(currentGuest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addComponent(dataTabPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1393,6 +1437,7 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         homePanel.setBackground(new java.awt.Color(34,104,153));
         checkPanel.setBackground(new java.awt.Color(34,104,153));
+         quitPanel.setBackground(new java.awt.Color(34,104,153));
         searchPanel.setBackground(new java.awt.Color(84,140,196));
         checkOutPanel.setBackground(new java.awt.Color(34,104,153));
     }//GEN-LAST:event_searchPanelMouseMoved
@@ -1402,6 +1447,7 @@ public class MainFrame extends javax.swing.JFrame {
         homePanel.setBackground(new java.awt.Color(34,104,153));
         checkPanel.setBackground(new java.awt.Color(84,140,196));
         searchPanel.setBackground(new java.awt.Color(34,104,153));
+         quitPanel.setBackground(new java.awt.Color(34,104,153));
         checkOutPanel.setBackground(new java.awt.Color(34,104,153));
         
     }//GEN-LAST:event_checkPanelMouseMoved
@@ -1416,6 +1462,7 @@ public class MainFrame extends javax.swing.JFrame {
         homePanel.setBackground(new java.awt.Color(84,140,196));
         checkPanel.setBackground(new java.awt.Color(34,104,153));
         searchPanel.setBackground(new java.awt.Color(34,104,153));
+         quitPanel.setBackground(new java.awt.Color(34,104,153));
          checkOutPanel.setBackground(new java.awt.Color(34,104,153));
 
     }//GEN-LAST:event_homePanelMouseMoved
@@ -1516,6 +1563,7 @@ public class MainFrame extends javax.swing.JFrame {
          homePanel.setBackground(new java.awt.Color(34,104,153));
          checkPanel.setBackground(new java.awt.Color(34,104,153));
          searchPanel.setBackground(new java.awt.Color(34,104,153));
+         quitPanel.setBackground(new java.awt.Color(34,104,153));
          checkOutPanel.setBackground(new java.awt.Color(84,140,196));
         
     }//GEN-LAST:event_checkOutPanelMouseMoved
@@ -1559,6 +1607,20 @@ public class MainFrame extends javax.swing.JFrame {
         setPreferredSize(new Dimension(screen.getScreenWidth(),screen.getScreenWidth()));
        
     }//GEN-LAST:event_jLabel1MousePressed
+
+    private void quitPanelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitPanelMouseMoved
+        // TODO add your handling code here:
+         homePanel.setBackground(new java.awt.Color(34,104,153));
+         checkPanel.setBackground(new java.awt.Color(34,104,153));
+         searchPanel.setBackground(new java.awt.Color(34,104,153));
+         checkOutPanel.setBackground(new java.awt.Color(34,104,153));
+         quitPanel.setBackground(new java.awt.Color(84,140,196));
+    }//GEN-LAST:event_quitPanelMouseMoved
+
+    private void quitPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitPanelMouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_quitPanelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1700,7 +1762,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
@@ -1717,11 +1780,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lotusText;
     private javax.swing.JRadioButton masterRad;
     private javax.swing.JLabel minimizeLabel;
+    private javax.swing.JPanel quitPanel;
     private javax.swing.JButton r200;
     private javax.swing.JButton r201;
     private javax.swing.JTextField roomText;
     private javax.swing.JLabel searchIcon;
+    private javax.swing.JLabel searchIcon1;
     private javax.swing.JLabel searchLabel;
+    private javax.swing.JLabel searchLabel1;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JButton serverTest;
     private javax.swing.JPanel sideBar;
