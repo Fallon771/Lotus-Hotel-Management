@@ -49,7 +49,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        mxGraph1 = new com.mxgraph.view.mxGraph();
         cardGroup = new javax.swing.ButtonGroup();
         sideBar = new javax.swing.JPanel();
         homePanel = new javax.swing.JPanel();
@@ -69,8 +68,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkOutLab = new javax.swing.JLabel();
         checkOutIcon1 = new javax.swing.JLabel();
         banner = new javax.swing.JPanel();
-        dashBoard = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
+        dashLabel = new javax.swing.JLabel();
         topPanel = new javax.swing.JPanel();
         close = new javax.swing.JLabel();
         minimizeLabel = new javax.swing.JLabel();
@@ -129,6 +127,7 @@ public class MainFrame extends javax.swing.JFrame {
         serverTest = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
+        jLocaleChooser1 = new com.toedter.components.JLocaleChooser();
         jPanel6 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -374,12 +373,13 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jSeparator1))
                     .addGroup(sideBarLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(sideBarLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(lotusText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(sideBarLayout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(jLabel3))
+                            .addGroup(sideBarLayout.createSequentialGroup()
+                                .addGap(72, 72, 72)
+                                .addComponent(lotusText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(sideBarLayout.createSequentialGroup()
@@ -411,10 +411,10 @@ public class MainFrame extends javax.swing.JFrame {
         banner.setBackground(new java.awt.Color(102, 153, 255));
         banner.setPreferredSize(new java.awt.Dimension(900, 167));
 
-        dashBoard.setBackground(new java.awt.Color(255, 255, 255));
-        dashBoard.setFont(new java.awt.Font("Browallia New", 1, 42)); // NOI18N
-        dashBoard.setForeground(new java.awt.Color(255, 255, 255));
-        dashBoard.setText("Dashboard");
+        dashLabel.setBackground(new java.awt.Color(255, 255, 255));
+        dashLabel.setFont(new java.awt.Font("Browallia New", 1, 42)); // NOI18N
+        dashLabel.setForeground(new java.awt.Color(255, 255, 255));
+        dashLabel.setText("Home");
 
         javax.swing.GroupLayout bannerLayout = new javax.swing.GroupLayout(banner);
         banner.setLayout(bannerLayout);
@@ -422,22 +422,15 @@ public class MainFrame extends javax.swing.JFrame {
             bannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bannerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(dashBoard, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dashLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         bannerLayout.setVerticalGroup(
             bannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bannerLayout.createSequentialGroup()
                 .addContainerGap(110, Short.MAX_VALUE)
-                .addGroup(bannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bannerLayout.createSequentialGroup()
-                        .addComponent(dashBoard)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bannerLayout.createSequentialGroup()
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))))
+                .addComponent(dashLabel)
+                .addContainerGap())
         );
 
         topPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -468,6 +461,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Full Screen_28px.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel1MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
@@ -812,17 +810,14 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextField6)
-                        .addGap(103, 103, 103))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 12, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 120, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(serverTest)
@@ -835,10 +830,11 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addComponent(jLocaleChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(132, 132, 132))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -871,7 +867,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28))
-                .addGap(160, 160, 160)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLocaleChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(129, 129, 129)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(serverTest)
                     .addComponent(jButton13)
@@ -1313,7 +1311,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         jLayeredPane1.setLayer(checkinScreen, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(homeScreen, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(homeScreen, javax.swing.JLayeredPane.MODAL_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -1321,7 +1319,7 @@ public class MainFrame extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 973, Short.MAX_VALUE)
+                .addComponent(checkinScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 973, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 997, Short.MAX_VALUE))
@@ -1428,6 +1426,7 @@ public class MainFrame extends javax.swing.JFrame {
         homeScreen.setVisible(true);
         dataTabPane.setVisible(true);
         currentGuest.setVisible(true);
+        dashLabel.setText("Home");
        // searchScreen.setVisible(false);
     }//GEN-LAST:event_homePanelMouseClicked
 
@@ -1437,6 +1436,7 @@ public class MainFrame extends javax.swing.JFrame {
          homeScreen.setVisible(false);
          dataTabPane.setVisible(false);
          currentGuest.setVisible(false);
+          dashLabel.setText("Check-In");
          //searchScreen.setVisible(false);
     }//GEN-LAST:event_checkPanelMouseClicked
 
@@ -1552,6 +1552,14 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox6ActionPerformed
 
+    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+        // TODO add your handling code here:
+        
+        
+        setPreferredSize(new Dimension(screen.getScreenWidth(),screen.getScreenWidth()));
+       
+    }//GEN-LAST:event_jLabel1MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -1606,7 +1614,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel checkinScreen;
     private javax.swing.JLabel close;
     private javax.swing.JPanel currentGuest;
-    private javax.swing.JLabel dashBoard;
+    private javax.swing.JLabel dashLabel;
     private javax.swing.JTabbedPane dataTabPane;
     private javax.swing.JLabel dbStatus;
     public void setStatus(){
@@ -1675,6 +1683,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private com.toedter.components.JLocaleChooser jLocaleChooser1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel13;
@@ -1692,7 +1701,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
@@ -1709,7 +1717,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lotusText;
     private javax.swing.JRadioButton masterRad;
     private javax.swing.JLabel minimizeLabel;
-    private com.mxgraph.view.mxGraph mxGraph1;
     private javax.swing.JButton r200;
     private javax.swing.JButton r201;
     private javax.swing.JTextField roomText;
