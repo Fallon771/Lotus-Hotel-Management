@@ -16,13 +16,13 @@ public class ScreenSize {
     
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
     
-    private int xScreen = screenSize.width /2;
-    private int yScreen = screenSize.height /2;
+    private double xScreen = screenSize.width / 1.2;
+    private double yScreen = screenSize.height / 1.2;
    
-    public int getScreenWidth(){
+    public double getScreenWidth(){
         return xScreen;
     }
-    public int getScreenHeight(){
+    public double getScreenHeight(){
         return yScreen;
     }   
 }
