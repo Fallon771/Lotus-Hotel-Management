@@ -18,7 +18,8 @@ public class CreditCard {
     private String fName;
     private String sName;
     
-    
+    public CreditCard(){
+    }
     public CreditCard(String fName,String sName,int cardNum,String expiry,int cvc){
         this.fName = fName;
         this.sName = sName;

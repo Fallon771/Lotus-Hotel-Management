@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package ie.lyit.users;
+import ie.lyit.hotel.CreditCard;
+import ie.lyit.hotel.Bill;
 
 /**
  *
@@ -20,6 +22,8 @@ public class Guest {
     private String sName;
     private String address;
     private String emailAddress;
+    private CreditCard card;
+    private Bill bill;
     
     public Guest(){
         

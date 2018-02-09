@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Lotus-Hotel-Management">
+  <ClassDiagramComponents>
+    <Class name="Connect" package="ie.lyit.database" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="myConn" type="Connection" visibility="package"/>
+        <Field name="myStmt" type="Statement" visibility="package"/>
+        <Field name="myRs" type="ResultSet" visibility="package"/>
+        <Field name="check" type="Boolean" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="connectToHotel" returnType="void" visibility="public"/>
+        <Method name="setStatus" returnType="void" visibility="public"/>
+        <Method name="getStatus" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="DBConnections" package="ie.lyit.database" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Methods>
+        <Method name="addGuest" returnType="void" visibility="public"/>
+        <Method name="removeGuest" returnType="void" visibility="public"/>
+        <Method name="displayGuests" returnType="void" visibility="public"/>
+        <Method name="displayRooms" returnType="void" visibility="public"/>
+        <Method name="bookRoom" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="MainFrame" package="ie.lyit.gui" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="xMouse" type="int" visibility="package"/>
+        <Field name="yMouse" type="int" visibility="package"/>
+        <Field name="xScreen" type="double" visibility="package"/>
+        <Field name="yScreen" type="double" visibility="package"/>
+        <Field name="conn" type="Connect" visibility="package"/>
+        <Field name="screen" type="ScreenSize" visibility="package"/>
+        <Field name="americanRad" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="banner" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="cardGroup" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="checkInIcon" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="checkInLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="checkOutIcon1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="checkOutLab" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="checkOutPanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="checkPanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="checkinScreen" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="close" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="currentGuest" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="dashLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="dataTabPane" type="javax.swing.JTabbedPane" visibility="private"/>
+        <Field name="dbStatus" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="dragBar" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="footer" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="homeIcon" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="homeLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="homePanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="homeScreen" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton10" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton11" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton12" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton13" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton14" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton15" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton16" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton21" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton22" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton23" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton24" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton25" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton26" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton3" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton4" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton5" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton6" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton7" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton8" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton9" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jCheckBox1" type="javax.swing.JCheckBox" visibility="private"/>
+        <Field name="jCheckBox2" type="javax.swing.JCheckBox" visibility="private"/>
+        <Field name="jCheckBox3" type="javax.swing.JCheckBox" visibility="private"/>
+        <Field name="jCheckBox4" type="javax.swing.JCheckBox" visibility="private"/>
+        <Field name="jCheckBox5" type="javax.swing.JCheckBox" visibility="private"/>
+        <Field name="jCheckBox6" type="javax.swing.JCheckBox" visibility="private"/>
+        <Field name="jComboBox1" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jComboBox2" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jComboBox3" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jDateChooser1" type="com.toedter.calendar.JDateChooser" visibility="private"/>
+        <Field name="jDateChooser2" type="com.toedter.calendar.JDateChooser" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel12" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel13" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel14" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel15" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel16" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel17" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel18" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel19" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel20" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel21" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel22" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel23" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel24" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel25" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel26" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel27" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel28" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel29" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel30" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel31" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel32" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel33" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel34" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLayeredPane1" type="javax.swing.JLayeredPane" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel10" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel11" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel13" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel14" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel15" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel4" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel5" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel6" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel7" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel8" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel9" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane2" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane3" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane4" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jSeparator1" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="jSeparator2" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="jSeparator3" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="jSeparator4" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="jSeparator5" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="jSeparator6" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="jSpinner1" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="jSpinner2" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="jSpinner3" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="jTabbedPane1" type="javax.swing.JTabbedPane" visibility="private"/>
+        <Field name="jTable1" type="javax.swing.JTable" visibility="private"/>
+        <Field name="jTable2" type="javax.swing.JTable" visibility="private"/>
+        <Field name="jTextArea1" type="javax.swing.JTextArea" visibility="private"/>
+        <Field name="jTextArea2" type="javax.swing.JTextArea" visibility="private"/>
+        <Field name="jTextField10" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField12" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField13" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField15" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField16" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField17" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField18" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField19" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField20" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField4" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField5" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField6" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField7" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField8" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField9" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="lotusText" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="masterRad" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="maxi" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="mini" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="quitPanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="r200" type="javax.swing.JButton" visibility="private"/>
+        <Field name="r201" type="javax.swing.JButton" visibility="private"/>
+        <Field name="roomText" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="searchIcon" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="searchIcon1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="searchLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="searchLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="searchPanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="serverTest" type="javax.swing.JButton" visibility="private"/>
+        <Field name="sideBar" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="topPanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="visaRad" type="javax.swing.JRadioButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="dragBarMouseDragged" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="dragBarMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="miniMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="closeMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="searchPanelMouseMoved" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="checkPanelMouseMoved" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="homePanelFocusLost" returnType="void" visibility="private">
+          <Argument type="java.awt.event.FocusEvent" name="evt"/>
+        </Method>
+        <Method name="homePanelMouseMoved" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="homePanelMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="checkPanelMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="searchPanelMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="r200ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton5ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton7ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton9ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton8ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton21ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton23ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton25ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton26ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton5MousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="serverTestActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="checkOutPanelMouseMoved" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="checkOutPanelMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="americanRadActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jCheckBox1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jCheckBox2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jCheckBox3ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jCheckBox4ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jCheckBox5ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jCheckBox6ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="maxiMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="quitPanelMouseMoved" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="quitPanelMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="closeMouseMoved" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="closeFocusLost" returnType="void" visibility="private">
+          <Argument type="java.awt.event.FocusEvent" name="evt"/>
+        </Method>
+        <Method name="maxiMouseMoved" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="bannerMouseMoved" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="miniMouseMoved" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton15ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="javax.swing.JPanel" name="panel"/>
+        </Method>
+        <Method name="resetColor" returnType="void" visibility="public">
+          <Argument type="javax.swing.JPanel" name="panel"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+        <Method name="setStatus" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ScreenSize" package="ie.lyit.gui" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="screenSize" type="Dimension" visibility="package"/>
+        <Field name="xScreen" type="int" visibility="private"/>
+        <Field name="yScreen" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getScreenWidth" returnType="int" visibility="public"/>
+        <Method name="getScreenHeight" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Bill" package="ie.lyit.hotel" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="amount" type="int" visibility="private"/>
+        <Field name="date" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="amount"/>
+          <Argument type="Date" name="date"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAmount" returnType="int" visibility="public"/>
+        <Method name="setAmount" returnType="void" visibility="public">
+          <Argument type="int" name="amount"/>
+        </Method>
+        <Method name="getDate" returnType="Date" visibility="public"/>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="Date" name="date"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CreditCard" package="ie.lyit.hotel" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="cardNum" type="int" visibility="private"/>
+        <Field name="cvc" type="int" visibility="private"/>
+        <Field name="expiry" type="String" visibility="private"/>
+        <Field name="fName" type="String" visibility="private"/>
+        <Field name="sName" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="fName"/>
+          <Argument type="String" name="sName"/>
+          <Argument type="int" name="cardNum"/>
+          <Argument type="String" name="expiry"/>
+          <Argument type="int" name="cvc"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addCard" returnType="void" visibility="public"/>
+        <Method name="removeCard" returnType="void" visibility="public"/>
+        <Method name="getCardNum" returnType="int" visibility="public"/>
+        <Method name="setCardNum" returnType="void" visibility="public">
+          <Argument type="int" name="cardNum"/>
+        </Method>
+        <Method name="getCvc" returnType="int" visibility="public"/>
+        <Method name="setCvc" returnType="void" visibility="public">
+          <Argument type="int" name="cvc"/>
+        </Method>
+        <Method name="getExpiry" returnType="String" visibility="public"/>
+        <Method name="setExpiry" returnType="void" visibility="public">
+          <Argument type="String" name="expiry"/>
+        </Method>
+        <Method name="getfName" returnType="String" visibility="public"/>
+        <Method name="setfName" returnType="void" visibility="public">
+          <Argument type="String" name="fName"/>
+        </Method>
+        <Method name="getsName" returnType="String" visibility="public"/>
+        <Method name="setsName" returnType="void" visibility="public">
+          <Argument type="String" name="sName"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Date" package="ie.lyit.hotel" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="day" type="int" visibility="private"/>
+        <Field name="month" type="int" visibility="private"/>
+        <Field name="year" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="day"/>
+          <Argument type="int" name="month"/>
+          <Argument type="int" name="year"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getDay" returnType="int" visibility="public"/>
+        <Method name="getMonth" returnType="int" visibility="public"/>
+        <Method name="getYear" returnType="int" visibility="public"/>
+        <Method name="setDay" returnType="void" visibility="public">
+          <Argument type="int" name="setDayTo"/>
+        </Method>
+        <Method name="setMonth" returnType="void" visibility="public">
+          <Argument type="int" name="setMonthTo"/>
+        </Method>
+        <Method name="setYear" returnType="void" visibility="public">
+          <Argument type="int" name="setYearTo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Search" package="ie.lyit.hotel" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="guestName" type="String" visibility="private"/>
+        <Field name="roomNum" type="int" visibility="private"/>
+        <Field name="date" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="searchRoom" returnType="void" visibility="public"/>
+        <Method name="searchGuest" returnType="void" visibility="public"/>
+        <Method name="searchDate" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DbTester" package="ie.lyit.testers" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Guest" package="ie.lyit.users" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="guestNumber" type="int" visibility="private" isStatic="true"/>
+        <Field name="number" type="int" visibility="private"/>
+        <Field name="roomNumber" type="int" visibility="private"/>
+        <Field name="phoneNo" type="int" visibility="private"/>
+        <Field name="fName" type="String" visibility="private"/>
+        <Field name="sName" type="String" visibility="private"/>
+        <Field name="address" type="String" visibility="private"/>
+        <Field name="emailAddress" type="String" visibility="private"/>
+        <Field name="card" type="CreditCard" visibility="private"/>
+        <Field name="bill" type="Bill" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="fName"/>
+          <Argument type="String" name="sName"/>
+          <Argument type="String" name="address"/>
+          <Argument type="String" name="email"/>
+          <Argument type="int" name="phone"/>
+          <Argument type="int" name="room"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getGuestNumber" returnType="int" visibility="public" isStatic="true"/>
+        <Method name="setGuestNumber" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="guestNumber"/>
+        </Method>
+        <Method name="getNumber" returnType="int" visibility="public"/>
+        <Method name="setNumber" returnType="void" visibility="public">
+          <Argument type="int" name="number"/>
+        </Method>
+        <Method name="getRoomNumber" returnType="int" visibility="public"/>
+        <Method name="setRoomNumber" returnType="void" visibility="public">
+          <Argument type="int" name="roomNumber"/>
+        </Method>
+        <Method name="getPhoneNo" returnType="int" visibility="public"/>
+        <Method name="setPhoneNo" returnType="void" visibility="public">
+          <Argument type="int" name="phoneNo"/>
+        </Method>
+        <Method name="getfName" returnType="String" visibility="public"/>
+        <Method name="setfName" returnType="void" visibility="public">
+          <Argument type="String" name="fName"/>
+        </Method>
+        <Method name="getsName" returnType="String" visibility="public"/>
+        <Method name="setsName" returnType="void" visibility="public">
+          <Argument type="String" name="sName"/>
+        </Method>
+        <Method name="getAddress" returnType="String" visibility="public"/>
+        <Method name="setAddress" returnType="void" visibility="public">
+          <Argument type="String" name="address"/>
+        </Method>
+        <Method name="getEmailAddress" returnType="String" visibility="public"/>
+        <Method name="setEmailAddress" returnType="void" visibility="public">
+          <Argument type="String" name="emailAddress"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Receptionist" package="ie.lyit.users" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="fName" type="String" visibility="private"/>
+        <Field name="sName" type="String" visibility="private"/>
+        <Field name="emailAddress" type="String" visibility="private"/>
+        <Field name="id" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="fName"/>
+          <Argument type="String" name="sName"/>
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="email"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="generateBill" returnType="void" visibility="public"/>
+        <Method name="feedBack" returnType="void" visibility="public"/>
+        <Method name="getfName" returnType="String" visibility="public"/>
+        <Method name="setfName" returnType="void" visibility="public">
+          <Argument type="String" name="fName"/>
+        </Method>
+        <Method name="getsName" returnType="String" visibility="public"/>
+        <Method name="setsName" returnType="void" visibility="public">
+          <Argument type="String" name="sName"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="addGuest" returnType="void" visibility="public"/>
+        <Method name="removeGuest" returnType="void" visibility="public"/>
+        <Method name="displayGuests" returnType="void" visibility="public"/>
+        <Method name="displayRooms" returnType="void" visibility="public"/>
+        <Method name="bookRoom" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LotusHotel" package="lotus.hotel" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="date" source="ie.lyit.hotel.Bill" target="ie.lyit.hotel.Date" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ie.lyit.hotel.Bill" target="ie.lyit.hotel.Date" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ie.lyit.users.Receptionist" target="ie.lyit.database.DBConnections"/>
+    <HasRelation name="date" source="ie.lyit.hotel.Search" target="ie.lyit.hotel.Date" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="screen" source="ie.lyit.gui.MainFrame" target="ie.lyit.gui.ScreenSize" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bill" source="ie.lyit.users.Guest" target="ie.lyit.hotel.Bill" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="conn" source="ie.lyit.gui.MainFrame" target="ie.lyit.database.Connect" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="card" source="ie.lyit.users.Guest" target="ie.lyit.hotel.CreditCard" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
