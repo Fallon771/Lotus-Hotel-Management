@@ -21,3 +21,10 @@
   -- Guest,Recptionist,Date,Bill classes added & updated
    
   -- Interface DBConnections added.
+  
+   # v0.04
+  -- Gui updates and revisons
+   
+  -- Added roll over effects for icons along the top.
+  
+  -- Finsihed the check-in sceen
