@@ -1928,11 +1928,7 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void bannerMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bannerMouseMoved
         // TODO add your handling code here:
-        if(!thread1.isAlive() && flag2){
-        CheckStatus thread1 = new CheckStatus();
-        thread1.start();
-        flag2 = false;
-        }
+        restartThread();
         close.setOpaque(false);
         maxi.setOpaque(false);
         mini.setOpaque(false);
@@ -2046,6 +2042,15 @@ public class MainFrame extends javax.swing.JFrame {
      checkInDate.setDate(null);
      checkOutDate.setDate(null);
     }
+    // Start a new thread to ping server if thread is dead
+    public void restartThread(){
+        if(!thread1.isAlive() && flag2){
+        CheckStatus thread1 = new CheckStatus();
+        thread1.start();
+        flag2 = false;
+        }
+    }
+    
     public void updateGuestId(){
     
         try{
