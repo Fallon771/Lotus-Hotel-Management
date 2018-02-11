@@ -16,13 +16,15 @@ public class Guest {
     private static int guestNumber = 1;
     private int number;
     private int roomNumber;
-    private int phoneNo;
+    private String phoneNo;
     
     private String fName;
     private String title;
     private String sName;
     private String address;
     private String emailAddress;
+    private String checkin;
+    private String checkout;
     private CreditCard card;
     private Bill bill;
     
@@ -35,13 +37,17 @@ public class Guest {
         emailAddress = null;
         number = guestNumber++;
     }
-    public Guest(String title,String fName,String sName,String address){
+    public Guest(String title,String fName,String sName,String address,String phone,String email,String checkin,String checkout){
+        
         this.fName = fName;
         this.sName = sName;
         this.address = address;
         this.title = title;
-        //this.emailAddress = email;
-       // this.phoneNo = phone;
+        this.emailAddress = email;
+        this.phoneNo = phone;
+        this.checkin = checkin;
+        this.checkout = checkout;
+      
        // this.roomNumber = room;
     }
     
@@ -70,13 +76,19 @@ public class Guest {
         this.roomNumber = roomNumber;
     }
 
-    public int getPhoneNo() {
+    public String getPhoneNo() {
         return phoneNo;
+    }
+    public String getCheckIn(){
+        return checkin;
+    }
+    public String getCheckOut(){
+        return checkout;
     }
     public String getTitle(){
         return title;
     }
-    public void setPhoneNo(int phoneNo) {
+    public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
     }
 

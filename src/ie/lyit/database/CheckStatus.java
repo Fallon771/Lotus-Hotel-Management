@@ -16,6 +16,9 @@ public class CheckStatus extends Thread{
     
     
     Connection myConn = null;
+    MainFrame frame;
+    
+    
     boolean running = true; 
     private String user;
     private String pass;
@@ -33,16 +36,22 @@ public class CheckStatus extends Thread{
             myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
             System.out.print("Server running...\nTime Stamp:["+currentStamp+"]\n");
             sleep(2000);
-            
+            // Pass in flag to change icon on footer
+            frame.setStatus(running);
         }
         catch(Exception e){
         System.out.print("Server stopped..");
         // Break out of loop if cant connect
         running = false;
+        frame.setStatus(running);
+
         }   
     }
     
     public boolean getStatus(){
     return running;
+    }
+    public void setStatus(){
+    running = true;
     }
 }

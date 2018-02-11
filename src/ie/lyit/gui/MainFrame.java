@@ -11,6 +11,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import ie.lyit.database.*;
 import ie.lyit.users.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -37,7 +40,7 @@ public class MainFrame extends javax.swing.JFrame {
         // Set image on taskbar
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/TaskBar_104px.png")));
         thread1.start();
-        initComponents();
+        initComponents();    
     }
     
     /**
@@ -139,9 +142,9 @@ public class MainFrame extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox<>();
         jSeparator4 = new javax.swing.JSeparator();
         phoneLabel = new javax.swing.JLabel();
-        sName1 = new javax.swing.JTextField();
+        phone = new javax.swing.JTextField();
         emailLabel = new javax.swing.JLabel();
-        sName2 = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -980,9 +983,9 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(sName1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(phone, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sName2, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(email, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -1011,11 +1014,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(phoneLabel)
-                    .addComponent(sName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailLabel)
-                    .addComponent(sName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1906,6 +1909,10 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void bannerMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bannerMouseMoved
         // TODO add your handling code here:
+        if(thread1.isAlive()){
+        thread1.setStatus();
+        thread1.start();
+        }
         close.setOpaque(false);
         maxi.setOpaque(false);
         mini.setOpaque(false);
@@ -1929,16 +1936,28 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void checkInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInButtonActionPerformed
-        // TODO add your handling code here:  
+        // TODO add your handling code here: 
+        
+        // Format the dates selected in JDateChooser(Remove GMT time)
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        
+        String checkin = df.format(checkInDate.getDate());
+        String checkout = df.format(checkOutDate.getDate());
+        
+        // Check if fields are blank
         if(fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE);
         }
         else{
-        Guest checkIn = new Guest((String)title.getSelectedItem(),fName.getText(),sName.getText(),address.getText());
-         JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
-        System.out.print(checkIn.getTitle());
-        }
-           
+        Guest checkIn = new Guest((String)title.getSelectedItem(),
+            fName.getText(),sName.getText(),address.getText(),
+            phone.getText(),email.getText(),checkin,
+            checkout);
+            JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
+         
+        System.out.print("Title:"+checkIn.getTitle()+" "+checkIn.getfName()+" "+checkIn.getsName()
+                +"\n"+checkIn.getCheckIn());
+        }      
     }//GEN-LAST:event_checkInButtonActionPerformed
 
     /**
@@ -1984,6 +2003,14 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
+    public static void setStatus(boolean flag){
+    if(flag){
+        dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Green_16px.png")));
+        }
+    else{
+        dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Red_16px.png")));
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea address;
@@ -2010,6 +2037,7 @@ public class MainFrame extends javax.swing.JFrame {
         dbStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Filled Circle_Green_16px.png")));
     }
     private javax.swing.JLabel dragBar;
+    private javax.swing.JTextField email;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField fName;
     private javax.swing.JLabel fNameLablel;
@@ -2129,14 +2157,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton masterRad;
     private javax.swing.JLabel maxi;
     private javax.swing.JLabel mini;
+    private javax.swing.JTextField phone;
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JPanel quitPanel;
     private javax.swing.JButton r200;
     private javax.swing.JButton r201;
     private javax.swing.JTextField roomText;
     private javax.swing.JTextField sName;
-    private javax.swing.JTextField sName1;
-    private javax.swing.JTextField sName2;
     private javax.swing.JLabel sNameLabel;
     private javax.swing.JLabel searchIcon;
     private javax.swing.JLabel searchIcon1;
