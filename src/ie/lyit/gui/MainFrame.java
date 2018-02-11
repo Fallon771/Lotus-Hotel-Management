@@ -26,6 +26,7 @@ public class MainFrame extends javax.swing.JFrame {
     int yMouse;
     double xScreen;
     double yScreen;
+    static boolean flag2 = true;
     
     //Instances
     Connect conn = new Connect();
@@ -1906,12 +1907,13 @@ public class MainFrame extends javax.swing.JFrame {
         mini.setOpaque(false);
         repaint();
     }//GEN-LAST:event_maxiMouseMoved
-
+    
     private void bannerMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bannerMouseMoved
         // TODO add your handling code here:
-        if(thread1.isAlive()){
-        thread1.setStatus();
+        if(!thread1.isAlive() && flag2){
+        CheckStatus thread1 = new CheckStatus();
         thread1.start();
+        flag2 = false;
         }
         close.setOpaque(false);
         maxi.setOpaque(false);
@@ -1937,15 +1939,17 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void checkInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInButtonActionPerformed
         // TODO add your handling code here: 
-        
+        String checkin = null;
+        String checkout = null;
         // Format the dates selected in JDateChooser(Remove GMT time)
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        
-        String checkin = df.format(checkInDate.getDate());
-        String checkout = df.format(checkOutDate.getDate());
-        
+        if(checkInDate.getDate() != null && checkOutDate.getDate() != null){
+             checkin = df.format(checkInDate.getDate());
+             checkout = df.format(checkOutDate.getDate());
+        }
+      
         // Check if fields are blank
-        if(fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("")){
+        if(fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("")|| (checkInDate.getDate() == null)|| (checkOutDate.getDate() == null)){
             JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE);
         }
         else{
@@ -1999,16 +2003,17 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainFrame().setVisible(true);
-                System.out.print("sdf");
             }
         });
     }
     public static void setStatus(boolean flag){
     if(flag){
         dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Green_16px.png")));
+        
         }
     else{
         dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Red_16px.png")));
+        flag2 = true;
         }
     }
 

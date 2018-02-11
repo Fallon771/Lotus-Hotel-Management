@@ -32,7 +32,7 @@ public class CheckStatus extends Thread{
             currentStamp = new SimpleDateFormat("HH.mm.ss").format(new Date());
             // Try connect to database...
             user = "root";
-            pass = "";
+            pass = "password";
             myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
             System.out.print("Server running...\nTime Stamp:["+currentStamp+"]\n");
             sleep(2000);
