@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ie.lyit.database;
+import ie.lyit.users.Guest;
 
 /**
  *
@@ -12,7 +13,7 @@ package ie.lyit.database;
 public interface DBConnections {
     
     
-    public void addGuest();
+    public void addGuest(Guest guest);
     public void removeGuest();
     public void displayGuests();
     public void displayRooms();

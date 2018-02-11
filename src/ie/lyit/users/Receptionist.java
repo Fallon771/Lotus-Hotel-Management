@@ -4,9 +4,13 @@
  * and open the template in the editor.
  */
 package ie.lyit.users;
-import ie.lyit.hotel.Date;
+import ie.lyit.database.Connect;
 import ie.lyit.database.DBConnections;
 import java.sql.Connection;
+import java.text.DateFormat;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,9 +23,15 @@ public class Receptionist implements DBConnections{
     private String emailAddress;
     private int id;
     
-    Connection myConn = null;
-
     
+    
+    Connect conn =new Connect();
+    DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+    
+
+    public Receptionist(){
+        
+    }
     
     public Receptionist(String fName,String sName,int id,String email){
     
@@ -29,7 +39,7 @@ public class Receptionist implements DBConnections{
         this.sName = sName;
         this.id = id;
         this.emailAddress = email;
-        
+         
     }
     // Action Methods
    
@@ -69,11 +79,32 @@ public class Receptionist implements DBConnections{
     
     // Check in
     @Override
-    public void addGuest() {
-        String sql = "INSERT INTO `guest` "
-                + "(`id`, `fname`, `surname`, `address`, `title`, `checkin`, `checkout`) "
-                + "VALUES (NULL, 'Tony', 'Waters', 'No 4 Sandy Row', 'Mr', '2018-02-08', '2018-02-15');";
+    public void addGuest(Guest guest) {
         
+        // Get guest details
+        String guestFName = guest.getfName();
+        String guestSName = guest.getsName();
+        String guestAdress = guest.getAddress();
+        String guestTitle = guest.getTitle();
+        Date guestCheckin = guest.getCheckIn();
+        Date guestCheckout = guest.getCheckOut();
+        
+        //Parse date from string to correct format(SQL accepts only yyyy-mm-dd)
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        // Create strings and format date
+        String in = df.format(guestCheckin);
+        String out = df.format(guestCheckout);
+
+        String sql = "INSERT INTO `guest` (`fname`, `surname`,`address`,`title`,"
+                + "`checkin`,`checkout`) VALUES ('"+guestFName+"','"+guestSName+"',"
+                + "'"+guestAdress+"','"+guestTitle+"','"+in+"','"+out+"');";
+        try{
+        conn.addGuest(sql);
+        }
+        catch(Exception e){
+            System.out.print("Error occured while adding...");
+            JOptionPane.showMessageDialog(null, "Error adding guest to database!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
          
     }
     

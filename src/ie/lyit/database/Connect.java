@@ -8,6 +8,7 @@ package ie.lyit.database;
 import static java.lang.Thread.sleep;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,13 +21,15 @@ import java.util.logging.Logger;
  * 
  */
 
-
 public class Connect implements Runnable{
     
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
         Boolean check = false;
+        
+        String user = "root";
+        String pass = "password";
     
     // Constructor
     public Connect(){
@@ -42,23 +45,13 @@ public class Connect implements Runnable{
         e.getMessage();
         }
     }
-    
     // Connect to our hotel database
     public void connectToHotel()throws SQLException{
         
-        Connection myConn = null;
-        Statement myStmt = null;
-        ResultSet myRs = null;
-        
-
-        String user = "root";
-        String pass = "password";
-
         try {
             // 1. Get a connection to database
             myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
-           
-
+          
             // 2. Create a statement
             myStmt = myConn.createStatement();
 
@@ -88,9 +81,35 @@ public class Connect implements Runnable{
                 
                 myConn.close();
             }
-        }
+        }  
+    }  
+    
+    // Pass in sql string to add a guest
+    public void addGuest(String sql)throws SQLException{
         
-    }   
+        try {
+            // 1. Get a connection to database
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
+            myStmt = myConn.createStatement();
+            myStmt.executeUpdate(sql);
+          
+            // 3. Execute SQL query
+       
+         
+        } catch (Exception exc) {
+            exc.printStackTrace();
+            check = false;
+        } finally {
+            
+            if (myStmt != null) {
+                myStmt.close();
+            }
+            if (myConn != null) {
+                myConn.close();
+            }
+        }  
+    }  
+    
     public void setStatus(){
     check = false;
     }

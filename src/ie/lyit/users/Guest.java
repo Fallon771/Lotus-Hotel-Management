@@ -6,6 +6,7 @@
 package ie.lyit.users;
 import ie.lyit.hotel.CreditCard;
 import ie.lyit.hotel.Bill;
+import java.util.Date;
 
 /**
  *
@@ -23,8 +24,8 @@ public class Guest {
     private String sName;
     private String address;
     private String emailAddress;
-    private String checkin;
-    private String checkout;
+    private Date checkin;
+    private Date checkout;
     private CreditCard card;
     private Bill bill;
     
@@ -33,11 +34,9 @@ public class Guest {
 "                + \"VALUES (NULL, 'Tony', 'Waters', 'No 4 Sandy Row', 'Mr', '2018-02-08', '2018-02-15');\";";
     
     public Guest(){
-        
-        emailAddress = null;
-        number = guestNumber++;
+         
     }
-    public Guest(String title,String fName,String sName,String address,String phone,String email,String checkin,String checkout){
+    public Guest(String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout){
         
         this.fName = fName;
         this.sName = sName;
@@ -47,7 +46,9 @@ public class Guest {
         this.phoneNo = phone;
         this.checkin = checkin;
         this.checkout = checkout;
-      
+        
+        System.out.print("\nDEBUGG 3:"+checkin);
+        
        // this.roomNumber = room;
     }
     
@@ -79,10 +80,11 @@ public class Guest {
     public String getPhoneNo() {
         return phoneNo;
     }
-    public String getCheckIn(){
+    public Date getCheckIn(){
+        
         return checkin;
     }
-    public String getCheckOut(){
+    public Date getCheckOut(){
         return checkout;
     }
     public String getTitle(){
