@@ -1953,36 +1953,34 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void checkInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInButtonActionPerformed
         // TODO add your handling code here: 
-        
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        String checkin = df.format(checkInDate.getDate());
-        String checkout = df.format(checkOutDate.getDate());
-        // Format the dates selected in JDateChooser(Remove GMT time)
-        
-        if(checkInDate.getDate() != null && checkOutDate.getDate() != null){
-             checkin = df.format(checkInDate.getDate());
-             checkout = df.format(checkOutDate.getDate());
-             System.out.print("DEBUG 2- DATES:"+checkin);
-        }
        
         // Check if fields are blank
-        if(fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("")|| (checkInDate.getDate() == null)|| (checkOutDate.getDate() == null)){
+        if(fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  || (checkOutDate.getDate() == null)){
             JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE);
         }
-        else{
-        DateFormat date = new SimpleDateFormat("dd/MM/yyyy");
-        //date.format(checkin);
-            
-        Guest checkIn = new Guest((String)title.getSelectedItem(),
+        else{  
+            Guest checkIn = new Guest((String)title.getSelectedItem(),
             fName.getText(),sName.getText(),address.getText(),
             phone.getText(),email.getText(),checkInDate.getDate(),
             checkOutDate.getDate());
-            JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
-            rep.addGuest(checkIn);
-         }      
-        clearGuestFields();
-        updateGuestId();
-            
+            int x = JOptionPane.showConfirmDialog(null, ("First Name: "+fName.getText()
+                    +"\nSurname: "+sName.getText()
+                    +"\nAddress: "+address.getText()
+                    +"\nPhone: " +phone.getText()
+                    +"\nEmail: "+email.getText()
+                    +"\n\n-------------------------------\n"
+                    +"\nCheck-In: "+checkInDate.getDate()
+                    +"\nCheck-Out: "+checkOutDate.getDate()
+                    +"\n\n" ), "Check & Confim Details", JOptionPane.OK_CANCEL_OPTION);
+            System.out.print("OPTION:"+x);
+            // If OK was selected...add guest to database
+            if(x == 0){
+                rep.addGuest(checkIn);
+                JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
+                updateGuestId(); 
+                clearGuestFields();
+            }
+         }              
     }//GEN-LAST:event_checkInButtonActionPerformed
     
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -1990,7 +1988,6 @@ public class MainFrame extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jButton13ActionPerformed
 
-    
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
     }
@@ -2050,7 +2047,6 @@ public class MainFrame extends javax.swing.JFrame {
         flag2 = false;
         }
     }
-    
     public void updateGuestId(){
     
         try{
