@@ -19,24 +19,30 @@ public class Guest {
     private int phoneNo;
     
     private String fName;
+    private String title;
     private String sName;
     private String address;
     private String emailAddress;
     private CreditCard card;
     private Bill bill;
     
+    String sql= " String sql = \"INSERT INTO `guest` \"\n" +
+"                + \"(`id`, `fname`, `surname`, `address`, `title`, `checkin`, `checkout`) \"\n" +
+"                + \"VALUES (NULL, 'Tony', 'Waters', 'No 4 Sandy Row', 'Mr', '2018-02-08', '2018-02-15');\";";
+    
     public Guest(){
         
         emailAddress = null;
         number = guestNumber++;
     }
-    public Guest(String fName,String sName,String address,String email,int phone,int room){
+    public Guest(String title,String fName,String sName,String address){
         this.fName = fName;
         this.sName = sName;
         this.address = address;
-        this.emailAddress = email;
-        this.phoneNo = phone;
-        this.roomNumber = room;
+        this.title = title;
+        //this.emailAddress = email;
+       // this.phoneNo = phone;
+       // this.roomNumber = room;
     }
     
     //Getter's & Setter's
@@ -67,7 +73,9 @@ public class Guest {
     public int getPhoneNo() {
         return phoneNo;
     }
-
+    public String getTitle(){
+        return title;
+    }
     public void setPhoneNo(int phoneNo) {
         this.phoneNo = phoneNo;
     }

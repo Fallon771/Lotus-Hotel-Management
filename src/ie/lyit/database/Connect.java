@@ -52,7 +52,7 @@ public class Connect implements Runnable{
         
 
         String user = "root";
-        String pass = "password";
+        String pass = "";
 
         try {
             // 1. Get a connection to database

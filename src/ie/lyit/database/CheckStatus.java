@@ -1,7 +1,9 @@
 package ie.lyit.database;
 import ie.lyit.gui.MainFrame;
+import java.util.Date;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.text.SimpleDateFormat;
 /**
  *
  * @author jim
@@ -17,17 +19,19 @@ public class CheckStatus extends Thread{
     boolean running = true; 
     private String user;
     private String pass;
-    
-    public void run(){
+    String startStamp = new SimpleDateFormat("dd.MM.yyyy -- HH.mm.ss").format(new Date());
+    String currentStamp;
 
+    public void run(){
+        System.out.print("Started at: ["+startStamp+"]\n");
         while(running)
         try{
-            
+            currentStamp = new SimpleDateFormat("HH.mm.ss").format(new Date());
             // Try connect to database...
             user = "root";
-            pass = "password";
+            pass = "";
             myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
-            System.out.print("Server running...\n");
+            System.out.print("Server running...\nTime Stamp:["+currentStamp+"]\n");
             sleep(2000);
             
         }

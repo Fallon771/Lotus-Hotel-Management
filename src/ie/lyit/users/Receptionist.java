@@ -6,6 +6,7 @@
 package ie.lyit.users;
 import ie.lyit.hotel.Date;
 import ie.lyit.database.DBConnections;
+import java.sql.Connection;
 
 /**
  *
@@ -17,6 +18,8 @@ public class Receptionist implements DBConnections{
     private String sName;
     private String emailAddress;
     private int id;
+    
+    Connection myConn = null;
 
     
     
@@ -67,7 +70,11 @@ public class Receptionist implements DBConnections{
     // Check in
     @Override
     public void addGuest() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        String sql = "INSERT INTO `guest` "
+                + "(`id`, `fname`, `surname`, `address`, `title`, `checkin`, `checkout`) "
+                + "VALUES (NULL, 'Tony', 'Waters', 'No 4 Sandy Row', 'Mr', '2018-02-08', '2018-02-15');";
+        
+         
     }
     
     // Check-out

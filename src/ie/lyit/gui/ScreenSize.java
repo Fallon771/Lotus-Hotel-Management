@@ -15,14 +15,22 @@ import java.awt.Toolkit;
 public class ScreenSize {
     
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
+    private double xScreen;
+    private double yScreen;
     
-    private int xScreen = screenSize.width;
-    private int yScreen = screenSize.height;
+    public ScreenSize(){
+       
+        xScreen = screenSize.getWidth();
+        yScreen = screenSize.getHeight();
+        
+    }
+    
+    
    
-    public int getScreenWidth(){
+    public double getScreenWidth(){
         return xScreen;
     }
-    public int getScreenHeight(){
+    public double getScreenHeight(){
         return yScreen;
     }  
 }
