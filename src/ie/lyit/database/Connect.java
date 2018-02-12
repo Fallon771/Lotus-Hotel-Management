@@ -93,9 +93,8 @@ public class Connect implements Runnable{
             myStmt = myConn.createStatement();
             myStmt.executeUpdate(sql);
           
-            // 3. Execute SQL query
+           
        
-         
         } catch (Exception exc) {
             exc.printStackTrace();
             check = false;
