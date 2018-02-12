@@ -17,7 +17,7 @@ public class CheckStatus extends Thread{
     Connection myConn = null;
     MainFrame frame;
     
-    boolean running = true; 
+    volatile boolean running = true; 
     private String user;
     private String pass;
     
@@ -34,14 +34,14 @@ public class CheckStatus extends Thread{
             user = "root";
             pass = "password";
             myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
-            System.out.print("Server running...\nTime Stamp:["+currentStamp+"]\n");
+            System.out.print("Thread running...\nTime Stamp:["+currentStamp+"]\n");
             sleep(5000);
             // Pass in flag to change icon on footer
             frame.setStatus(running);
             myConn.close();
         }
         catch(Exception e){
-        System.out.print("Server stopped..");
+        System.out.print("Server ping stopped..\nServer must be down...!!\n");
         // Break out of loop if cant connect
         running = false;
         frame.setStatus(running);
