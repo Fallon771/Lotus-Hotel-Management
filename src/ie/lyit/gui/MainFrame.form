@@ -35,7 +35,7 @@
                   <Component id="footer" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLayeredPane1" alignment="0" max="32767" attributes="0"/>
                   <Component id="topPanel" alignment="0" max="32767" attributes="0"/>
-                  <Component id="banner" pref="1084" max="32767" attributes="0"/>
+                  <Component id="banner" pref="1088" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -51,7 +51,7 @@
               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Component id="footer" max="32767" attributes="0"/>
           </Group>
-          <Component id="sideBar" pref="746" max="32767" attributes="0"/>
+          <Component id="sideBar" pref="747" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -203,14 +203,14 @@
                       <Component id="checkInIcon" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="checkInLabel" min="-2" pref="105" max="-2" attributes="0"/>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkInIcon" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkInLabel" min="-2" pref="40" max="-2" attributes="0"/>
@@ -362,7 +362,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkOutIcon1" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkOutLab" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
@@ -645,6 +645,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel9" min="-2" pref="203" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="serverTime" min="-2" pref="158" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="dbStatus" min="-2" max="-2" attributes="0"/>
@@ -659,6 +661,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="serverTime" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
@@ -694,6 +697,8 @@
             <Property name="text" type="java.lang.String" value="Lotus Hotel Management v0.4"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="serverTime">
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JLayeredPane" name="jLayeredPane1">
@@ -713,7 +718,7 @@
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="homeScreen" alignment="0" pref="1084" max="32767" attributes="0"/>
+                  <Component id="homeScreen" alignment="0" pref="1088" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -725,7 +730,7 @@
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="homeScreen" alignment="0" pref="500" max="32767" attributes="0"/>
+                  <Component id="homeScreen" alignment="0" pref="502" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1252,7 +1257,7 @@
                       </Group>
                       <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButton14" min="-2" max="-2" attributes="0"/>
+                          <Component id="clearButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                           <Component id="jButton15" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1353,7 +1358,7 @@
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="clearButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton15" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="checkInButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1455,10 +1460,13 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkInButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton14">
+                <Component class="javax.swing.JButton" name="clearButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Clear"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton15">
                   <Properties>
@@ -1840,7 +1848,7 @@
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="117" max="32767" attributes="0"/>
+                          <EmptySpace pref="121" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jButton11" min="-2" max="-2" attributes="0"/>
