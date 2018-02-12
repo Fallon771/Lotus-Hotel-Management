@@ -22,13 +22,10 @@ public class Receptionist implements DBConnections{
     private String sName;
     private String emailAddress;
     private int id;
-    
-    
-    
+   
     Connect conn =new Connect();
     DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-    
-
+   
     public Receptionist(){
         
     }
@@ -104,8 +101,7 @@ public class Receptionist implements DBConnections{
         catch(Exception e){
             System.out.print("Error occured while adding...");
             JOptionPane.showMessageDialog(null, "Error adding guest to database!", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-         
+        }   
     }
     
     // Check-out
@@ -116,7 +112,7 @@ public class Receptionist implements DBConnections{
     
     @Override
     public void displayGuests() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+       
     }
 
     @Override

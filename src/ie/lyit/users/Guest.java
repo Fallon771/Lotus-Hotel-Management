@@ -15,11 +15,11 @@ import java.util.Date;
 public class Guest {
     
     private static int guestNumber = 1;
-    private int number;
     private int roomNumber;
     private String phoneNo;
     
     private String fName;
+    private int id;
     private String title;
     private String sName;
     private String address;
@@ -28,14 +28,26 @@ public class Guest {
     private Date checkout;
     private CreditCard card;
     private Bill bill;
-    
-    String sql= " String sql = \"INSERT INTO `guest` \"\n" +
-"                + \"(`id`, `fname`, `surname`, `address`, `title`, `checkin`, `checkout`) \"\n" +
-"                + \"VALUES (NULL, 'Tony', 'Waters', 'No 4 Sandy Row', 'Mr', '2018-02-08', '2018-02-15');\";";
-    
+   
     public Guest(){
          
     }
+    
+    // Constructor for JTables
+    public Guest(int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout){
+        
+        this.fName = fName;
+        this.sName = sName;
+        this.address = address;
+        this.title = title;
+        this.id = id;
+        this.emailAddress = email;
+        this.checkin = checkin;
+        this.checkout = checkout;
+        this.phoneNo = phone;
+        
+    }
+    // Constructor for adding guest
     public Guest(String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout){
         
         this.fName = fName;
@@ -59,12 +71,12 @@ public class Guest {
         Guest.guestNumber = guestNumber;
     }
 
-    public int getNumber() {
-        return number;
+    public int getId() {
+        return id;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getRoomNumber() {
@@ -91,7 +103,7 @@ public class Guest {
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
     }
-
+    
     public String getfName() {
         return fName;
     }
@@ -128,7 +140,10 @@ public class Guest {
     
     @Override
     public String toString() {
-        return "Guest{" + "roomNumber=" + roomNumber + ", phoneNo=" + phoneNo + ", fName=" + fName + ", sName=" + sName + ", address=" + address + '}';
+        return "Id:"+id +"\nFirst Name:"+fName+"\nSurname:"+sName
+                +"\nAddress:"+address+"\nPhone:"+phoneNo
+                +"\nEmail:"+emailAddress+"\nCheck-In:"
+                +checkin+"\nCheck-Out:"+checkout;
     }
     
 }

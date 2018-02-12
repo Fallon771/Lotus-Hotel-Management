@@ -22,11 +22,13 @@ public class GuestId {
     private int id;
     
     
-    public void getGuestId()throws SQLException{
+    public boolean getGuestId()throws SQLException{
         
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
+        
+        boolean failed = false;
        
         String user = "root";
         String pass = "password";
@@ -47,11 +49,13 @@ public class GuestId {
                 id = myRs.getInt("id");
             }
             check = true;
+            failed = false;
 
         } catch (Exception exc) {
             JOptionPane.showMessageDialog(null, "Error connecting to database..is Xammp running??\n"
                     + "\nUser: root\nPassword: password", "Connection Error", JOptionPane.ERROR_MESSAGE);
             exc.printStackTrace();
+            failed = true;
             check = false;
         } finally {
             if (myRs != null) {
@@ -67,7 +71,7 @@ public class GuestId {
                 myConn.close();
             }
         }
-        
+        return failed;
     }   // End of method
     public int getId(){
         return (id+1);

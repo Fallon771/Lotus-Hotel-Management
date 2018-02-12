@@ -15,8 +15,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -30,6 +32,7 @@ public class MainFrame extends javax.swing.JFrame {
     double xScreen;
     double yScreen;
     static boolean flag2 = true;
+    boolean fetched = false;
     
     //Instances
     Connect conn = new Connect();
@@ -37,6 +40,7 @@ public class MainFrame extends javax.swing.JFrame {
     CheckStatus thread1 = new CheckStatus();
     Receptionist rep = new Receptionist();
     GuestId id = new GuestId();
+    DisplayTables display = new DisplayTables();
  
     /**
      * Creates new form MainFrame
@@ -137,9 +141,9 @@ public class MainFrame extends javax.swing.JFrame {
         checkOutDate = new com.toedter.calendar.JDateChooser();
         guestNo = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
-        checkInButton = new javax.swing.JButton();
+        checkInButt = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        bookButt = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
         jSeparator4 = new javax.swing.JSeparator();
@@ -190,7 +194,7 @@ public class MainFrame extends javax.swing.JFrame {
         dataTabPane = new javax.swing.JTabbedPane();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        guestTable = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
@@ -215,6 +219,8 @@ public class MainFrame extends javax.swing.JFrame {
         jTextField17 = new javax.swing.JTextField();
         jTextField18 = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        sqlTest = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         searchScreen = new javax.swing.JPanel();
 
@@ -524,7 +530,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(bannerTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(570, 598, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bannerLayout.createSequentialGroup()
                 .addGap(2, 2, 2)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -621,7 +627,7 @@ public class MainFrame extends javax.swing.JFrame {
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(mini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(dragBar, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+            .addComponent(dragBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(close, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(maxi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -635,7 +641,7 @@ public class MainFrame extends javax.swing.JFrame {
         dbStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Filled Circle_Red_16px.png"))); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel9.setText("Lotus Hotel Management v0.4");
+        jLabel9.setText("Lotus Hotel Management v0.6");
 
         javax.swing.GroupLayout footerLayout = new javax.swing.GroupLayout(footer);
         footer.setLayout(footerLayout);
@@ -644,7 +650,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(footerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 528, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 534, Short.MAX_VALUE)
                 .addComponent(serverTime, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addComponent(jLabel7)
@@ -667,7 +673,7 @@ public class MainFrame extends javax.swing.JFrame {
         layerPane.setDoubleBuffered(true);
 
         checkinScreen.setBackground(new java.awt.Color(255, 255, 255));
-        checkinScreen.setPreferredSize(new java.awt.Dimension(964, 406));
+        checkinScreen.setPreferredSize(new java.awt.Dimension(968, 406));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Room Information"));
@@ -879,7 +885,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -927,10 +933,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         jTextField6.setEditable(false);
 
-        checkInButton.setText("Check-In");
-        checkInButton.addActionListener(new java.awt.event.ActionListener() {
+        checkInButt.setText("Check-In");
+        checkInButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkInButtonActionPerformed(evt);
+                checkInButtActionPerformed(evt);
             }
         });
 
@@ -941,10 +947,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton15.setText("Book");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        bookButt.setText("Book");
+        bookButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                bookButtActionPerformed(evt);
             }
         });
 
@@ -975,9 +981,9 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(clearButton)
                 .addGap(94, 94, 94)
-                .addComponent(jButton15)
+                .addComponent(bookButt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(checkInButton)
+                .addComponent(checkInButt)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1054,8 +1060,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clearButton)
-                    .addComponent(jButton15)
-                    .addComponent(checkInButton)))
+                    .addComponent(bookButt)
+                    .addComponent(checkInButt)))
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -1114,10 +1120,9 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(23, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1379,29 +1384,32 @@ public class MainFrame extends javax.swing.JFrame {
         checkinScreenLayout.setHorizontalGroup(
             checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(checkinScreenLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(checkinScreenLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(checkinScreenLayout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         checkinScreenLayout.setVerticalGroup(
             checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(checkinScreenLayout.createSequentialGroup()
-                .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         homeScreen.setBackground(new java.awt.Color(255, 255, 255));
@@ -1412,23 +1420,36 @@ public class MainFrame extends javax.swing.JFrame {
         dataTabPane.setFocusable(false);
         dataTabPane.setRequestFocusEnabled(false);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        guestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Code", "Surname", "First Name", "Address", "null", "Title 6", "Title 7"
+                "Guest Id", "Title", "First Name", "Surname", "Address", "Phone No.", "Email", "Check-In", "Check-Out"
             }
-        ));
-        jScrollPane2.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(15);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, true, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(guestTable);
+        if (guestTable.getColumnModel().getColumnCount() > 0) {
+            guestTable.getColumnModel().getColumn(0).setPreferredWidth(60);
+            guestTable.getColumnModel().getColumn(0).setMaxWidth(70);
+            guestTable.getColumnModel().getColumn(1).setMinWidth(50);
+            guestTable.getColumnModel().getColumn(1).setPreferredWidth(50);
+            guestTable.getColumnModel().getColumn(1).setMaxWidth(40);
         }
 
         jButton3.setLabel("Edit");
@@ -1442,15 +1463,13 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 945, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton10)
+                .addGap(0, 864, Short.MAX_VALUE))
+            .addComponent(jScrollPane2)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1470,7 +1489,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 946, Short.MAX_VALUE)
+            .addGap(0, 1057, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1483,7 +1502,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 946, Short.MAX_VALUE)
+            .addGap(0, 1057, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1603,12 +1622,43 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(4, 4, 4))
         );
 
-        jButton13.setText("Test SQL");
+        jPanel12.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder("De-bugging & Testing Only"));
+
+        sqlTest.setText("Test SQL Entries");
+        sqlTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sqlTestActionPerformed(evt);
+            }
+        });
+
+        jButton13.setText("Clear Table");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sqlTest)
+                    .addComponent(jButton13))
+                .addContainerGap(149, Short.MAX_VALUE))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sqlTest)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton13)
+                .addContainerGap(90, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout homeScreenLayout = new javax.swing.GroupLayout(homeScreen);
         homeScreen.setLayout(homeScreenLayout);
@@ -1617,27 +1667,24 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(homeScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(homeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dataTabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataTabPane)
                     .addGroup(homeScreenLayout.createSequentialGroup()
                         .addComponent(currentGuest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton13)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))))
         );
         homeScreenLayout.setVerticalGroup(
             homeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeScreenLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(homeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(homeScreenLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(homeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(currentGuest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(homeScreenLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jButton13)))
+                    .addGroup(homeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(currentGuest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(dataTabPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1667,14 +1714,13 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(checkinScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1068, Short.MAX_VALUE)
+                .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE))
+            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1074, Short.MAX_VALUE)
         );
         layerPaneLayout.setVerticalGroup(
             layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
-            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+            .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
             .addComponent(searchScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
@@ -1687,8 +1733,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(layerPane)
                     .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(banner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1068, Short.MAX_VALUE)
-                    .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(banner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1074, Short.MAX_VALUE)
+                    .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1779,6 +1826,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void checkPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkPanelMouseClicked
         // TODO add your handling code here:
+        
         // update id on checkin screen
          updateGuestId();
          checkinScreen.setVisible(true);
@@ -1851,15 +1899,17 @@ public class MainFrame extends javax.swing.JFrame {
         if(conn.getStatus() == true){
         dbStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Filled Circle_Green_16px.png")));
         JOptionPane.showMessageDialog(null, "Server up and running...", "Connected", JOptionPane.INFORMATION_MESSAGE);
+        checkInButt.setEnabled(true);
         }
         else if(conn.getStatus() == false){
-      
+            
+            checkInButt.setEnabled(false);
             dbStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Filled Circle_Red_16px.png")));
             JOptionPane.showMessageDialog(null, "Error connecting to database..is Xammp running??\n\n1:Database SQL file is uploaded to LYIT mail,go import it to Xammp"
                     +"\n2:Check SQL driver is loaded to libraries(Right click the libraries package in project explorer(left side)& add JAR file)..I included the JAR in lib folder" 
                     +"\nEmail me if your still stuck. ~ J.Fallon "
                     +"\n\nDefault logins:\nUser: root\nPassword: password", "Connection Error", JOptionPane.ERROR_MESSAGE);
-        }
+            }
         }
     }//GEN-LAST:event_serverTestActionPerformed
 
@@ -1870,7 +1920,7 @@ public class MainFrame extends javax.swing.JFrame {
          searchPanel.setBackground(new java.awt.Color(34,104,153));
          quitPanel.setBackground(new java.awt.Color(34,104,153));
          checkOutPanel.setBackground(new java.awt.Color(84,140,196));
-        
+         
     }//GEN-LAST:event_checkOutPanelMouseMoved
 
     private void checkOutPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutPanelMouseClicked
@@ -1974,11 +2024,11 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void bookButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_bookButtActionPerformed
 
-    private void checkInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInButtonActionPerformed
+    private void checkInButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInButtActionPerformed
         // TODO add your handling code here: 
        
         // Check if fields are blank
@@ -2008,17 +2058,49 @@ public class MainFrame extends javax.swing.JFrame {
                 clearGuestFields();
             }
          }              
-    }//GEN-LAST:event_checkInButtonActionPerformed
+    }//GEN-LAST:event_checkInButtActionPerformed
     
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void sqlTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sqlTestActionPerformed
         // TODO add your handling code here:
-       
-    }//GEN-LAST:event_jButton13ActionPerformed
+         ArrayList<Guest> list;
+         DefaultTableModel model = (DefaultTableModel)guestTable.getModel();
+         
+         try{
+         list = display.displayGuestTable();
+         Object[] row = new Object[9];
+         for(int i=0;i<list.size();i++){
+            row [0] = list.get(i).getId();
+            row [1] = list.get(i).getTitle();
+            row [2] = list.get(i).getfName();
+            row [3] = list.get(i).getsName();
+            row [4] = list.get(i).getAddress();
+            row [5] = list.get(i).getPhoneNo();
+            row [6] = list.get(i).getEmailAddress();
+            row [7] = list.get(i).getCheckIn();
+            row [8] = list.get(i).getCheckOut();
+            model.addRow(row);
+           
+            }
+         }
+         catch(Exception e){
+         System.out.print("ERROR!!");
+         }    
+         sqlTest.setEnabled(false);
+    }//GEN-LAST:event_sqlTestActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         // TODO add your handling code here:
         clearGuestFields();
     }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel dm = (DefaultTableModel) guestTable.getModel();
+        while(dm.getRowCount() > 0)
+        {
+                dm.removeRow(0);
+        }
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
@@ -2082,7 +2164,16 @@ public class MainFrame extends javax.swing.JFrame {
     public void updateGuestId(){
     
         try{
-        id.getGuestId();
+        boolean failed = id.getGuestId();
+        
+        // If server offline....disable Check-In button
+            if(failed){
+            checkInButt.setEnabled(false);
+            }
+            else if(!failed){
+            checkInButt.setEnabled(true);
+            }
+        
         jTextField6.setText(""+id.getId());
         }
         catch(Exception e){
@@ -2093,9 +2184,11 @@ public class MainFrame extends javax.swing.JFrame {
     public static void setStatus(boolean flag){
     if(flag){
         dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Green_16px.png")));
+         checkInButt.setEnabled(true);
         }
     else{
         dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Red_16px.png")));
+        checkInButt.setEnabled(false);
         flag2 = true;
         }
     }
@@ -2106,8 +2199,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton americanRad;
     private javax.swing.JPanel banner;
     private javax.swing.JLabel bannerTitle;
+    private javax.swing.JButton bookButt;
     private javax.swing.ButtonGroup cardGroup;
-    private javax.swing.JButton checkInButton;
+    private static javax.swing.JButton checkInButt;
     private com.toedter.calendar.JDateChooser checkInDate;
     private javax.swing.JLabel checkInIcon;
     private javax.swing.JLabel checkInLabel;
@@ -2132,6 +2226,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel fNameLablel;
     private javax.swing.JPanel footer;
     private javax.swing.JLabel guestNo;
+    private javax.swing.JTable guestTable;
     private javax.swing.JLabel homeIcon;
     private javax.swing.JLabel homeLabel;
     private javax.swing.JPanel homePanel;
@@ -2141,7 +2236,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton21;
@@ -2198,6 +2292,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
@@ -2225,7 +2320,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField10;
@@ -2263,6 +2357,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton serverTest;
     private javax.swing.JLabel serverTime;
     private javax.swing.JPanel sideBar;
+    private javax.swing.JButton sqlTest;
     private javax.swing.JComboBox<String> title;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel topPanel;

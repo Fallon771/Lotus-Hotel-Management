@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  * 
  */
 
-public class Connect implements Runnable{
+public class Connect{
     
         Connection myConn = null;
         Statement myStmt = null;
@@ -34,16 +34,6 @@ public class Connect implements Runnable{
     // Constructor
     public Connect(){
     
-    }
-    public void run(){
-        
-        try{
-        connectToHotel();
-        sleep(2222);
-        }
-        catch(Exception e){
-        e.getMessage();
-        }
     }
     // Connect to our hotel database
     public void connectToHotel()throws SQLException{
