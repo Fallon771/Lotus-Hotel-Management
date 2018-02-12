@@ -47,8 +47,6 @@ public class Guest {
         this.checkin = checkin;
         this.checkout = checkout;
         
-        System.out.print("\nDEBUGG 3:"+checkin);
-        
        // this.roomNumber = room;
     }
     

@@ -14,14 +14,14 @@ import java.text.SimpleDateFormat;
 
 public class CheckStatus extends Thread{
     
-    
     Connection myConn = null;
     MainFrame frame;
-    
     
     boolean running = true; 
     private String user;
     private String pass;
+    
+    // Just printing a start time
     String startStamp = new SimpleDateFormat("dd.MM.yyyy -- HH.mm.ss").format(new Date());
     String currentStamp;
 
@@ -35,9 +35,10 @@ public class CheckStatus extends Thread{
             pass = "password";
             myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
             System.out.print("Server running...\nTime Stamp:["+currentStamp+"]\n");
-            sleep(2000);
+            sleep(5000);
             // Pass in flag to change icon on footer
             frame.setStatus(running);
+            myConn.close();
         }
         catch(Exception e){
         System.out.print("Server stopped..");
