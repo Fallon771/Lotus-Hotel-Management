@@ -28,3 +28,12 @@
   -- Added roll over effects for icons along the top.
   
   -- Finsihed the check-in sceen
+  
+  # Patch v0.06 deployed
+  -- More gui updates and revisons.
+   
+  -- Updated banner design.
+  
+  -- Working features for guest login & data base connection.
+  
+  -- Added threads to the project.Refactored some code.
