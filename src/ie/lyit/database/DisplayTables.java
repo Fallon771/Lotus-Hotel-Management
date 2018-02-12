@@ -5,40 +5,35 @@
  */
 package ie.lyit.database;
 
-import static java.lang.Thread.sleep;
+import ie.lyit.users.Guest;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
- * @author James Fallon
- * 
+ * @author jim
  */
-
-public class Connect{
+public class DisplayTables {
     
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
-        Boolean check = false;
         
         String user = "root";
         String pass = "password";
-    
-    // Constructor
-    public Connect(){
-    
-    }
-    // Connect to our hotel database
-    public void connectToHotel()throws SQLException{
         
-        try {
+        Guest guest;
+        ArrayList<Guest> list = new ArrayList<>();
+        
+        public ArrayList<Guest> displayGuestTable() throws SQLException{
+        // int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout
+        Date date;
+             try {
             // 1. Get a connection to database
             myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
           
@@ -50,14 +45,18 @@ public class Connect{
 
             // 4. Process the result set
             while (myRs.next()) {
-                System.out.println(myRs.getString("surname") + ", " + myRs.getString("fname"));
-                
+                guest = new Guest(myRs.getInt("id"),myRs.getString("title"),
+                        myRs.getString("fname"),myRs.getString("surname"),
+                        myRs.getString("address"),
+                        myRs.getString("phone"),
+                        myRs.getString("email"),
+                        myRs.getDate("checkin"),
+                        myRs.getDate("checkout"));
+                list.add(guest);
             }
-            check = true;
-
+          
         } catch (Exception exc) {
             exc.printStackTrace();
-            check = false;
         } finally {
             if (myRs != null) {
                 myRs.close();
@@ -72,6 +71,7 @@ public class Connect{
                 myConn.close();
             }
         }  
+             return list;
     }  
     
     // Pass in sql string to add a guest
@@ -87,7 +87,6 @@ public class Connect{
        
         } catch (Exception exc) {
             exc.printStackTrace();
-            check = false;
         } finally {
             
             if (myStmt != null) {
@@ -96,14 +95,8 @@ public class Connect{
             if (myConn != null) {
                 myConn.close();
             }
-        }  
-    }  
-    
-    public void setStatus(){
-    check = false;
-    }
-    public boolean getStatus(){ 
-        return check;
-    }
+           }  
+            
+        }
     
 }
