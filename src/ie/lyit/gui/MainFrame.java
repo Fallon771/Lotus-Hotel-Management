@@ -223,6 +223,33 @@ public class MainFrame extends javax.swing.JFrame {
         sqlTest = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         searchScreen = new javax.swing.JPanel();
+        searchGuest = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
+        jSeparator9 = new javax.swing.JSeparator();
+        jTextField21 = new javax.swing.JTextField();
+        jButton14 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
+        jTextField22 = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        jTextField23 = new javax.swing.JTextField();
+        jLabel40 = new javax.swing.JLabel();
+        jTextField24 = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        jTextField25 = new javax.swing.JTextField();
+        searchRoom = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -1240,7 +1267,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jCheckBox3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jPanel13.setBackground(new java.awt.Color(202, 229, 250));
@@ -1468,7 +1495,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton10)
-                .addGap(0, 864, Short.MAX_VALUE))
+                .addGap(0, 866, Short.MAX_VALUE))
             .addComponent(jScrollPane2)
         );
         jPanel8Layout.setVerticalGroup(
@@ -1691,16 +1718,225 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         searchScreen.setBackground(new java.awt.Color(255, 255, 255));
+        searchScreen.setPreferredSize(new java.awt.Dimension(964, 406));
+
+        searchGuest.setBackground(new java.awt.Color(255, 255, 255));
+        searchGuest.setBorder(javax.swing.BorderFactory.createTitledBorder("Search Guest"));
+
+        jLabel12.setText("Guest Name");
+
+        jLabel22.setText("Room No:");
+
+        jLabel24.setText("First Name:");
+
+        jLabel26.setText("Phone:");
+
+        jLabel35.setText("ID:");
+
+        jLabel36.setText("Surname:");
+
+        jLabel37.setText("Email:");
+
+        jTextField3.setEditable(false);
+
+        jTextField4.setEditable(false);
+
+        jTextField5.setEditable(false);
+
+        jTextField11.setEditable(false);
+
+        jTextField14.setEditable(false);
+
+        jTextField21.setEditable(false);
+
+        jButton14.setText("Find Guest");
+
+        jTextField2.setEditable(false);
+
+        jLabel39.setText("Address:");
+
+        jTextField22.setEditable(false);
+
+        jLabel38.setText("Checked-In");
+
+        jTextField23.setEditable(false);
+
+        jLabel40.setText("Room Type:");
+
+        jTextField24.setEditable(false);
+
+        jLabel41.setText("No. of Guest:");
+
+        jTextField25.setEditable(false);
+
+        javax.swing.GroupLayout searchGuestLayout = new javax.swing.GroupLayout(searchGuest);
+        searchGuest.setLayout(searchGuestLayout);
+        searchGuestLayout.setHorizontalGroup(
+            searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(searchGuestLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(searchGuestLayout.createSequentialGroup()
+                        .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel39)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel38))
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchGuestLayout.createSequentialGroup()
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField22)
+                    .addComponent(jTextField2)
+                    .addComponent(jTextField23)
+                    .addGroup(searchGuestLayout.createSequentialGroup()
+                        .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField21)
+                            .addComponent(jTextField3))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchGuestLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(searchGuestLayout.createSequentialGroup()
+                        .addComponent(jLabel40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField24))
+                    .addGroup(searchGuestLayout.createSequentialGroup()
+                        .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(searchGuestLayout.createSequentialGroup()
+                                .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel36)
+                                    .addComponent(jLabel35)
+                                    .addComponent(jLabel37))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField14, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                                    .addComponent(jTextField5)
+                                    .addComponent(jTextField11)))
+                            .addGroup(searchGuestLayout.createSequentialGroup()
+                                .addComponent(jLabel41)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(searchGuestLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel12)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
+            .addGroup(searchGuestLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator9)
+                .addContainerGap())
+        );
+
+        searchGuestLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField14, jTextField21, jTextField3, jTextField4});
+
+        searchGuestLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField24, jTextField25});
+
+        searchGuestLayout.setVerticalGroup(
+            searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(searchGuestLayout.createSequentialGroup()
+                .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(searchGuestLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26)
+                            .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel39)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel38)
+                            .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(searchGuestLayout.createSequentialGroup()
+                        .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(searchGuestLayout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel35)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(searchGuestLayout.createSequentialGroup()
+                                .addGap(138, 138, 138)
+                                .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel37)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(searchGuestLayout.createSequentialGroup()
+                                .addGap(138, 138, 138)
+                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(searchGuestLayout.createSequentialGroup()
+                                .addGap(170, 170, 170)
+                                .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel40)
+                                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(searchGuestLayout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel36)
+                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel41))))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        searchRoom.setBackground(new java.awt.Color(204, 255, 204));
+        searchRoom.setBorder(javax.swing.BorderFactory.createTitledBorder("Search Room"));
+
+        javax.swing.GroupLayout searchRoomLayout = new javax.swing.GroupLayout(searchRoom);
+        searchRoom.setLayout(searchRoomLayout);
+        searchRoomLayout.setHorizontalGroup(
+            searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 473, Short.MAX_VALUE)
+        );
+        searchRoomLayout.setVerticalGroup(
+            searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout searchScreenLayout = new javax.swing.GroupLayout(searchScreen);
         searchScreen.setLayout(searchScreenLayout);
         searchScreenLayout.setHorizontalGroup(
             searchScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(searchScreenLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(searchGuest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(searchRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         searchScreenLayout.setVerticalGroup(
             searchScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 499, Short.MAX_VALUE)
+            .addGroup(searchScreenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(searchScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(searchRoom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(searchGuest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
 
         layerPane.setLayer(checkinScreen, javax.swing.JLayeredPane.POPUP_LAYER);
@@ -1711,7 +1947,7 @@ public class MainFrame extends javax.swing.JFrame {
         layerPane.setLayout(layerPaneLayout);
         layerPaneLayout.setHorizontalGroup(
             layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1074, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE))
@@ -1721,7 +1957,7 @@ public class MainFrame extends javax.swing.JFrame {
             layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
             .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
-            .addComponent(searchScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1821,7 +2057,7 @@ public class MainFrame extends javax.swing.JFrame {
         dataTabPane.setVisible(true);
         currentGuest.setVisible(true);
         bannerTitle.setText("Home");
-       // searchScreen.setVisible(false);
+        searchScreen.setVisible(false);
     }//GEN-LAST:event_homePanelMouseClicked
 
     private void checkPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkPanelMouseClicked
@@ -1842,7 +2078,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
          checkinScreen.setVisible(false);
          homeScreen.setVisible(false);
-         //searchScreen.setVisible(true);
+         searchScreen.setVisible(true);
+         bannerTitle.setText("Search");
     }//GEN-LAST:event_searchPanelMouseClicked
 
     private void r200ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r200ActionPerformed
@@ -2236,6 +2473,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton21;
@@ -2262,6 +2500,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -2272,8 +2511,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -2283,7 +2525,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2316,21 +2565,34 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
+    private javax.swing.JTextField jTextField21;
+    private javax.swing.JTextField jTextField22;
+    private javax.swing.JTextField jTextField23;
+    private javax.swing.JTextField jTextField24;
+    private javax.swing.JTextField jTextField25;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
@@ -2348,11 +2610,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField roomText;
     private javax.swing.JTextField sName;
     private javax.swing.JLabel sNameLabel;
+    private javax.swing.JPanel searchGuest;
     private javax.swing.JLabel searchIcon;
     private javax.swing.JLabel searchIcon1;
     private javax.swing.JLabel searchLabel;
     private javax.swing.JLabel searchLabel1;
     private javax.swing.JPanel searchPanel;
+    private javax.swing.JPanel searchRoom;
     private javax.swing.JPanel searchScreen;
     private javax.swing.JButton serverTest;
     private javax.swing.JLabel serverTime;
