@@ -42,4 +42,8 @@ public Bill(float amount,Date date){
                 + date.getMonth() + "/" + date.getYear();
     }
     
+    public String toFormattedString(){
+        return "Bill Total: " + amount + "Date: " + date.getDay() + "/" 
+                + date.getMonth() + "/" + date.getYear();
+    }
 }
