@@ -10,21 +10,21 @@ package ie.lyit.hotel;
  */
 public class Bill {
     
-    private int amount;
+    private float amount;
     private Date date;
     
 
-public Bill(int amount,Date date){
+public Bill(float amount,Date date){
     this.amount = amount;
     this.date = date;
     }    
     
     // Getter's & Setter's
-    public int getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 
