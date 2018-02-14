@@ -104,6 +104,12 @@ public class Receptionist implements DBConnections{
         }   
     }
     
+    // Check if room is available or booked
+    public void checkRoomStatus(int room){
+    
+        String sql = "SELECT `rooms`";
+    }
+
     // Check-out
     @Override
     public void removeGuest() {
@@ -117,7 +123,8 @@ public class Receptionist implements DBConnections{
 
     @Override
     public void displayRooms() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        
+        
     }
     
     @Override

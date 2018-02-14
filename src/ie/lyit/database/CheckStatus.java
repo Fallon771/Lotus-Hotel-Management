@@ -20,7 +20,7 @@ public class CheckStatus extends Thread{
     volatile boolean running = true; 
     private String user;
     private String pass;
-    private String database = "mysql://localhost/hotel_db";
+    private String database = "localhost/hotel_db";
     
     // Just printing a start time
     String startStamp = new SimpleDateFormat("dd.MM.yyyy -- HH.mm.ss").format(new Date());
@@ -34,9 +34,9 @@ public class CheckStatus extends Thread{
             // Try connect to database...
             user = "root";
             pass = "password";
-            myConn = DriverManager.getConnection("jdbc:"+database, user, pass);
+            myConn = DriverManager.getConnection("jdbc:mysql://"+database, user, pass);
             System.out.print("Thread running...\nTime Stamp:["+currentStamp+"]\n");
-            sleep(5000);
+            sleep(3000);
             // Pass in flag to change icon on footer
             frame.setStatus(running);
             myConn.close();
