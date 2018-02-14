@@ -36,4 +36,10 @@ public Bill(float amount,Date date){
         this.date = date;
     }
     
+    @Override
+    public String toString(){
+        return "Bill Total: " + amount + "Date: " + date.getDay() + "/" 
+                + date.getMonth() + "/" + date.getYear();
+    }
+    
 }
