@@ -2669,6 +2669,13 @@ public class MainFrame extends javax.swing.JFrame {
                 break;
         }
     }
+    public void setRoomButtons(ArrayList<Integer> rooms){
+        
+        for(Integer x:rooms){
+           System.out.print(x);
+        }
+    }
+    
     public static void setStatus(boolean flag){
     if(flag){
         dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Green_16px.png")));
@@ -2866,8 +2873,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JPanel quitPanel;
     private javax.swing.JButton room200;
-    private javax.swing.JButton room201;
-    private javax.swing.JButton room202;
+    private static javax.swing.JButton room201;
+    private static javax.swing.JButton room202;
     private javax.swing.JButton room203;
     private javax.swing.JButton room204;
     private javax.swing.JButton room205;

@@ -5,11 +5,13 @@
  */
 package ie.lyit.database;
 
+import ie.lyit.gui.MainFrame;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,6 +21,7 @@ import java.util.logging.Logger;
  */
 public class RoomStatus extends Thread{
     
+        static MainFrame frame;
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
@@ -28,22 +31,24 @@ public class RoomStatus extends Thread{
         String user = "root";
         String pass = "password";
         private String database = "localhost/hotel_db";
-            
-    public void run(){
-    
+        ArrayList<Integer> rooms = new ArrayList<>();
         
+    public void run(){
+   
          while(running){
          try{ 
             myConn = DriverManager.getConnection("jdbc:mysql://"+database, user, pass);
             myStmt = myConn.createStatement();
             myRs = myStmt.executeQuery("select `roomno`,`booked` from rooms");
-            sleep(500);
+            sleep(5000);
             while (myRs.next()) {
                     
                     if(myRs.getInt("roomno") >= 200 && myRs.getInt("roomno") <= 207 && !myRs.getBoolean("booked")){
-                    System.out.print(myRs.getInt("roomno")+",");
+                    rooms.add(myRs.getInt("roomno"));
                     }
                 }
+           passArray();
+           // rooms.clear();
         }
          catch(Exception p){
          System.out.print(p.getMessage());
@@ -51,6 +56,7 @@ public class RoomStatus extends Thread{
          
          // Close connections
          finally{
+            
          if(myRs != null){
              try {
                  myRs.close();
@@ -72,7 +78,11 @@ public class RoomStatus extends Thread{
                  Logger.getLogger(RoomStatus.class.getName()).log(Level.SEVERE, null, ex);
              }
             }
-         }
+         }  // End of finally block
+         
        }
+    } // End of run() method
+    public void passArray(){
+        frame.setRoomButtons(rooms);
     }
 }
