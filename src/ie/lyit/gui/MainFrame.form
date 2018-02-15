@@ -16,6 +16,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosing"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -36,7 +39,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="layerPane" alignment="0" max="32767" attributes="0"/>
                   <Component id="topPanel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="banner" alignment="1" pref="1074" max="32767" attributes="0"/>
+                  <Component id="banner" alignment="1" pref="1076" max="32767" attributes="0"/>
                   <Component id="footer" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -206,14 +209,14 @@
                       <Component id="checkInIcon" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="checkInLabel" min="-2" pref="105" max="-2" attributes="0"/>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkInIcon" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkInLabel" min="-2" pref="40" max="-2" attributes="0"/>
@@ -365,7 +368,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkOutIcon1" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkOutLab" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
@@ -726,12 +729,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="searchScreen" alignment="0" pref="1074" max="32767" attributes="0"/>
+              <Component id="searchScreen" alignment="0" pref="1076" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="checkinScreen" pref="1064" max="32767" attributes="0"/>
               </Group>
-              <Component id="homeScreen" alignment="0" pref="1074" max="32767" attributes="0"/>
+              <Component id="homeScreen" alignment="0" pref="1076" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -775,7 +778,7 @@
                               <Component id="jPanel13" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="12" pref="18" max="32767" attributes="0"/>
+                      <EmptySpace min="12" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -822,9 +825,9 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jSpinner2" alignment="0" pref="85" max="32767" attributes="0"/>
+                              <Component id="adults" alignment="0" pref="85" max="32767" attributes="0"/>
                               <Component id="roomText" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jSpinner1" max="32767" attributes="0"/>
+                              <Component id="children" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel18" min="-2" pref="20" max="-2" attributes="0"/>
@@ -851,11 +854,11 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jSpinner2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="adults" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="children" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -873,7 +876,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="roomText">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="text" type="java.lang.String" value="201"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Room number"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel16">
@@ -881,7 +886,7 @@
                     <Property name="text" type="java.lang.String" value="Adults:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner2">
+                <Component class="javax.swing.JSpinner" name="adults">
                   <Properties>
                     <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                       <SpinnerModel initial="1" maximum="100" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -893,7 +898,7 @@
                     <Property name="text" type="java.lang.String" value="Children:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner1">
+                <Component class="javax.swing.JSpinner" name="children">
                   <Properties>
                     <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                       <SpinnerModel initial="0" maximum="100" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -956,6 +961,7 @@
                           </Properties>
                           <Events>
                             <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="room201MouseMoved"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="room201ActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1481,18 +1487,22 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="checkInButt">
                   <Properties>
+                    <Property name="mnemonic" type="int" value="67"/>
                     <Property name="text" type="java.lang.String" value="Check-In"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkInButtActionPerformed"/>
                   </Events>
                   <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="checkInButt.setToolTipText(&quot;Check guest in&quot;);"/>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="clearButton">
                   <Properties>
+                    <Property name="mnemonic" type="int" value="114"/>
                     <Property name="text" type="java.lang.String" value="Clear"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Clear all guest fields"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButtonActionPerformed"/>
@@ -1500,7 +1510,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="bookButt">
                   <Properties>
+                    <Property name="mnemonic" type="int" value="66"/>
                     <Property name="text" type="java.lang.String" value="Book"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Book guest in"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bookButtActionPerformed"/>
@@ -2097,7 +2109,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="dataTabPane" pref="1064" max="32767" attributes="0"/>
+                          <Component id="dataTabPane" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="currentGuest" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2677,7 +2689,7 @@
                                       <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="27" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jTextField5" alignment="1" min="-2" pref="156" max="-2" attributes="0"/>
                                       <Component id="jTextField11" alignment="1" min="-2" pref="156" max="-2" attributes="0"/>
@@ -2932,7 +2944,7 @@
                                   <Component id="jTextField25" min="-2" pref="156" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="91" max="32767" attributes="0"/>
+                                  <EmptySpace pref="74" max="32767" attributes="0"/>
                                   <Component id="jButton15" min="-2" pref="125" max="-2" attributes="0"/>
                               </Group>
                           </Group>

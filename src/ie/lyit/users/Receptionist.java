@@ -106,21 +106,18 @@ public class Receptionist implements DBConnections{
     
     // Check if room is available or booked
     public int checkRoomStatus(int room){
-    
-        String sql = "SELECT `available`,`booked` FROM `rooms`  WHERE `roomno` = 202";
+        
+        String sql = "SELECT `booked` FROM `rooms`  WHERE `roomno` = "+room;
         int x = conn.checkRoomStatus(sql);
-        System.out.print("DEBUGGING ROOM::"+conn.checkRoomStatus(sql));
         switch (conn.checkRoomStatus(sql)) {
             case 1:
                 JOptionPane.showMessageDialog(null, "Room Booked..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
                 break;
             case 2:
-                JOptionPane.showMessageDialog(null, "Room Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
-                break;
-            case 3:
-                JOptionPane.showMessageDialog(null, "Room Occupied..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Room Not Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
                 break;
             default:
+                JOptionPane.showMessageDialog(null, "Room Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
                 break;
         }
         return x;
@@ -139,8 +136,7 @@ public class Receptionist implements DBConnections{
 
     @Override
     public void displayRooms() {
-        
-        
+           
     }
     
     @Override

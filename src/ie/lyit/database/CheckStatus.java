@@ -3,7 +3,10 @@ import ie.lyit.gui.MainFrame;
 import java.util.Date;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author jim
@@ -39,7 +42,6 @@ public class CheckStatus extends Thread{
             sleep(3000);
             // Pass in flag to change icon on footer
             frame.setStatus(running);
-            myConn.close();
         }
         catch(Exception e){
         System.out.print("Server ping stopped..\nServer must be down...!!\n");
@@ -47,7 +49,16 @@ public class CheckStatus extends Thread{
         running = false;
         frame.setStatus(running);
 
-        }   
+        }  
+        finally{
+        if(myConn != null){
+            try {
+                myConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CheckStatus.class.getName()).log(Level.SEVERE, null, ex);
+            }
+}
+        }
     }
     
     // Getter's and Setter's

@@ -83,8 +83,6 @@ public class Connect{
             myStmt = myConn.createStatement();
             myStmt.executeUpdate(sql);
           
-           
-       
         } catch (Exception exc) {
             exc.printStackTrace();
             check = false;
@@ -103,8 +101,7 @@ public class Connect{
     
         /* Variable for status
            1 = Booked
-           2 = Available
-           3 = Occupied
+           2 = Ocuppied
         */
         int status = 0;
         
@@ -113,14 +110,11 @@ public class Connect{
             myStmt = myConn.createStatement();
             myRs = myStmt.executeQuery(sql);
                     while(myRs.next()){
-                    if(myRs.getInt("booked") > 0 && myRs.getInt("available") == 0){
+                    if(myRs.getInt("booked") > 0){
                         status = 1;
                         }
-                    else if(myRs.getInt("available") > 0 && myRs.getInt("booked") == 0){
-                        status = 2;
-                        }
                     else{
-                        status = 3;
+                        status = 2;
                         }
                     }
         }
