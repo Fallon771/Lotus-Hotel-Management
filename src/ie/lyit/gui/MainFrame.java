@@ -349,12 +349,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(checkInIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(checkInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         checkPanelLayout.setVerticalGroup(
             checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(checkPanelLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkInIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -448,7 +448,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkOutPanelLayout.setVerticalGroup(
             checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checkOutPanelLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkOutIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkOutLab, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -774,11 +774,6 @@ public class MainFrame extends javax.swing.JFrame {
                 room202MouseMoved(evt);
             }
         });
-        room202.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                room202MousePressed(evt);
-            }
-        });
         room202.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 room202ActionPerformed(evt);
@@ -788,9 +783,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         room203.setBackground(new java.awt.Color(153, 255, 153));
         room203.setLabel("203");
-        room203.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                room203MouseMoved(evt);
+        room203.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                room203ActionPerformed(evt);
             }
         });
         jPanel2.add(room203, new java.awt.GridBagConstraints());
@@ -848,6 +843,11 @@ public class MainFrame extends javax.swing.JFrame {
         room205.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 room205MouseMoved(evt);
+            }
+        });
+        room205.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                room205ActionPerformed(evt);
             }
         });
         jPanel2.add(room205, new java.awt.GridBagConstraints());
@@ -1755,7 +1755,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(homeScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(homeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dataTabPane)
+                    .addComponent(dataTabPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
                     .addGroup(homeScreenLayout.createSequentialGroup()
                         .addComponent(currentGuest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1877,7 +1877,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(jLabel37)
                             .addComponent(jLabel40)
                             .addComponent(jLabel41))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2003,7 +2003,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel48)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                         .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -2073,7 +2073,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1074, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE))
+                .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE))
             .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1074, Short.MAX_VALUE)
         );
         layerPaneLayout.setVerticalGroup(
@@ -2207,23 +2207,28 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void room200ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room200ActionPerformed
         // TODO add your handling code here:
+        roomText.setText("200");
     }//GEN-LAST:event_room200ActionPerformed
 
     private void room202ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room202ActionPerformed
         // TODO add your handling code here:
+        roomText.setText("202");
         
     }//GEN-LAST:event_room202ActionPerformed
 
     private void room204ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room204ActionPerformed
         // TODO add your handling code here:
+        roomText.setText("204");
     }//GEN-LAST:event_room204ActionPerformed
 
     private void room207ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room207ActionPerformed
         // TODO add your handling code here:
+        roomText.setText("207");
     }//GEN-LAST:event_room207ActionPerformed
 
     private void room206ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room206ActionPerformed
         // TODO add your handling code here:
+        roomText.setText("206");
     }//GEN-LAST:event_room206ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
@@ -2241,11 +2246,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton26ActionPerformed
-
-    private void room202MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room202MousePressed
-        // TODO add your handling code here:
-        roomText.setText("203");
-    }//GEN-LAST:event_room202MousePressed
 
     private void serverTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serverTestActionPerformed
         // TODO add your handling code here:
@@ -2476,43 +2476,51 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void room200MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room200MouseMoved
         // TODO add your handling code here:
-        room200.setBackground(Color.YELLOW);
+        
     }//GEN-LAST:event_room200MouseMoved
 
     private void room201MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room201MouseMoved
         // TODO add your handling code here:
-        room201.setBackground(Color.YELLOW);
+        
     }//GEN-LAST:event_room201MouseMoved
 
     private void room202MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room202MouseMoved
         // TODO add your handling code here:
-        room202.setBackground(Color.YELLOW);
+        
     }//GEN-LAST:event_room202MouseMoved
-
-    private void room203MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room203MouseMoved
-        // TODO add your handling code here:
-        room203.setBackground(Color.YELLOW);
-    }//GEN-LAST:event_room203MouseMoved
 
     private void room204MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room204MouseMoved
         // TODO add your handling code here:
-        room204.setBackground(Color.YELLOW);
+        
     }//GEN-LAST:event_room204MouseMoved
 
     private void room205MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room205MouseMoved
         // TODO add your handling code here:
-        room205.setBackground(Color.YELLOW);
+       
     }//GEN-LAST:event_room205MouseMoved
 
     private void room206MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room206MouseMoved
         // TODO add your handling code here:
-        room206.setBackground(Color.YELLOW);
+       
     }//GEN-LAST:event_room206MouseMoved
 
     private void room207MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room207MouseMoved
         // TODO add your handling code here:
-        room207.setBackground(Color.YELLOW);
+      
     }//GEN-LAST:event_room207MouseMoved
+
+    private void room205ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room205ActionPerformed
+        // TODO add your handling code here:
+        roomText.setText("205");
+        int x = rep.checkRoomStatus(205);
+        setRoomButtonColor(x,room205);
+    }//GEN-LAST:event_room205ActionPerformed
+
+    private void room203ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room203ActionPerformed
+        // TODO add your handling code here:
+        int x = rep.checkRoomStatus(202);
+        setRoomButtonColor(x,room203);
+    }//GEN-LAST:event_room203ActionPerformed
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
@@ -2592,7 +2600,22 @@ public class MainFrame extends javax.swing.JFrame {
         System.out.print("Error updating id..");
         }
     }
+    public void setRoomButtonColor(int x,javax.swing.JButton but){
     
+        switch (x) {
+            case 1:
+                but.setBackground(Color.BLUE);
+                break;
+            case 2:
+                but.setBackground(Color.GREEN);
+                break;
+            case 3:
+                but.setBackground(Color.pink);
+                break;
+            default:
+                break;
+        }
+    }
     public static void setStatus(boolean flag){
     if(flag){
         dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Green_16px.png")));

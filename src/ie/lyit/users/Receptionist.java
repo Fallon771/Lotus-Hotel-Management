@@ -105,9 +105,25 @@ public class Receptionist implements DBConnections{
     }
     
     // Check if room is available or booked
-    public void checkRoomStatus(int room){
+    public int checkRoomStatus(int room){
     
-        String sql = "SELECT `rooms`";
+        String sql = "SELECT `available`,`booked` FROM `rooms`  WHERE `roomno` = 202";
+        int x = conn.checkRoomStatus(sql);
+        System.out.print("DEBUGGING ROOM::"+conn.checkRoomStatus(sql));
+        switch (conn.checkRoomStatus(sql)) {
+            case 1:
+                JOptionPane.showMessageDialog(null, "Room Booked..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Room Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+                break;
+            case 3:
+                JOptionPane.showMessageDialog(null, "Room Occupied..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+                break;
+            default:
+                break;
+        }
+        return x;
     }
 
     // Check-out

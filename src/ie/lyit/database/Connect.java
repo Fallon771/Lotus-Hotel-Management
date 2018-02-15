@@ -99,11 +99,44 @@ public class Connect{
         }  
     }  
     
+    public int checkRoomStatus(String sql){
+    
+        /* Variable for status
+           1 = Booked
+           2 = Available
+           3 = Occupied
+        */
+        int status = 0;
+        
+        try{
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
+            myStmt = myConn.createStatement();
+            myRs = myStmt.executeQuery(sql);
+                    while(myRs.next()){
+                    if(myRs.getInt("booked") > 0 && myRs.getInt("available") == 0){
+                        status = 1;
+                        }
+                    else if(myRs.getInt("available") > 0 && myRs.getInt("booked") == 0){
+                        status = 2;
+                        }
+                    else{
+                        status = 3;
+                        }
+                    }
+        }
+        catch(Exception e){
+        System.out.print(e.getMessage());
+        }
+        return status;
+    }
+    
     public void setStatus(){
     check = false;
     }
     public boolean getStatus(){ 
         return check;
     }
+    
+    
     
 }
