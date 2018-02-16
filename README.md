@@ -43,7 +43,7 @@
 # Instructions for setup   
   -- Create a databse called hotel_db in xammp
   
-  -- Go into the lib folder and select the latest SQL file
+  -- Go into the src/lib folder on GitHub and select the latest SQL file
   
   -- Use Ctrl-C to copy all the code
   
