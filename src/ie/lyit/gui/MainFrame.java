@@ -2435,18 +2435,21 @@ public class MainFrame extends javax.swing.JFrame {
     private void checkInButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInButtActionPerformed
         // TODO add your handling code here: 
        String roomType = "Single";
+       boolean allGood =true;
        if(Integer.parseInt(roomText.getText()) >= 200 && Integer.parseInt(roomText.getText()) <= 207){
        roomType = "Single";
        }
         // Check if fields are blank
         if(fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
                 || (checkOutDate.getDate() == null) ){
-            JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE); 
+            allGood = false;
         }
         if(!roomAvailable){
              JOptionPane.showMessageDialog(null, "Room not available..", "Fills blank", JOptionPane.ERROR_MESSAGE);
+            allGood = false;
         }
-        else{  
+        if(allGood){  
             Guest checkIn = new Guest((String)title.getSelectedItem(),
             fName.getText(),sName.getText(),address.getText(),
             phone.getText(),email.getText(),(Integer)children.getValue(),(Integer)adults.getValue(),Integer.parseInt(roomText.getText()),checkInDate.getDate(),
