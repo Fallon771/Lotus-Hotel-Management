@@ -11,8 +11,8 @@ package ie.lyit.hotel;
  */
 public class Rooms {
     
-    private String adults;
-    private String children;
+    private int adults;
+    private int children;
     private String roomType;
     
     private int roomNum;
@@ -20,7 +20,10 @@ public class Rooms {
     private boolean booked;
     private boolean available;
     
-    public Rooms(int roomNum,String adults,String children,String roomType){
+    public Rooms(){
+    
+    }
+    public Rooms(int roomNum,int adults,int children,String roomType){
         
         this.roomNum = roomNum;
         this.adults = adults;
@@ -29,19 +32,19 @@ public class Rooms {
     }
 
     // Getter's & Setter's
-    public String getAdults() {
+    public int getAdults() {
         return adults;
     }
 
-    public void setAdults(String adults) {
+    public void setAdults(int adults) {
         this.adults = adults;
     }
 
-    public String getChildren() {
+    public int getChildren() {
         return children;
     }
 
-    public void setChildren(String children) {
+    public void setChildren(int children) {
         this.children = children;
     }
 

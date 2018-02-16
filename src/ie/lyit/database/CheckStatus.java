@@ -3,7 +3,10 @@ import ie.lyit.gui.MainFrame;
 import java.util.Date;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author jim
@@ -20,7 +23,7 @@ public class CheckStatus extends Thread{
     volatile boolean running = true; 
     private String user;
     private String pass;
-    private String database = "mysql://localhost/hotel_db";
+    private String database = "localhost/hotel_db";
     
     // Just printing a start time
     String startStamp = new SimpleDateFormat("dd.MM.yyyy -- HH.mm.ss").format(new Date());
@@ -34,12 +37,11 @@ public class CheckStatus extends Thread{
             // Try connect to database...
             user = "root";
             pass = "password";
-            myConn = DriverManager.getConnection("jdbc:"+database, user, pass);
+            myConn = DriverManager.getConnection("jdbc:mysql://"+database, user, pass);
             System.out.print("Thread running...\nTime Stamp:["+currentStamp+"]\n");
-            sleep(5000);
+            sleep(3000);
             // Pass in flag to change icon on footer
             frame.setStatus(running);
-            myConn.close();
         }
         catch(Exception e){
         System.out.print("Server ping stopped..\nServer must be down...!!\n");
@@ -47,7 +49,16 @@ public class CheckStatus extends Thread{
         running = false;
         frame.setStatus(running);
 
-        }   
+        }  
+        finally{
+        if(myConn != null){
+            try {
+                myConn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CheckStatus.class.getName()).log(Level.SEVERE, null, ex);
+            }
+}
+        }
     }
     
     // Getter's and Setter's

@@ -104,6 +104,25 @@ public class Receptionist implements DBConnections{
         }   
     }
     
+    // Check if room is available or booked
+    public int checkRoomStatus(int room){
+        
+        String sql = "SELECT `booked` FROM `rooms`  WHERE `roomno` = "+room;
+        int x = conn.checkRoomStatus(sql);
+        switch (conn.checkRoomStatus(sql)) {
+            case 1:
+                JOptionPane.showMessageDialog(null, "Room Booked..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Room Not Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Room Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+                break;
+        }
+        return x;
+    }
+
     // Check-out
     @Override
     public void removeGuest() {
@@ -117,7 +136,7 @@ public class Receptionist implements DBConnections{
 
     @Override
     public void displayRooms() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+           
     }
     
     @Override
