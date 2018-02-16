@@ -2673,20 +2673,9 @@ public class MainFrame extends javax.swing.JFrame {
         System.out.print("Error updating id..");
         }
     }
-    public void setRoomButtonColor(int x,javax.swing.JButton but){
-    
-        switch (x) {
-            case 1:
-                but.setBackground(new Color(102,156,255));
-                break;
-            case 2:
-                but.setBackground(Color.pink);
-                break;
-            default:
-                but.setBackground(new Color(102,255,102));
-                break;
-        }
-    }
+    // This method takes in a hash map from the RoomStatus class,
+    // and keeps getting called in the thread created every 5 sec's.
+    // It will set the correct colors for the room jButtons
     public static void setRoomButtons(HashMap<Integer,Boolean> room){
         
       Component c[] = jPanel2.getComponents();
