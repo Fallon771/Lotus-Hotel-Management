@@ -108,21 +108,20 @@ public class Receptionist implements DBConnections{
     }
     
     // Check if room is available or booked
-    public void checkRoomStatus(Color c){
+    public int checkRoomStatus(Color c){
        
         // Check status of room by checking the color set on the jbuttons
         switch (c.toString()) {
             case "java.awt.Color[r=153,g=255,b=153]":
                 JOptionPane.showMessageDialog(null, "Room Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
-                break;
+                return 1;
             case "java.awt.Color[r=255,g=204,b=204]":
                 JOptionPane.showMessageDialog(null, "Room Not Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
-                break;
+                return 2;
             default:
                 JOptionPane.showMessageDialog(null, "Room Booked..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
-                break;
-        }
-                
+                return 3;
+        }          
     }
 
     // Check-out
