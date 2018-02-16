@@ -13,12 +13,17 @@ import ie.lyit.database.*;
 import ie.lyit.hotel.Rooms;
 import ie.lyit.users.*;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import javax.swing.JButton;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 
@@ -44,7 +49,11 @@ public class MainFrame extends javax.swing.JFrame {
     GuestId id = new GuestId();
     DisplayTables display = new DisplayTables();
     RoomStatus rs = new RoomStatus();
- 
+    
+    
+    
+    
+    
     /**
      * Creates new form MainFrame
      */
@@ -56,7 +65,6 @@ public class MainFrame extends javax.swing.JFrame {
         rs.start();
         initComponents();  
     }
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -126,7 +134,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton25 = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
+        bridalPane = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -934,18 +942,18 @@ public class MainFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Executive", jPanel7);
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout bridalPaneLayout = new javax.swing.GroupLayout(bridalPane);
+        bridalPane.setLayout(bridalPaneLayout);
+        bridalPaneLayout.setHorizontalGroup(
+            bridalPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 339, Short.MAX_VALUE)
         );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        bridalPaneLayout.setVerticalGroup(
+            bridalPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 81, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Bridal", jPanel14);
+        jTabbedPane1.addTab("Bridal", bridalPane);
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -1513,7 +1521,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(checkinScreenLayout.createSequentialGroup()
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2669,11 +2677,26 @@ public class MainFrame extends javax.swing.JFrame {
                 break;
         }
     }
-    public void setRoomButtons(ArrayList<Integer> rooms){
+    public static void setRoomButtons(HashMap<Integer,Boolean> room){
         
-        for(Integer x:rooms){
-           System.out.print(x);
-        }
+      Component c[] = jPanel2.getComponents();
+      int num = jPanel2.getComponentCount();
+      int roomNo = 200;
+      for(int i=0;i<8;i++){
+        
+          if(room.containsKey(roomNo) && room.get(roomNo).equals(room.containsValue(1))){
+          c[i].setBackground(Color.pink);
+          }
+          else if(room.containsKey(roomNo) && room.containsValue(true)){
+          c[i].setBackground(new Color(102,153,255));
+       
+            System.out.print("Executed Pink\n\n");
+          }
+          else if(!room.containsKey(roomNo)){
+          c[i].setBackground(Color.green);
+          }
+          roomNo++;
+      }
     }
     
     public static void setStatus(boolean flag){
@@ -2696,6 +2719,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel banner;
     private javax.swing.JLabel bannerTitle;
     private javax.swing.JButton bookButt;
+    private javax.swing.JPanel bridalPane;
     private javax.swing.ButtonGroup cardGroup;
     private static javax.swing.JButton checkInButt;
     private com.toedter.calendar.JDateChooser checkInDate;
@@ -2806,9 +2830,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel2;
+    private static javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2831,7 +2854,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private static javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
@@ -2872,14 +2895,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField phone;
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JPanel quitPanel;
-    private javax.swing.JButton room200;
+    private static javax.swing.JButton room200;
     private static javax.swing.JButton room201;
     private static javax.swing.JButton room202;
-    private javax.swing.JButton room203;
-    private javax.swing.JButton room204;
-    private javax.swing.JButton room205;
-    private javax.swing.JButton room206;
-    private javax.swing.JButton room207;
+    private static javax.swing.JButton room203;
+    private static javax.swing.JButton room204;
+    private static javax.swing.JButton room205;
+    private static javax.swing.JButton room206;
+    private static javax.swing.JButton room207;
     private javax.swing.JTextField roomText;
     private javax.swing.JTextField sName;
     private javax.swing.JLabel sNameLabel;
@@ -2900,4 +2923,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel topPanel;
     private javax.swing.JRadioButton visaRad;
     // End of variables declaration//GEN-END:variables
+    private static JButton[] but = {room200,room201,room202,room203,room204,room205,room206,room207};
+
 }
