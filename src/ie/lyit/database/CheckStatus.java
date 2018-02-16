@@ -57,8 +57,7 @@ public class CheckStatus extends Thread{
                 } catch (SQLException ex) {
                     Logger.getLogger(CheckStatus.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
-            
+            }  
         }
     }
     
