@@ -49,6 +49,7 @@ public class MainFrame extends javax.swing.JFrame {
     GuestId id = new GuestId();
     DisplayTables display = new DisplayTables();
     RoomStatus rs = new RoomStatus();
+    Color c;
     
     
     
@@ -123,9 +124,9 @@ public class MainFrame extends javax.swing.JFrame {
         room202 = new javax.swing.JButton();
         room203 = new javax.swing.JButton();
         room204 = new javax.swing.JButton();
+        room205 = new javax.swing.JButton();
         room206 = new javax.swing.JButton();
         room207 = new javax.swing.JButton();
-        room205 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jButton21 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
@@ -827,8 +828,25 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jPanel2.add(room204, new java.awt.GridBagConstraints());
 
+        room205.setBackground(new java.awt.Color(153, 255, 153));
+        room205.setText("205");
+        room205.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                room205MouseMoved(evt);
+            }
+        });
+        room205.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                room205ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        jPanel2.add(room205, gridBagConstraints);
+
         room206.setBackground(new java.awt.Color(153, 255, 153));
-        room206.setLabel("206");
+        room206.setText("206");
         room206.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 room206MouseMoved(evt);
@@ -840,12 +858,12 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         jPanel2.add(room206, gridBagConstraints);
 
         room207.setBackground(new java.awt.Color(153, 255, 153));
-        room207.setLabel("207");
+        room207.setText("207");
         room207.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 room207MouseMoved(evt);
@@ -857,23 +875,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         jPanel2.add(room207, gridBagConstraints);
-
-        room205.setBackground(new java.awt.Color(153, 255, 153));
-        room205.setLabel("205");
-        room205.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                room205MouseMoved(evt);
-            }
-        });
-        room205.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                room205ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(room205, new java.awt.GridBagConstraints());
 
         jTabbedPane1.addTab("Single", jPanel2);
 
@@ -2239,38 +2243,40 @@ public class MainFrame extends javax.swing.JFrame {
     private void room200ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room200ActionPerformed
         // TODO add your handling code here:
         roomText.setText("200");
-        int x = rep.checkRoomStatus(200);
-        setRoomButtonColor(x,room200);
+        c = room200.getBackground();
+        rep.checkRoomStatus(c);
     }//GEN-LAST:event_room200ActionPerformed
 
     private void room202ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room202ActionPerformed
         // TODO add your handling code here:
         roomText.setText("202");
-        int x = rep.checkRoomStatus(202);
-        setRoomButtonColor(x,room202);
+        c = room202.getBackground();
+        rep.checkRoomStatus(c);
         
     }//GEN-LAST:event_room202ActionPerformed
 
     private void room204ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room204ActionPerformed
         // TODO add your handling code here:
         roomText.setText("204");
-        int x = rep.checkRoomStatus(204);
-        setRoomButtonColor(x,room204);
+        c = room204.getBackground();
+        rep.checkRoomStatus(c);
     }//GEN-LAST:event_room204ActionPerformed
-
-    private void room207ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room207ActionPerformed
-        // TODO add your handling code here:
-        roomText.setText("207");
-        int x = rep.checkRoomStatus(207);
-        setRoomButtonColor(x,room207);
-    }//GEN-LAST:event_room207ActionPerformed
 
     private void room206ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room206ActionPerformed
         // TODO add your handling code here:
         roomText.setText("206");
-        int x = rep.checkRoomStatus(206);
-        setRoomButtonColor(x,room206);
+        c = room206.getBackground();
+        System.out.print(c.toString());
+        rep.checkRoomStatus(c);
     }//GEN-LAST:event_room206ActionPerformed
+
+    private void room205ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room205ActionPerformed
+        // TODO add your handling code here:
+        roomText.setText("205");
+        c = room205.getBackground();
+        rep.checkRoomStatus(c);
+       
+    }//GEN-LAST:event_room205ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         // TODO add your handling code here:
@@ -2541,6 +2547,11 @@ public class MainFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_room204MouseMoved
 
+    private void room207MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room207MouseMoved
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_room207MouseMoved
+
     private void room205MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room205MouseMoved
         // TODO add your handling code here:
        
@@ -2548,33 +2559,32 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void room206MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room206MouseMoved
         // TODO add your handling code here:
-       
+      
     }//GEN-LAST:event_room206MouseMoved
 
-    private void room207MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room207MouseMoved
+    private void room207ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room207ActionPerformed
         // TODO add your handling code here:
-      
-    }//GEN-LAST:event_room207MouseMoved
-
-    private void room205ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room205ActionPerformed
-        // TODO add your handling code here:
-        roomText.setText("205");
-        int x = rep.checkRoomStatus(205);
-        setRoomButtonColor(x,room205);
-    }//GEN-LAST:event_room205ActionPerformed
+        roomText.setText("207");
+        c = room207.getBackground();
+        rep.checkRoomStatus(c);
+ 
+//        int x = rep.checkRoomStatus(207);
+//        setRoomButtonColor(x,room207);
+    }//GEN-LAST:event_room207ActionPerformed
 
     private void room203ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room203ActionPerformed
         // TODO add your handling code here:
-        roomText.setText("203");
-        int x = rep.checkRoomStatus(203);
-        setRoomButtonColor(x,room203);
+        roomText.setText("203");   
+        c = room203.getBackground();
+        rep.checkRoomStatus(c);
+        
     }//GEN-LAST:event_room203ActionPerformed
 
     private void room201ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room201ActionPerformed
         // TODO add your handling code here:
         roomText.setText("201");
-        int x = rep.checkRoomStatus(201);
-        setRoomButtonColor(x,room201);
+        c = room201.getBackground();
+        rep.checkRoomStatus(c);
     }//GEN-LAST:event_room201ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -2682,18 +2692,20 @@ public class MainFrame extends javax.swing.JFrame {
       Component c[] = jPanel2.getComponents();
       int num = jPanel2.getComponentCount();
       int roomNo = 200;
-      for(int i=0;i<8;i++){
+      for(int i=0;i<9;i++){
         
+           // Occupied (Pink)
           if(room.containsKey(roomNo) && room.get(roomNo).equals(room.containsValue(1))){
-          c[i].setBackground(Color.pink);
+          c[i].setBackground(new Color(255,204,204));
           }
+          // Booked (blue)
           else if(room.containsKey(roomNo) && room.containsValue(true)){
           c[i].setBackground(new Color(102,153,255));
        
-            System.out.print("Executed Pink\n\n");
           }
+          // Available (Green)
           else if(!room.containsKey(roomNo)){
-          c[i].setBackground(Color.green);
+          c[i].setBackground(new Color(153,255,153));
           }
           roomNo++;
       }
@@ -2923,6 +2935,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel topPanel;
     private javax.swing.JRadioButton visaRad;
     // End of variables declaration//GEN-END:variables
-    private static JButton[] but = {room200,room201,room202,room203,room204,room205,room206,room207};
+    private static JButton[] but = {room200,room201,room202,room203,room204,room207,room205,room206};
 
 }

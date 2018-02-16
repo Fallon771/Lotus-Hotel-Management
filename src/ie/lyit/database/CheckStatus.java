@@ -51,13 +51,14 @@ public class CheckStatus extends Thread{
 
         }  
         finally{
-        if(myConn != null){
-            try {
-                myConn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(CheckStatus.class.getName()).log(Level.SEVERE, null, ex);
+            if(myConn != null){
+                try {
+                    myConn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CheckStatus.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-}
+            
         }
     }
     

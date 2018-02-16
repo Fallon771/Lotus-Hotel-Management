@@ -64,14 +64,7 @@ public class RoomStatus extends Thread{
          
          // Close connections
          finally{
-             System.out.print("Hashmap: ");
-            for(Map.Entry<Integer,Boolean>entry: roomNo.entrySet()){
-             Integer key = entry.getKey();
-             Boolean value = entry.getValue();
-             System.out.print("\nKey:"+key+" => Value:"+value);
-            }
-            
-            
+           
             }
          if(myRs != null){
              try {
