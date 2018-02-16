@@ -41,11 +41,11 @@
 # SQL Server Update [16-2-2018]
   -- Latest SQL server will always be put in the lib folder
 # Instructions for setup   
-  -- Create a databse called hotel_bd in xammp
+  -- Create a databse called hotel_db in xammp
   
   -- Go into the lib folder and select the latest SQL file
   
-  --Use Ctrl-C to copy all the code
+  -- Use Ctrl-C to copy all the code
   
   -- In xammp,select your database(hotel_db) and select SQL at the top
   
