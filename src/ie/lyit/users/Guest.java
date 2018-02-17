@@ -7,7 +7,6 @@ package ie.lyit.users;
 import ie.lyit.hotel.CreditCard;
 import ie.lyit.hotel.Bill;
 import java.util.Date;
-import ie.lyit.hotel.Rooms;
 
 /**
  *
@@ -15,27 +14,20 @@ import ie.lyit.hotel.Rooms;
  */
 public class Guest {
     
-    // Intergers
+    private static int guestNumber = 1;
     private int roomNumber;
-    private int id;
-    private int roomNo;
-    private int children;
-    private int adults;
-    
-    // Strings
     private String phoneNo;
+    
     private String fName;
+    private int id;
     private String title;
     private String sName;
     private String address;
     private String emailAddress;
-    
-    // Objects
     private Date checkin;
     private Date checkout;
     private CreditCard card;
     private Bill bill;
-    private Rooms room;
    
     public Guest(){
          
@@ -43,7 +35,7 @@ public class Guest {
     
     // Constructor for JTables
     public Guest(int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout){
-       
+        
         this.fName = fName;
         this.sName = sName;
         this.address = address;
@@ -56,14 +48,13 @@ public class Guest {
         
     }
     // Constructor for adding guest
-    public Guest(String title,String fName,String sName,String address,String phone,String email,int children,int adults,int roomNo,Date checkin,Date checkout){
-        
-        this.room = new Rooms(id,children,adults,"Single");
+
+    public Guest(String title,String fName,String sName,String address,String phone,String email,int roomNo,Date checkin,Date checkout){
+
         this.fName = fName;
         this.sName = sName;
         this.address = address;
         this.title = title;
-        this.roomNo = roomNo;
         this.emailAddress = email;
         this.phoneNo = phone;
         this.checkin = checkin;
@@ -73,6 +64,13 @@ public class Guest {
     }
     
     //Getter's & Setter's
+    public static int getGuestNumber() {
+        return guestNumber;
+    }
+
+    public static void setGuestNumber(int guestNumber) {
+        Guest.guestNumber = guestNumber;
+    }
 
     public int getId() {
         return id;

@@ -6,6 +6,7 @@
 package ie.lyit.users;
 import ie.lyit.database.Connect;
 import ie.lyit.database.DBConnections;
+import ie.lyit.hotel.Rooms;
 import java.awt.Color;
 import java.sql.Connection;
 import java.text.DateFormat;
@@ -98,8 +99,9 @@ public class Receptionist implements DBConnections{
         String sql = "INSERT INTO `guest` (`fname`, `surname`,`address`,`title`,"
                 + "`checkin`,`checkout`,`phone`,`email`) VALUES ('"+guestFName+"','"+guestSName+"',"
                 + "'"+guestAdress+"','"+guestTitle+"','"+in+"','"+out+"','"+phone+"','"+email+"');";
+        
         try{
-        conn.addGuest(sql);
+        conn.queryDatabase(sql);
         }
         catch(Exception e){
             System.out.print("Error occured while adding...");
@@ -122,6 +124,24 @@ public class Receptionist implements DBConnections{
                 JOptionPane.showMessageDialog(null, "Room Booked..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
                 return 3;
         }          
+    }
+    public void addRoom(Rooms room){
+   
+       int roomNo = room.getRoomNum();
+       int guestNo = room.getId();
+       int adults = room.getAdults();
+       int children = room.getChildren();
+      
+        String sql = "INSERT INTO `rooms` (`id`,`booked`,`roomno`,`adults`,`children`) VALUES "
+                + "('"+guestNo+"','0', '"+roomNo+"', '"+adults+"', '"+children+"');";
+        
+           try{
+               conn.queryDatabase(sql);
+           }
+           catch(Exception e){
+               System.out.print("Error occured while adding room...");
+               JOptionPane.showMessageDialog(null, "Error adding room to database!", "Error", JOptionPane.ERROR_MESSAGE);
+           }   
     }
 
     // Check-out
