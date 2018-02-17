@@ -144,7 +144,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton30 = new javax.swing.JButton();
         jButton31 = new javax.swing.JButton();
         jButton32 = new javax.swing.JButton();
-        jLabel18 = new javax.swing.JLabel();
+        checkMark = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
@@ -997,7 +997,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         roomTab.addTab("Executive", executivePanel);
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Checkmark_16px.png"))); // NOI18N
+        checkMark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Checkmark_16px.png"))); // NOI18N
 
         jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Horizontal Line_25px.png"))); // NOI18N
         jLabel50.setText("Not Available");
@@ -1026,7 +1026,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(roomText, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(children, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(checkMark, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(roomInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1048,7 +1048,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(16, 16, 16))
                     .addGroup(roomInfoLayout.createSequentialGroup()
                         .addGroup(roomInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(checkMark, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(roomInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel14)
                                 .addComponent(roomText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2282,7 +2282,7 @@ public class MainFrame extends javax.swing.JFrame {
          dataTabPane.setVisible(false);
          currentGuest.setVisible(false);
          bannerTitle.setText("Check-In");
-         //searchScreen.setVisible(false);
+         roomText.setText("");
     }//GEN-LAST:event_checkPanelMouseClicked
 
     private void searchPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPanelMouseClicked
@@ -2446,7 +2446,7 @@ public class MainFrame extends javax.swing.JFrame {
        roomType = "Single";
        }
         // Check if fields are blank
-        if(fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
+        if(roomText.equals("") || fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
                 || (checkOutDate.getDate() == null) ){
             JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE); 
             allGood = false;
@@ -2604,6 +2604,7 @@ public class MainFrame extends javax.swing.JFrame {
         c = room207.getBackground();
         int x =  rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
+        updateCheckMark(x);
     }//GEN-LAST:event_room207ActionPerformed
 
     private void room206ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room206ActionPerformed
@@ -2612,6 +2613,7 @@ public class MainFrame extends javax.swing.JFrame {
         c = room206.getBackground();
         int x =rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
+        updateCheckMark(x);
     }//GEN-LAST:event_room206ActionPerformed
 
     private void room205ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room205ActionPerformed
@@ -2620,6 +2622,7 @@ public class MainFrame extends javax.swing.JFrame {
         c = room205.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
+        updateCheckMark(x);
 
     }//GEN-LAST:event_room205ActionPerformed
 
@@ -2629,6 +2632,7 @@ public class MainFrame extends javax.swing.JFrame {
         c = room204.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
+        updateCheckMark(x);
     }//GEN-LAST:event_room204ActionPerformed
 
     private void room203ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room203ActionPerformed
@@ -2637,8 +2641,7 @@ public class MainFrame extends javax.swing.JFrame {
         c = room203.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
-        System.out.print("BOOL:"+x);
-
+        updateCheckMark(x);
     }//GEN-LAST:event_room203ActionPerformed
 
     private void room202ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room202ActionPerformed
@@ -2647,6 +2650,7 @@ public class MainFrame extends javax.swing.JFrame {
         c = room202.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
+        updateCheckMark(x);
     }//GEN-LAST:event_room202ActionPerformed
 
     private void room201ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room201ActionPerformed
@@ -2655,6 +2659,7 @@ public class MainFrame extends javax.swing.JFrame {
         c = room201.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
+        updateCheckMark(x);
     }//GEN-LAST:event_room201ActionPerformed
 
     private void room200ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room200ActionPerformed
@@ -2663,6 +2668,8 @@ public class MainFrame extends javax.swing.JFrame {
         c = room200.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
+        updateCheckMark(x);
+        
     }//GEN-LAST:event_room200ActionPerformed
 
     private void room209ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room209ActionPerformed
@@ -2823,6 +2830,19 @@ public class MainFrame extends javax.swing.JFrame {
       }  
        System.out.print("Success!\n");
     }
+    public void updateCheckMark(int x){
+        switch(x){
+            case 1:
+                checkMark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CheckMark_16px.png")));
+                break;
+            case 2:
+                 checkMark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete_16px.png")));
+                break;
+            default:
+                 checkMark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CheckMark_Blue_16px.png")));
+                 break;
+        }
+    }
     
     public static void setStatus(boolean flag){
     if(flag){
@@ -2851,6 +2871,7 @@ public class MainFrame extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser checkInDate;
     private javax.swing.JLabel checkInIcon;
     private javax.swing.JLabel checkInLabel;
+    private javax.swing.JLabel checkMark;
     private com.toedter.calendar.JDateChooser checkOutDate;
     private javax.swing.JLabel checkOutIcon1;
     private javax.swing.JLabel checkOutLab;
@@ -2918,7 +2939,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
