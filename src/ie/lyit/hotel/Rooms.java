@@ -14,21 +14,23 @@ public class Rooms {
     private int adults;
     private int children;
     private String roomType;
-    
     private int roomNum;
     
     private boolean booked;
     private boolean available;
+    private int id;
     
     public Rooms(){
     
     }
-    public Rooms(int roomNum,int adults,int children,String roomType){
+    public Rooms(int id,boolean booked,int roomNum,int adults,int children){
         
         this.roomNum = roomNum;
         this.adults = adults;
         this.children = children;
-        this.roomType = roomType;
+        this.roomNum = roomNum;
+        this.booked = booked;
+        this.id = id;
     }
 
     // Getter's & Setter's
@@ -42,6 +44,17 @@ public class Rooms {
 
     public int getChildren() {
         return children;
+    }
+    
+    public boolean getBooked(){
+    return booked;
+    }
+    public int getRoomNo(){
+    return roomNum;
+    }
+    
+    public int getId(){
+    return id;
     }
 
     public void setChildren(int children) {

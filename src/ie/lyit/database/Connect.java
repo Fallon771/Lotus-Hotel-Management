@@ -75,7 +75,7 @@ public class Connect{
     }  
     
     // Pass in sql string to add a guest
-    public void addGuest(String sql)throws SQLException{
+    public void queryDatabase(String sql)throws SQLException{
         
         try {
             // 1. Get a connection to database

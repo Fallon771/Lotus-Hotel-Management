@@ -40,6 +40,7 @@ public class MainFrame extends javax.swing.JFrame {
     double yScreen;
     static boolean flag2 = true;
     boolean fetched = false;
+    boolean roomAvailable,roomBooked;
     
     //Instances
     Connect conn = new Connect();
@@ -51,10 +52,6 @@ public class MainFrame extends javax.swing.JFrame {
     RoomStatus rs = new RoomStatus();
     Color c;
     
-    
-    
-    
-    
     /**
      * Creates new form MainFrame
      */
@@ -62,8 +59,10 @@ public class MainFrame extends javax.swing.JFrame {
         
         // Set image on taskbar
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/TaskBar_104px.png")));
+        // Start our threads
         thread1.start();
-        rs.start();
+        rs.start();      
+        // Initilizise JFrame & components
         initComponents();  
     }
     @SuppressWarnings("unchecked")
@@ -138,6 +137,9 @@ public class MainFrame extends javax.swing.JFrame {
         bridalPane = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         fName = new javax.swing.JTextField();
         sName = new javax.swing.JTextField();
@@ -153,7 +155,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkInDate = new com.toedter.calendar.JDateChooser();
         checkOutDate = new com.toedter.calendar.JDateChooser();
         guestNo = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        guestId = new javax.swing.JTextField();
         checkInButt = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
         bookButt = new javax.swing.JButton();
@@ -763,13 +765,8 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Single Rooms"));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        room200.setBackground(new java.awt.Color(255, 204, 204));
+        room200.setBackground(new java.awt.Color(255, 255, 255));
         room200.setLabel("200");
-        room200.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                room200MouseMoved(evt);
-            }
-        });
         room200.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 room200ActionPerformed(evt);
@@ -777,13 +774,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jPanel2.add(room200, new java.awt.GridBagConstraints());
 
-        room201.setBackground(new java.awt.Color(102, 153, 255));
+        room201.setBackground(new java.awt.Color(255, 255, 255));
         room201.setLabel("201");
-        room201.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                room201MouseMoved(evt);
-            }
-        });
         room201.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 room201ActionPerformed(evt);
@@ -791,13 +783,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jPanel2.add(room201, new java.awt.GridBagConstraints());
 
-        room202.setBackground(new java.awt.Color(153, 255, 153));
+        room202.setBackground(new java.awt.Color(255, 255, 255));
         room202.setLabel("202");
-        room202.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                room202MouseMoved(evt);
-            }
-        });
         room202.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 room202ActionPerformed(evt);
@@ -805,7 +792,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jPanel2.add(room202, new java.awt.GridBagConstraints());
 
-        room203.setBackground(new java.awt.Color(153, 255, 153));
+        room203.setBackground(new java.awt.Color(255, 255, 255));
         room203.setLabel("203");
         room203.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -814,13 +801,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jPanel2.add(room203, new java.awt.GridBagConstraints());
 
-        room204.setBackground(new java.awt.Color(153, 255, 153));
+        room204.setBackground(new java.awt.Color(255, 255, 255));
         room204.setLabel("204");
-        room204.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                room204MouseMoved(evt);
-            }
-        });
         room204.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 room204ActionPerformed(evt);
@@ -828,13 +810,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jPanel2.add(room204, new java.awt.GridBagConstraints());
 
-        room205.setBackground(new java.awt.Color(153, 255, 153));
+        room205.setBackground(new java.awt.Color(255, 255, 255));
         room205.setText("205");
-        room205.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                room205MouseMoved(evt);
-            }
-        });
         room205.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 room205ActionPerformed(evt);
@@ -845,13 +822,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel2.add(room205, gridBagConstraints);
 
-        room206.setBackground(new java.awt.Color(153, 255, 153));
+        room206.setBackground(new java.awt.Color(255, 255, 255));
         room206.setText("206");
-        room206.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                room206MouseMoved(evt);
-            }
-        });
         room206.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 room206ActionPerformed(evt);
@@ -862,13 +834,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel2.add(room206, gridBagConstraints);
 
-        room207.setBackground(new java.awt.Color(153, 255, 153));
+        room207.setBackground(new java.awt.Color(255, 255, 255));
         room207.setText("207");
-        room207.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                room207MouseMoved(evt);
-            }
-        });
         room207.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 room207ActionPerformed(evt);
@@ -974,49 +941,70 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Checkmark_16px.png"))); // NOI18N
 
+        jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Horizontal Line_25px.png"))); // NOI18N
+        jLabel50.setText("Not Available");
+
+        jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Horizontal Line_Blue_25px.png"))); // NOI18N
+        jLabel51.setText("Booked");
+
+        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Horizontal Line_Green_25px.png"))); // NOI18N
+        jLabel52.setText("Available");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(adults, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                    .addComponent(roomText, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(children))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(316, 316, 316))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(adults, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(roomText, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(children, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel50)
+                            .addComponent(jLabel51)))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel14)
-                        .addComponent(roomText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(adults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(children, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel50)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel52)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel51)
+                        .addGap(16, 16, 16))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel14)
+                                .addComponent(roomText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(adults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(children, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addGap(65, 65, 65))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -1046,7 +1034,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         guestNo.setText("Guest No*:");
 
-        jTextField6.setEditable(false);
+        guestId.setEditable(false);
 
         checkInButt.setMnemonic('C');
         checkInButt.setText("Check-In");
@@ -1121,7 +1109,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(guestId, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(sName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(fName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(title, javax.swing.GroupLayout.Alignment.LEADING, 0, 120, Short.MAX_VALUE))
@@ -1139,7 +1127,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guestNo)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(guestId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(titleLabel)
@@ -1361,7 +1349,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jCheckBox3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel13.setBackground(new java.awt.Color(202, 229, 250));
@@ -1525,7 +1513,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(checkinScreenLayout.createSequentialGroup()
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1788,7 +1776,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(homeScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(homeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dataTabPane)
+                    .addComponent(dataTabPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1066, Short.MAX_VALUE)
                     .addGroup(homeScreenLayout.createSequentialGroup()
                         .addComponent(currentGuest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2103,11 +2091,11 @@ public class MainFrame extends javax.swing.JFrame {
         layerPane.setLayout(layerPaneLayout);
         layerPaneLayout.setHorizontalGroup(
             layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1078, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE))
-            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+                .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1066, Short.MAX_VALUE))
+            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1078, Short.MAX_VALUE)
         );
         layerPaneLayout.setVerticalGroup(
             layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2125,7 +2113,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(layerPane)
                     .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(banner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+                    .addComponent(banner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1078, Short.MAX_VALUE)
                     .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -2148,6 +2136,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void dragBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dragBarMouseDragged
         // TODO add your handling code here:
+        
+        // Used to drag the JFrame around
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         
@@ -2244,37 +2234,40 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("200");
         c = room200.getBackground();
-        rep.checkRoomStatus(c);
+       int x = rep.checkRoomStatus(c);
+       setCheckRoomBoolean(x);
     }//GEN-LAST:event_room200ActionPerformed
 
     private void room202ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room202ActionPerformed
         // TODO add your handling code here:
         roomText.setText("202");
         c = room202.getBackground();
-        rep.checkRoomStatus(c);
-        
+        int x = rep.checkRoomStatus(c);   
+        setCheckRoomBoolean(x);
     }//GEN-LAST:event_room202ActionPerformed
 
     private void room204ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room204ActionPerformed
         // TODO add your handling code here:
         roomText.setText("204");
         c = room204.getBackground();
-        rep.checkRoomStatus(c);
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
     }//GEN-LAST:event_room204ActionPerformed
 
     private void room206ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room206ActionPerformed
         // TODO add your handling code here:
         roomText.setText("206");
         c = room206.getBackground();
-        System.out.print(c.toString());
-        rep.checkRoomStatus(c);
+        int x =rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
     }//GEN-LAST:event_room206ActionPerformed
 
     private void room205ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room205ActionPerformed
         // TODO add your handling code here:
         roomText.setText("205");
         c = room205.getBackground();
-        rep.checkRoomStatus(c);
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
        
     }//GEN-LAST:event_room205ActionPerformed
 
@@ -2442,18 +2435,29 @@ public class MainFrame extends javax.swing.JFrame {
     private void checkInButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInButtActionPerformed
         // TODO add your handling code here: 
        String roomType = "Single";
+       boolean allGood =true;
        if(Integer.parseInt(roomText.getText()) >= 200 && Integer.parseInt(roomText.getText()) <= 207){
        roomType = "Single";
        }
         // Check if fields are blank
-        if(fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  || (checkOutDate.getDate() == null)){
-            JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE);
+        if(fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
+                || (checkOutDate.getDate() == null) ){
+            JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE); 
+            allGood = false;
         }
-        else{  
+        if(!roomAvailable){
+             JOptionPane.showMessageDialog(null, "Room not available..", "Fills blank", JOptionPane.ERROR_MESSAGE);
+            allGood = false;
+        }
+        if(allGood){  
             Guest checkIn = new Guest((String)title.getSelectedItem(),
             fName.getText(),sName.getText(),address.getText(),
-            phone.getText(),email.getText(),(Integer)children.getValue(),(Integer)adults.getValue(),Integer.parseInt(roomText.getText()),checkInDate.getDate(),
+            phone.getText(),email.getText(),Integer.parseInt(roomText.getText()),checkInDate.getDate(),
             checkOutDate.getDate());
+            
+            Rooms room = new Rooms(Integer.valueOf(guestId.getText()),false,Integer.valueOf(roomText.getText()),(Integer)adults.getValue(),(Integer)children.getValue());
+            
+            // Show confirmation box
             int x = JOptionPane.showConfirmDialog(null, ("First Name: "+fName.getText()
                     +"\nSurname: "+sName.getText()
                     +"\nAddress: "+address.getText()
@@ -2464,9 +2468,11 @@ public class MainFrame extends javax.swing.JFrame {
                     +"\nCheck-Out: "+checkOutDate.getDate()
                     +"\n\n" ), "Check & Confim Details", JOptionPane.OK_CANCEL_OPTION);
             System.out.print("OPTION:"+x);
+         
             // If OK was selected...add guest to database
             if(x == 0){
                 rep.addGuest(checkIn);
+                rep.addRoom(room);
                 JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
                 updateGuestId(); 
                 clearGuestFields();
@@ -2527,56 +2533,21 @@ public class MainFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_dbStatusMouseClicked
 
-    private void room200MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room200MouseMoved
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_room200MouseMoved
-
-    private void room201MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room201MouseMoved
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_room201MouseMoved
-
-    private void room202MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room202MouseMoved
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_room202MouseMoved
-
-    private void room204MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room204MouseMoved
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_room204MouseMoved
-
-    private void room207MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room207MouseMoved
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_room207MouseMoved
-
-    private void room205MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room205MouseMoved
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_room205MouseMoved
-
-    private void room206MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_room206MouseMoved
-        // TODO add your handling code here:
-      
-    }//GEN-LAST:event_room206MouseMoved
-
     private void room207ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room207ActionPerformed
         // TODO add your handling code here:
         roomText.setText("207");
         c = room207.getBackground();
-        rep.checkRoomStatus(c);
- 
-//        int x = rep.checkRoomStatus(207);
-//        setRoomButtonColor(x,room207);
+       int x =  rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
     }//GEN-LAST:event_room207ActionPerformed
 
     private void room203ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room203ActionPerformed
         // TODO add your handling code here:
         roomText.setText("203");   
         c = room203.getBackground();
-        rep.checkRoomStatus(c);
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        System.out.print("BOOL:"+x);
         
     }//GEN-LAST:event_room203ActionPerformed
 
@@ -2584,7 +2555,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("201");
         c = room201.getBackground();
-        rep.checkRoomStatus(c);
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
     }//GEN-LAST:event_room201ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -2654,6 +2626,22 @@ public class MainFrame extends javax.swing.JFrame {
         flag2 = false;
         }
     }
+    
+    // Set the boolean used in guest checkin
+    public void setCheckRoomBoolean(int x){
+     switch(x){
+            case 1:
+                roomAvailable = true;
+                break;
+            case 2:
+                roomAvailable = false;
+                break;
+            case 3:
+                roomBooked = true;
+                break;
+        }
+    }
+    // Refresh the guest id on check in page
     public void updateGuestId(){
     
         try{
@@ -2667,26 +2655,15 @@ public class MainFrame extends javax.swing.JFrame {
             checkInButt.setEnabled(true);
             }
         
-        jTextField6.setText(""+id.getId());
+        guestId.setText(""+id.getId());
         }
         catch(Exception e){
         System.out.print("Error updating id..");
         }
     }
-    public void setRoomButtonColor(int x,javax.swing.JButton but){
-    
-        switch (x) {
-            case 1:
-                but.setBackground(new Color(102,156,255));
-                break;
-            case 2:
-                but.setBackground(Color.pink);
-                break;
-            default:
-                but.setBackground(new Color(102,255,102));
-                break;
-        }
-    }
+    // This method takes in a hash map from the RoomStatus class,
+    // and keeps getting called in the thread created every 5 sec's.
+    // It will set the correct colors for the room jButtons
     public static void setRoomButtons(HashMap<Integer,Boolean> room){
         
       Component c[] = jPanel2.getComponents();
@@ -2758,6 +2735,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField fName;
     private javax.swing.JLabel fNameLablel;
     private javax.swing.JPanel footer;
+    private javax.swing.JTextField guestId;
     private javax.swing.JLabel guestNo;
     private javax.swing.JTable guestTable;
     private javax.swing.JLabel homeIcon;
@@ -2833,6 +2811,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2895,7 +2876,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
@@ -2935,6 +2915,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel topPanel;
     private javax.swing.JRadioButton visaRad;
     // End of variables declaration//GEN-END:variables
-    private static JButton[] but = {room200,room201,room202,room203,room204,room207,room205,room206};
+
 
 }
