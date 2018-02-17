@@ -45,7 +45,6 @@ public class Rooms {
     public int getChildren() {
         return children;
     }
-    
     public boolean getBooked(){
     return booked;
     }
