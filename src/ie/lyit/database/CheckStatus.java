@@ -38,13 +38,15 @@ public class CheckStatus extends Thread{
             user = "root";
             pass = "password";
             myConn = DriverManager.getConnection("jdbc:mysql://"+database, user, pass);
-            System.out.print("Thread running...\nTime Stamp:["+currentStamp+"]\n");
-            sleep(3000);
+            System.out.print("\n--------------------------------------------------------------");
+            System.out.print("\n[Thread 1:] Server check...Success!  ==> Time Stamp:["+currentStamp+"]\n");
+            System.out.print("--------------------------------------------------------------\n");
+            sleep(5000);
             // Pass in flag to change icon on footer
             frame.setStatus(running);
         }
         catch(Exception e){
-        System.out.print("Server ping stopped..\nServer must be down...!!\n");
+        System.out.print("Server ping stopped...\nServer must be down...!!\n");
         // Break out of loop if cant connect
         running = false;
         frame.setStatus(running);
