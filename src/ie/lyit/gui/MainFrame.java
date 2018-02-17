@@ -61,8 +61,7 @@ public class MainFrame extends javax.swing.JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/TaskBar_104px.png")));
         // Start our threads
         thread1.start();
-        rs.start();
-        
+        rs.start();      
         // Initilizise JFrame & components
         initComponents();  
     }
@@ -156,7 +155,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkInDate = new com.toedter.calendar.JDateChooser();
         checkOutDate = new com.toedter.calendar.JDateChooser();
         guestNo = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        guestId = new javax.swing.JTextField();
         checkInButt = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
         bookButt = new javax.swing.JButton();
@@ -369,12 +368,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(checkInIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(checkInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         checkPanelLayout.setVerticalGroup(
             checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(checkPanelLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkInIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -468,7 +467,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkOutPanelLayout.setVerticalGroup(
             checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checkOutPanelLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkOutIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkOutLab, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -990,10 +989,11 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jLabel51)
                         .addGap(16, 16, 16))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(roomText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel14)
+                                .addComponent(roomText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
@@ -1034,7 +1034,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         guestNo.setText("Guest No*:");
 
-        jTextField6.setEditable(false);
+        guestId.setEditable(false);
 
         checkInButt.setMnemonic('C');
         checkInButt.setText("Check-In");
@@ -1109,7 +1109,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(guestId, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(sName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(fName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(title, javax.swing.GroupLayout.Alignment.LEADING, 0, 120, Short.MAX_VALUE))
@@ -1127,7 +1127,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guestNo)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(guestId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(titleLabel)
@@ -1898,7 +1898,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(jLabel37)
                             .addComponent(jLabel40)
                             .addComponent(jLabel41))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2024,7 +2024,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel48)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                         .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -2091,11 +2091,11 @@ public class MainFrame extends javax.swing.JFrame {
         layerPane.setLayout(layerPaneLayout);
         layerPaneLayout.setHorizontalGroup(
             layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1078, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1066, Short.MAX_VALUE))
-            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1078, Short.MAX_VALUE)
         );
         layerPaneLayout.setVerticalGroup(
             layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2113,7 +2113,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(layerPane)
                     .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(banner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+                    .addComponent(banner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1078, Short.MAX_VALUE)
                     .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -2452,8 +2452,12 @@ public class MainFrame extends javax.swing.JFrame {
         if(allGood){  
             Guest checkIn = new Guest((String)title.getSelectedItem(),
             fName.getText(),sName.getText(),address.getText(),
-            phone.getText(),email.getText(),(Integer)children.getValue(),(Integer)adults.getValue(),Integer.parseInt(roomText.getText()),checkInDate.getDate(),
+            phone.getText(),email.getText(),Integer.parseInt(roomText.getText()),checkInDate.getDate(),
             checkOutDate.getDate());
+            
+            Rooms room = new Rooms(Integer.valueOf(guestId.getText()),false,Integer.valueOf(roomText.getText()),(Integer)adults.getValue(),(Integer)children.getValue());
+            
+            // Show confirmation box
             int x = JOptionPane.showConfirmDialog(null, ("First Name: "+fName.getText()
                     +"\nSurname: "+sName.getText()
                     +"\nAddress: "+address.getText()
@@ -2464,9 +2468,11 @@ public class MainFrame extends javax.swing.JFrame {
                     +"\nCheck-Out: "+checkOutDate.getDate()
                     +"\n\n" ), "Check & Confim Details", JOptionPane.OK_CANCEL_OPTION);
             System.out.print("OPTION:"+x);
+         
             // If OK was selected...add guest to database
             if(x == 0){
                 rep.addGuest(checkIn);
+                rep.addRoom(room);
                 JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
                 updateGuestId(); 
                 clearGuestFields();
@@ -2649,7 +2655,7 @@ public class MainFrame extends javax.swing.JFrame {
             checkInButt.setEnabled(true);
             }
         
-        jTextField6.setText(""+id.getId());
+        guestId.setText(""+id.getId());
         }
         catch(Exception e){
         System.out.print("Error updating id..");
@@ -2729,6 +2735,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField fName;
     private javax.swing.JLabel fNameLablel;
     private javax.swing.JPanel footer;
+    private javax.swing.JTextField guestId;
     private javax.swing.JLabel guestNo;
     private javax.swing.JTable guestTable;
     private javax.swing.JLabel homeIcon;
@@ -2869,7 +2876,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
