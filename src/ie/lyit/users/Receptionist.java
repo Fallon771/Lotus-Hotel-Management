@@ -130,10 +130,13 @@ public class Receptionist implements DBConnections{
        int roomNo = room.getRoomNum();
        int guestNo = room.getId();
        int adults = room.getAdults();
+       boolean booked = room.getBooked();
        int children = room.getChildren();
+       
+       int book = (booked) ? 1:0;
       
         String sql = "INSERT INTO `rooms` (`id`,`booked`,`roomno`,`adults`,`children`) VALUES "
-                + "('"+guestNo+"','0', '"+roomNo+"', '"+adults+"', '"+children+"');";
+                + "('"+guestNo+"','"+book+"', '"+roomNo+"', '"+adults+"', '"+children+"');";
         
            try{
                conn.queryDatabase(sql);
@@ -159,10 +162,5 @@ public class Receptionist implements DBConnections{
     public void displayRooms() {
            
     }
-    
-    @Override
-    public void bookRoom() {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-    
+     
 }
