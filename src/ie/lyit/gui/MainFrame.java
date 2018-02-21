@@ -298,7 +298,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel47 = new javax.swing.JLabel();
         jTextField30 = new javax.swing.JTextField();
         jLabel48 = new javax.swing.JLabel();
-        CheckOutScreen = new javax.swing.JPanel();
+        checkOutScreen = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         CheckOutViaRoomNo = new javax.swing.JPanel();
         jLabel53 = new javax.swing.JLabel();
@@ -402,12 +402,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(checkInIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(checkInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         checkPanelLayout.setVerticalGroup(
             checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(checkPanelLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkInIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -501,7 +501,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkOutPanelLayout.setVerticalGroup(
             checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checkOutPanelLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkOutIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkOutLab, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1602,7 +1602,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(checkinScreenLayout.createSequentialGroup()
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2006,7 +2006,7 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel40)
                                     .addComponent(jLabel41)
                                     .addComponent(Children))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tfChildren)
                                     .addComponent(tfID)
@@ -2071,7 +2071,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(tfCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         searchRoom.setBackground(new java.awt.Color(255, 255, 255));
@@ -2139,7 +2139,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel48)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                         .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -2251,7 +2251,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel55)
                     .addComponent(jLabel56)
                     .addComponent(jLabel57))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
                     .addComponent(jTextField3)
@@ -2302,31 +2302,31 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jToggleButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout CheckOutScreenLayout = new javax.swing.GroupLayout(CheckOutScreen);
-        CheckOutScreen.setLayout(CheckOutScreenLayout);
-        CheckOutScreenLayout.setHorizontalGroup(
-            CheckOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CheckOutScreenLayout.createSequentialGroup()
-                .addGroup(CheckOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout checkOutScreenLayout = new javax.swing.GroupLayout(checkOutScreen);
+        checkOutScreen.setLayout(checkOutScreenLayout);
+        checkOutScreenLayout.setHorizontalGroup(
+            checkOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(checkOutScreenLayout.createSequentialGroup()
+                .addGroup(checkOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CheckOutViaRoomNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(79, 79, 79)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        CheckOutScreenLayout.setVerticalGroup(
-            CheckOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CheckOutScreenLayout.createSequentialGroup()
-                .addGroup(CheckOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CheckOutScreenLayout.createSequentialGroup()
+        checkOutScreenLayout.setVerticalGroup(
+            checkOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(checkOutScreenLayout.createSequentialGroup()
+                .addGroup(checkOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(checkOutScreenLayout.createSequentialGroup()
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CheckOutViaRoomNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(CheckOutScreenLayout.createSequentialGroup()
+                    .addGroup(checkOutScreenLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -2335,21 +2335,21 @@ public class MainFrame extends javax.swing.JFrame {
         layerPane.setLayer(checkinScreen, javax.swing.JLayeredPane.POPUP_LAYER);
         layerPane.setLayer(homeScreen, javax.swing.JLayeredPane.DRAG_LAYER);
         layerPane.setLayer(searchScreen, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layerPane.setLayer(CheckOutScreen, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layerPane.setLayer(checkOutScreen, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layerPaneLayout = new javax.swing.GroupLayout(layerPane);
         layerPane.setLayout(layerPaneLayout);
         layerPaneLayout.setHorizontalGroup(
             layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
+            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1070, Short.MAX_VALUE))
-            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
+            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layerPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(CheckOutScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkOutScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layerPaneLayout.setVerticalGroup(
@@ -2360,7 +2360,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layerPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(CheckOutScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkOutScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -2373,7 +2373,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(layerPane)
                     .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(banner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
+                    .addComponent(banner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE)
                     .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -2532,7 +2532,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkinScreen.setVisible(false);
          homeScreen.setVisible(false);
          searchScreen.setVisible(false);
-         CheckOutScreen.setVisible(true);
+         checkOutScreen.setVisible(true);
          bannerTitle.setText("Check Out");
     }//GEN-LAST:event_checkOutPanelMouseClicked
 
@@ -2638,54 +2638,13 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void bookButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtActionPerformed
         // TODO add your handling code here:
+             checkValidInput(true);
+        
     }//GEN-LAST:event_bookButtActionPerformed
 
     private void checkInButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInButtActionPerformed
         // TODO add your handling code here: 
-       String roomType = "Single";
-       boolean allGood =true;
-       if(Integer.parseInt(roomText.getText()) >= 200 && Integer.parseInt(roomText.getText()) <= 207){
-       roomType = "Single";
-       }
-        // Check if fields are blank
-        if(roomText.equals("") || fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
-                || (checkOutDate.getDate() == null) ){
-            JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE); 
-            allGood = false;
-        }
-        if(!roomAvailable){
-             JOptionPane.showMessageDialog(null, "Room not available..", "Fills blank", JOptionPane.ERROR_MESSAGE);
-            allGood = false;
-        }
-        if(allGood){  
-            Guest checkIn = new Guest((String)title.getSelectedItem(),
-            fName.getText(),sName.getText(),address.getText(),
-            phone.getText(),email.getText(),Integer.parseInt(roomText.getText()),checkInDate.getDate(),
-            checkOutDate.getDate());
-            
-            Rooms room = new Rooms(Integer.valueOf(guestId.getText()),false,Integer.valueOf(roomText.getText()),(Integer)adults.getValue(),(Integer)children.getValue());
-            
-            // Show confirmation box
-            int x = JOptionPane.showConfirmDialog(null, ("First Name: "+fName.getText()
-                    +"\nSurname: "+sName.getText()
-                    +"\nAddress: "+address.getText()
-                    +"\nPhone: " +phone.getText()
-                    +"\nEmail: "+email.getText()
-                    +"\n\n-------------------------------\n"
-                    +"\nCheck-In: "+checkInDate.getDate()
-                    +"\nCheck-Out: "+checkOutDate.getDate()
-                    +"\n\n" ), "Check & Confim Details", JOptionPane.OK_CANCEL_OPTION);
-            System.out.print("OPTION:"+x);
-         
-            // If OK was selected...add guest to database
-            if(x == 0){
-                rep.addGuest(checkIn);
-                rep.addRoom(room);
-                JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
-                updateGuestId(); 
-                clearGuestFields();
-            }
-         }              
+              checkValidInput(false);
     }//GEN-LAST:event_checkInButtActionPerformed
     
     private void sqlTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sqlTestActionPerformed
@@ -2941,15 +2900,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_findGuestActionPerformed
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
     }
@@ -3009,6 +2959,57 @@ public class MainFrame extends javax.swing.JFrame {
         flag2 = false;
         }
     }
+    
+   public void checkValidInput(boolean booking){
+    String roomType = "Single";
+       boolean allGood =true;
+       
+       
+        // Check if fields are blank
+        System.out.print(roomText.getText());
+        if(roomText.getText().equals("") || fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
+                || (checkOutDate.getDate() == null) ){
+            JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE); 
+            allGood = false;
+            
+        }
+        if(!roomAvailable){
+            JOptionPane.showMessageDialog(null, "Room not available..", "Fills blank", JOptionPane.ERROR_MESSAGE);
+            allGood = false;
+        }
+        else if(allGood){  
+            
+            Guest checkIn = new Guest((String)title.getSelectedItem(),
+            fName.getText(),sName.getText(),address.getText(),
+            phone.getText(),email.getText(),Integer.parseInt(roomText.getText()),checkInDate.getDate(),
+            checkOutDate.getDate());
+            
+            Rooms room = new Rooms(Integer.valueOf(guestId.getText()),booking,Integer.valueOf(roomText.getText()),(Integer)adults.getValue(),(Integer)children.getValue());
+            
+            // Show confirmation box
+            int x = JOptionPane.showConfirmDialog(null, ("First Name: "+fName.getText()
+                    +"\nSurname: "+sName.getText()
+                    +"\nAddress: "+address.getText()
+                    +"\nPhone: " +phone.getText()
+                    +"\nEmail: "+email.getText()
+                    +"\n\n-------------------------------\n"
+                    +"\nCheck-In: "+checkInDate.getDate()
+                    +"\nCheck-Out: "+checkOutDate.getDate()
+                    +"\n\n" ), "Check & Confim Details", JOptionPane.OK_CANCEL_OPTION);
+            System.out.print("OPTION:"+x);
+         
+            // If OK was selected...add guest to database
+            if(x == 0){
+                rep.addGuest(checkIn);
+               
+                    rep.addRoom(room);
+                   
+                JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
+                updateGuestId(); 
+                clearGuestFields();
+            }
+         }       
+   }
     
     // Set the boolean used in guest checkin
     public void setCheckRoomBoolean(int x){
@@ -3123,7 +3124,6 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel CheckOutScreen;
     private javax.swing.JPanel CheckOutViaRoomNo;
     private javax.swing.JLabel Children;
     private javax.swing.JButton addCard;
@@ -3145,6 +3145,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel checkOutIcon1;
     private javax.swing.JLabel checkOutLab;
     private javax.swing.JPanel checkOutPanel;
+    private javax.swing.JPanel checkOutScreen;
     private javax.swing.JPanel checkPanel;
     private javax.swing.JPanel checkinScreen;
     private javax.swing.JSpinner children;
