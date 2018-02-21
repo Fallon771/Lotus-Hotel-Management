@@ -43,11 +43,14 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables
     int xMouse;
     int yMouse;
+    int test;
     double xScreen;
     double yScreen;
     static boolean flag2 = true;
     boolean fetched = false;
     boolean roomAvailable,roomBooked;
+    
+    
     
     //Instances
     Connect conn = new Connect();
@@ -2783,6 +2786,7 @@ public class MainFrame extends javax.swing.JFrame {
         c = room205.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
+        test = 2;
         updateCheckMark(x);
 
     }//GEN-LAST:event_room205ActionPerformed
@@ -2973,10 +2977,14 @@ public class MainFrame extends javax.swing.JFrame {
             allGood = false;
             
         }
-        if(!roomAvailable){
+        if(!roomAvailable && test == 0){
             JOptionPane.showMessageDialog(null, "Room not available..", "Fills blank", JOptionPane.ERROR_MESSAGE);
             allGood = false;
         }
+//        if(!roomAvailable && test == 1){
+//            JOptionPane.showMessageDialog(null, "Can book!!..", "Fills blank", JOptionPane.ERROR_MESSAGE);
+//            allGood = true;
+//        }
         else if(allGood){  
             
             Guest checkIn = new Guest((String)title.getSelectedItem(),
@@ -3002,7 +3010,7 @@ public class MainFrame extends javax.swing.JFrame {
             if(x == 0){
                 rep.addGuest(checkIn);
                
-                    rep.addRoom(room);
+                rep.addRoom(room);
                    
                 JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
                 updateGuestId(); 
@@ -3016,12 +3024,15 @@ public class MainFrame extends javax.swing.JFrame {
      switch(x){
             case 1:
                 roomAvailable = true;
+                test = 0;
                 break;
             case 2:
                 roomAvailable = false;
+                test = 0;
                 break;
             case 3:
                 roomBooked = true;
+                test = 1;
                 break;
         }
     }

@@ -6,6 +6,7 @@
 package ie.lyit.users;
 import ie.lyit.database.Connect;
 import ie.lyit.database.DBConnections;
+import ie.lyit.gui.BookingPopup;
 import ie.lyit.hotel.Rooms;
 import java.awt.Color;
 import java.sql.Connection;
@@ -24,6 +25,7 @@ public class Receptionist implements DBConnections{
     private String sName;
     private String emailAddress;
     private int id;
+    BookingPopup popup;
    
     Connect conn =new Connect();
     DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -121,7 +123,9 @@ public class Receptionist implements DBConnections{
                 JOptionPane.showMessageDialog(null, "Room Not Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
                 return 2;
             default:
-                JOptionPane.showMessageDialog(null, "Room Booked..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+               // JOptionPane.showMessageDialog(null, "Room Booked..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+               popup = new BookingPopup();
+               popup.setVisible(true);
                 return 3;
         }          
     }
