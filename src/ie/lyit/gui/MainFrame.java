@@ -405,12 +405,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(checkInIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(checkInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         checkPanelLayout.setVerticalGroup(
             checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(checkPanelLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkInIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -504,7 +504,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkOutPanelLayout.setVerticalGroup(
             checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checkOutPanelLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkOutIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkOutLab, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1605,7 +1605,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(checkinScreenLayout.createSequentialGroup()
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1669,7 +1669,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton10)
-                .addGap(0, 866, Short.MAX_VALUE))
+                .addGap(0, 754, Short.MAX_VALUE))
             .addComponent(jScrollPane2)
         );
         jPanel8Layout.setVerticalGroup(
@@ -1690,7 +1690,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1057, Short.MAX_VALUE)
+            .addGap(0, 947, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1703,7 +1703,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1057, Short.MAX_VALUE)
+            .addGap(0, 947, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1868,7 +1868,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(homeScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(homeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dataTabPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1070, Short.MAX_VALUE)
+                    .addComponent(dataTabPane, javax.swing.GroupLayout.DEFAULT_SIZE, 952, Short.MAX_VALUE)
                     .addGroup(homeScreenLayout.createSequentialGroup()
                         .addComponent(currentGuest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2009,7 +2009,7 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel40)
                                     .addComponent(jLabel41)
                                     .addComponent(Children))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                                 .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tfChildren)
                                     .addComponent(tfID)
@@ -2074,7 +2074,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(tfCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         searchRoom.setBackground(new java.awt.Color(255, 255, 255));
@@ -2142,7 +2142,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel48)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                         .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -2189,7 +2189,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(searchGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(searchRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         searchScreenLayout.setVerticalGroup(
             searchScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2347,7 +2347,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1070, Short.MAX_VALUE))
+                .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE))
             .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layerPaneLayout.createSequentialGroup()
@@ -2656,7 +2656,8 @@ public class MainFrame extends javax.swing.JFrame {
          DefaultTableModel model = (DefaultTableModel)guestTable.getModel();
          
          try{
-         list = display.displayGuestTable();
+         String sql ="SELECT * FROM guest";
+         list = display.displayGuestTable(sql);
          Object[] row = new Object[9];
          for(int i=0;i<list.size();i++){
             row [0] = list.get(i).getId();
@@ -3056,6 +3057,9 @@ public class MainFrame extends javax.swing.JFrame {
         System.out.print("Error updating id..");
         }
     }
+    public static String getCurrentRoomNo(){
+    return roomText.getText();
+    }
     // This method takes in a hash map from the RoomStatus class,
     // and keeps getting called in the thread created every 5 sec's.
     // It will set the correct colors for the room jButtons
@@ -3343,7 +3347,7 @@ public class MainFrame extends javax.swing.JFrame {
     private static javax.swing.JButton room211;
     private javax.swing.JPanel roomInfo;
     private static javax.swing.JTabbedPane roomTab;
-    private javax.swing.JTextField roomText;
+    private static javax.swing.JTextField roomText;
     private javax.swing.JTextField sName;
     private javax.swing.JLabel sNameLabel;
     private javax.swing.JPanel searchGuest;
