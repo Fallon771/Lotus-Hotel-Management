@@ -33,6 +33,7 @@ public class CheckStatus extends Thread{
         System.out.print("Started at: ["+startStamp+"]\n");
         while(running)
         try{
+            sleep(2000);
             currentStamp = new SimpleDateFormat("HH.mm.ss").format(new Date());
             // Try connect to database...
             user = "root";
@@ -41,7 +42,6 @@ public class CheckStatus extends Thread{
             System.out.print("\n--------------------------------------------------------------");
             System.out.print("\n[Thread 1:] Server check...Success!  ==> Time Stamp:["+currentStamp+"]\n");
             System.out.print("--------------------------------------------------------------\n");
-            sleep(5000);
             // Pass in flag to change icon on footer
             frame.setStatus(running);
         }
