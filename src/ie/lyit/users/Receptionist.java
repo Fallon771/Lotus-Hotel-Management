@@ -126,7 +126,8 @@ public class Receptionist implements DBConnections{
                // JOptionPane.showMessageDialog(null, "Room Booked..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
                popup = new BookingPopup();
                popup.setVisible(true);
-                return 3;
+               popup.displayRoomTable();
+               return 3;
         }          
     }
     public void addRoom(Rooms room){
