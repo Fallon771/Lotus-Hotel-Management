@@ -30,7 +30,7 @@ public class DisplayTables {
         Guest guest;
         ArrayList<Guest> list = new ArrayList<>();
         
-        public ArrayList<Guest> displayGuestTable() throws SQLException{
+        public ArrayList<Guest> displayGuestTable(String sql) throws SQLException{
         // int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout
         Date date;
              try {
@@ -41,7 +41,7 @@ public class DisplayTables {
             myStmt = myConn.createStatement();
 
             // 3. Execute SQL query
-            myRs = myStmt.executeQuery("select * from guest");
+            myRs = myStmt.executeQuery(sql);
 
             // 4. Process the result set
             while (myRs.next()) {
@@ -72,7 +72,8 @@ public class DisplayTables {
             }
         }  
              return list;
-    }  
+    }   
+        
     
     // Pass in sql string to add a guest
     public void addGuest(String sql)throws SQLException{
