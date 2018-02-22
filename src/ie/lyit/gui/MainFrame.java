@@ -2072,6 +2072,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel42.setText("Room No.");
 
         btnSearchRoom.setText("Search Room");
+        btnSearchRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchRoomActionPerformed(evt);
+            }
+        });
 
         jLabel43.setText("Availability:");
 
@@ -2940,6 +2945,57 @@ public class MainFrame extends javax.swing.JFrame {
 
             }
         }
+       catch(Exception e){
+            System.out.print("Guest not found!");
+            JOptionPane.showMessageDialog(null, "Error finding guest in database!", "Error", JOptionPane.ERROR_MESSAGE);
+        }   
+        
+        
+        finally{
+            try {
+                conn.close();
+                pstmt.close();
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                System.out.print(e.getMessage());
+            }
+        }
+        
+        
+    }//GEN-LAST:event_tfCostActionPerformed
+
+    private void btnSearchRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchRoomActionPerformed
+
+        Connection conn=null;
+        PreparedStatement pstmt=null;
+        ResultSet rs = null;
+        String user = "root";
+        String pass = "password";
+      
+
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn=DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
+            pstmt = conn.prepareStatement("select * from guest, rooms where guest.id = rooms.id AND rooms.roomno=?");
+
+            pstmt.setString(1, roomNo.getText());
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){
+                
+                tfAvailability.setText(rs.getString("booked"));
+                String roomType = (String)jComboBox2.getSelectedItem();
+                tfRoomType.setText(roomType);
+                tfBooked.setText(rs.getString("fname"));
+     
+                tfAvailable.setText(rs.getString("checkout"));
+                
+
+            }
+        }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
@@ -2953,9 +3009,9 @@ public class MainFrame extends javax.swing.JFrame {
             {
             }
         }
+
         
-        
-    }//GEN-LAST:event_tfCostActionPerformed
+    }//GEN-LAST:event_btnSearchRoomActionPerformed
 
     
     

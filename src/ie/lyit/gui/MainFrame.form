@@ -3225,6 +3225,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Search Room"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchRoomActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel43">
                   <Properties>
