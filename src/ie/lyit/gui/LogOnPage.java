@@ -42,7 +42,6 @@ public class LogOnPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Log On Screen");
-        setAlwaysOnTop(true);
         setPreferredSize(new java.awt.Dimension(470, 285));
         setResizable(false);
 
@@ -144,7 +143,7 @@ public class LogOnPage extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -156,6 +155,7 @@ public class LogOnPage extends javax.swing.JFrame {
         //check for correct details when "Log-In" button is pressed
        
         //String.valueOf(password.getPassword()).equals("pass"))
+        
         if(username.getText().equals("admin") && password.getText().equals("pass")){
             dispose();
             frame = new MainFrame();
