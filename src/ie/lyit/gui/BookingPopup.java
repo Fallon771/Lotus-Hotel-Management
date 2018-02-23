@@ -38,7 +38,7 @@ public class BookingPopup extends javax.swing.JFrame {
          room = roomNumber.getText();
          String secondPart = room.substring(5,8);
          System.out.print(secondPart);
-         String time = new SimpleDateFormat("EEE d MMM yyyy   K:mm a").format(Calendar.getInstance().getTime());
+         String time = new SimpleDateFormat("EEE d MMM yyyy   h:mm a").format(Calendar.getInstance().getTime());
          timeStamp.setText(time);
         
          ArrayList<Guest> list;
