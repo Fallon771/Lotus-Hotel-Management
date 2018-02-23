@@ -216,7 +216,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkInIcon" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkInLabel" min="-2" pref="40" max="-2" attributes="0"/>
@@ -368,7 +368,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkOutIcon1" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkOutLab" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
@@ -792,7 +792,7 @@
                               <Component id="jPanel13" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="12" pref="28" max="32767" attributes="0"/>
+                      <EmptySpace min="12" pref="29" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2967,7 +2967,7 @@
                               <Component id="jLabel38" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfCheckin" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="100" max="32767" attributes="0"/>
+                          <EmptySpace pref="79" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3165,7 +3165,7 @@
                                   <Component id="roomNo" min="-2" pref="156" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="74" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="btnSearchRoom" min="-2" pref="125" max="-2" attributes="0"/>
                               </Group>
                           </Group>

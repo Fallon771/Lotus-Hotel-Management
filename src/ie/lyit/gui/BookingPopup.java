@@ -12,8 +12,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
-import ie.lyit.database.RemoveGuest;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,7 +32,6 @@ public class BookingPopup extends javax.swing.JFrame {
     }
     
     public void displayRoomTable(){
-         
          room = roomNumber.getText();
          String secondPart = room.substring(5,8);
          System.out.print(secondPart);
@@ -42,7 +39,6 @@ public class BookingPopup extends javax.swing.JFrame {
          timeStamp.setText(time);
         
          ArrayList<Guest> list;
-
          DefaultTableModel model = (DefaultTableModel)bookingTable.getModel();
          
          try{
@@ -88,7 +84,6 @@ public class BookingPopup extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         bookingTable = new javax.swing.JTable();
-        canelBooking = new javax.swing.JButton();
 
         setTitle("Booking");
         setResizable(false);
@@ -126,7 +121,7 @@ public class BookingPopup extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, 0)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 366, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(roomNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(99, 99, 99)
@@ -176,37 +171,27 @@ public class BookingPopup extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        bookingTable.setGridColor(new java.awt.Color(0, 51, 153));
-        bookingTable.setSelectionBackground(new java.awt.Color(102, 255, 102));
         jScrollPane2.setViewportView(bookingTable);
-
-        canelBooking.setText("Cancel Booking");
-        canelBooking.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                canelBookingActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(canelBooking)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addGap(0, 629, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(canelBooking))
+            .addGap(0, 174, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,8 +206,7 @@ public class BookingPopup extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -233,39 +217,6 @@ public class BookingPopup extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_formWindowClosing
-
-    private void canelBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canelBookingActionPerformed
-        // TODO add your handling code here:
-         RemoveGuest remove = new RemoveGuest();
-        // Get the guest number when user clicks on row
-        int row = bookingTable.getSelectedRow();
-        String value = bookingTable.getModel().getValueAt(row, 0).toString();
-        String sql = "DELETE FROM `guest` WHERE id = '"+value+"'";
-        int x = JOptionPane.showConfirmDialog(null, "Are you sure you wish to remove this booking?\n"
-                + "Guest Number:"
-                + value, "Cancel booking", JOptionPane.OK_CANCEL_OPTION);
-        System.out.print("Selceted:: "+x);
-        
-        // If user selected OK,remove guest.
-        if(x == 0){
-            try{
-                remove.removeGuest(sql);
-               }
-            catch(Exception e){
-                System.out.print(e.getMessage());
-                }
-        }   
-        // Update table by clearing and getting updated entries
-       
-         DefaultTableModel dm = (DefaultTableModel) bookingTable.getModel();
-         dm.setRowCount(0);
-         while(dm.getRowCount() > 0)
-         {
-                dm.removeRow(0);
-         }
-         repaint();
-         displayRoomTable();
-    }//GEN-LAST:event_canelBookingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,7 +256,6 @@ public class BookingPopup extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JTable bookingTable;
-    private javax.swing.JButton canelBooking;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
