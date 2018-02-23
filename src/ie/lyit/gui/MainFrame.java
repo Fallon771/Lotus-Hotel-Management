@@ -301,7 +301,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel47 = new javax.swing.JLabel();
         jTextField30 = new javax.swing.JTextField();
         jLabel48 = new javax.swing.JLabel();
-        CheckOutScreen = new javax.swing.JPanel();
+        checkOutScreen = new javax.swing.JPanel();
         CheckOutViaRoomNo = new javax.swing.JPanel();
         jLabel53 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -1604,7 +1604,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(checkinScreenLayout.createSequentialGroup()
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2200,8 +2200,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        CheckOutScreen.setBackground(new java.awt.Color(255, 255, 255));
-        CheckOutScreen.setPreferredSize(new java.awt.Dimension(968, 406));
+        checkOutScreen.setBackground(new java.awt.Color(255, 255, 255));
+        checkOutScreen.setPreferredSize(new java.awt.Dimension(968, 406));
 
         CheckOutViaRoomNo.setBackground(new java.awt.Color(255, 255, 255));
         CheckOutViaRoomNo.setBorder(javax.swing.BorderFactory.createTitledBorder("Checkout"));
@@ -2314,25 +2314,25 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(101, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout CheckOutScreenLayout = new javax.swing.GroupLayout(CheckOutScreen);
-        CheckOutScreen.setLayout(CheckOutScreenLayout);
-        CheckOutScreenLayout.setHorizontalGroup(
-            CheckOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CheckOutScreenLayout.createSequentialGroup()
+        javax.swing.GroupLayout checkOutScreenLayout = new javax.swing.GroupLayout(checkOutScreen);
+        checkOutScreen.setLayout(checkOutScreenLayout);
+        checkOutScreenLayout.setHorizontalGroup(
+            checkOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(checkOutScreenLayout.createSequentialGroup()
                 .addComponent(CheckOutViaRoomNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        CheckOutScreenLayout.setVerticalGroup(
-            CheckOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CheckOutScreenLayout.createSequentialGroup()
-                .addGroup(CheckOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CheckOutScreenLayout.createSequentialGroup()
+        checkOutScreenLayout.setVerticalGroup(
+            checkOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(checkOutScreenLayout.createSequentialGroup()
+                .addGroup(checkOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(checkOutScreenLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(CheckOutViaRoomNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(CheckOutScreenLayout.createSequentialGroup()
+                    .addGroup(checkOutScreenLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -2341,7 +2341,7 @@ public class MainFrame extends javax.swing.JFrame {
         layerPane.setLayer(checkinScreen, javax.swing.JLayeredPane.POPUP_LAYER);
         layerPane.setLayer(homeScreen, javax.swing.JLayeredPane.DRAG_LAYER);
         layerPane.setLayer(searchScreen, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layerPane.setLayer(CheckOutScreen, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layerPane.setLayer(checkOutScreen, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layerPaneLayout = new javax.swing.GroupLayout(layerPane);
         layerPane.setLayout(layerPaneLayout);
@@ -2355,7 +2355,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layerPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(CheckOutScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkOutScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layerPaneLayout.setVerticalGroup(
@@ -2366,7 +2366,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layerPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(CheckOutScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkOutScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -3255,7 +3255,6 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel CheckOutScreen;
     private javax.swing.JPanel CheckOutViaRoomNo;
     private javax.swing.JLabel Children;
     private javax.swing.JButton addCard;
@@ -3277,6 +3276,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel checkOutIcon1;
     private javax.swing.JLabel checkOutLab;
     private javax.swing.JPanel checkOutPanel;
+    private javax.swing.JPanel checkOutScreen;
     private javax.swing.JPanel checkPanel;
     private javax.swing.JPanel checkinScreen;
     private javax.swing.JSpinner children;
