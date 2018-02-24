@@ -1124,6 +1124,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         checkOutDate.setDateFormatString("yyyy-MM-dd");
         checkOutDate.setMinSelectableDate(new Date());
+        checkOutDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                checkOutDatePropertyChange(evt);
+            }
+        });
 
         guestNo.setText("Guest No*:");
 
@@ -3056,6 +3061,18 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
 
+    private void checkOutDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_checkOutDatePropertyChange
+        // TODO add your handling code here:
+      
+       // Check to see if check-out date is correct
+       if(checkOutDate.getDate() != null){
+            if(checkOutDate.getDate().before(checkInDate.getDate())){
+            JOptionPane.showMessageDialog(null, "Check-out date cannot be earlier than check-in date!!", "Check-Out Error", JOptionPane.ERROR_MESSAGE);
+            checkOutDate.setDate(null);
+            }
+       }
+    }//GEN-LAST:event_checkOutDatePropertyChange
+
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
     }
@@ -3162,25 +3179,25 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.print("OPTION:"+x);
             
             // Check to see if room is booked
-            if(booking){
+           // if(booking){
                     try{
                     validBooking = ValidBooking.checkForDoubleBook(checkInDate.getDate(),checkOutDate.getDate(), Integer.valueOf(roomText.getText()));
                     }
                     catch(Exception e){
                     System.out.print(e.getMessage());
                     }
-            }
+          //  }
             // If OK was selected...add guest to database
             if(x == 0){
                 
-                if(validBooking && !booking){
+                if(validBooking && booking){
                     rep.addGuest(checkIn);
                     JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
                     updateGuestId(); 
                     clearGuestFields();
                     rep.addRoom(room);
                 }
-                if(!booking){
+                if(!booking && validBooking){
                     rep.addGuest(checkIn);
                     JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
                     updateGuestId(); 

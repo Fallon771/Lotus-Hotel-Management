@@ -1677,6 +1677,9 @@
                       <Connection code="new Date()" type="code"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="checkOutDatePropertyChange"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="guestNo">
                   <Properties>

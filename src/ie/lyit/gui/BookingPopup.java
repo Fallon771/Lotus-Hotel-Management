@@ -191,7 +191,7 @@ public class BookingPopup extends javax.swing.JFrame {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, false, true
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -207,7 +207,8 @@ public class BookingPopup extends javax.swing.JFrame {
         bookingTable.setSelectionBackground(new java.awt.Color(102, 255, 102));
         jScrollPane2.setViewportView(bookingTable);
 
-        canelBooking.setForeground(new java.awt.Color(102, 0, 0));
+        canelBooking.setForeground(new java.awt.Color(255, 51, 51));
+        canelBooking.setMnemonic('c');
         canelBooking.setText("Cancel Booking");
         canelBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,7 +242,7 @@ public class BookingPopup extends javax.swing.JFrame {
         });
         guestTable.setToolTipText("List of all the bookings for this room");
         guestTable.setGridColor(new java.awt.Color(0, 51, 153));
-        guestTable.setSelectionBackground(new java.awt.Color(153, 0, 0));
+        guestTable.setSelectionBackground(new java.awt.Color(255, 51, 0));
         jScrollPane3.setViewportView(guestTable);
 
         jLabel3.setText("Current Guest:");
