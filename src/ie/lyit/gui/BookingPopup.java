@@ -176,6 +176,7 @@ public class BookingPopup extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        bookingTable.setToolTipText("List of all the bookings for this room");
         bookingTable.setGridColor(new java.awt.Color(0, 51, 153));
         bookingTable.setSelectionBackground(new java.awt.Color(102, 255, 102));
         jScrollPane2.setViewportView(bookingTable);
