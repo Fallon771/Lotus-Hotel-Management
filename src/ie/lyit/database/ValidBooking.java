@@ -51,7 +51,7 @@ public class ValidBooking {
            
             while (myRs.next()) {
                        //dateIn.equals(myRs.getDate("checkin")) ||
-                if( dateIn.after(myRs.getDate("checkin")) && dateIn.before(myRs.getDate("checkout")) || dateIn.equals(myRs.getDate("checkout"))){
+                if( dateIn.after(myRs.getDate("checkin")) && dateIn.before(myRs.getDate("checkout")) || dateIn.equals(myRs.getDate("checkin"))){
                     System.out.println("\n\nBOOKING DEBUG::"+"CANT BOOK\n\n");
                     System.out.print("DATABASE DATE => "+myRs.getDate("checkin"));
                     validDate = false;

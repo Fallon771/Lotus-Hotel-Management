@@ -152,7 +152,7 @@ public class BookingPopup extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, 0)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 366, Short.MAX_VALUE))
+                        .addGap(0, 421, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(roomNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(99, 99, 99)
@@ -179,6 +179,7 @@ public class BookingPopup extends javax.swing.JFrame {
         );
 
         bookingTable.setBackground(new java.awt.Color(102, 153, 255));
+        bookingTable.setFont(new java.awt.Font("Gulim", 0, 13)); // NOI18N
         bookingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -204,10 +205,10 @@ public class BookingPopup extends javax.swing.JFrame {
         });
         bookingTable.setToolTipText("List of all the bookings for this room");
         bookingTable.setGridColor(new java.awt.Color(0, 51, 153));
-        bookingTable.setSelectionBackground(new java.awt.Color(102, 255, 102));
+        bookingTable.setSelectionBackground(new java.awt.Color(153, 255, 153));
         jScrollPane2.setViewportView(bookingTable);
 
-        canelBooking.setForeground(new java.awt.Color(255, 51, 51));
+        canelBooking.setForeground(new java.awt.Color(153, 0, 0));
         canelBooking.setMnemonic('c');
         canelBooking.setText("Cancel Booking");
         canelBooking.addActionListener(new java.awt.event.ActionListener() {
@@ -229,7 +230,7 @@ public class BookingPopup extends javax.swing.JFrame {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, false, true
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -242,7 +243,7 @@ public class BookingPopup extends javax.swing.JFrame {
         });
         guestTable.setToolTipText("List of all the bookings for this room");
         guestTable.setGridColor(new java.awt.Color(0, 51, 153));
-        guestTable.setSelectionBackground(new java.awt.Color(255, 51, 0));
+        guestTable.setSelectionBackground(new java.awt.Color(255, 153, 153));
         jScrollPane3.setViewportView(guestTable);
 
         jLabel3.setText("Current Guest:");
@@ -258,7 +259,7 @@ public class BookingPopup extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
                     .addComponent(jScrollPane3)
                     .addComponent(jSeparator2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -280,10 +281,10 @@ public class BookingPopup extends javax.swing.JFrame {
                 .addComponent(canelBooking)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

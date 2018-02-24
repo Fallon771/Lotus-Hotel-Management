@@ -3238,9 +3238,13 @@ public class MainFrame extends javax.swing.JFrame {
         // If server offline....disable Check-In button
             if(failed){
             checkInButt.setEnabled(false);
+            bookButt.setEnabled(false);
+            addCard.setEnabled(false);
             }
             else if(!failed){
             checkInButt.setEnabled(true);
+            bookButt.setEnabled(true);
+            addCard.setEnabled(true);
             }
         
         guestId.setText(""+id.getId());
@@ -3322,10 +3326,14 @@ public class MainFrame extends javax.swing.JFrame {
     if(flag){
         dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Green_16px.png")));
          checkInButt.setEnabled(true);
+         bookButt.setEnabled(true);
+         addCard.setEnabled(true);
         }
     else{
         dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Red_16px.png")));
         checkInButt.setEnabled(false);
+        bookButt.setEnabled(false);
+        addCard.setEnabled(false);
         flag2 = true;
         }
     }
@@ -3333,14 +3341,14 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CheckOutViaRoomNo;
     private javax.swing.JLabel Children;
-    private javax.swing.JButton addCard;
+    private static javax.swing.JButton addCard;
     private javax.swing.JTextArea address;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JSpinner adults;
     private javax.swing.JRadioButton americanRad;
     private javax.swing.JPanel banner;
     private javax.swing.JLabel bannerTitle;
-    private javax.swing.JButton bookButt;
+    private static javax.swing.JButton bookButt;
     private javax.swing.JPanel bridalPane;
     private javax.swing.JButton btnSearchRoom;
     private javax.swing.ButtonGroup cardGroup;
