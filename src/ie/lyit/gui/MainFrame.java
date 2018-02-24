@@ -75,6 +75,7 @@ public class MainFrame extends javax.swing.JFrame {
         rs.start();      
         // Initilizise JFrame & components
         initComponents();  
+        updateGuestId(); 
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -1032,7 +1033,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkMark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Checkmark_16px.png"))); // NOI18N
 
         jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Horizontal Line_25px.png"))); // NOI18N
-        jLabel50.setText("Not Available");
+        jLabel50.setText("Occupied");
 
         jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Horizontal Line_Blue_25px.png"))); // NOI18N
         jLabel51.setText("Booked");
@@ -1119,8 +1120,10 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(address);
 
         checkInDate.setDateFormatString("yyyy-MM-dd");
+        checkInDate.setMinSelectableDate(new Date());
 
         checkOutDate.setDateFormatString("yyyy-MM-dd");
+        checkOutDate.setMinSelectableDate(new Date());
 
         guestNo.setText("Guest No*:");
 
@@ -1565,7 +1568,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(jLabel23)
                             .addComponent(jLabel25)
                             .addComponent(americanRad))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 50, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(addCard)
                             .addComponent(clearCard)))
@@ -1600,7 +1603,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(12, 28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         checkinScreenLayout.setVerticalGroup(
             checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1608,7 +1611,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(checkinScreenLayout.createSequentialGroup()
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2676,8 +2679,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void bookButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtActionPerformed
         // TODO add your handling code here:
-             checkValidInput(true);
-        
+             checkValidInput(true); 
     }//GEN-LAST:event_bookButtActionPerformed
 
     private void checkInButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInButtActionPerformed
@@ -3117,6 +3119,8 @@ public class MainFrame extends javax.swing.JFrame {
    public void checkValidInput(boolean booking){
     String roomType = "Single";
     boolean allGood =true;
+    boolean validBooking = false;
+    
    
         // Check if fields are blank
         System.out.print(roomText.getText());
@@ -3127,20 +3131,22 @@ public class MainFrame extends javax.swing.JFrame {
             
         }
         if(!roomAvailable && test == 0){
+           if(booking){
+           allGood = true;
+           }
+           else if(!booking){
             JOptionPane.showMessageDialog(null, "Room not available..", "Fills blank", JOptionPane.ERROR_MESSAGE);
             allGood = false;
+           }      
         }
-//        if(!roomAvailable && test == 1){
-//            JOptionPane.showMessageDialog(null, "Can book!!..", "Fills blank", JOptionPane.ERROR_MESSAGE);
-//            allGood = true;
-//        }
-        else if(allGood){  
+        if(allGood){  
             
             Guest checkIn = new Guest((String)title.getSelectedItem(),
             fName.getText(),sName.getText(),address.getText(),
             phone.getText(),email.getText(),Integer.parseInt(roomText.getText()),checkInDate.getDate(),
             checkOutDate.getDate());
             
+            // We pass in our boolean "booking"
             Rooms room = new Rooms(Integer.valueOf(guestId.getText()),booking,Integer.valueOf(roomText.getText()),(Integer)adults.getValue(),(Integer)children.getValue());
             
             // Show confirmation box
@@ -3154,19 +3160,37 @@ public class MainFrame extends javax.swing.JFrame {
                     +"\nCheck-Out: "+checkOutDate.getDate()
                     +"\n\n" ), "Check & Confim Details", JOptionPane.OK_CANCEL_OPTION);
             System.out.print("OPTION:"+x);
-            try{
-            valid.checkForDoubleBook(checkInDate.getDate(), Integer.valueOf(roomText.getText()));
-            }
-            catch(Exception e){
-            System.out.print(e.getMessage());
+            
+            // Check to see if room is booked
+            if(booking){
+                    try{
+                    validBooking = ValidBooking.checkForDoubleBook(checkInDate.getDate(),checkOutDate.getDate(), Integer.valueOf(roomText.getText()));
+                    }
+                    catch(Exception e){
+                    System.out.print(e.getMessage());
+                    }
             }
             // If OK was selected...add guest to database
             if(x == 0){
-                rep.addGuest(checkIn);
-                rep.addRoom(room);
-                JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
-                updateGuestId(); 
-                clearGuestFields();
+                
+                if(validBooking && !booking){
+                    rep.addGuest(checkIn);
+                    JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
+                    updateGuestId(); 
+                    clearGuestFields();
+                    rep.addRoom(room);
+                }
+                if(!booking){
+                    rep.addGuest(checkIn);
+                    JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
+                    updateGuestId(); 
+                    clearGuestFields();
+                    rep.addRoom(room);
+                }
+                else if(!validBooking){
+                    JOptionPane.showMessageDialog(null, "Invalid dates!!\nPlease re-check booking...", "Invalid dates selected", JOptionPane.ERROR_MESSAGE);
+                }
+                
             }
          }       
    }

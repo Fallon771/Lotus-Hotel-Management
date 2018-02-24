@@ -42,11 +42,11 @@ public class BookingPopup extends javax.swing.JFrame {
          timeStamp.setText(time);
         
          ArrayList<Guest> list;
-
+         DefaultTableModel model2 = (DefaultTableModel)guestTable.getModel();
          DefaultTableModel model = (DefaultTableModel)bookingTable.getModel();
          
          try{
-         String sql = "SELECT DISTINCT * FROM `guest`, `rooms` WHERE `roomno` = '"+secondPart+"' && guest.id = rooms.id";
+         String sql = "SELECT DISTINCT * FROM `guest`, `rooms` WHERE `roomno` = '"+secondPart+"' && guest.id = rooms.id HAVING `booked` = 1";
          list = display.displayGuestTable(sql);
          Object[] row = new Object[9];
          for(int i=0;i<list.size();i++){
@@ -62,7 +62,28 @@ public class BookingPopup extends javax.swing.JFrame {
             model.addRow(row);
            
             }
+         }
+         catch(Exception e){
+         System.out.print("ERROR!!");
+         }    
          
+         try{
+         String sql = "SELECT DISTINCT * FROM `guest`, `rooms` WHERE `roomno` = '"+secondPart+"' && guest.id = rooms.id HAVING `booked` = 0";
+         list = display.displayGuestTable(sql);
+         Object[] row = new Object[9];
+         for(int i=0;i<list.size();i++){
+            row [0] = list.get(i).getId();
+            row [1] = list.get(i).getTitle();
+            row [2] = list.get(i).getfName();
+            row [3] = list.get(i).getsName();
+            row [4] = list.get(i).getAddress();
+            row [5] = list.get(i).getPhoneNo();
+            row [6] = list.get(i).getEmailAddress();
+            row [7] = list.get(i).getCheckIn();
+            row [8] = list.get(i).getCheckOut();
+            model2.addRow(row);
+           
+            }
          }
          catch(Exception e){
          System.out.print("ERROR!!");
@@ -89,6 +110,11 @@ public class BookingPopup extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         bookingTable = new javax.swing.JTable();
         canelBooking = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        guestTable = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
 
         setTitle("Booking");
         setResizable(false);
@@ -181,12 +207,48 @@ public class BookingPopup extends javax.swing.JFrame {
         bookingTable.setSelectionBackground(new java.awt.Color(102, 255, 102));
         jScrollPane2.setViewportView(bookingTable);
 
+        canelBooking.setForeground(new java.awt.Color(102, 0, 0));
         canelBooking.setText("Cancel Booking");
         canelBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 canelBookingActionPerformed(evt);
             }
         });
+
+        guestTable.setBackground(new java.awt.Color(255, 153, 153));
+        guestTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Guest Id", "Title", "First Name", "Surname", "Address", "Phone No.", "Email", "Check-In", "Check-Out"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, true, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        guestTable.setToolTipText("List of all the bookings for this room");
+        guestTable.setGridColor(new java.awt.Color(0, 51, 153));
+        guestTable.setSelectionBackground(new java.awt.Color(153, 0, 0));
+        jScrollPane3.setViewportView(guestTable);
+
+        jLabel3.setText("Current Guest:");
+
+        jSeparator2.setForeground(new java.awt.Color(0, 102, 153));
+
+        jLabel4.setText("Bookings:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -196,19 +258,31 @@ public class BookingPopup extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3)
+                    .addComponent(jSeparator2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(canelBooking)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(canelBooking)
+                            .addComponent(jLabel4))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(canelBooking)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -223,7 +297,8 @@ public class BookingPopup extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -259,10 +334,15 @@ public class BookingPopup extends javax.swing.JFrame {
         // Update table by clearing and getting updated entries
        
          DefaultTableModel dm = (DefaultTableModel) bookingTable.getModel();
+         DefaultTableModel dm2 = (DefaultTableModel) bookingTable.getModel();
          dm.setRowCount(0);
+         dm2.setRowCount(0);
          while(dm.getRowCount() > 0)
          {
                 dm.removeRow(0);
+         }while(dm2.getRowCount() > 0)
+         {
+                dm2.removeRow(0);
          }
          repaint();
          displayRoomTable();
@@ -307,12 +387,17 @@ public class BookingPopup extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JTable bookingTable;
     private javax.swing.JButton canelBooking;
+    private static javax.swing.JTable guestTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel roomNumber;
     private javax.swing.JLabel timeStamp;
     // End of variables declaration//GEN-END:variables

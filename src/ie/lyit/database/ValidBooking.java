@@ -9,6 +9,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 /**
  *
@@ -17,7 +19,7 @@ import java.util.Date;
  */
 public class ValidBooking {
    
-    public static boolean checkForDoubleBook(Date date,int roomNo) throws SQLException{
+    public static boolean checkForDoubleBook(Date checkin,Date checkout,int roomNo) throws SQLException{
     
         String sql ="SELECT DISTINCT `checkin`,`checkout`,`roomno` FROM guest,rooms WHERE roomno = '"+roomNo+"'";
         boolean validDate = true;
@@ -30,7 +32,12 @@ public class ValidBooking {
         
         // int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout
              try {
-             //Date checkin=new SimpleDateFormat("dd/MM/yyyy").parse(date);
+            Format f = new SimpleDateFormat("yyyy-MM-dd");
+            String in = f.format(checkin);
+            String out = f.format(checkout);
+            Date dateIn = new SimpleDateFormat("yyyy-MM-dd").parse(in);
+            Date dateOut = new SimpleDateFormat("yyyy-MM-dd").parse(out);
+    
             // 1. Get a connection to database
             myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
           
@@ -43,14 +50,15 @@ public class ValidBooking {
             // 4. Process the result set
            
             while (myRs.next()) {
-                       
-                if(date.after( myRs.getDate("checkin")) && date.before(myRs.getDate("checkout"))){
-                System.out.print("\n\nBOOKING DEBUG::"+"CANT BOOK\n\n");
-                return validDate = false;
+                       //dateIn.equals(myRs.getDate("checkin")) ||
+                if( dateIn.after(myRs.getDate("checkin")) && dateIn.before(myRs.getDate("checkout")) || dateIn.equals(myRs.getDate("checkout"))){
+                    System.out.println("\n\nBOOKING DEBUG::"+"CANT BOOK\n\n");
+                    System.out.print("DATABASE DATE => "+myRs.getDate("checkin"));
+                    validDate = false;
                  }
                 else{
-                System.out.print("\n\nBOOKING DEBUG: YOU CAN BOOK\n\n");
-                return validDate;
+                    System.out.print("\n\nBOOKING DEBUG: YOU CAN BOOK\n\n");
+                    System.out.println("\nDATABASE DATE => "+myRs.getDate("checkin"));
                 }           
             }
              

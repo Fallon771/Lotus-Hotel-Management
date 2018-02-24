@@ -120,7 +120,10 @@ public class Receptionist implements DBConnections{
                 JOptionPane.showMessageDialog(null, "Room Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
                 return 1;
             case "java.awt.Color[r=255,g=204,b=204]":
-                JOptionPane.showMessageDialog(null, "Room Not Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Room Not Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+                popup = new BookingPopup();
+                popup.setVisible(true);
+                popup.displayRoomTable();
                 return 2;
             default:
                // JOptionPane.showMessageDialog(null, "Room Booked..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
