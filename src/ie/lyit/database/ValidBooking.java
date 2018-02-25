@@ -58,15 +58,16 @@ public class ValidBooking {
                     System.out.print("DATABASE DATE => "+myRs.getDate("checkin"));
                     validDate = false;
                  }
-                if(dateIn.equals(myRs.getDate("checkin"))){
-                    validDate = false;
-                    System.out.print("\n\nEquals checkin date....");
-                }
+//                if(dateIn.equals(myRs.getDate("checkin"))){
+//                    validDate = false;
+//                    System.out.print("\n\nEquals checkin date....");
+//                }
                 else{
                     System.out.print("\n\nBOOKING DEBUG: YOU CAN BOOK\n\n");
                     System.out.println("\nDATABASE DATE => "+myRs.getDate("checkin"));
                 }           
             }
+            System.out.print("IS VALID:"+validDate);
              
         } catch (Exception exc) {
             exc.printStackTrace();

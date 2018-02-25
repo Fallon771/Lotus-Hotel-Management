@@ -133,6 +133,9 @@ public class Receptionist implements DBConnections{
                return 3;
         }          
     }
+    public void addCreditCard(){
+        
+    }
     public void addRoom(Rooms room){
    
        int roomNo = room.getRoomNum();
