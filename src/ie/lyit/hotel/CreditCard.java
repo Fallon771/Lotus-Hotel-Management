@@ -21,7 +21,7 @@ public class CreditCard {
     public CreditCard(){
         
     }
-    public CreditCard(String fName,String sName,int cardNum,String expiry,int cvc){
+    public CreditCard(int id,String fName,String sName,int cardNum,String expiry,int cvc){
         this.fName = fName;
         this.sName = sName;
         this.cardNum = cardNum;

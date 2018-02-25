@@ -133,7 +133,7 @@ public class Receptionist implements DBConnections{
                return 3;
         }          
     }
-    public void addCreditCard(){
+    public void addCreditCard(int id,String fName,String sName,int cardNum,String expiry,int cvc){
         
     }
     public void addRoom(Rooms room){

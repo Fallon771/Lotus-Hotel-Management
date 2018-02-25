@@ -10,6 +10,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import ie.lyit.database.*;
+import ie.lyit.hotel.CreditCard;
 import ie.lyit.hotel.Rooms;
 import ie.lyit.users.*;
 import java.awt.Color;
@@ -212,7 +213,7 @@ public class MainFrame extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        cardTable = new javax.swing.JTable();
         clearCard = new javax.swing.JButton();
         addCard = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -1458,7 +1459,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel13.setBackground(new java.awt.Color(202, 229, 250));
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("Credit / Debit Card"));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        cardTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -1476,18 +1477,19 @@ public class MainFrame extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setResizable(false);
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(30);
-            jTable2.getColumnModel().getColumn(1).setResizable(false);
-            jTable2.getColumnModel().getColumn(1).setPreferredWidth(30);
-            jTable2.getColumnModel().getColumn(2).setResizable(false);
-            jTable2.getColumnModel().getColumn(2).setPreferredWidth(170);
-            jTable2.getColumnModel().getColumn(3).setResizable(false);
-            jTable2.getColumnModel().getColumn(3).setPreferredWidth(20);
-            jTable2.getColumnModel().getColumn(4).setResizable(false);
-            jTable2.getColumnModel().getColumn(4).setPreferredWidth(3);
+        cardTable.setCellSelectionEnabled(true);
+        jScrollPane3.setViewportView(cardTable);
+        if (cardTable.getColumnModel().getColumnCount() > 0) {
+            cardTable.getColumnModel().getColumn(0).setResizable(false);
+            cardTable.getColumnModel().getColumn(0).setPreferredWidth(30);
+            cardTable.getColumnModel().getColumn(1).setResizable(false);
+            cardTable.getColumnModel().getColumn(1).setPreferredWidth(30);
+            cardTable.getColumnModel().getColumn(2).setResizable(false);
+            cardTable.getColumnModel().getColumn(2).setPreferredWidth(170);
+            cardTable.getColumnModel().getColumn(3).setResizable(false);
+            cardTable.getColumnModel().getColumn(3).setPreferredWidth(20);
+            cardTable.getColumnModel().getColumn(4).setResizable(false);
+            cardTable.getColumnModel().getColumn(4).setPreferredWidth(3);
         }
 
         clearCard.setText("Clear");
@@ -3080,11 +3082,25 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void addCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCardActionPerformed
         // TODO add your handling code here:
-        
-         if(roomText.getText().equals("") || fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
-                || (checkOutDate.getDate() == null) ){
-            JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE);   
-        }
+         DefaultTableModel model = (DefaultTableModel)cardTable.getModel();
+         CreditCard card;
+        // myJTable.getModel().getValueAt(rowIndex, columnIndex);
+        // Integer.valueOf(guestId.getText())-1
+//         if(roomText.getText().equals("") || fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
+//                || (checkOutDate.getDate() == null) ){
+//            JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE);   
+//        }
+
+         // Get values from jtable
+         String fname = (String) cardTable.getModel().getValueAt(0, 0); 
+         String sname = (String) cardTable.getModel().getValueAt(0, 1); 
+         int cardno = (int)cardTable.getModel().getValueAt(0, 2); 
+         String date = (String) cardTable.getModel().getValueAt(0, 3); 
+         int cvc = (int)cardTable.getModel().getValueAt(0, 4);
+         
+         // Pass into CreditCard constructor
+         card = new CreditCard(Integer.valueOf(guestId.getText())-1,fname,sname,cardno,date,cvc);
+      
     }//GEN-LAST:event_addCardActionPerformed
 
     public void setColor(javax.swing.JPanel panel){
@@ -3367,6 +3383,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel bridalPane;
     private javax.swing.JButton btnSearchRoom;
     private javax.swing.ButtonGroup cardGroup;
+    private javax.swing.JTable cardTable;
     private static javax.swing.JButton checkInButt;
     private com.toedter.calendar.JDateChooser checkInDate;
     private javax.swing.JLabel checkInIcon;
@@ -3514,7 +3531,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
