@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ie.lyit.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,12 +11,15 @@ import java.util.Date;
 /**
  *
  * @author James Fallon
+ * 
  * Class to check for double booking
+ * 
  */
 public class ValidBooking {
    
     public static boolean checkForDoubleBook(Date checkin,Date checkout,int roomNo) throws SQLException{
     
+        // Select all checkins & checkout dates from guests currently staying in the room passed into the string
         String sql ="SELECT DISTINCT `checkin`,`checkout`,`roomno` FROM guest,rooms WHERE roomno = '"+roomNo+"'";
         boolean validDate = true;
         Connection myConn = null;
@@ -52,23 +51,13 @@ public class ValidBooking {
             // 4. Process the result set
            
             while (myRs.next()) {
-                       //dateIn.equals(myRs.getDate("checkin")) ||
+                
+                // Loop through all the guests that our either booked or checked into the choosen room.
+                // If the checkin date the user selected is after or before the guest currently staying...then set flag to false.
                 if( dateIn.after(myRs.getDate("checkin")) && dateIn.before(myRs.getDate("checkout"))){
-                    System.out.println("\n\nBOOKING DEBUG::"+"CANT BOOK\n\n");
-                    System.out.print("DATABASE DATE => "+myRs.getDate("checkin"));
                     validDate = false;
-                 }
-//                if(dateIn.equals(myRs.getDate("checkin"))){
-//                    validDate = false;
-//                    System.out.print("\n\nEquals checkin date....");
-//                }
-                else{
-                    System.out.print("\n\nBOOKING DEBUG: YOU CAN BOOK\n\n");
-                    System.out.println("\nDATABASE DATE => "+myRs.getDate("checkin"));
-                }           
-            }
-            System.out.print("IS VALID:"+validDate);
-             
+                 }                  
+            }     
         } catch (Exception exc) {
             exc.printStackTrace();
         } finally {
