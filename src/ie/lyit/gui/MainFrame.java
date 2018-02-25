@@ -226,6 +226,7 @@ public class MainFrame extends javax.swing.JFrame {
         americanRad = new javax.swing.JRadioButton();
         jLabel25 = new javax.swing.JLabel();
         serverTest = new javax.swing.JButton();
+        warnLabel = new javax.swing.JLabel();
         homeScreen = new javax.swing.JPanel();
         dataTabPane = new javax.swing.JTabbedPane();
         jPanel8 = new javax.swing.JPanel();
@@ -1470,14 +1471,24 @@ public class MainFrame extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        cardTable.setCellSelectionEnabled(true);
+        cardTable.setToolTipText("Press enter to store details");
+        cardTable.setColumnSelectionAllowed(false);
+        cardTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cardTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cardTableMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cardTableMouseExited(evt);
+            }
+        });
         jScrollPane3.setViewportView(cardTable);
         if (cardTable.getColumnModel().getColumnCount() > 0) {
             cardTable.getColumnModel().getColumn(0).setResizable(false);
@@ -1534,36 +1545,44 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        warnLabel.setBackground(new java.awt.Color(255, 255, 255));
+        warnLabel.setFont(new java.awt.Font("DialogInput", 2, 14)); // NOI18N
+        warnLabel.setForeground(new java.awt.Color(255, 0, 0));
+        warnLabel.setText("Press Enter to store details before adding!!");
+
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(masterRad)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(visaRad)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(americanRad)
-                .addGap(47, 47, 47)
-                .addComponent(jLabel25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel13Layout.createSequentialGroup()
                 .addComponent(addCard)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(clearCard)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(serverTest))
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(warnLabel)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(masterRad)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(visaRad)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(americanRad)
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1572,30 +1591,26 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel6)
+                    .addComponent(visaRad)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel25)
+                    .addComponent(americanRad)
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6)
-                            .addComponent(visaRad)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel25)
-                            .addComponent(americanRad))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addCard)
-                            .addComponent(clearCard)))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel13Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(masterRad)))
-                            .addComponent(jLabel20))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(serverTest, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(1, 1, 1)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(masterRad)))
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(warnLabel)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(addCard)
+                        .addComponent(clearCard))
+                    .addComponent(serverTest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout checkinScreenLayout = new javax.swing.GroupLayout(checkinScreen);
@@ -3094,14 +3109,26 @@ public class MainFrame extends javax.swing.JFrame {
          // Get values from jtable
          String fname = (String) cardTable.getModel().getValueAt(0, 0); 
          String sname = (String) cardTable.getModel().getValueAt(0, 1); 
-         int cardno = (int)cardTable.getModel().getValueAt(0, 2); 
+         long cardno = (long)cardTable.getModel().getValueAt(0, 2); 
          String date = (String) cardTable.getModel().getValueAt(0, 3); 
          int cvc = (int)cardTable.getModel().getValueAt(0, 4);
+         System.out.print("\n\nDEBUGGG"+fname+"\n"
+                 + sname+"\n"+ cardno+"\n"+date+"\n"+cvc);
          
          // Pass into CreditCard constructor
          card = new CreditCard(Integer.valueOf(guestId.getText())-1,fname,sname,cardno,date,cvc);
-      
+         rep.addCreditCard(card);
     }//GEN-LAST:event_addCardActionPerformed
+
+    private void cardTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardTableMouseEntered
+        // TODO add your handling code here:
+        warnLabel.setVisible(true);
+    }//GEN-LAST:event_cardTableMouseEntered
+
+    private void cardTableMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardTableMouseExited
+        // TODO add your handling code here:
+        warnLabel.setVisible(false);
+    }//GEN-LAST:event_cardTableMouseExited
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
@@ -3612,6 +3639,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel topPanel;
     private javax.swing.JRadioButton visaRad;
+    private javax.swing.JLabel warnLabel;
     // End of variables declaration//GEN-END:variables
 
 
