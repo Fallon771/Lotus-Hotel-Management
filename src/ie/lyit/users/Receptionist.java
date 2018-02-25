@@ -7,6 +7,7 @@ package ie.lyit.users;
 import ie.lyit.database.Connect;
 import ie.lyit.database.DBConnections;
 import ie.lyit.gui.BookingPopup;
+import ie.lyit.hotel.CreditCard;
 import ie.lyit.hotel.Rooms;
 import java.awt.Color;
 import java.sql.Connection;
@@ -133,6 +134,26 @@ public class Receptionist implements DBConnections{
                return 3;
         }          
     }
+    public void addCreditCard(CreditCard card){
+        
+        int id = card.getId();
+        long cardno = card.getCardNum();
+        int cvc = card.getCvc();
+        String type = card.getType();
+        String expiry = card.getExpiry();
+       
+        // SQL String to pass into database
+        String sql = "INSERT INTO `creditcard` (`id`,`cardnumber`,`expiry`,`cvc`,`type`) VALUES "
+                + "('"+id+"','"+cardno+"', '"+expiry+"','"+cvc+"','"+type+"');";
+        
+        // Pass in string
+        try{
+               conn.queryDatabase(sql);
+           }
+           catch(Exception e){
+               JOptionPane.showMessageDialog(null, "Error adding card to database!", "Error", JOptionPane.ERROR_MESSAGE);
+           }  
+    }
     public void addRoom(Rooms room){
    
        int roomNo = room.getRoomNum();
@@ -169,6 +190,5 @@ public class Receptionist implements DBConnections{
     @Override
     public void displayRooms() {
            
-    }
-     
+    }   
 }

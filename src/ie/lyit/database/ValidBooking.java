@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ie.lyit.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,12 +11,15 @@ import java.util.Date;
 /**
  *
  * @author James Fallon
+ * 
  * Class to check for double booking
+ * 
  */
 public class ValidBooking {
    
     public static boolean checkForDoubleBook(Date checkin,Date checkout,int roomNo) throws SQLException{
     
+        // Select all checkins & checkout dates from guests currently staying in the room passed into the string
         String sql ="SELECT DISTINCT `checkin`,`checkout`,`roomno` FROM guest,rooms WHERE roomno = '"+roomNo+"'";
         boolean validDate = true;
         Connection myConn = null;
@@ -32,6 +31,8 @@ public class ValidBooking {
         
         // int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout
              try {
+                 
+            // Format date strings
             Format f = new SimpleDateFormat("yyyy-MM-dd");
             String in = f.format(checkin);
             String out = f.format(checkout);
@@ -50,18 +51,13 @@ public class ValidBooking {
             // 4. Process the result set
            
             while (myRs.next()) {
-                       //dateIn.equals(myRs.getDate("checkin")) ||
-                if( dateIn.after(myRs.getDate("checkin")) && dateIn.before(myRs.getDate("checkout")) || dateIn.equals(myRs.getDate("checkin"))){
-                    System.out.println("\n\nBOOKING DEBUG::"+"CANT BOOK\n\n");
-                    System.out.print("DATABASE DATE => "+myRs.getDate("checkin"));
+                
+                // Loop through all the guests that our either booked or checked into the choosen room.
+                // If the checkin date the user selected is after or before the guest currently staying...then set flag to false.
+                if( dateIn.after(myRs.getDate("checkin")) && dateIn.before(myRs.getDate("checkout"))){
                     validDate = false;
-                 }
-                else{
-                    System.out.print("\n\nBOOKING DEBUG: YOU CAN BOOK\n\n");
-                    System.out.println("\nDATABASE DATE => "+myRs.getDate("checkin"));
-                }           
-            }
-             
+                 }                  
+            }     
         } catch (Exception exc) {
             exc.printStackTrace();
         } finally {

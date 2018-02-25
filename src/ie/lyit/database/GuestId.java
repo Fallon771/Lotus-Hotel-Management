@@ -20,16 +20,14 @@ public class GuestId {
     
     boolean check;
     private int id;
+    boolean failed = false;
     
-    
-    public boolean getGuestId()throws SQLException{
+    public void getGuestId()throws SQLException{
         
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
         
-        boolean failed = false;
-       
         String user = "root";
         String pass = "password";
 
@@ -71,10 +69,12 @@ public class GuestId {
                 myConn.close();
             }
         }
-        return failed;
+        
     }   // End of method
     public int getId(){
         return (id+1);
     }
-    
+    public boolean getFailed(){
+        return failed;
+    } 
 }

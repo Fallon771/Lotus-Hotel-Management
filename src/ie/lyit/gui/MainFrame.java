@@ -10,6 +10,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import ie.lyit.database.*;
+import ie.lyit.hotel.CreditCard;
 import ie.lyit.hotel.Rooms;
 import ie.lyit.users.*;
 import java.awt.Color;
@@ -61,6 +62,7 @@ public class MainFrame extends javax.swing.JFrame {
     GuestId id = new GuestId();
     DisplayTables display = new DisplayTables();
     RoomStatus rs = new RoomStatus();
+    CreditCard card;
     Color c;
     
     /**
@@ -72,7 +74,7 @@ public class MainFrame extends javax.swing.JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/TaskBar_104px.png")));
         // Start our threads
         thread1.start();
-        rs.start();      
+        rs.start();   
         // Initilizise JFrame & components
         initComponents();  
         updateGuestId(); 
@@ -212,7 +214,7 @@ public class MainFrame extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        cardTable = new javax.swing.JTable();
         clearCard = new javax.swing.JButton();
         addCard = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -225,6 +227,7 @@ public class MainFrame extends javax.swing.JFrame {
         americanRad = new javax.swing.JRadioButton();
         jLabel25 = new javax.swing.JLabel();
         serverTest = new javax.swing.JButton();
+        warnLabel = new javax.swing.JLabel();
         homeScreen = new javax.swing.JPanel();
         dataTabPane = new javax.swing.JTabbedPane();
         jPanel8 = new javax.swing.JPanel();
@@ -1458,7 +1461,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel13.setBackground(new java.awt.Color(202, 229, 250));
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("Credit / Debit Card"));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        cardTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -1469,30 +1472,46 @@ public class MainFrame extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setResizable(false);
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(30);
-            jTable2.getColumnModel().getColumn(1).setResizable(false);
-            jTable2.getColumnModel().getColumn(1).setPreferredWidth(30);
-            jTable2.getColumnModel().getColumn(2).setResizable(false);
-            jTable2.getColumnModel().getColumn(2).setPreferredWidth(170);
-            jTable2.getColumnModel().getColumn(3).setResizable(false);
-            jTable2.getColumnModel().getColumn(3).setPreferredWidth(20);
-            jTable2.getColumnModel().getColumn(4).setResizable(false);
-            jTable2.getColumnModel().getColumn(4).setPreferredWidth(3);
+        cardTable.setToolTipText("Press enter to store details");
+        cardTable.setColumnSelectionAllowed(false);
+        cardTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cardTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cardTableMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cardTableMouseExited(evt);
+            }
+        });
+        jScrollPane3.setViewportView(cardTable);
+        if (cardTable.getColumnModel().getColumnCount() > 0) {
+            cardTable.getColumnModel().getColumn(0).setResizable(false);
+            cardTable.getColumnModel().getColumn(0).setPreferredWidth(30);
+            cardTable.getColumnModel().getColumn(1).setResizable(false);
+            cardTable.getColumnModel().getColumn(1).setPreferredWidth(30);
+            cardTable.getColumnModel().getColumn(2).setResizable(false);
+            cardTable.getColumnModel().getColumn(2).setPreferredWidth(170);
+            cardTable.getColumnModel().getColumn(3).setResizable(false);
+            cardTable.getColumnModel().getColumn(3).setPreferredWidth(20);
+            cardTable.getColumnModel().getColumn(4).setResizable(false);
+            cardTable.getColumnModel().getColumn(4).setPreferredWidth(3);
         }
 
         clearCard.setText("Clear");
 
         addCard.setText("Add");
+        addCard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCardActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MasterCard_28px.png"))); // NOI18N
 
@@ -1527,36 +1546,44 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        warnLabel.setBackground(new java.awt.Color(255, 255, 255));
+        warnLabel.setFont(new java.awt.Font("DialogInput", 2, 14)); // NOI18N
+        warnLabel.setForeground(new java.awt.Color(255, 0, 0));
+        warnLabel.setText("Press Enter to store details before adding!!");
+
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(masterRad)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(visaRad)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(americanRad)
-                .addGap(47, 47, 47)
-                .addComponent(jLabel25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel13Layout.createSequentialGroup()
                 .addComponent(addCard)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(clearCard)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(serverTest))
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(warnLabel)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(masterRad)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(visaRad)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(americanRad)
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1565,30 +1592,26 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel6)
+                    .addComponent(visaRad)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel25)
+                    .addComponent(americanRad)
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6)
-                            .addComponent(visaRad)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel25)
-                            .addComponent(americanRad))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addCard)
-                            .addComponent(clearCard)))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel13Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(masterRad)))
-                            .addComponent(jLabel20))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(serverTest, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(1, 1, 1)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(masterRad)))
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(warnLabel)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(addCard)
+                        .addComponent(clearCard))
+                    .addComponent(serverTest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout checkinScreenLayout = new javax.swing.GroupLayout(checkinScreen);
@@ -1879,7 +1902,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(homeScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(homeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dataTabPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
+                    .addComponent(dataTabPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
                     .addGroup(homeScreenLayout.createSequentialGroup()
                         .addComponent(currentGuest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2387,26 +2410,26 @@ public class MainFrame extends javax.swing.JFrame {
         layerPane.setLayout(layerPaneLayout);
         layerPaneLayout.setHorizontalGroup(
             layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1084, Short.MAX_VALUE)
+            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE))
-            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1084, Short.MAX_VALUE)
+                .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE))
+            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layerPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1060, Short.MAX_VALUE)
+                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         layerPaneLayout.setVerticalGroup(
             layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
-            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
-            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
+            .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layerPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -2419,7 +2442,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(layerPane)
                     .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(banner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1084, Short.MAX_VALUE)
+                    .addComponent(banner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE)
                     .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -2433,7 +2456,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(layerPane)
                 .addGap(2, 2, 2)
                 .addComponent(footer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(sideBar, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE)
+            .addComponent(sideBar, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
         );
 
         pack();
@@ -3073,6 +3096,57 @@ public class MainFrame extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_checkOutDatePropertyChange
 
+    private void addCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCardActionPerformed
+        // TODO add your handling code here:
+         DefaultTableModel model = (DefaultTableModel)cardTable.getModel();
+         
+         // Check to see if all fields have been filled in...
+         if(roomText.getText().equals("") || fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
+                || (checkOutDate.getDate() == null) ){
+            JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE);   
+        }
+         else{
+         // Get values from jtable
+         String fname = (String) cardTable.getModel().getValueAt(0, 0); 
+         String sname = (String) cardTable.getModel().getValueAt(0, 1); 
+         long cardno = (long)cardTable.getModel().getValueAt(0, 2); 
+         String date = (String) cardTable.getModel().getValueAt(0, 3); 
+         int cvc = (int)cardTable.getModel().getValueAt(0, 4);
+         
+         // Check the radio buttons for card type
+         String cardType;
+            if(visaRad.isSelected()){
+                cardType = visaRad.getText();
+             }
+            else if(americanRad.isSelected()){
+                cardType = americanRad.getText();
+             }
+            else{
+                cardType = masterRad.getText();
+             }
+         // Pass into CreditCard constructor
+         card = new CreditCard(Integer.valueOf(guestId.getText()),fname,sname,cardno,date,cvc,cardType);
+         JOptionPane.showMessageDialog(null, "Success!\nBook or check-in guest to store card on database", "Credit Card Information", JOptionPane.INFORMATION_MESSAGE); 
+         
+         // Reset JTable
+         cardTable.getModel().setValueAt("", 0, 0);
+         cardTable.getModel().setValueAt("", 0, 1);
+         cardTable.getModel().setValueAt("", 0, 2);
+         cardTable.getModel().setValueAt("", 0, 3);
+         cardTable.getModel().setValueAt("", 0, 4);
+         }
+    }//GEN-LAST:event_addCardActionPerformed
+
+    private void cardTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardTableMouseEntered
+        // TODO add your handling code here:
+        warnLabel.setVisible(true);
+    }//GEN-LAST:event_cardTableMouseEntered
+
+    private void cardTableMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardTableMouseExited
+        // TODO add your handling code here:
+        warnLabel.setVisible(false);
+    }//GEN-LAST:event_cardTableMouseExited
+
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
     }
@@ -3134,18 +3208,16 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
    public void checkValidInput(boolean booking){
-    String roomType = "Single";
+       
     boolean allGood =true;
     boolean validBooking = false;
-    
    
         // Check if fields are blank
         System.out.print(roomText.getText());
         if(roomText.getText().equals("") || fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
                 || (checkOutDate.getDate() == null) ){
             JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE); 
-            allGood = false;
-            
+            allGood = false;    
         }
         if(!roomAvailable && test == 0){
            if(booking){
@@ -3156,15 +3228,19 @@ public class MainFrame extends javax.swing.JFrame {
             allGood = false;
            }      
         }
+        
+        // If there is no fields left blank then add in the info
         if(allGood){  
             
+            // Pass in data from the textfields into our Guest constructor
             Guest checkIn = new Guest((String)title.getSelectedItem(),
             fName.getText(),sName.getText(),address.getText(),
             phone.getText(),email.getText(),Integer.parseInt(roomText.getText()),checkInDate.getDate(),
             checkOutDate.getDate());
             
             // We pass in our boolean "booking"
-            Rooms room = new Rooms(Integer.valueOf(guestId.getText()),booking,Integer.valueOf(roomText.getText()),(Integer)adults.getValue(),(Integer)children.getValue());
+            System.out.print("\nDebugging 1:"+guestId.getText());
+            Rooms room = new Rooms(Integer.valueOf(guestId.getText())-1,booking,Integer.valueOf(roomText.getText()),(Integer)adults.getValue(),(Integer)children.getValue());
             
             // Show confirmation box
             int x = JOptionPane.showConfirmDialog(null, ("First Name: "+fName.getText()
@@ -3190,28 +3266,37 @@ public class MainFrame extends javax.swing.JFrame {
             // If OK was selected...add guest to database
             if(x == 0){
                 
+                // If the dates are not conflicting & its a booking...
                 if(validBooking && booking){
                     rep.addGuest(checkIn);
-                    JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Guest booked in...", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
                     updateGuestId(); 
                     clearGuestFields();
                     rep.addRoom(room);
+                    // Add card if card payment type is selected
+                    if(addCard.isEnabled()){
+                             rep.addCreditCard(card);
+                     }
                 }
+                  // If the dates are not conflicting & its a check-in...
                 if(!booking && validBooking){
                     rep.addGuest(checkIn);
                     JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
                     updateGuestId(); 
                     clearGuestFields();
                     rep.addRoom(room);
+                     // Add card if card payment type is selected
+                     if(addCard.isEnabled()){
+                             rep.addCreditCard(card);
+                     }
                 }
+                  // If the dates conflict..then display error message
                 else if(!validBooking){
                     JOptionPane.showMessageDialog(null, "Invalid dates!!\nPlease re-check booking...", "Invalid dates selected", JOptionPane.ERROR_MESSAGE);
-                }
-                
+                }    
             }
          }       
-   }
-    
+   }   
     // Set the boolean used in guest checkin
     public void setCheckRoomBoolean(int x){
      switch(x){
@@ -3233,7 +3318,9 @@ public class MainFrame extends javax.swing.JFrame {
     public void updateGuestId(){
     
         try{
-        boolean failed = id.getGuestId();
+            // Query for guest id
+            id.getGuestId();
+            boolean failed = id.getFailed();
         
         // If server offline....disable Check-In button
             if(failed){
@@ -3308,6 +3395,8 @@ public class MainFrame extends javax.swing.JFrame {
       }  
        System.out.print("Success!\n");
     }
+    
+    // Method to update the JLabel check mark when selecting a room on checkin screen
     public void updateCheckMark(int x){
         switch(x){
             case 1:
@@ -3322,6 +3411,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     
+    // Method that changes the server status icon on the footer -- RED / GREEN
     public static void setStatus(boolean flag){
     if(flag){
         dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Green_16px.png")));
@@ -3352,6 +3442,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel bridalPane;
     private javax.swing.JButton btnSearchRoom;
     private javax.swing.ButtonGroup cardGroup;
+    private javax.swing.JTable cardTable;
     private static javax.swing.JButton checkInButt;
     private com.toedter.calendar.JDateChooser checkInDate;
     private javax.swing.JLabel checkInIcon;
@@ -3499,7 +3590,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
@@ -3581,6 +3671,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel topPanel;
     private javax.swing.JRadioButton visaRad;
+    private javax.swing.JLabel warnLabel;
     // End of variables declaration//GEN-END:variables
 
 

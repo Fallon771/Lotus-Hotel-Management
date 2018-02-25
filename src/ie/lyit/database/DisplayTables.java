@@ -35,6 +35,7 @@ public class DisplayTables {
         // int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout
         Date date;
              try {
+            list.clear();
             // 1. Get a connection to database
             myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
           
