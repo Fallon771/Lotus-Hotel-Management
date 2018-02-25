@@ -32,6 +32,8 @@ public class ValidBooking {
         
         // int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout
              try {
+                 
+            // Format date strings
             Format f = new SimpleDateFormat("yyyy-MM-dd");
             String in = f.format(checkin);
             String out = f.format(checkout);
@@ -51,11 +53,15 @@ public class ValidBooking {
            
             while (myRs.next()) {
                        //dateIn.equals(myRs.getDate("checkin")) ||
-                if( dateIn.after(myRs.getDate("checkin")) && dateIn.before(myRs.getDate("checkout")) || dateIn.equals(myRs.getDate("checkin"))){
+                if( dateIn.after(myRs.getDate("checkin")) && dateIn.before(myRs.getDate("checkout"))){
                     System.out.println("\n\nBOOKING DEBUG::"+"CANT BOOK\n\n");
                     System.out.print("DATABASE DATE => "+myRs.getDate("checkin"));
                     validDate = false;
                  }
+                if(dateIn.equals(myRs.getDate("checkin"))){
+                    validDate = false;
+                    System.out.print("\n\nEquals checkin date....");
+                }
                 else{
                     System.out.print("\n\nBOOKING DEBUG: YOU CAN BOOK\n\n");
                     System.out.println("\nDATABASE DATE => "+myRs.getDate("checkin"));

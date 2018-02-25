@@ -41,7 +41,7 @@ public class BookingPopup extends javax.swing.JFrame {
          String time = new SimpleDateFormat("EEE d MMM yyyy   h:mm a").format(Calendar.getInstance().getTime());
          timeStamp.setText(time);
         
-         ArrayList<Guest> list;
+         ArrayList<Guest> list = new ArrayList<>();
          DefaultTableModel model2 = (DefaultTableModel)guestTable.getModel();
          DefaultTableModel model = (DefaultTableModel)bookingTable.getModel();
          
@@ -66,12 +66,13 @@ public class BookingPopup extends javax.swing.JFrame {
          catch(Exception e){
          System.out.print("ERROR!!");
          }    
-         
+        
          try{
+         list.clear();
          String sql = "SELECT DISTINCT * FROM `guest`, `rooms` WHERE `roomno` = '"+secondPart+"' && guest.id = rooms.id HAVING `booked` = 0";
          list = display.displayGuestTable(sql);
          Object[] row = new Object[9];
-         for(int i=0;i<list.size();i++){
+         for(int i=0;i<1;i++){
             row [0] = list.get(i).getId();
             row [1] = list.get(i).getTitle();
             row [2] = list.get(i).getfName();
@@ -82,8 +83,8 @@ public class BookingPopup extends javax.swing.JFrame {
             row [7] = list.get(i).getCheckIn();
             row [8] = list.get(i).getCheckOut();
             model2.addRow(row);
-           
             }
+             list.clear();
          }
          catch(Exception e){
          System.out.print("ERROR!!");
@@ -242,9 +243,12 @@ public class BookingPopup extends javax.swing.JFrame {
             }
         });
         guestTable.setToolTipText("List of all the bookings for this room");
+        guestTable.setAutoscrolls(false);
+        guestTable.setColumnSelectionAllowed(true);
         guestTable.setGridColor(new java.awt.Color(0, 51, 153));
         guestTable.setSelectionBackground(new java.awt.Color(255, 153, 153));
         jScrollPane3.setViewportView(guestTable);
+        guestTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jLabel3.setText("Current Guest:");
 
@@ -342,7 +346,8 @@ public class BookingPopup extends javax.swing.JFrame {
          while(dm.getRowCount() > 0)
          {
                 dm.removeRow(0);
-         }while(dm2.getRowCount() > 0)
+         }
+         while(dm2.getRowCount() > 0)
          {
                 dm2.removeRow(0);
          }
