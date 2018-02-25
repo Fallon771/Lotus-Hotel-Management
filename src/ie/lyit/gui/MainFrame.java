@@ -62,6 +62,7 @@ public class MainFrame extends javax.swing.JFrame {
     GuestId id = new GuestId();
     DisplayTables display = new DisplayTables();
     RoomStatus rs = new RoomStatus();
+    CreditCard card;
     Color c;
     
     /**
@@ -3098,26 +3099,42 @@ public class MainFrame extends javax.swing.JFrame {
     private void addCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCardActionPerformed
         // TODO add your handling code here:
          DefaultTableModel model = (DefaultTableModel)cardTable.getModel();
-         CreditCard card;
-        // myJTable.getModel().getValueAt(rowIndex, columnIndex);
-        // Integer.valueOf(guestId.getText())-1
-//         if(roomText.getText().equals("") || fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
-//                || (checkOutDate.getDate() == null) ){
-//            JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE);   
-//        }
-
+         
+         // Check to see if all fields have been filled in...
+         if(roomText.getText().equals("") || fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
+                || (checkOutDate.getDate() == null) ){
+            JOptionPane.showMessageDialog(null, "Fill in all fields", "Fills blank", JOptionPane.ERROR_MESSAGE);   
+        }
+         else{
          // Get values from jtable
          String fname = (String) cardTable.getModel().getValueAt(0, 0); 
          String sname = (String) cardTable.getModel().getValueAt(0, 1); 
          long cardno = (long)cardTable.getModel().getValueAt(0, 2); 
          String date = (String) cardTable.getModel().getValueAt(0, 3); 
          int cvc = (int)cardTable.getModel().getValueAt(0, 4);
-         System.out.print("\n\nDEBUGGG"+fname+"\n"
-                 + sname+"\n"+ cardno+"\n"+date+"\n"+cvc);
          
+         // Check the radio buttons for card type
+         String cardType;
+            if(visaRad.isSelected()){
+                cardType = visaRad.getText();
+             }
+            else if(americanRad.isSelected()){
+                cardType = americanRad.getText();
+             }
+            else{
+                cardType = masterRad.getText();
+             }
          // Pass into CreditCard constructor
-         card = new CreditCard(Integer.valueOf(guestId.getText())-1,fname,sname,cardno,date,cvc);
-         rep.addCreditCard(card);
+         card = new CreditCard(Integer.valueOf(guestId.getText()),fname,sname,cardno,date,cvc,cardType);
+         JOptionPane.showMessageDialog(null, "Success!\nBook or check-in guest to store card on database", "Credit Card Information", JOptionPane.INFORMATION_MESSAGE); 
+         
+         // Reset JTable
+         cardTable.getModel().setValueAt("", 0, 0);
+         cardTable.getModel().setValueAt("", 0, 1);
+         cardTable.getModel().setValueAt("", 0, 2);
+         cardTable.getModel().setValueAt("", 0, 3);
+         cardTable.getModel().setValueAt("", 0, 4);
+         }
     }//GEN-LAST:event_addCardActionPerformed
 
     private void cardTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardTableMouseEntered
@@ -3191,7 +3208,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
    public void checkValidInput(boolean booking){
-    String roomType = "Single";
+       
     boolean allGood =true;
     boolean validBooking = false;
    
@@ -3211,8 +3228,11 @@ public class MainFrame extends javax.swing.JFrame {
             allGood = false;
            }      
         }
+        
+        // If there is no fields left blank then add in the info
         if(allGood){  
             
+            // Pass in data from the textfields into our Guest constructor
             Guest checkIn = new Guest((String)title.getSelectedItem(),
             fName.getText(),sName.getText(),address.getText(),
             phone.getText(),email.getText(),Integer.parseInt(roomText.getText()),checkInDate.getDate(),
@@ -3246,28 +3266,37 @@ public class MainFrame extends javax.swing.JFrame {
             // If OK was selected...add guest to database
             if(x == 0){
                 
+                // If the dates are not conflicting & its a booking...
                 if(validBooking && booking){
                     rep.addGuest(checkIn);
                     JOptionPane.showMessageDialog(null, "Guest booked in...", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
                     updateGuestId(); 
                     clearGuestFields();
                     rep.addRoom(room);
+                    // Add card if card payment type is selected
+                    if(addCard.isEnabled()){
+                             rep.addCreditCard(card);
+                     }
                 }
+                  // If the dates are not conflicting & its a check-in...
                 if(!booking && validBooking){
                     rep.addGuest(checkIn);
                     JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
                     updateGuestId(); 
                     clearGuestFields();
                     rep.addRoom(room);
+                     // Add card if card payment type is selected
+                     if(addCard.isEnabled()){
+                             rep.addCreditCard(card);
+                     }
                 }
+                  // If the dates conflict..then display error message
                 else if(!validBooking){
                     JOptionPane.showMessageDialog(null, "Invalid dates!!\nPlease re-check booking...", "Invalid dates selected", JOptionPane.ERROR_MESSAGE);
-                }
-                
+                }    
             }
          }       
-   }
-    
+   }   
     // Set the boolean used in guest checkin
     public void setCheckRoomBoolean(int x){
      switch(x){
@@ -3366,6 +3395,8 @@ public class MainFrame extends javax.swing.JFrame {
       }  
        System.out.print("Success!\n");
     }
+    
+    // Method to update the JLabel check mark when selecting a room on checkin screen
     public void updateCheckMark(int x){
         switch(x){
             case 1:
@@ -3380,6 +3411,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     
+    // Method that changes the server status icon on the footer -- RED / GREEN
     public static void setStatus(boolean flag){
     if(flag){
         dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Green_16px.png")));
