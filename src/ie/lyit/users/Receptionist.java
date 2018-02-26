@@ -6,6 +6,8 @@
 package ie.lyit.users;
 import ie.lyit.database.Connect;
 import ie.lyit.database.DBConnections;
+import ie.lyit.gui.BookingPopup;
+import ie.lyit.hotel.CreditCard;
 import ie.lyit.hotel.Rooms;
 import java.awt.Color;
 import java.sql.Connection;
@@ -24,6 +26,7 @@ public class Receptionist implements DBConnections{
     private String sName;
     private String emailAddress;
     private int id;
+    BookingPopup popup;
    
     Connect conn =new Connect();
     DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -118,22 +121,51 @@ public class Receptionist implements DBConnections{
                 JOptionPane.showMessageDialog(null, "Room Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
                 return 1;
             case "java.awt.Color[r=255,g=204,b=204]":
-                JOptionPane.showMessageDialog(null, "Room Not Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Room Not Available..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+                popup = new BookingPopup();
+                popup.setVisible(true);
+                popup.displayRoomTable();
                 return 2;
             default:
-                JOptionPane.showMessageDialog(null, "Room Booked..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
-                return 3;
+               // JOptionPane.showMessageDialog(null, "Room Booked..", "Room Check", JOptionPane.INFORMATION_MESSAGE);
+               popup = new BookingPopup();
+               popup.setVisible(true);
+               popup.displayRoomTable();
+               return 3;
         }          
+    }
+    public void addCreditCard(CreditCard card){
+        
+        int id = card.getId();
+        long cardno = card.getCardNum();
+        int cvc = card.getCvc();
+        String type = card.getType();
+        String expiry = card.getExpiry();
+       
+        // SQL String to pass into database
+        String sql = "INSERT INTO `creditcard` (`id`,`cardnumber`,`expiry`,`cvc`,`type`) VALUES "
+                + "('"+id+"','"+cardno+"', '"+expiry+"','"+cvc+"','"+type+"');";
+        
+        // Pass in string
+        try{
+               conn.queryDatabase(sql);
+           }
+           catch(Exception e){
+               JOptionPane.showMessageDialog(null, "Error adding card to database!", "Error", JOptionPane.ERROR_MESSAGE);
+           }  
     }
     public void addRoom(Rooms room){
    
        int roomNo = room.getRoomNum();
        int guestNo = room.getId();
        int adults = room.getAdults();
+       boolean booked = room.getBooked();
        int children = room.getChildren();
+       
+       int book = (booked) ? 1:0;
       
         String sql = "INSERT INTO `rooms` (`id`,`booked`,`roomno`,`adults`,`children`) VALUES "
-                + "('"+guestNo+"','0', '"+roomNo+"', '"+adults+"', '"+children+"');";
+                + "('"+guestNo+"','"+book+"', '"+roomNo+"', '"+adults+"', '"+children+"');";
         
            try{
                conn.queryDatabase(sql);
@@ -158,11 +190,5 @@ public class Receptionist implements DBConnections{
     @Override
     public void displayRooms() {
            
-    }
-    
-    @Override
-    public void bookRoom() {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-    
+    }   
 }

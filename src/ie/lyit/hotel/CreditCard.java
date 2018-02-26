@@ -7,25 +7,32 @@ package ie.lyit.hotel;
 
 /**
  *
- * @author jim
+ * @author James Fallon
+ * Credit card class
  */
 public class CreditCard {
     
-    private int cardNum;
+    private long cardNum;
     private int cvc;
+    private int id;
     
     private String expiry;
     private String fName;
     private String sName;
+    private String type;
     
     public CreditCard(){
+        
     }
-    public CreditCard(String fName,String sName,int cardNum,String expiry,int cvc){
+    public CreditCard(int id,String fName,String sName,long cardNum,String expiry,int cvc,String type){
+        
+        this.id = id;
         this.fName = fName;
         this.sName = sName;
         this.cardNum = cardNum;
         this.expiry = expiry;
         this.cvc = cvc;
+        this.type = type;
     }
     public void addCard(){
     
@@ -34,7 +41,7 @@ public class CreditCard {
     
     }
     // Getters & Setter's
-    public int getCardNum() {
+    public long getCardNum() {
         return cardNum;
     }
 
@@ -53,6 +60,10 @@ public class CreditCard {
     public String getExpiry() {
         return expiry;
     }
+    
+    public String getType(){
+        return type;
+    }
 
     public void setExpiry(String expiry) {
         this.expiry = expiry;
@@ -60,6 +71,10 @@ public class CreditCard {
 
     public String getfName() {
         return fName;
+    }
+    
+    public int getId(){
+        return id;
     }
 
     public void setfName(String fName) {
