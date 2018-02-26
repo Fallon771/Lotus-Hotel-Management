@@ -52,7 +52,7 @@ public class RoomStatus extends Thread{
             
             while (myRs.next()) {
                     
-                    if(myRs.getInt("roomno") >= 100 && myRs.getInt("roomno") <= 307){
+                    if(myRs.getInt("roomno") >= 100 && myRs.getInt("roomno") <= 407){
                     roomNo.put(myRs.getInt("roomno"), myRs.getBoolean("booked"));
                     }
                 }       
