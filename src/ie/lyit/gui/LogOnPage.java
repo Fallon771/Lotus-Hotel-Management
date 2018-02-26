@@ -165,7 +165,7 @@ public class LogOnPage extends javax.swing.JFrame {
         else if(username.getText().length()==0){
             JOptionPane.showMessageDialog(null, "Please enter a username", "login error", JOptionPane.ERROR_MESSAGE);
         }
-        else if(password.getText().length()==0){
+        else if(pwd.length()==0){
             JOptionPane.showMessageDialog(null, "Please enter a password", "login error", JOptionPane.ERROR_MESSAGE);
         }
         else{
