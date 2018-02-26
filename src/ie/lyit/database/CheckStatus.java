@@ -26,15 +26,15 @@ public class CheckStatus extends Thread{
     private String database = "localhost/hotel_db";
     
     // Just printing a start time
-    String startStamp = new SimpleDateFormat("dd.MM.yyyy -- HH.mm.ss").format(new Date());
+    String startStamp = new SimpleDateFormat("dd.MM.yyyy || HH:mm:ss a").format(new Date());
     String currentStamp;
 
     public void run(){
         System.out.print("Started at: ["+startStamp+"]\n");
         while(running)
         try{
-            sleep(2000);
-            currentStamp = new SimpleDateFormat("HH.mm.ss").format(new Date());
+            sleep(3000);
+            currentStamp = new SimpleDateFormat("HH:mm:ss a").format(new Date());
             // Try connect to database...
             user = "root";
             pass = "password";
