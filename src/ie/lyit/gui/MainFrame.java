@@ -151,7 +151,7 @@ public class MainFrame extends javax.swing.JFrame {
         room304 = new javax.swing.JButton();
         room305 = new javax.swing.JButton();
         room306 = new javax.swing.JButton();
-        bridalPane = new javax.swing.JPanel();
+        bridalPanel = new javax.swing.JPanel();
         room100 = new javax.swing.JButton();
         room101 = new javax.swing.JButton();
         room103 = new javax.swing.JButton();
@@ -958,7 +958,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         roomTab.addTab("Double", doublePanel);
 
-        bridalPane.setLayout(new java.awt.GridBagLayout());
+        bridalPanel.setLayout(new java.awt.GridBagLayout());
 
         room100.setBackground(new java.awt.Color(255, 255, 255));
         room100.setText("100");
@@ -967,7 +967,7 @@ public class MainFrame extends javax.swing.JFrame {
                 room100ActionPerformed(evt);
             }
         });
-        bridalPane.add(room100, new java.awt.GridBagConstraints());
+        bridalPanel.add(room100, new java.awt.GridBagConstraints());
 
         room101.setBackground(new java.awt.Color(255, 255, 255));
         room101.setText("101");
@@ -976,7 +976,7 @@ public class MainFrame extends javax.swing.JFrame {
                 room101ActionPerformed(evt);
             }
         });
-        bridalPane.add(room101, new java.awt.GridBagConstraints());
+        bridalPanel.add(room101, new java.awt.GridBagConstraints());
 
         room103.setBackground(new java.awt.Color(255, 255, 255));
         room103.setText("103");
@@ -985,9 +985,9 @@ public class MainFrame extends javax.swing.JFrame {
                 room103ActionPerformed(evt);
             }
         });
-        bridalPane.add(room103, new java.awt.GridBagConstraints());
+        bridalPanel.add(room103, new java.awt.GridBagConstraints());
 
-        roomTab.addTab("Bridal", bridalPane);
+        roomTab.addTab("Bridal", bridalPanel);
 
         executivePanel.setLayout(new java.awt.GridBagLayout());
 
@@ -1667,7 +1667,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(checkinScreenLayout.createSequentialGroup()
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2984,14 +2984,29 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void room100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room100ActionPerformed
         // TODO add your handling code here:
+        roomText.setText("100");
+        c = room100.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
     }//GEN-LAST:event_room100ActionPerformed
 
     private void room101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room101ActionPerformed
         // TODO add your handling code here:
+        roomText.setText("101");
+        c = room101.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
     }//GEN-LAST:event_room101ActionPerformed
 
     private void room103ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room103ActionPerformed
         // TODO add your handling code here:
+        roomText.setText("103");
+        c = room103.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
     }//GEN-LAST:event_room103ActionPerformed
 
     //**SEARCH - FIND GUEST**//
@@ -3471,8 +3486,10 @@ public class MainFrame extends javax.swing.JFrame {
       // Get the jbuttons located in the parent component and palce in an array
       Component s[] = singlePanel.getComponents();
       Component d[] = doublePanel.getComponents();
+      Component b[] = bridalPanel.getComponents();
+      Component e[] = executivePanel.getComponents();
  
-      // Songle rooms start at 200
+      // Single rooms start at 200
       int roomNo = 200;
     
       // Loop over single rooms and check status
@@ -3493,7 +3510,7 @@ public class MainFrame extends javax.swing.JFrame {
           }
           roomNo++;
       } // <== Code just stops here....
-      System.out.print("Success!\n[Thread 2:] Checking double rooms..");
+      System.out.print("\n[Thread 2:] Checking double rooms..");
       
         // Loop over double rooms to check their status
        for(int i=0;i<6;i++){
@@ -3512,7 +3529,45 @@ public class MainFrame extends javax.swing.JFrame {
           }
           roomNo++;
       }  
-       System.out.print("Success!\n");
+        // Loop over bridal rooms to check their status
+        System.out.print("\n[Thread 2:] Checking bridal rooms..");
+        for(int i=0;i<3;i++){
+        
+           // Occupied (Pink)
+          if(room.containsKey(roomNo) && room.get(roomNo).equals(room.containsValue(1))){
+          b[i].setBackground(new Color(255,204,204));
+          }
+          // Booked (blue)
+          else if(room.containsKey(roomNo) && room.containsValue(true)){
+          b[i].setBackground(new Color(102,153,255));
+          }
+          // Available (Green)
+          else if(!room.containsKey(roomNo)){
+          b[i].setBackground(new Color(153,255,153));
+          }
+          roomNo++;
+      }  
+        
+        // Loop over executive rooms to check their status
+         System.out.print("\n[Thread 2:] Checking executive rooms..\n");
+         for(int i=0;i<6;i++){
+        
+           // Occupied (Pink)
+          if(room.containsKey(roomNo) && room.get(roomNo).equals(room.containsValue(1))){
+          e[i].setBackground(new Color(255,204,204));
+          }
+          // Booked (blue)
+          else if(room.containsKey(roomNo) && room.containsValue(true)){
+          e[i].setBackground(new Color(102,153,255));
+          }
+          // Available (Green)
+          else if(!room.containsKey(roomNo)){
+          e[i].setBackground(new Color(153,255,153));
+          }
+          roomNo++;
+      }  
+       String stamp = new SimpleDateFormat("HH:mm:ss a").format(new Date());
+       System.out.println("Success!!  "+stamp);
     }
     
     // Method to update the JLabel check mark when selecting a room on checkin screen
@@ -3558,7 +3613,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel banner;
     private javax.swing.JLabel bannerTitle;
     private static javax.swing.JButton bookButt;
-    private javax.swing.JPanel bridalPane;
+    private static javax.swing.JPanel bridalPanel;
     private javax.swing.JButton btnSearchRoom;
     private javax.swing.ButtonGroup cardGroup;
     private javax.swing.JTable cardTable;
@@ -3588,7 +3643,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel dragBar;
     private javax.swing.JTextField email;
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JPanel executivePanel;
+    private static javax.swing.JPanel executivePanel;
     private javax.swing.JTextField fName;
     private javax.swing.JLabel fNameLablel;
     private javax.swing.JButton findGuest;
