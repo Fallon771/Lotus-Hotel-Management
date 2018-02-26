@@ -1496,9 +1496,6 @@ public class MainFrame extends javax.swing.JFrame {
         cardTable.setToolTipText("Press enter to store details");
         cardTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cardTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                cardTableMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 cardTableMouseExited(evt);
             }
@@ -1534,6 +1531,11 @@ public class MainFrame extends javax.swing.JFrame {
         clearCard.setText("Clear");
 
         addCard.setText("Add");
+        addCard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addCardMouseEntered(evt);
+            }
+        });
         addCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addCardActionPerformed(evt);
@@ -1632,7 +1634,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(masterRad)))
                     .addComponent(jLabel20))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(warnLabel)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1667,7 +1669,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(checkinScreenLayout.createSequentialGroup()
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2567,7 +2569,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void checkPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkPanelMouseClicked
         // TODO add your handling code here:
-        
+        warnLabel.setVisible(false);
         // update id on checkin screen
          updateGuestId();
          checkinScreen.setVisible(true);
@@ -3201,6 +3203,7 @@ public class MainFrame extends javax.swing.JFrame {
   }
     private void addCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCardActionPerformed
         // TODO add your handling code here:
+         warnLabel.setVisible(false);
          DefaultTableModel model = (DefaultTableModel)cardTable.getModel();
          
          // Check to see if all fields have been filled in...
@@ -3240,18 +3243,10 @@ public class MainFrame extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_addCardActionPerformed
 
-    private void cardTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardTableMouseEntered
-        // TODO add your handling code here:
-        warnLabel.setVisible(true);
-    }//GEN-LAST:event_cardTableMouseEntered
-
     private void cardTableMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardTableMouseExited
         // TODO add your handling code here:
         
         DefaultTableModel model = (DefaultTableModel)cardTable.getModel();
-        warnLabel.setVisible(false);
-        System.out.print("DEBUGFGG"+cardTable.getModel().getValueAt(0, 0));
-        
         if(cardTable.getModel().getValueAt(0, 0) != null
                 && cardTable.getModel().getValueAt(0, 1)!= null
                 && cardTable.getModel().getValueAt(0, 2)!= null
@@ -3280,6 +3275,13 @@ public class MainFrame extends javax.swing.JFrame {
         setCheckRoomBoolean(x);
         updateCheckMark(x);
     }//GEN-LAST:event_room304ActionPerformed
+
+    private void addCardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addCardMouseEntered
+        // TODO add your handling code here:
+        if(!addCard.isEnabled()){
+        warnLabel.setVisible(true);
+        }
+    }//GEN-LAST:event_addCardMouseEntered
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
@@ -3513,6 +3515,7 @@ public class MainFrame extends javax.swing.JFrame {
       System.out.print("\n[Thread 2:] Checking double rooms..");
       
         // Loop over double rooms to check their status
+       roomNo = 301;
        for(int i=0;i<6;i++){
         
            // Occupied (Pink)
@@ -3530,6 +3533,7 @@ public class MainFrame extends javax.swing.JFrame {
           roomNo++;
       }  
         // Loop over bridal rooms to check their status
+         roomNo = 100;
         System.out.print("\n[Thread 2:] Checking bridal rooms..");
         for(int i=0;i<3;i++){
         
@@ -3549,6 +3553,7 @@ public class MainFrame extends javax.swing.JFrame {
       }  
         
         // Loop over executive rooms to check their status
+        roomNo = 401;
          System.out.print("\n[Thread 2:] Checking executive rooms..\n");
          for(int i=0;i<6;i++){
         
