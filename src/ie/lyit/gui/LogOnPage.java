@@ -154,9 +154,10 @@ public class LogOnPage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //check for correct details when "Log-In" button is pressed
        
-        //String.valueOf(password.getPassword()).equals("pass"))
+        char[] pass = password.getPassword();
+        String pwd = String.copyValueOf(pass);
         
-        if(username.getText().equals("admin") && password.getText().equals("pass")){
+        if(username.getText().equals("admin") && pwd.equals("pass")){
             dispose();
             frame = new MainFrame();
             frame.setVisible(true);
