@@ -18,6 +18,7 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -35,6 +36,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 /**
  *
  * @author Jim
@@ -51,7 +55,7 @@ public class MainFrame extends javax.swing.JFrame {
     boolean fetched = false;
     boolean roomAvailable,roomBooked;
     ValidBooking valid;
-    
+    JLabel l;
     
     
     //Instances
@@ -1480,7 +1484,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         cardTable.setToolTipText("Press enter to store details");
-        cardTable.setColumnSelectionAllowed(false);
         cardTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cardTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -1488,6 +1491,17 @@ public class MainFrame extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 cardTableMouseExited(evt);
+            }
+        });
+        cardTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    JTable target = (JTable)e.getSource();
+                    int row = target.getSelectedRow();
+                    int column = target.getSelectedColumn();
+                    // do some action if appropriate column
+                    addCard.setEnabled(false);
+                }
             }
         });
         jScrollPane3.setViewportView(cardTable);
@@ -1503,6 +1517,9 @@ public class MainFrame extends javax.swing.JFrame {
             cardTable.getColumnModel().getColumn(4).setResizable(false);
             cardTable.getColumnModel().getColumn(4).setPreferredWidth(3);
         }
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        cardTable.getColumnModel().getColumn(0).setCellRenderer( centerRenderer );
 
         clearCard.setText("Clear");
 
@@ -1523,6 +1540,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         masterRad.setBackground(new java.awt.Color(202, 229, 250));
         cardGroup.add(masterRad);
+        masterRad.setSelected(true);
 
         visaRad.setBackground(new java.awt.Color(202, 229, 250));
         cardGroup.add(visaRad);
@@ -2671,6 +2689,7 @@ public class MainFrame extends javax.swing.JFrame {
         repaint();
     }//GEN-LAST:event_closeMouseMoved
 
+    
     private void closeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_closeFocusLost
         // TODO add your handling code here:
        // close.setOpaque(false);
@@ -2826,6 +2845,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         // TODO add your handling code here:
+        roomText.setText("300");
+        c = room200.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void room207ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room207ActionPerformed
@@ -3095,7 +3119,16 @@ public class MainFrame extends javax.swing.JFrame {
             }
        }
     }//GEN-LAST:event_checkOutDatePropertyChange
-
+    
+    public void mouseClicked(MouseEvent e) {
+    if (e.getClickCount() == 2) {
+      JTable target = (JTable)e.getSource();
+      int row = target.getSelectedRow();
+      int column = target.getSelectedColumn();
+      // do some action if appropriate column
+      addCard.setEnabled(false);
+    }
+  }
     private void addCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCardActionPerformed
         // TODO add your handling code here:
          DefaultTableModel model = (DefaultTableModel)cardTable.getModel();
@@ -3144,7 +3177,18 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void cardTableMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardTableMouseExited
         // TODO add your handling code here:
+        
+        DefaultTableModel model = (DefaultTableModel)cardTable.getModel();
         warnLabel.setVisible(false);
+        System.out.print("DEBUGFGG"+cardTable.getModel().getValueAt(0, 0));
+        
+        if(cardTable.getModel().getValueAt(0, 0) != null
+                && cardTable.getModel().getValueAt(0, 1)!= null
+                && cardTable.getModel().getValueAt(0, 2)!= null
+                && cardTable.getModel().getValueAt(0, 3) != null
+                && cardTable.getModel().getValueAt(0, 4) != null){
+        addCard.setEnabled(true);
+        }
     }//GEN-LAST:event_cardTableMouseExited
 
     public void setColor(javax.swing.JPanel panel){
@@ -3331,7 +3375,7 @@ public class MainFrame extends javax.swing.JFrame {
             else if(!failed){
             checkInButt.setEnabled(true);
             bookButt.setEnabled(true);
-            addCard.setEnabled(true);
+          //  addCard.setEnabled(true);
             }
         
         guestId.setText(""+id.getId());
@@ -3417,13 +3461,13 @@ public class MainFrame extends javax.swing.JFrame {
         dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Green_16px.png")));
          checkInButt.setEnabled(true);
          bookButt.setEnabled(true);
-         addCard.setEnabled(true);
+       
         }
     else{
         dbStatus.setIcon(new javax.swing.ImageIcon(MainFrame.class.getResource("/images/Filled Circle_Red_16px.png")));
         checkInButt.setEnabled(false);
         bookButt.setEnabled(false);
-        addCard.setEnabled(false);
+      
         flag2 = true;
         }
     }
@@ -3673,6 +3717,5 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton visaRad;
     private javax.swing.JLabel warnLabel;
     // End of variables declaration//GEN-END:variables
-
 
 }
