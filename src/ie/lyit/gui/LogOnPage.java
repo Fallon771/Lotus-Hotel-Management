@@ -161,8 +161,14 @@ public class LogOnPage extends javax.swing.JFrame {
             frame = new MainFrame();
             frame.setVisible(true);
         }
+        else if(username.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Please enter a username", "login error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(password.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Please enter a password", "login error", JOptionPane.ERROR_MESSAGE);
+        }
         else{
-            JOptionPane.showMessageDialog(null, "Invalid", "login", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Invalid", "login error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
