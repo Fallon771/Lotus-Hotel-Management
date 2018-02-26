@@ -145,23 +145,23 @@ public class MainFrame extends javax.swing.JFrame {
         room206 = new javax.swing.JButton();
         room207 = new javax.swing.JButton();
         doublePanel = new javax.swing.JPanel();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
-        jButton24 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
+        room301 = new javax.swing.JButton();
+        room302 = new javax.swing.JButton();
+        room303 = new javax.swing.JButton();
+        room304 = new javax.swing.JButton();
+        room305 = new javax.swing.JButton();
+        room306 = new javax.swing.JButton();
         bridalPane = new javax.swing.JPanel();
-        room209 = new javax.swing.JButton();
-        room210 = new javax.swing.JButton();
-        room211 = new javax.swing.JButton();
+        room100 = new javax.swing.JButton();
+        room101 = new javax.swing.JButton();
+        room103 = new javax.swing.JButton();
         executivePanel = new javax.swing.JPanel();
-        jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
-        jButton29 = new javax.swing.JButton();
-        jButton30 = new javax.swing.JButton();
-        jButton31 = new javax.swing.JButton();
-        jButton32 = new javax.swing.JButton();
+        room401 = new javax.swing.JButton();
+        room402 = new javax.swing.JButton();
+        room403 = new javax.swing.JButton();
+        room404 = new javax.swing.JButton();
+        room405 = new javax.swing.JButton();
+        room406 = new javax.swing.JButton();
         checkMark = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
@@ -899,141 +899,151 @@ public class MainFrame extends javax.swing.JFrame {
         doublePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Double Rooms"));
         doublePanel.setLayout(new java.awt.GridBagLayout());
 
-        jButton21.setBackground(new java.awt.Color(255, 255, 255));
-        jButton21.setText("301");
-        jButton21.addActionListener(new java.awt.event.ActionListener() {
+        room301.setBackground(new java.awt.Color(255, 255, 255));
+        room301.setText("301");
+        room301.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton21ActionPerformed(evt);
+                room301ActionPerformed(evt);
             }
         });
-        doublePanel.add(jButton21, new java.awt.GridBagConstraints());
+        doublePanel.add(room301, new java.awt.GridBagConstraints());
 
-        jButton22.setBackground(new java.awt.Color(255, 255, 255));
-        jButton22.setText("302");
-        doublePanel.add(jButton22, new java.awt.GridBagConstraints());
-
-        jButton23.setBackground(new java.awt.Color(255, 255, 255));
-        jButton23.setText("303");
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
+        room302.setBackground(new java.awt.Color(255, 255, 255));
+        room302.setText("302");
+        room302.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
+                room302ActionPerformed(evt);
             }
         });
-        doublePanel.add(jButton23, new java.awt.GridBagConstraints());
+        doublePanel.add(room302, new java.awt.GridBagConstraints());
 
-        jButton24.setBackground(new java.awt.Color(255, 255, 255));
-        jButton24.setText("304");
-        doublePanel.add(jButton24, new java.awt.GridBagConstraints());
-
-        jButton25.setBackground(new java.awt.Color(255, 255, 255));
-        jButton25.setText("305");
-        jButton25.addActionListener(new java.awt.event.ActionListener() {
+        room303.setBackground(new java.awt.Color(255, 255, 255));
+        room303.setText("303");
+        room303.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton25ActionPerformed(evt);
+                room303ActionPerformed(evt);
             }
         });
-        doublePanel.add(jButton25, new java.awt.GridBagConstraints());
+        doublePanel.add(room303, new java.awt.GridBagConstraints());
 
-        jButton26.setBackground(new java.awt.Color(255, 255, 255));
-        jButton26.setText("306");
-        jButton26.addActionListener(new java.awt.event.ActionListener() {
+        room304.setBackground(new java.awt.Color(255, 255, 255));
+        room304.setText("304");
+        room304.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton26ActionPerformed(evt);
+                room304ActionPerformed(evt);
+            }
+        });
+        doublePanel.add(room304, new java.awt.GridBagConstraints());
+
+        room305.setBackground(new java.awt.Color(255, 255, 255));
+        room305.setText("305");
+        room305.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                room305ActionPerformed(evt);
+            }
+        });
+        doublePanel.add(room305, new java.awt.GridBagConstraints());
+
+        room306.setBackground(new java.awt.Color(255, 255, 255));
+        room306.setText("306");
+        room306.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                room306ActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        doublePanel.add(jButton26, gridBagConstraints);
+        doublePanel.add(room306, gridBagConstraints);
 
         roomTab.addTab("Double", doublePanel);
 
         bridalPane.setLayout(new java.awt.GridBagLayout());
 
-        room209.setBackground(new java.awt.Color(255, 255, 255));
-        room209.setText("100");
-        room209.addActionListener(new java.awt.event.ActionListener() {
+        room100.setBackground(new java.awt.Color(255, 255, 255));
+        room100.setText("100");
+        room100.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                room209ActionPerformed(evt);
+                room100ActionPerformed(evt);
             }
         });
-        bridalPane.add(room209, new java.awt.GridBagConstraints());
+        bridalPane.add(room100, new java.awt.GridBagConstraints());
 
-        room210.setBackground(new java.awt.Color(255, 255, 255));
-        room210.setText("101");
-        room210.addActionListener(new java.awt.event.ActionListener() {
+        room101.setBackground(new java.awt.Color(255, 255, 255));
+        room101.setText("101");
+        room101.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                room210ActionPerformed(evt);
+                room101ActionPerformed(evt);
             }
         });
-        bridalPane.add(room210, new java.awt.GridBagConstraints());
+        bridalPane.add(room101, new java.awt.GridBagConstraints());
 
-        room211.setBackground(new java.awt.Color(255, 255, 255));
-        room211.setText("103");
-        room211.addActionListener(new java.awt.event.ActionListener() {
+        room103.setBackground(new java.awt.Color(255, 255, 255));
+        room103.setText("103");
+        room103.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                room211ActionPerformed(evt);
+                room103ActionPerformed(evt);
             }
         });
-        bridalPane.add(room211, new java.awt.GridBagConstraints());
+        bridalPane.add(room103, new java.awt.GridBagConstraints());
 
         roomTab.addTab("Bridal", bridalPane);
 
         executivePanel.setLayout(new java.awt.GridBagLayout());
 
-        jButton27.setBackground(new java.awt.Color(255, 204, 204));
-        jButton27.setText("401");
-        jButton27.addActionListener(new java.awt.event.ActionListener() {
+        room401.setBackground(new java.awt.Color(255, 204, 204));
+        room401.setText("401");
+        room401.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton27ActionPerformed(evt);
+                room401ActionPerformed(evt);
             }
         });
-        executivePanel.add(jButton27, new java.awt.GridBagConstraints());
+        executivePanel.add(room401, new java.awt.GridBagConstraints());
 
-        jButton28.setBackground(new java.awt.Color(255, 204, 204));
-        jButton28.setText("402");
-        jButton28.addActionListener(new java.awt.event.ActionListener() {
+        room402.setBackground(new java.awt.Color(255, 204, 204));
+        room402.setText("402");
+        room402.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton28ActionPerformed(evt);
+                room402ActionPerformed(evt);
             }
         });
-        executivePanel.add(jButton28, new java.awt.GridBagConstraints());
+        executivePanel.add(room402, new java.awt.GridBagConstraints());
 
-        jButton29.setBackground(new java.awt.Color(255, 204, 204));
-        jButton29.setText("403");
-        jButton29.addActionListener(new java.awt.event.ActionListener() {
+        room403.setBackground(new java.awt.Color(255, 204, 204));
+        room403.setText("403");
+        room403.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton29ActionPerformed(evt);
+                room403ActionPerformed(evt);
             }
         });
-        executivePanel.add(jButton29, new java.awt.GridBagConstraints());
+        executivePanel.add(room403, new java.awt.GridBagConstraints());
 
-        jButton30.setBackground(new java.awt.Color(255, 204, 204));
-        jButton30.setText("404");
-        jButton30.addActionListener(new java.awt.event.ActionListener() {
+        room404.setBackground(new java.awt.Color(255, 204, 204));
+        room404.setText("404");
+        room404.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton30ActionPerformed(evt);
+                room404ActionPerformed(evt);
             }
         });
-        executivePanel.add(jButton30, new java.awt.GridBagConstraints());
+        executivePanel.add(room404, new java.awt.GridBagConstraints());
 
-        jButton31.setBackground(new java.awt.Color(255, 204, 204));
-        jButton31.setText("405");
-        jButton31.addActionListener(new java.awt.event.ActionListener() {
+        room405.setBackground(new java.awt.Color(255, 204, 204));
+        room405.setText("405");
+        room405.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton31ActionPerformed(evt);
+                room405ActionPerformed(evt);
             }
         });
-        executivePanel.add(jButton31, new java.awt.GridBagConstraints());
+        executivePanel.add(room405, new java.awt.GridBagConstraints());
 
-        jButton32.setBackground(new java.awt.Color(255, 204, 204));
-        jButton32.setText("406");
-        jButton32.addActionListener(new java.awt.event.ActionListener() {
+        room406.setBackground(new java.awt.Color(255, 204, 204));
+        room406.setText("406");
+        room406.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton32ActionPerformed(evt);
+                room406ActionPerformed(evt);
             }
         });
-        executivePanel.add(jButton32, new java.awt.GridBagConstraints());
+        executivePanel.add(room406, new java.awt.GridBagConstraints());
 
         roomTab.addTab("Executive", executivePanel);
 
@@ -2807,50 +2817,95 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_paymentItemStateChanged
 
-    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+    private void room406ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room406ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton32ActionPerformed
-
-    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton31ActionPerformed
-
-    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton30ActionPerformed
-
-    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton29ActionPerformed
-
-    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton28ActionPerformed
-
-    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton27ActionPerformed
-
-    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton26ActionPerformed
-
-    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton25ActionPerformed
-
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton23ActionPerformed
-
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        // TODO add your handling code here:
-        roomText.setText("300");
-        c = room200.getBackground();
+        roomText.setText("406");
+        c = room406.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
         updateCheckMark(x);
-    }//GEN-LAST:event_jButton21ActionPerformed
+    }//GEN-LAST:event_room406ActionPerformed
+
+    private void room405ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room405ActionPerformed
+        // TODO add your handling code here:
+        roomText.setText("405");
+        c = room405.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
+    }//GEN-LAST:event_room405ActionPerformed
+
+    private void room404ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room404ActionPerformed
+        // TODO add your handling code here:
+        roomText.setText("404");
+        c = room404.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
+    }//GEN-LAST:event_room404ActionPerformed
+
+    private void room403ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room403ActionPerformed
+        // TODO add your handling code here:
+        roomText.setText("403");
+        c = room403.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
+    }//GEN-LAST:event_room403ActionPerformed
+
+    private void room402ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room402ActionPerformed
+        // TODO add your handling code here:
+        roomText.setText("402");
+        c = room402.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
+    }//GEN-LAST:event_room402ActionPerformed
+
+    private void room401ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room401ActionPerformed
+        // TODO add your handling code here:
+        roomText.setText("401");
+        c = room401.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
+    }//GEN-LAST:event_room401ActionPerformed
+
+    private void room306ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room306ActionPerformed
+        // TODO add your handling code here:
+        roomText.setText("306");
+        c = room306.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
+    }//GEN-LAST:event_room306ActionPerformed
+
+    private void room305ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room305ActionPerformed
+        // TODO add your handling code here:
+        roomText.setText("305");
+        c = room305.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
+    }//GEN-LAST:event_room305ActionPerformed
+
+    private void room303ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room303ActionPerformed
+        // TODO add your handling code here:
+        roomText.setText("303");
+        c = room303.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
+    }//GEN-LAST:event_room303ActionPerformed
+
+    private void room301ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room301ActionPerformed
+        // TODO add your handling code here:
+        roomText.setText("301");
+        c = room301.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
+    }//GEN-LAST:event_room301ActionPerformed
 
     private void room207ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room207ActionPerformed
         // TODO add your handling code here:
@@ -2927,17 +2982,17 @@ public class MainFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_room200ActionPerformed
 
-    private void room209ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room209ActionPerformed
+    private void room100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room100ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_room209ActionPerformed
+    }//GEN-LAST:event_room100ActionPerformed
 
-    private void room210ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room210ActionPerformed
+    private void room101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room101ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_room210ActionPerformed
+    }//GEN-LAST:event_room101ActionPerformed
 
-    private void room211ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room211ActionPerformed
+    private void room103ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room103ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_room211ActionPerformed
+    }//GEN-LAST:event_room103ActionPerformed
 
     //**SEARCH - FIND GUEST**//
     private void findGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findGuestActionPerformed
@@ -3190,6 +3245,26 @@ public class MainFrame extends javax.swing.JFrame {
         addCard.setEnabled(true);
         }
     }//GEN-LAST:event_cardTableMouseExited
+
+    private void room302ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room302ActionPerformed
+        // TODO add your handling code here:
+        
+        roomText.setText("302");
+        c = room302.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
+    }//GEN-LAST:event_room302ActionPerformed
+
+    private void room304ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room304ActionPerformed
+        // TODO add your handling code here:
+        
+        roomText.setText("304");
+        c = room304.getBackground();
+        int x = rep.checkRoomStatus(c);
+        setCheckRoomBoolean(x);
+        updateCheckMark(x);
+    }//GEN-LAST:event_room304ActionPerformed
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
@@ -3530,19 +3605,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
@@ -3664,6 +3727,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField phone;
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JPanel quitPanel;
+    private static javax.swing.JButton room100;
+    private static javax.swing.JButton room101;
+    private static javax.swing.JButton room103;
     private static javax.swing.JButton room200;
     private static javax.swing.JButton room201;
     private static javax.swing.JButton room202;
@@ -3672,9 +3738,18 @@ public class MainFrame extends javax.swing.JFrame {
     private static javax.swing.JButton room205;
     private static javax.swing.JButton room206;
     private static javax.swing.JButton room207;
-    private static javax.swing.JButton room209;
-    private static javax.swing.JButton room210;
-    private static javax.swing.JButton room211;
+    private javax.swing.JButton room301;
+    private javax.swing.JButton room302;
+    private javax.swing.JButton room303;
+    private javax.swing.JButton room304;
+    private javax.swing.JButton room305;
+    private javax.swing.JButton room306;
+    private javax.swing.JButton room401;
+    private javax.swing.JButton room402;
+    private javax.swing.JButton room403;
+    private javax.swing.JButton room404;
+    private javax.swing.JButton room405;
+    private javax.swing.JButton room406;
     private javax.swing.JPanel roomInfo;
     private javax.swing.JTextField roomNo;
     private static javax.swing.JTabbedPane roomTab;
