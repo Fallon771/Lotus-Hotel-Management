@@ -221,8 +221,8 @@ public class MainFrame extends javax.swing.JFrame {
         bankR = new javax.swing.JCheckBox();
         functionR = new javax.swing.JCheckBox();
         jSeparator11 = new javax.swing.JSeparator();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        deal20 = new javax.swing.JRadioButton();
+        deal10 = new javax.swing.JRadioButton();
         jButton5 = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -609,7 +609,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(quitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
@@ -1195,6 +1195,7 @@ public class MainFrame extends javax.swing.JFrame {
         emailLabel.setText("Email:");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Help_22px.png"))); // NOI18N
+        jLabel10.setToolTipText("Click to open help");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel10MousePressed(evt);
@@ -1543,22 +1544,27 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
-        dealsGroup.add(jRadioButton1);
-        jRadioButton1.setText("20% Off Deal");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        deal20.setBackground(new java.awt.Color(255, 255, 255));
+        dealsGroup.add(deal20);
+        deal20.setText("20% Off Deal");
+        deal20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                deal20ActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
-        dealsGroup.add(jRadioButton2);
-        jRadioButton2.setText("10% Off Deal");
+        deal10.setBackground(new java.awt.Color(255, 255, 255));
+        dealsGroup.add(deal10);
+        deal10.setText("10% Off Deal");
 
         jButton5.setFont(new java.awt.Font("Dubai", 0, 10)); // NOI18N
         jButton5.setText("Reset");
         jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1572,9 +1578,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(bankR)
                     .addComponent(summerR)
                     .addComponent(functionR)
-                    .addComponent(jRadioButton1)
+                    .addComponent(deal20)
                     .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton2)
+                    .addComponent(deal10)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 29, Short.MAX_VALUE))
         );
@@ -1593,9 +1599,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton1)
+                .addComponent(deal20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(deal10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -3285,9 +3291,9 @@ public class MainFrame extends javax.swing.JFrame {
         updateCheckMark(x);
     }//GEN-LAST:event_room304ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void deal20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deal20ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_deal20ActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
@@ -3410,6 +3416,11 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Help().setVisible(true);
     }//GEN-LAST:event_jLabel10MousePressed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+       dealsGroup.clearSelection();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
@@ -3773,6 +3784,8 @@ public class MainFrame extends javax.swing.JFrame {
     public void setStatus(){
         dbStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Filled Circle_Green_16px.png")));
     }
+    private javax.swing.JRadioButton deal10;
+    private javax.swing.JRadioButton deal20;
     private javax.swing.ButtonGroup dealsGroup;
     private static javax.swing.JPanel doublePanel;
     private javax.swing.JLabel dragBar;
@@ -3864,8 +3877,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
