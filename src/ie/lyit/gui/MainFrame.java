@@ -2792,6 +2792,16 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void valRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valRActionPerformed
         // TODO add your handling code here:
+        if(valR.isSelected()){
+            totalPrice = (totalPrice * bill.getValentinePrice());
+            packageTotal.setText(""+totalPrice);
+            packageTotal2.setText(""+totalPrice);
+        }
+        else if(!valR.isSelected()){
+            totalPrice = (totalPrice / bill.getValentinePrice());
+            packageTotal.setText(""+totalPrice);
+            packageTotal2.setText(""+totalPrice);
+        }
     }//GEN-LAST:event_valRActionPerformed
 
     private void summerRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summerRActionPerformed
