@@ -2997,7 +2997,7 @@ public class MainFrame extends javax.swing.JFrame {
         c = room205.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
-        test = 2;
+        //test = 2;
         updateCheckMark(x);
 
     }//GEN-LAST:event_room205ActionPerformed
@@ -3133,7 +3133,6 @@ public class MainFrame extends javax.swing.JFrame {
             catch(Exception e)
             {
             }
-
         }
     }//GEN-LAST:event_findGuestActionPerformed
 
@@ -3160,7 +3159,6 @@ public class MainFrame extends javax.swing.JFrame {
                 String roomType = (String)jComboBox2.getSelectedItem();
                 tfRoomType.setText(roomType);
                 tfBooked.setText(rs.getString("fname"));
-     
                 tfAvailable.setText(rs.getString("checkout"));
                
             }
@@ -3363,7 +3361,6 @@ public class MainFrame extends javax.swing.JFrame {
             else{
                 cardType = masterRad.getText();
             }
-            System.out.print("DEBUG CARD BUTTON:"+cardType);
             // Pass into CreditCard constructor
             card = new CreditCard(Integer.valueOf(guestId.getText()),fname,sname,cardno,date,cvc,cardType);
             JOptionPane.showMessageDialog(null, "Success!\nBook or check-in guest to store card on database", "Credit Card Information", JOptionPane.INFORMATION_MESSAGE);
@@ -3506,7 +3503,6 @@ public class MainFrame extends javax.swing.JFrame {
             checkOutDate.getDate());
             
             // We pass in our boolean "booking"
-            System.out.print("\nDebugging 1:"+guestId.getText());
             Rooms room = new Rooms(Integer.valueOf(guestId.getText())-1,booking,Integer.valueOf(roomText.getText()),(Integer)adults.getValue(),(Integer)children.getValue());
             
             // Show confirmation box
@@ -3521,7 +3517,6 @@ public class MainFrame extends javax.swing.JFrame {
                     +"\nCheck-In: "+checkInDate.getDate()
                     +"\nCheck-Out: "+checkOutDate.getDate()
                     +"\n\n" ), "Check & Confim Details", JOptionPane.OK_CANCEL_OPTION);
-            System.out.print("OPTION:"+x);
             
             // Check to see if room is booked
            // if(booking){
@@ -3600,7 +3595,7 @@ public class MainFrame extends javax.swing.JFrame {
             else if(!failed){
             checkInButt.setEnabled(true);
             bookButt.setEnabled(true);
-          //  addCard.setEnabled(true);
+       
             }
         
         guestId.setText(""+id.getId());
