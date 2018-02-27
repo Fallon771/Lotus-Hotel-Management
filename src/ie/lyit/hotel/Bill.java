@@ -13,6 +13,17 @@ public class Bill {
     private float amount;
     private Date date;
     
+    // Fixed prices 
+    private double fuctionPrice = 60.00;
+    private double spaPrice = 50.00;
+    
+    // Discounts & Increase
+    private double valentinePrice = 1.25;
+    private double bankPrice = 1.50;
+    private double summerDeal = 0.75;
+    
+    private double deal20 = 0.80;
+    private double deal10 = 0.90;
 
 public Bill(float amount,Date date){
     this.amount = amount;
