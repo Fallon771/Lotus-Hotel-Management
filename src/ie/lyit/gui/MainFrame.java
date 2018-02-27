@@ -199,7 +199,6 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jTextField7 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -219,7 +218,7 @@ public class MainFrame extends javax.swing.JFrame {
         packageTotal2 = new javax.swing.JTextField();
         nightsStay = new javax.swing.JTextField();
         totalCost = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
+        roomType = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         spaR = new javax.swing.JCheckBox();
         valR = new javax.swing.JCheckBox();
@@ -362,8 +361,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         homePanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                homePanelMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                homePanelMousePressed(evt);
             }
         });
 
@@ -403,8 +402,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         checkPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                checkPanelMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                checkPanelMousePressed(evt);
             }
         });
 
@@ -445,8 +444,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         searchPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                searchPanelMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                searchPanelMousePressed(evt);
             }
         });
 
@@ -497,8 +496,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         checkOutPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                checkOutPanelMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                checkOutPanelMousePressed(evt);
             }
         });
 
@@ -524,7 +523,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkOutPanelLayout.setVerticalGroup(
             checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checkOutPanelLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkOutIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkOutLab, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -607,15 +606,15 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(homePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(checkPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(checkOutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(quitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
@@ -684,8 +683,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         close.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                closeMousePressed(evt);
             }
         });
 
@@ -1319,8 +1318,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel21.setText("Room Type:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single\t", "Double", "Bridal Suite", "Executive" }));
-
         jTextField7.setText("0.00");
         jTextField7.setBorder(null);
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
@@ -1476,8 +1473,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(totalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        roomType.setEditable(false);
+        roomType.setText("Single");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1494,59 +1491,51 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel11))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                         .addComponent(euroLabel1)
                                         .addGap(1, 1, 1)
                                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(packageTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(discountTotal)))))
+                                            .addComponent(discountTotal)))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(roomType, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(euroLabel)
+                                        .addGap(1, 1, 1)
+                                        .addComponent(jTextField7))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(euroLabel3)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(euroLabel)
-                                .addGap(1, 1, 1)
-                                .addComponent(jTextField7))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel21)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel21)
+                        .addComponent(roomType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(euroLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(euroLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(discountTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel29)
-                            .addComponent(euroLabel3)
-                            .addComponent(packageTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jSeparator1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addComponent(jLabel11)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(euroLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(discountTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel29)
+                    .addComponent(euroLabel3)
+                    .addComponent(packageTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2610,7 +2599,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1092, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(checkinScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, Short.MAX_VALUE))
+                .addComponent(checkinScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1092, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layerPaneLayout.createSequentialGroup()
@@ -2620,13 +2609,13 @@ public class MainFrame extends javax.swing.JFrame {
         );
         layerPaneLayout.setVerticalGroup(
             layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(checkinScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
-            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
-            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+            .addComponent(checkinScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(homeScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
+            .addComponent(searchScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layerPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -2653,7 +2642,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(layerPane)
                 .addGap(2, 2, 2)
                 .addComponent(footer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(sideBar, javax.swing.GroupLayout.DEFAULT_SIZE, 769, Short.MAX_VALUE)
+            .addComponent(sideBar, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
         );
 
         pack();
@@ -2681,14 +2670,6 @@ public class MainFrame extends javax.swing.JFrame {
         setState(ICONIFIED);
        
     }//GEN-LAST:event_miniMouseClicked
-
-    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
-        // TODO add your handling code here:
-        thread1.interrupt();
-        rs.interrupt();
-        dispose();
-        System.exit(0);
-    }//GEN-LAST:event_closeMouseClicked
 
     private void searchPanelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPanelMouseMoved
         // TODO add your handling code here:
@@ -2724,38 +2705,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_homePanelMouseMoved
 
-    private void homePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homePanelMouseClicked
-        // TODO add your handling code here:
-        checkinScreen.setVisible(false);
-        homeScreen.setVisible(true);
-        dataTabPane.setVisible(true);
-        currentGuest.setVisible(true);
-        bannerTitle.setText("Home");
-        searchScreen.setVisible(false);
-    }//GEN-LAST:event_homePanelMouseClicked
-
-    private void checkPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkPanelMouseClicked
-        // TODO add your handling code here:
-        warnLabel.setVisible(false);
-        // update id on checkin screen
-         updateGuestId();
-         checkinScreen.setVisible(true);
-         searchScreen.setVisible(false);
-         homeScreen.setVisible(false);
-         dataTabPane.setVisible(false);
-         currentGuest.setVisible(false);
-         bannerTitle.setText("Check-In");
-         roomText.setText("");
-    }//GEN-LAST:event_checkPanelMouseClicked
-
-    private void searchPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPanelMouseClicked
-        // TODO add your handling code here:
-         checkinScreen.setVisible(false);
-         homeScreen.setVisible(false);
-         searchScreen.setVisible(true);
-         bannerTitle.setText("Search");
-    }//GEN-LAST:event_searchPanelMouseClicked
-
     private void checkOutPanelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutPanelMouseMoved
         // TODO add your handling code here:
          homePanel.setBackground(new java.awt.Color(34,104,153));
@@ -2765,15 +2714,6 @@ public class MainFrame extends javax.swing.JFrame {
          checkOutPanel.setBackground(new java.awt.Color(84,140,196));
          
     }//GEN-LAST:event_checkOutPanelMouseMoved
-
-    private void checkOutPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutPanelMouseClicked
-        // TODO add your handling code here:
-        checkinScreen.setVisible(false);
-         homeScreen.setVisible(false);
-         searchScreen.setVisible(false);
-         checkOutScreen.setVisible(true);
-         bannerTitle.setText("Check Out");
-    }//GEN-LAST:event_checkOutPanelMouseClicked
 
     private void spaRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spaRActionPerformed
         // TODO add your handling code here:
@@ -2810,6 +2750,16 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void bankRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bankRActionPerformed
         // TODO add your handling code here:
+         if(bankR.isSelected()){
+            totalPrice = (totalPrice * bill.getBankPrice());
+            packageTotal.setText(""+totalPrice);
+            packageTotal2.setText(""+totalPrice);
+        }
+        else if(!bankR.isSelected()){
+            totalPrice = (totalPrice / bill.getBankPrice());
+            packageTotal.setText(""+totalPrice);
+            packageTotal2.setText(""+totalPrice);
+        }
     }//GEN-LAST:event_bankRActionPerformed
 
     private void functionRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_functionRActionPerformed
@@ -2981,6 +2931,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room406ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room406ActionPerformed
         // TODO add your handling code here:
         roomText.setText("406");
+        roomType.setText("Executive");
         c = room406.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -2990,6 +2941,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room405ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room405ActionPerformed
         // TODO add your handling code here:
         roomText.setText("405");
+        roomType.setText("Executive");
         c = room405.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -2999,6 +2951,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room404ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room404ActionPerformed
         // TODO add your handling code here:
         roomText.setText("404");
+        roomType.setText("Executive");
         c = room404.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3008,6 +2961,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room403ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room403ActionPerformed
         // TODO add your handling code here:
         roomText.setText("403");
+        roomType.setText("Executive");
         c = room403.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3017,6 +2971,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room402ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room402ActionPerformed
         // TODO add your handling code here:
         roomText.setText("402");
+        roomType.setText("Executive");
         c = room402.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3026,6 +2981,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room401ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room401ActionPerformed
         // TODO add your handling code here:
         roomText.setText("401");
+        roomType.setText("Executive");
         c = room401.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3035,6 +2991,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room306ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room306ActionPerformed
         // TODO add your handling code here:
         roomText.setText("306");
+        roomType.setText("Double");
         c = room306.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3044,6 +3001,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room305ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room305ActionPerformed
         // TODO add your handling code here:
         roomText.setText("305");
+        roomType.setText("Double");
         c = room305.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3053,6 +3011,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room303ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room303ActionPerformed
         // TODO add your handling code here:
         roomText.setText("303");
+        roomType.setText("Double");
         c = room303.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3062,6 +3021,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room301ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room301ActionPerformed
         // TODO add your handling code here:
         roomText.setText("301");
+        roomType.setText("Double");
         c = room301.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3071,6 +3031,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room207ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room207ActionPerformed
         // TODO add your handling code here:
         roomText.setText("207");
+        roomType.setText("Single");
         c = room207.getBackground();
         int x =  rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3080,6 +3041,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room206ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room206ActionPerformed
         // TODO add your handling code here:
         roomText.setText("206");
+        roomType.setText("Single");
         c = room206.getBackground();
         int x =rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3089,6 +3051,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room205ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room205ActionPerformed
         // TODO add your handling code here:
         roomText.setText("205");
+        roomType.setText("Single");
         c = room205.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3100,6 +3063,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room204ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room204ActionPerformed
         // TODO add your handling code here:
         roomText.setText("204");
+        roomType.setText("Single");
         c = room204.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3109,6 +3073,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room203ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room203ActionPerformed
         // TODO add your handling code here:
         roomText.setText("203");
+        roomType.setText("Single");
         c = room203.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3118,6 +3083,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room202ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room202ActionPerformed
         // TODO add your handling code here:
         roomText.setText("202");
+        roomType.setText("Single");
         c = room202.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3127,6 +3093,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room201ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room201ActionPerformed
         // TODO add your handling code here:
         roomText.setText("201");
+        roomType.setText("Single");
         c = room201.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3135,7 +3102,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void room200ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room200ActionPerformed
         // TODO add your handling code here:
+        
         roomText.setText("200");
+        roomType.setText("Single");
         c = room200.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3146,6 +3115,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room100ActionPerformed
         // TODO add your handling code here:
         roomText.setText("100");
+        roomType.setText("Bridal");
         c = room100.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3155,6 +3125,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room101ActionPerformed
         // TODO add your handling code here:
         roomText.setText("101");
+        roomType.setText("Bridal");
         c = room101.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3164,6 +3135,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void room103ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_room103ActionPerformed
         // TODO add your handling code here:
         roomText.setText("103");
+        roomType.setText("Bridal");
         c = room103.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3207,8 +3179,8 @@ public class MainFrame extends javax.swing.JFrame {
                 //tfAddress.setText(rs.getString("address"));
                 //tfAddress.setCaretPosition(0);
                 
-                String roomType = (String)jComboBox2.getSelectedItem();
-                tfType.setText(roomType);
+                String roomT = roomType.getText();
+                tfType.setText(roomT);
                 
                 tfCheckin.setText(rs.getString("checkin"));
                 tfAdults.setText(rs.getString("adults"));
@@ -3251,8 +3223,9 @@ public class MainFrame extends javax.swing.JFrame {
             while(rs.next()){
                 
                 tfAvailability.setText(rs.getString("booked"));
-                String roomType = (String)jComboBox2.getSelectedItem();
-                tfRoomType.setText(roomType);
+                String roomT = roomType.getText();
+                //String roomType = (String)jComboBox2.getSelectedItem();
+                tfRoomType.setText(roomT);
                 tfBooked.setText(rs.getString("fname"));
                 tfAvailable.setText(rs.getString("checkout"));
                
@@ -3295,8 +3268,9 @@ public class MainFrame extends javax.swing.JFrame {
             while(rs.next()){
                 
                 tfAvailability.setText(rs.getString("booked"));
-                String roomType = (String)jComboBox2.getSelectedItem();
-                tfRoomType.setText(roomType);
+                String roomT = roomType.getText();
+               // String roomType = (String)jComboBox2.getSelectedItem();
+                tfRoomType.setText(roomT);
                 tfBooked.setText(rs.getString("fname"));
      
                 tfAvailable.setText(rs.getString("checkout"));
@@ -3530,6 +3504,55 @@ public class MainFrame extends javax.swing.JFrame {
     private void totalCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCostActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_totalCostActionPerformed
+
+    private void closeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMousePressed
+        // TODO add your handling code here:
+        thread1.interrupt();
+        rs.interrupt();
+        dispose();
+        System.exit(0);
+    }//GEN-LAST:event_closeMousePressed
+
+    private void homePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homePanelMousePressed
+        // TODO add your handling code here:
+        checkinScreen.setVisible(false);
+        homeScreen.setVisible(true);
+        dataTabPane.setVisible(true);
+        currentGuest.setVisible(true);
+        bannerTitle.setText("Home");
+        searchScreen.setVisible(false);
+    }//GEN-LAST:event_homePanelMousePressed
+
+    private void checkPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkPanelMousePressed
+        // TODO add your handling code here:
+         warnLabel.setVisible(false);
+        // update id on checkin screen
+         updateGuestId();
+         checkinScreen.setVisible(true);
+         searchScreen.setVisible(false);
+         homeScreen.setVisible(false);
+         dataTabPane.setVisible(false);
+         currentGuest.setVisible(false);
+         bannerTitle.setText("Check-In");
+         roomText.setText("");
+    }//GEN-LAST:event_checkPanelMousePressed
+
+    private void searchPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPanelMousePressed
+        // TODO add your handling code here:
+         checkinScreen.setVisible(false);
+         homeScreen.setVisible(false);
+         searchScreen.setVisible(true);
+         bannerTitle.setText("Search");
+    }//GEN-LAST:event_searchPanelMousePressed
+
+    private void checkOutPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutPanelMousePressed
+        // TODO add your handling code here:
+         checkinScreen.setVisible(false);
+         homeScreen.setVisible(false);
+         searchScreen.setVisible(false);
+         checkOutScreen.setVisible(true);
+         bannerTitle.setText("Check-Out");
+    }//GEN-LAST:event_checkOutPanelMousePressed
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
@@ -3923,7 +3946,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3991,7 +4013,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
@@ -4064,6 +4085,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField roomNo;
     private static javax.swing.JTabbedPane roomTab;
     private static javax.swing.JTextField roomText;
+    private javax.swing.JTextField roomType;
     private javax.swing.JTextField sName;
     private javax.swing.JLabel sNameLabel;
     private javax.swing.JPanel searchGuest;
