@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ie.lyit.hotel;
 /**
  *
- * @author james f
+ * @author James Fallon
  */
 public class Bill {
     
@@ -25,9 +20,9 @@ public class Bill {
     private double deal20 = 0.80;
     private double deal10 = 0.90;
 
-public Bill(float amount,Date date){
-    this.amount = amount;
-    this.date = date;
+    public Bill(float amount,Date date){
+        this.amount = amount;
+        this.date = date;
     }    
     
     // Getter's & Setter's
@@ -66,4 +61,61 @@ public Bill(float amount,Date date){
     public String getFormattedBillAmount(){
         return "Bill Total: " + amount;
     }
+
+    public double getFuctionPrice() {
+        return fuctionPrice;
+    }
+
+    public void setFuctionPrice(double fuctionPrice) {
+        this.fuctionPrice = fuctionPrice;
+    }
+
+    public double getSpaPrice() {
+        return spaPrice;
+    }
+
+    public void setSpaPrice(double spaPrice) {
+        this.spaPrice = spaPrice;
+    }
+
+    public double getValentinePrice() {
+        return valentinePrice;
+    }
+
+    public void setValentinePrice(double valentinePrice) {
+        this.valentinePrice = valentinePrice;
+    }
+
+    public double getBankPrice() {
+        return bankPrice;
+    }
+
+    public void setBankPrice(double bankPrice) {
+        this.bankPrice = bankPrice;
+    }
+
+    public double getSummerDeal() {
+        return summerDeal;
+    }
+
+    public void setSummerDeal(double summerDeal) {
+        this.summerDeal = summerDeal;
+    }
+
+    public double getDeal20() {
+        return deal20;
+    }
+
+    public void setDeal20(double deal20) {
+        this.deal20 = deal20;
+    }
+
+    public double getDeal10() {
+        return deal10;
+    }
+
+    public void setDeal10(double deal10) {
+        this.deal10 = deal10;
+    }
+    
 }
