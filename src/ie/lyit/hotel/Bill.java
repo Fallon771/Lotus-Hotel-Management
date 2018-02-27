@@ -11,6 +11,11 @@ public class Bill {
     // Fixed prices 
     private double fuctionPrice = 60.00;
     private double spaPrice = 50.00;
+    private double singleR = 80.00;
+    private double doubleR = 130.00;
+    private double bridal = 250.00;
+    private double executive = 195.00;
+    
     
     // Discounts & Increase
     private double valentinePrice = 1.25;
@@ -20,6 +25,10 @@ public class Bill {
     private double deal20 = 0.80;
     private double deal10 = 0.90;
 
+    
+    public Bill(){
+    
+    }
     public Bill(float amount,Date date){
         this.amount = amount;
         this.date = date;
@@ -116,6 +125,22 @@ public class Bill {
 
     public void setDeal10(double deal10) {
         this.deal10 = deal10;
+    }
+
+    public double getSingleR() {
+        return singleR;
+    }
+
+    public double getDoubleR() {
+        return doubleR;
+    }
+
+    public double getBridal() {
+        return bridal;
+    }
+
+    public double getExecutive() {
+        return executive;
     }
     
 }
