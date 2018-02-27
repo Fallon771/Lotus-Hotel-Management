@@ -10,6 +10,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import ie.lyit.database.*;
+import ie.lyit.hotel.Bill;
 import ie.lyit.hotel.CreditCard;
 import ie.lyit.hotel.Rooms;
 import ie.lyit.users.*;
@@ -49,6 +50,7 @@ public class MainFrame extends javax.swing.JFrame {
     int xMouse;
     int yMouse;
     int test;
+    double totalPrice = 0.00;
     double xScreen;
     double yScreen;
     static boolean flag2 = true;
@@ -67,6 +69,7 @@ public class MainFrame extends javax.swing.JFrame {
     DisplayTables display = new DisplayTables();
     RoomStatus rs = new RoomStatus();
     CreditCard card;
+    Bill bill = new Bill();
     Color c;
     
     /**
@@ -203,9 +206,9 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         euroLabel = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        discountTotal = new javax.swing.JTextField();
         euroLabel1 = new javax.swing.JLabel();
-        jTextField21 = new javax.swing.JTextField();
+        packageTotal = new javax.swing.JTextField();
         euroLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jTextField8 = new javax.swing.JTextField();
@@ -213,6 +216,10 @@ public class MainFrame extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
         jSeparator12 = new javax.swing.JSeparator();
+        roomCost = new javax.swing.JTextField();
+        packageTotal2 = new javax.swing.JTextField();
+        nightsStay = new javax.swing.JTextField();
+        totalCost = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         spaR = new javax.swing.JCheckBox();
@@ -1331,21 +1338,21 @@ public class MainFrame extends javax.swing.JFrame {
 
         euroLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Euro_20px.png"))); // NOI18N
 
-        jTextField11.setText("-0.00");
-        jTextField11.setBorder(null);
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        discountTotal.setText("-0.00");
+        discountTotal.setBorder(null);
+        discountTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                discountTotalActionPerformed(evt);
             }
         });
 
         euroLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Euro_20px.png"))); // NOI18N
 
-        jTextField21.setText("0.00");
-        jTextField21.setBorder(null);
-        jTextField21.addActionListener(new java.awt.event.ActionListener() {
+        packageTotal.setText("0.00");
+        packageTotal.setBorder(null);
+        packageTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField21ActionPerformed(evt);
+                packageTotalActionPerformed(evt);
             }
         });
 
@@ -1387,33 +1394,87 @@ public class MainFrame extends javax.swing.JFrame {
 
         jSeparator12.setForeground(new java.awt.Color(51, 51, 51));
 
+        roomCost.setText("0.00");
+        roomCost.setBorder(null);
+        roomCost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roomCostActionPerformed(evt);
+            }
+        });
+
+        packageTotal2.setText("0.00");
+        packageTotal2.setBorder(null);
+        packageTotal2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                packageTotal2ActionPerformed(evt);
+            }
+        });
+
+        nightsStay.setText("0");
+        nightsStay.setBorder(null);
+        nightsStay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nightsStayActionPerformed(evt);
+            }
+        });
+
+        totalCost.setText("0");
+        totalCost.setBorder(null);
+        totalCost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalCostActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField9)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField9)
+                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(roomCost)
+                                    .addComponent(packageTotal2)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(totalCost))
+                            .addComponent(jSeparator12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(108, 108, 108))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nightsStay)
+                        .addGap(107, 107, 107))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roomCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(packageTotal2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nightsStay, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
@@ -1439,8 +1500,8 @@ public class MainFrame extends javax.swing.JFrame {
                                         .addComponent(euroLabel1)
                                         .addGap(1, 1, 1)
                                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField11)))))
+                                            .addComponent(packageTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(discountTotal)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1482,12 +1543,12 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(euroLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(discountTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel29)
                             .addComponent(euroLabel3)
-                            .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(packageTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jSeparator1)
@@ -1601,7 +1662,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(deal10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel13.setBackground(new java.awt.Color(202, 229, 250));
@@ -2738,6 +2799,16 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void functionRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_functionRActionPerformed
         // TODO add your handling code here:
+        if(functionR.isSelected()){
+            totalPrice = totalPrice + bill.getFuctionPrice();
+            packageTotal.setText(""+totalPrice);
+            packageTotal2.setText(""+totalPrice);
+        }
+        else if(!functionR.isSelected()){
+            totalPrice = totalPrice - bill.getFuctionPrice();
+            packageTotal.setText(""+totalPrice);
+            packageTotal2.setText(""+totalPrice);
+        }
     }//GEN-LAST:event_functionRActionPerformed
 
     private void maxiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maxiMousePressed
@@ -3302,13 +3373,13 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void discountTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountTotalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_discountTotalActionPerformed
 
-    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
+    private void packageTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_packageTotalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField21ActionPerformed
+    }//GEN-LAST:event_packageTotalActionPerformed
 
     private void serverTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serverTestActionPerformed
         // TODO add your handling code here:
@@ -3428,6 +3499,22 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
        JOptionPane.showMessageDialog(null,"Room *** is empty " ,"Information",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void roomCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomCostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roomCostActionPerformed
+
+    private void packageTotal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_packageTotal2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_packageTotal2ActionPerformed
+
+    private void nightsStayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nightsStayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nightsStayActionPerformed
+
+    private void totalCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totalCostActionPerformed
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
@@ -3794,6 +3881,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton deal10;
     private javax.swing.JRadioButton deal20;
     private javax.swing.ButtonGroup dealsGroup;
+    private javax.swing.JTextField discountTotal;
     private static javax.swing.JPanel doublePanel;
     private javax.swing.JLabel dragBar;
     private javax.swing.JTextField email;
@@ -3904,7 +3992,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
@@ -3915,7 +4002,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -3929,6 +4015,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton masterRad;
     private javax.swing.JLabel maxi;
     private javax.swing.JLabel mini;
+    private javax.swing.JTextField nightsStay;
+    private javax.swing.JTextField packageTotal;
+    private javax.swing.JTextField packageTotal2;
     private javax.swing.JComboBox<String> payment;
     private javax.swing.JTextField phone;
     private javax.swing.JLabel phoneLabel;
@@ -3956,6 +4045,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton room404;
     private javax.swing.JButton room405;
     private javax.swing.JButton room406;
+    private javax.swing.JTextField roomCost;
     private javax.swing.JPanel roomInfo;
     private javax.swing.JTextField roomNo;
     private static javax.swing.JTabbedPane roomTab;
@@ -3997,6 +4087,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> title;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel topPanel;
+    private javax.swing.JTextField totalCost;
     private javax.swing.JCheckBox valR;
     private javax.swing.JRadioButton visaRad;
     private javax.swing.JLabel warnLabel;
