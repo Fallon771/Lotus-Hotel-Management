@@ -24,16 +24,33 @@ public class PriceUpdate extends Thread{
     public void run(){
     
         boolean running = true;
-        
+        System.out.print("[Thread 3:]Price Check Started... :)\n");
         while(running){
             try{
-            sleep(2000);
+            sleep(300);
                 packageCost = MainFrame.getPackageCost();
                 roomCost = MainFrame.getRoomCost();
                 double pack = Double.parseDouble(packageCost);
                 double room = Double.parseDouble(roomCost);   
                 total = pack+room;
-                MainFrame.setTotal(total);
+                if(MainFrame.getDeal10().isSelected()){
+                    MainFrame.setTotal((total*0.90));
+                }
+                else if(MainFrame.getBankR().isSelected()){
+                    MainFrame.setTotal((total*1.50));
+                }
+                else if(MainFrame.getValR().isSelected()){
+                    MainFrame.setTotal((total*1.25));
+                }
+                else if(MainFrame.getSummerR().isSelected()){
+                    MainFrame.setTotal((total*0.85));
+                }
+                else if(MainFrame.getDeal20().isSelected()){
+                    MainFrame.setTotal((total*0.80));
+                }  
+                else{
+                    MainFrame.setTotal(total);
+                }
             }
             catch(Exception e){
             
