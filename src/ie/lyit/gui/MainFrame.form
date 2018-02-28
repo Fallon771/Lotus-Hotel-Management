@@ -218,7 +218,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="22" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkInIcon" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkInLabel" min="-2" pref="40" max="-2" attributes="0"/>
@@ -1485,20 +1485,6 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel27" min="-2" pref="64" max="-2" attributes="0"/>
-                              <Component id="jLabel28" min="-2" pref="64" max="-2" attributes="0"/>
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="checkOutDate" max="32767" attributes="0"/>
-                              <Component id="checkInDate" max="32767" attributes="0"/>
-                              <Component id="payment" pref="118" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
                       <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1544,6 +1530,23 @@
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel27" min="-2" pref="64" max="-2" attributes="0"/>
+                              <Component id="jLabel28" min="-2" pref="64" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="payProcess" pref="118" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="checkOutDate" max="32767" attributes="0"/>
+                                  <Component id="checkInDate" max="32767" attributes="0"/>
+                                  <Component id="payment" pref="118" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1607,6 +1610,8 @@
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <Component id="payment" alignment="0" min="-2" pref="16" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="payProcess" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="clearButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1690,6 +1695,9 @@
                       <Connection code="new Date()" type="code"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="checkOutDate">
                   <Properties>
@@ -1701,6 +1709,9 @@
                   <Events>
                     <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="checkOutDatePropertyChange"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="guestNo">
                   <Properties>
@@ -1757,8 +1768,8 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="5">
-                        <StringItem index="0" value="Credit Card"/>
-                        <StringItem index="1" value="Cash"/>
+                        <StringItem index="0" value="Cash"/>
+                        <StringItem index="1" value="Credit Card"/>
                         <StringItem index="2" value=" "/>
                         <StringItem index="3" value=" "/>
                         <StringItem index="4" value=" "/>
@@ -1798,6 +1809,23 @@
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel10MousePressed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="payProcess">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="12" style="2"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="99" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Payment Processed"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="payProcess.setVisible(false);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

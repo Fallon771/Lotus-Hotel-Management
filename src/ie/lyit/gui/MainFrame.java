@@ -60,6 +60,7 @@ public class MainFrame extends javax.swing.JFrame {
     double xScreen;
     double yScreen;
     static boolean flag2 = true;
+    boolean cardAdded = false;
     boolean fetched = false;
     boolean roomAvailable,roomBooked;
     ValidBooking valid;
@@ -205,6 +206,7 @@ public class MainFrame extends javax.swing.JFrame {
         emailLabel = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        payProcess = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         roomPriceTotal = new javax.swing.JTextField();
@@ -437,7 +439,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkPanelLayout.setVerticalGroup(
             checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(checkPanelLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkInIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1196,7 +1198,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Payment Type:");
 
-        payment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Credit Card", "Cash", " ", " ", " " }));
+        payment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cash", "Credit Card", " ", " ", " " }));
         payment.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 paymentItemStateChanged(evt);
@@ -1215,21 +1217,15 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        payProcess.setBackground(new java.awt.Color(255, 255, 255));
+        payProcess.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        payProcess.setForeground(new java.awt.Color(0, 153, 0));
+        payProcess.setText("Payment Processed");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(checkOutDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(checkInDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(payment, 0, 118, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jSeparator4)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1265,6 +1261,19 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(email, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(phone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(payProcess, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(checkOutDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(checkInDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(payment, 0, 118, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1314,12 +1323,16 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(payment, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(payProcess)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clearButton)
                     .addComponent(bookButt)
                     .addComponent(checkInButt)))
         );
+
+        payProcess.setVisible(false);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Billing Information"));
@@ -2754,9 +2767,14 @@ public class MainFrame extends javax.swing.JFrame {
         if(valR.isSelected()){
            summerR.setSelected(false);
            summerR.setEnabled(false);
+           deal20.setEnabled(false);
+           deal10.setEnabled(false);
+           deal10.setSelected(false);
+           deal20.setSelected(false);
         }
         else if(!valR.isSelected()){
-           summerR.setSelected(true);
+           deal20.setEnabled(true);
+           deal10.setEnabled(true);
            summerR.setEnabled(true);
         }
     }//GEN-LAST:event_valRActionPerformed
@@ -2768,9 +2786,11 @@ public class MainFrame extends javax.swing.JFrame {
            valR.setEnabled(false);
            deal20.setEnabled(false);
            deal10.setEnabled(false);
+           deal10.setSelected(false);
+           deal20.setSelected(false);
         }
         else if(!summerR.isSelected()){
-           valR.setSelected(true);
+           
            valR.setEnabled(true);
            deal20.setEnabled(true);
            deal10.setEnabled(true);
@@ -2784,6 +2804,8 @@ public class MainFrame extends javax.swing.JFrame {
            valR.setEnabled(false);
            deal20.setEnabled(false);
            deal10.setEnabled(false);
+           deal10.setSelected(false);
+           deal20.setSelected(false);
            valR.setSelected(false);
            summerR.setSelected(false);
         }
@@ -3425,6 +3447,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void deal20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deal20ActionPerformed
         // TODO add your handling code here:
+        System.out.println("sdfsd");
     }//GEN-LAST:event_deal20ActionPerformed
 
     private void discountTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountTotalActionPerformed
@@ -3505,6 +3528,9 @@ public class MainFrame extends javax.swing.JFrame {
             cardTable.getModel().setValueAt("", 0, 2);
             cardTable.getModel().setValueAt("", 0, 3);
             cardTable.getModel().setValueAt("", 0, 4);
+            cardAdded = true;
+            payProcess.setVisible(true);
+            payment.setEnabled(false);
         }
     }//GEN-LAST:event_addCardActionPerformed
 
@@ -3591,6 +3617,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void checkPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkPanelMousePressed
         // TODO add your handling code here:
          warnLabel.setVisible(false);
+         addCard.setEnabled(false);
         // update id on checkin screen
          updateGuestId();
          checkinScreen.setVisible(true);
@@ -3693,7 +3720,7 @@ public class MainFrame extends javax.swing.JFrame {
        
     boolean allGood =true;
     boolean validBooking = false;
-   
+    
         // Check if fields are blank
         System.out.print(roomText.getText());
         if(roomText.getText().equals("") || fName.getText().equals("") || sName.getText().equals("") || address.getText().equals("") || (checkInDate.getDate() == null)  
@@ -3747,7 +3774,8 @@ public class MainFrame extends javax.swing.JFrame {
           //  }
             // If OK was selected...add guest to database
             if(x == 0){
-                
+                payProcess.setVisible(false);
+                payment.setEnabled(true);
                 // If the dates are not conflicting & its a booking...
                 if(validBooking && booking){
                     rep.addGuest(checkIn);
@@ -4002,11 +4030,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup cardGroup;
     private javax.swing.JTable cardTable;
     private static javax.swing.JButton checkInButt;
-    private com.toedter.calendar.JDateChooser checkInDate;
+    private static com.toedter.calendar.JDateChooser checkInDate;
     private javax.swing.JLabel checkInIcon;
     private javax.swing.JLabel checkInLabel;
     private javax.swing.JLabel checkMark;
-    private com.toedter.calendar.JDateChooser checkOutDate;
+    private static com.toedter.calendar.JDateChooser checkOutDate;
     private javax.swing.JLabel checkOutIcon1;
     private javax.swing.JLabel checkOutLab;
     private javax.swing.JPanel checkOutPanel;
@@ -4159,6 +4187,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField nightsStay;
     private static javax.swing.JTextField packageCost;
     private javax.swing.JTextField packageTotal;
+    private javax.swing.JLabel payProcess;
     private javax.swing.JComboBox<String> payment;
     private javax.swing.JTextField phone;
     private javax.swing.JLabel phoneLabel;

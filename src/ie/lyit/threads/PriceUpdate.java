@@ -5,6 +5,7 @@
  */
 package ie.lyit.threads;
 import ie.lyit.gui.MainFrame;
+import java.util.Date;
 /**
  *
  * @author jim
@@ -15,6 +16,7 @@ public class PriceUpdate extends Thread{
     private String roomCost;
     private String packageCost;
     private double total;
+    Date date;
     
     public PriceUpdate(){
     
