@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package ie.lyit.gui;
+import ie.lyit.threads.CheckStatus;
+import ie.lyit.threads.RoomStatus;
 import ie.lyit.database.Connect;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -14,6 +16,7 @@ import ie.lyit.hotel.Bill;
 import ie.lyit.hotel.CreditCard;
 import ie.lyit.hotel.Rooms;
 import ie.lyit.users.*;
+import ie.lyit.threads.PriceUpdate;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -39,6 +42,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 /**
  *
@@ -50,7 +54,7 @@ public class MainFrame extends javax.swing.JFrame {
     int xMouse;
     int yMouse;
     int test;
-    double totalPrice = 0.00;
+    static double totalPrice = 0.00;
     double xScreen;
     double yScreen;
     static boolean flag2 = true;
@@ -68,6 +72,7 @@ public class MainFrame extends javax.swing.JFrame {
     GuestId id = new GuestId();
     DisplayTables display = new DisplayTables();
     RoomStatus rs = new RoomStatus();
+    PriceUpdate updatePrice = new PriceUpdate();
     CreditCard card;
     Bill bill = new Bill();
     Color c;
@@ -82,6 +87,7 @@ public class MainFrame extends javax.swing.JFrame {
         // Start our threads
         thread1.start();
         rs.start();   
+        updatePrice.start();
         // Initilizise JFrame & components
         initComponents();  
         updateGuestId(); 
@@ -199,7 +205,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        roomPriceTotal = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
@@ -215,7 +221,7 @@ public class MainFrame extends javax.swing.JFrame {
         jTextField14 = new javax.swing.JTextField();
         jSeparator12 = new javax.swing.JSeparator();
         roomCost = new javax.swing.JTextField();
-        packageTotal2 = new javax.swing.JTextField();
+        packageCost = new javax.swing.JTextField();
         nightsStay = new javax.swing.JTextField();
         totalCost = new javax.swing.JTextField();
         roomType = new javax.swing.JTextField();
@@ -734,12 +740,12 @@ public class MainFrame extends javax.swing.JFrame {
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(dragBar, javax.swing.GroupLayout.PREFERRED_SIZE, 866, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dragBar, javax.swing.GroupLayout.PREFERRED_SIZE, 877, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mini, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(maxi, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         topPanelLayout.setVerticalGroup(
@@ -758,8 +764,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         dbStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Filled Circle_Red_16px.png"))); // NOI18N
         dbStatus.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dbStatusMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                dbStatusMousePressed(evt);
             }
         });
 
@@ -1318,13 +1324,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel21.setText("Room Type:");
 
-        jTextField7.setText("0.00");
-        jTextField7.setBorder(null);
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
+        roomPriceTotal.setEditable(false);
+        roomPriceTotal.setBackground(new java.awt.Color(255, 255, 255));
+        roomPriceTotal.setText("0.00");
+        roomPriceTotal.setBorder(null);
 
         jLabel11.setText("Discount:");
 
@@ -1334,6 +1337,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         euroLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Euro_20px.png"))); // NOI18N
 
+        discountTotal.setEditable(false);
+        discountTotal.setBackground(new java.awt.Color(255, 255, 255));
         discountTotal.setText("-0.00");
         discountTotal.setBorder(null);
         discountTotal.addActionListener(new java.awt.event.ActionListener() {
@@ -1344,6 +1349,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         euroLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Euro_20px.png"))); // NOI18N
 
+        packageTotal.setEditable(false);
+        packageTotal.setBackground(new java.awt.Color(255, 255, 255));
         packageTotal.setText("0.00");
         packageTotal.setBorder(null);
         packageTotal.addActionListener(new java.awt.event.ActionListener() {
@@ -1367,7 +1374,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jTextField9.setFont(new java.awt.Font("Gautami", 0, 13)); // NOI18N
-        jTextField9.setText("Package Total:");
+        jTextField9.setText("Package Cost:");
         jTextField9.setBorder(null);
 
         jTextField10.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
@@ -1390,6 +1397,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jSeparator12.setForeground(new java.awt.Color(51, 51, 51));
 
+        roomCost.setEditable(false);
+        roomCost.setBackground(new java.awt.Color(255, 255, 255));
         roomCost.setText("0.00");
         roomCost.setBorder(null);
         roomCost.addActionListener(new java.awt.event.ActionListener() {
@@ -1398,14 +1407,18 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        packageTotal2.setText("0.00");
-        packageTotal2.setBorder(null);
-        packageTotal2.addActionListener(new java.awt.event.ActionListener() {
+        packageCost.setEditable(false);
+        packageCost.setBackground(new java.awt.Color(255, 255, 255));
+        packageCost.setText("0.00");
+        packageCost.setBorder(null);
+        packageCost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                packageTotal2ActionPerformed(evt);
+                packageCostActionPerformed(evt);
             }
         });
 
+        nightsStay.setEditable(false);
+        nightsStay.setBackground(new java.awt.Color(255, 255, 255));
         nightsStay.setText("0");
         nightsStay.setBorder(null);
         nightsStay.addActionListener(new java.awt.event.ActionListener() {
@@ -1414,6 +1427,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        totalCost.setEditable(false);
+        totalCost.setBackground(new java.awt.Color(255, 255, 255));
         totalCost.setText("0");
         totalCost.setBorder(null);
         totalCost.addActionListener(new java.awt.event.ActionListener() {
@@ -1438,7 +1453,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(roomCost)
-                                    .addComponent(packageTotal2)))
+                                    .addComponent(packageCost)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1460,7 +1475,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(packageTotal2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(packageCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1494,15 +1509,14 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                         .addComponent(euroLabel1)
                                         .addGap(1, 1, 1)
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(packageTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(discountTotal)))
-                                    .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addComponent(roomType, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(euroLabel)
-                                        .addGap(1, 1, 1)
-                                        .addComponent(jTextField7))))
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(discountTotal)
+                                            .addComponent(packageTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)))
+                                    .addComponent(roomType, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(euroLabel)
+                                .addGap(1, 1, 1)
+                                .addComponent(roomPriceTotal))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1523,7 +1537,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jLabel21)
                         .addComponent(roomType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(euroLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField7))
+                    .addComponent(roomPriceTotal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
@@ -1554,7 +1568,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         valR.setBackground(new java.awt.Color(255, 255, 255));
-        valR.setText("Valentines");
+        valR.setText("Valentines(+25%)");
         valR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 valRActionPerformed(evt);
@@ -1562,7 +1576,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         summerR.setBackground(new java.awt.Color(255, 255, 255));
-        summerR.setText("Summer Deal");
+        summerR.setText("Summer Deal(-15%)");
         summerR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 summerRActionPerformed(evt);
@@ -1570,7 +1584,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         bankR.setBackground(new java.awt.Color(255, 255, 255));
-        bankR.setText("Bank Holiday");
+        bankR.setText("Bank Holiday(+50%)");
         bankR.setToolTipText("Price increase by 20%");
         bankR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1616,14 +1630,14 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(spaR)
-                    .addComponent(valR)
                     .addComponent(bankR)
                     .addComponent(summerR)
                     .addComponent(functionR)
                     .addComponent(deal20)
                     .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deal10)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valR))
                 .addGap(0, 29, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -2403,7 +2417,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(searchGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(searchRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         searchScreenLayout.setVerticalGroup(
             searchScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2721,12 +2735,12 @@ public class MainFrame extends javax.swing.JFrame {
         if(spaR.isSelected()){
             totalPrice = totalPrice + bill.getSpaPrice();
             packageTotal.setText(""+totalPrice);
-            packageTotal2.setText(""+totalPrice);
+            packageCost.setText(""+totalPrice);
         }
         else if(!spaR.isSelected()){
             totalPrice = totalPrice - bill.getSpaPrice();
             packageTotal.setText(""+totalPrice);
-            packageTotal2.setText(""+totalPrice);
+            packageCost.setText(""+totalPrice);
         }
     }//GEN-LAST:event_spaRActionPerformed
 
@@ -2735,12 +2749,12 @@ public class MainFrame extends javax.swing.JFrame {
         if(valR.isSelected()){
             totalPrice = (totalPrice * bill.getValentinePrice());
             packageTotal.setText(""+totalPrice);
-            packageTotal2.setText(""+totalPrice);
+            packageCost.setText(""+totalPrice);
         }
         else if(!valR.isSelected()){
             totalPrice = (totalPrice / bill.getValentinePrice());
             packageTotal.setText(""+totalPrice);
-            packageTotal2.setText(""+totalPrice);
+            packageCost.setText(""+totalPrice);
         }
     }//GEN-LAST:event_valRActionPerformed
 
@@ -2753,12 +2767,12 @@ public class MainFrame extends javax.swing.JFrame {
          if(bankR.isSelected()){
             totalPrice = (totalPrice * bill.getBankPrice());
             packageTotal.setText(""+totalPrice);
-            packageTotal2.setText(""+totalPrice);
+            packageCost.setText(""+totalPrice);
         }
         else if(!bankR.isSelected()){
             totalPrice = (totalPrice / bill.getBankPrice());
             packageTotal.setText(""+totalPrice);
-            packageTotal2.setText(""+totalPrice);
+            packageCost.setText(""+totalPrice);
         }
     }//GEN-LAST:event_bankRActionPerformed
 
@@ -2767,12 +2781,12 @@ public class MainFrame extends javax.swing.JFrame {
         if(functionR.isSelected()){
             totalPrice = totalPrice + bill.getFuctionPrice();
             packageTotal.setText(""+totalPrice);
-            packageTotal2.setText(""+totalPrice);
+            packageCost.setText(""+totalPrice);
         }
         else if(!functionR.isSelected()){
             totalPrice = totalPrice - bill.getFuctionPrice();
             packageTotal.setText(""+totalPrice);
-            packageTotal2.setText(""+totalPrice);
+            packageCost.setText(""+totalPrice);
         }
     }//GEN-LAST:event_functionRActionPerformed
 
@@ -2898,17 +2912,6 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
-    private void dbStatusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dbStatusMouseClicked
-        // TODO add your handling code here:
-        if(thread1.getStatus() || !flag2 ){
-        JOptionPane.showMessageDialog(null, "Database: "+thread1.getDatabase(), "Connections:", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else if(flag2){
-         JOptionPane.showMessageDialog(null, "No connection!", "Connections:", JOptionPane.INFORMATION_MESSAGE);
-        }
-        
-    }//GEN-LAST:event_dbStatusMouseClicked
-
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
         thread1.interrupt();
@@ -2932,6 +2935,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("406");
         roomType.setText("Executive");
+        roomPriceTotal.setText(""+bill.getExecutive());
+        roomCost.setText(""+bill.getExecutive());
         c = room406.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -2942,6 +2947,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("405");
         roomType.setText("Executive");
+        roomPriceTotal.setText(""+bill.getExecutive());
+        roomCost.setText(""+bill.getExecutive());
         c = room405.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -2952,6 +2959,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("404");
         roomType.setText("Executive");
+        roomPriceTotal.setText(""+bill.getExecutive());
+        roomCost.setText(""+bill.getExecutive());
         c = room404.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -2962,6 +2971,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("403");
         roomType.setText("Executive");
+        roomPriceTotal.setText(""+bill.getExecutive());
+        roomCost.setText(""+bill.getExecutive());
         c = room403.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -2972,6 +2983,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("402");
         roomType.setText("Executive");
+        roomPriceTotal.setText(""+bill.getExecutive());
+        roomCost.setText(""+bill.getExecutive());
         c = room402.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -2982,6 +2995,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("401");
         roomType.setText("Executive");
+        roomPriceTotal.setText(""+bill.getExecutive());
+        roomCost.setText(""+bill.getExecutive());
         c = room401.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -2992,6 +3007,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("306");
         roomType.setText("Double");
+        roomPriceTotal.setText(""+bill.getDoubleR());
+        roomCost.setText(""+bill.getDoubleR());
         c = room306.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3002,6 +3019,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("305");
         roomType.setText("Double");
+        roomPriceTotal.setText(""+bill.getDoubleR());
+        roomCost.setText(""+bill.getDoubleR());
         c = room305.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3012,6 +3031,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("303");
         roomType.setText("Double");
+        roomPriceTotal.setText(""+bill.getDoubleR());
+        roomCost.setText(""+bill.getDoubleR());
         c = room303.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3022,6 +3043,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("301");
         roomType.setText("Double");
+        roomPriceTotal.setText(""+bill.getDoubleR());
+        roomCost.setText(""+bill.getDoubleR());
         c = room301.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3032,6 +3055,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("207");
         roomType.setText("Single");
+        roomPriceTotal.setText(""+bill.getSingleR());
+        roomCost.setText(""+bill.getSingleR());
         c = room207.getBackground();
         int x =  rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3042,6 +3067,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("206");
         roomType.setText("Single");
+        roomPriceTotal.setText(""+bill.getSingleR());
+        roomCost.setText(""+bill.getSingleR());
         c = room206.getBackground();
         int x =rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3052,10 +3079,11 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("205");
         roomType.setText("Single");
+        roomPriceTotal.setText(""+bill.getSingleR());
+        roomCost.setText(""+bill.getSingleR());
         c = room205.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
-        //test = 2;
         updateCheckMark(x);
 
     }//GEN-LAST:event_room205ActionPerformed
@@ -3064,6 +3092,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("204");
         roomType.setText("Single");
+        roomPriceTotal.setText(""+bill.getSingleR());
+        roomCost.setText(""+bill.getSingleR());
         c = room204.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3074,6 +3104,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("203");
         roomType.setText("Single");
+        roomPriceTotal.setText(""+bill.getSingleR());
+        roomCost.setText(""+bill.getSingleR());
         c = room203.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3084,6 +3116,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("202");
         roomType.setText("Single");
+        roomPriceTotal.setText(""+bill.getSingleR());
+        roomCost.setText(""+bill.getSingleR());
         c = room202.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3094,6 +3128,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("201");
         roomType.setText("Single");
+        roomPriceTotal.setText(""+bill.getSingleR());
+        roomCost.setText(""+bill.getSingleR());
         c = room201.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3105,6 +3141,8 @@ public class MainFrame extends javax.swing.JFrame {
         
         roomText.setText("200");
         roomType.setText("Single");
+        roomCost.setText(""+bill.getSingleR());
+        roomPriceTotal.setText(""+bill.getSingleR());
         c = room200.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3116,6 +3154,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("100");
         roomType.setText("Bridal");
+        roomPriceTotal.setText(""+bill.getBridal());
+        roomCost.setText(""+bill.getBridal());
         c = room100.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3126,6 +3166,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("101");
         roomType.setText("Bridal");
+        roomPriceTotal.setText(""+bill.getBridal());
+        roomCost.setText(""+bill.getBridal());
         c = room101.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3136,6 +3178,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         roomText.setText("103");
         roomType.setText("Bridal");
+        roomPriceTotal.setText(""+bill.getBridal());
+        roomCost.setText(""+bill.getBridal());
         c = room103.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3145,7 +3189,7 @@ public class MainFrame extends javax.swing.JFrame {
     //**SEARCH - FIND GUEST**//
     private void findGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findGuestActionPerformed
 
-         Connection conn=null;
+        Connection conn=null;
         PreparedStatement pstmt=null;
         ResultSet rs = null;
 
@@ -3338,6 +3382,9 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         roomText.setText("302");
+        roomType.setText("Double");
+        roomPriceTotal.setText(""+bill.getDoubleR());
+        roomCost.setText(""+bill.getDoubleR());
         c = room302.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3348,6 +3395,9 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         roomText.setText("304");
+        roomType.setText("Double");
+        roomPriceTotal.setText(""+bill.getDoubleR());
+        roomCost.setText(""+bill.getDoubleR());
         c = room304.getBackground();
         int x = rep.checkRoomStatus(c);
         setCheckRoomBoolean(x);
@@ -3357,10 +3407,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void deal20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deal20ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deal20ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void discountTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountTotalActionPerformed
         // TODO add your handling code here:
@@ -3493,9 +3539,9 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_roomCostActionPerformed
 
-    private void packageTotal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_packageTotal2ActionPerformed
+    private void packageCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_packageCostActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_packageTotal2ActionPerformed
+    }//GEN-LAST:event_packageCostActionPerformed
 
     private void nightsStayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nightsStayActionPerformed
         // TODO add your handling code here:
@@ -3553,6 +3599,16 @@ public class MainFrame extends javax.swing.JFrame {
          checkOutScreen.setVisible(true);
          bannerTitle.setText("Check-Out");
     }//GEN-LAST:event_checkOutPanelMousePressed
+
+    private void dbStatusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dbStatusMousePressed
+        // TODO add your handling code here:
+          if(thread1.getStatus() || !flag2 ){
+        JOptionPane.showMessageDialog(null, "Database: "+thread1.getDatabase(), "Connections:", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(flag2){
+         JOptionPane.showMessageDialog(null, "No connection!", "Connections:", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_dbStatusMousePressed
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
@@ -3845,6 +3901,17 @@ public class MainFrame extends javax.swing.JFrame {
        String stamp = new SimpleDateFormat("HH:mm:ss a").format(new Date());
        System.out.println("Success!!  "+stamp);
     }
+
+    public static String getPackageCost() {
+        return packageCost.getText();
+    }
+    public static String getRoomCost() {
+        return roomCost.getText();
+    }
+    public static void setTotal(double total){
+        totalCost.setText(""+total);
+    }
+
     
     // Method to update the JLabel check mark when selecting a room on checkin screen
     public void updateCheckMark(int x){
@@ -4041,7 +4108,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton1;
@@ -4051,8 +4117,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel maxi;
     private javax.swing.JLabel mini;
     private javax.swing.JTextField nightsStay;
+    private static javax.swing.JTextField packageCost;
     private javax.swing.JTextField packageTotal;
-    private javax.swing.JTextField packageTotal2;
     private javax.swing.JComboBox<String> payment;
     private javax.swing.JTextField phone;
     private javax.swing.JLabel phoneLabel;
@@ -4080,12 +4146,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton room404;
     private javax.swing.JButton room405;
     private javax.swing.JButton room406;
-    private javax.swing.JTextField roomCost;
+    private static javax.swing.JTextField roomCost;
     private javax.swing.JPanel roomInfo;
     private javax.swing.JTextField roomNo;
+    private javax.swing.JTextField roomPriceTotal;
     private static javax.swing.JTabbedPane roomTab;
     private static javax.swing.JTextField roomText;
-    private javax.swing.JTextField roomType;
+    private static javax.swing.JTextField roomType;
     private javax.swing.JTextField sName;
     private javax.swing.JLabel sNameLabel;
     private javax.swing.JPanel searchGuest;
@@ -4123,7 +4190,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> title;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel topPanel;
-    private javax.swing.JTextField totalCost;
+    private static javax.swing.JTextField totalCost;
     private javax.swing.JCheckBox valR;
     private javax.swing.JRadioButton visaRad;
     private javax.swing.JLabel warnLabel;
