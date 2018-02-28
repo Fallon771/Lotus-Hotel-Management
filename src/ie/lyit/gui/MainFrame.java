@@ -1737,6 +1737,11 @@ public class MainFrame extends javax.swing.JFrame {
         cardTable.getColumnModel().getColumn(0).setCellRenderer( centerRenderer );
 
         clearCard.setText("Clear");
+        clearCard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearCardActionPerformed(evt);
+            }
+        });
 
         addCard.setText("Add");
         addCard.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -3655,6 +3660,16 @@ public class MainFrame extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(null, "No connection!", "Connections:", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_dbStatusMousePressed
+
+    private void clearCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearCardActionPerformed
+        // TODO add your handling code here:
+        
+            cardTable.getModel().setValueAt("", 0, 0);
+            cardTable.getModel().setValueAt("", 0, 1);
+            cardTable.getModel().setValueAt("", 0, 2);
+            cardTable.getModel().setValueAt("", 0, 3);
+            cardTable.getModel().setValueAt("", 0, 4);
+    }//GEN-LAST:event_clearCardActionPerformed
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
