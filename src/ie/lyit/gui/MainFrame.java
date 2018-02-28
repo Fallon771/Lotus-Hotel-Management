@@ -40,7 +40,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -230,7 +232,7 @@ public class MainFrame extends javax.swing.JFrame {
         valR = new javax.swing.JCheckBox();
         summerR = new javax.swing.JCheckBox();
         bankR = new javax.swing.JCheckBox();
-        functionR = new javax.swing.JCheckBox();
+        meetingR = new javax.swing.JCheckBox();
         jSeparator11 = new javax.swing.JSeparator();
         deal20 = new javax.swing.JRadioButton();
         deal10 = new javax.swing.JRadioButton();
@@ -1560,7 +1562,8 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Packages & Addons"));
 
         spaR.setBackground(new java.awt.Color(255, 255, 255));
-        spaR.setText("Spa Weekend");
+        spaR.setText("Spa Break");
+        spaR.setToolTipText("Cost 50");
         spaR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 spaRActionPerformed(evt);
@@ -1569,6 +1572,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         valR.setBackground(new java.awt.Color(255, 255, 255));
         valR.setText("Valentines(+25%)");
+        valR.setToolTipText("Price increased +25%");
         valR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 valRActionPerformed(evt);
@@ -1577,6 +1581,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         summerR.setBackground(new java.awt.Color(255, 255, 255));
         summerR.setText("Summer Deal(-15%)");
+        summerR.setToolTipText("Decrease in price  -15%");
         summerR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 summerRActionPerformed(evt);
@@ -1585,24 +1590,24 @@ public class MainFrame extends javax.swing.JFrame {
 
         bankR.setBackground(new java.awt.Color(255, 255, 255));
         bankR.setText("Bank Holiday(+50%)");
-        bankR.setToolTipText("Price increase by 20%");
+        bankR.setToolTipText("Price increase by 50%");
         bankR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bankRActionPerformed(evt);
             }
         });
 
-        functionR.setBackground(new java.awt.Color(255, 255, 255));
-        functionR.setText("Function Room");
-        functionR.addActionListener(new java.awt.event.ActionListener() {
+        meetingR.setBackground(new java.awt.Color(255, 255, 255));
+        meetingR.setText("Meeting Room");
+        meetingR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                functionRActionPerformed(evt);
+                meetingRActionPerformed(evt);
             }
         });
 
         deal20.setBackground(new java.awt.Color(255, 255, 255));
         dealsGroup.add(deal20);
-        deal20.setText("20% Off Deal");
+        deal20.setText("20% Discount");
         deal20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deal20ActionPerformed(evt);
@@ -1611,7 +1616,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         deal10.setBackground(new java.awt.Color(255, 255, 255));
         dealsGroup.add(deal10);
-        deal10.setText("10% Off Deal");
+        deal10.setText("10% Discount");
 
         jButton5.setFont(new java.awt.Font("Dubai", 0, 10)); // NOI18N
         jButton5.setText("Reset");
@@ -1632,7 +1637,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(spaR)
                     .addComponent(bankR)
                     .addComponent(summerR)
-                    .addComponent(functionR)
+                    .addComponent(meetingR)
                     .addComponent(deal20)
                     .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deal10)
@@ -1643,7 +1648,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addComponent(functionR)
+                .addComponent(meetingR)
                 .addGap(2, 2, 2)
                 .addComponent(spaR)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2747,48 +2752,62 @@ public class MainFrame extends javax.swing.JFrame {
     private void valRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valRActionPerformed
         // TODO add your handling code here:
         if(valR.isSelected()){
-            totalPrice = (totalPrice * bill.getValentinePrice());
-            packageTotal.setText(""+totalPrice);
-            packageCost.setText(""+totalPrice);
+           summerR.setSelected(false);
+           summerR.setEnabled(false);
         }
         else if(!valR.isSelected()){
-            totalPrice = (totalPrice / bill.getValentinePrice());
-            packageTotal.setText(""+totalPrice);
-            packageCost.setText(""+totalPrice);
+           summerR.setSelected(true);
+           summerR.setEnabled(true);
         }
     }//GEN-LAST:event_valRActionPerformed
 
     private void summerRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summerRActionPerformed
         // TODO add your handling code here:
+         if(summerR.isSelected()){
+           valR.setSelected(false);
+           valR.setEnabled(false);
+           deal20.setEnabled(false);
+           deal10.setEnabled(false);
+        }
+        else if(!summerR.isSelected()){
+           valR.setSelected(true);
+           valR.setEnabled(true);
+           deal20.setEnabled(true);
+           deal10.setEnabled(true);
+        }
     }//GEN-LAST:event_summerRActionPerformed
 
     private void bankRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bankRActionPerformed
         // TODO add your handling code here:
          if(bankR.isSelected()){
-            totalPrice = (totalPrice * bill.getBankPrice());
-            packageTotal.setText(""+totalPrice);
-            packageCost.setText(""+totalPrice);
+           summerR.setEnabled(false);
+           valR.setEnabled(false);
+           deal20.setEnabled(false);
+           deal10.setEnabled(false);
+           valR.setSelected(false);
+           summerR.setSelected(false);
         }
         else if(!bankR.isSelected()){
-            totalPrice = (totalPrice / bill.getBankPrice());
-            packageTotal.setText(""+totalPrice);
-            packageCost.setText(""+totalPrice);
+            summerR.setEnabled(true);
+            valR.setEnabled(true);
+            deal20.setEnabled(true);
+            deal10.setEnabled(true);
         }
     }//GEN-LAST:event_bankRActionPerformed
 
-    private void functionRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_functionRActionPerformed
+    private void meetingRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meetingRActionPerformed
         // TODO add your handling code here:
-        if(functionR.isSelected()){
+        if(meetingR.isSelected()){
             totalPrice = totalPrice + bill.getFuctionPrice();
             packageTotal.setText(""+totalPrice);
             packageCost.setText(""+totalPrice);
         }
-        else if(!functionR.isSelected()){
+        else if(!meetingR.isSelected()){
             totalPrice = totalPrice - bill.getFuctionPrice();
             packageTotal.setText(""+totalPrice);
             packageCost.setText(""+totalPrice);
         }
-    }//GEN-LAST:event_functionRActionPerformed
+    }//GEN-LAST:event_meetingRActionPerformed
 
     private void maxiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maxiMousePressed
         // TODO add your handling code here:
@@ -3912,6 +3931,27 @@ public class MainFrame extends javax.swing.JFrame {
         totalCost.setText(""+total);
     }
 
+    public static JRadioButton getDeal10() {
+        return deal10;
+    }
+
+    public static JRadioButton getDeal20() {
+        return deal20;
+    }
+
+    public static JCheckBox getBankR() {
+        return bankR;
+    }
+
+    public static JCheckBox getSummerR() {
+        return summerR;
+    }
+
+    public static JCheckBox getValR() {
+        return valR;
+    }
+    
+    
     
     // Method to update the JLabel check mark when selecting a room on checkin screen
     public void updateCheckMark(int x){
@@ -3953,7 +3993,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel addressLabel;
     private javax.swing.JSpinner adults;
     private javax.swing.JRadioButton americanRad;
-    private javax.swing.JCheckBox bankR;
+    private static javax.swing.JCheckBox bankR;
     private javax.swing.JPanel banner;
     private javax.swing.JLabel bannerTitle;
     private static javax.swing.JButton bookButt;
@@ -3983,8 +4023,8 @@ public class MainFrame extends javax.swing.JFrame {
     public void setStatus(){
         dbStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Filled Circle_Green_16px.png")));
     }
-    private javax.swing.JRadioButton deal10;
-    private javax.swing.JRadioButton deal20;
+    private static javax.swing.JRadioButton deal10;
+    private static javax.swing.JRadioButton deal20;
     private javax.swing.ButtonGroup dealsGroup;
     private javax.swing.JTextField discountTotal;
     private static javax.swing.JPanel doublePanel;
@@ -3999,7 +4039,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel fNameLablel;
     private javax.swing.JButton findGuest;
     private javax.swing.JPanel footer;
-    private javax.swing.JCheckBox functionR;
     private javax.swing.JTextField guestId;
     private javax.swing.JLabel guestNo;
     private javax.swing.JTable guestTable;
@@ -4115,6 +4154,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lotusText;
     private javax.swing.JRadioButton masterRad;
     private javax.swing.JLabel maxi;
+    private javax.swing.JCheckBox meetingR;
     private javax.swing.JLabel mini;
     private javax.swing.JTextField nightsStay;
     private static javax.swing.JTextField packageCost;
@@ -4169,7 +4209,7 @@ public class MainFrame extends javax.swing.JFrame {
     public static javax.swing.JPanel singlePanel;
     private javax.swing.JCheckBox spaR;
     private javax.swing.JButton sqlTest;
-    private javax.swing.JCheckBox summerR;
+    private static javax.swing.JCheckBox summerR;
     private java.awt.TextArea ta;
     private javax.swing.JTextField tfAdults;
     private javax.swing.JTextField tfAvailability;
@@ -4191,7 +4231,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel topPanel;
     private static javax.swing.JTextField totalCost;
-    private javax.swing.JCheckBox valR;
+    private static javax.swing.JCheckBox valR;
     private javax.swing.JRadioButton visaRad;
     private javax.swing.JLabel warnLabel;
     // End of variables declaration//GEN-END:variables
