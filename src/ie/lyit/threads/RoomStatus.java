@@ -45,6 +45,7 @@ public class RoomStatus extends Thread{
          while(running){
            
          try{ 
+            System.out.print("[Thread 2:]Started.. :) \n");
             sleep(5000);
             myConn = DriverManager.getConnection("jdbc:mysql://"+database, user, pass);
             myStmt = myConn.createStatement();

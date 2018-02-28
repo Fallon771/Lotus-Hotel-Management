@@ -20,7 +20,7 @@ public class Bill {
     // Discounts & Increase
     private double valentinePrice = 1.25;
     private double bankPrice = 1.50;
-    private double summerDeal = 0.75;
+    private double summerDeal = 0.85;
     
     private double deal20 = 0.80;
     private double deal10 = 0.90;

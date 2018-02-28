@@ -30,7 +30,7 @@ public class CheckStatus extends Thread{
     String currentStamp;
 
     public void run(){
-        System.out.print("Started at: ["+startStamp+"]\n");
+        System.out.print("[Thread 1:]Started at: ["+startStamp+"]\n");
         while(running)
         try{
             sleep(3000);
@@ -40,7 +40,7 @@ public class CheckStatus extends Thread{
             pass = "password";
             myConn = DriverManager.getConnection("jdbc:mysql://"+database, user, pass);
             System.out.print("\n--------------------------------------------------------------");
-            System.out.print("\n[Thread 1:] Server check...Success!  ==> Time Stamp:["+currentStamp+"]\n");
+            System.out.print("\n[Thread 1:] Server check...Success :)  ==> Time Stamp:["+currentStamp+"]\n");
             System.out.print("--------------------------------------------------------------\n");
             // Pass in flag to change icon on footer
             frame.setStatus(running);
