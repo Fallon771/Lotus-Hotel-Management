@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2018 at 07:29 PM
+-- Generation Time: Mar 07, 2018 at 10:25 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -32,15 +32,16 @@ CREATE TABLE `booking` (
   `Book#` int(6) NOT NULL,
   `CheckInDate` date NOT NULL,
   `CheckOutDate` date NOT NULL,
-  `No of people` int(2) NOT NULL
+  `No of people` int(2) NOT NULL,
+  `ExtraID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`Book#`, `CheckInDate`, `CheckOutDate`, `No of people`) VALUES
-(12345, '2018-03-06', '2018-03-07', 2);
+INSERT INTO `booking` (`Book#`, `CheckInDate`, `CheckOutDate`, `No of people`, `ExtraID`) VALUES
+(12345, '2018-03-06', '2018-03-07', 2, 0);
 
 -- --------------------------------------------------------
 
