@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2018 at 11:27 AM
+-- Generation Time: Mar 07, 2018 at 12:19 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -21,6 +21,138 @@ SET time_zone = "+00:00";
 --
 -- Database: `hotel_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `BookNumber` int(6) NOT NULL,
+  `CheckInDate` date NOT NULL,
+  `CheckOutDate` date NOT NULL,
+  `No of people` int(2) NOT NULL,
+  `ExtraID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`BookNumber`, `CheckInDate`, `CheckOutDate`, `No of people`, `ExtraID`) VALUES
+(12345, '2018-03-06', '2018-03-07', 2, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `CustNumber` int(11) NOT NULL,
+  `FName` varchar(20) NOT NULL,
+  `SName` varchar(20) NOT NULL,
+  `PhoneNumber` varchar(15) NOT NULL,
+  `Email` varchar(30) NOT NULL,
+  `CashrCard` varchar(4) DEFAULT NULL,
+  `CardNo` varchar(20) DEFAULT NULL,
+  `Expiry Date` date DEFAULT NULL,
+  `cvv` int(3) DEFAULT NULL,
+  `Type` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`CustNumber`, `FName`, `SName`, `PhoneNumber`, `Email`, `CashrCard`, `CardNo`, `Expiry Date`, `cvv`, `Type`) VALUES
+(1001, 'John ', 'Smith', '086255789', 'JohnSmith@icloud.com', 'Cash', NULL, NULL, NULL, NULL),
+(1002, 'Mary Jane', 'Mc Donnell', '0860444248', 'Mary876@hotmail.co.uk', 'Card', '5555444433331111', '2018-07-31', 566, 'Visa Debit'),
+(1003, 'James', 'Henry', '0877894563', 'HenryJ@yahoo.com', 'Card', '5454547814782589', '2020-03-09', 665, 'MasterCard'),
+(1004, 'Helen', 'Mc Bride', '0875461239', 'Helen@eir.ie', 'Card', '78945614578498547', '2019-08-09', 789, 'Visa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `discount`
+--
+
+CREATE TABLE `discount` (
+  `Name` varchar(20) NOT NULL,
+  `DiscountID` int(4) NOT NULL,
+  `Percentage` decimal(4,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `discount`
+--
+
+INSERT INTO `discount` (`Name`, `DiscountID`, `Percentage`) VALUES
+('Paddys day', 318, '0.20'),
+('Mothers Day', 1001, '0.10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `receptionist`
+--
+
+CREATE TABLE `receptionist` (
+  `RecID` int(4) NOT NULL,
+  `fName` varchar(20) NOT NULL,
+  `sName` varchar(20) NOT NULL,
+  `Pass` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `receptionist`
+--
+
+INSERT INTO `receptionist` (`RecID`, `fName`, `sName`, `Pass`) VALUES
+(3210, 'Sarah', 'Smith', 'Password');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room`
+--
+
+CREATE TABLE `room` (
+  `RoomNumber` int(11) NOT NULL,
+  `Type` varchar(11) NOT NULL,
+  `CostPerNight` decimal(4,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`RoomNumber`, `Type`, `CostPerNight`) VALUES
+(100, 'Bridal', '250'),
+(101, 'Bridal', '250'),
+(102, 'Bridal', '250'),
+(103, 'Bridal', '250'),
+(200, 'Single', '80'),
+(201, 'Single', '80'),
+(202, 'Single', '80'),
+(203, 'Single', '80'),
+(204, 'Single', '80'),
+(205, 'Single', '80'),
+(206, 'Single', '80'),
+(207, 'Single', '80'),
+(301, 'Double', '130'),
+(302, 'Double', '130'),
+(303, 'Double', '130'),
+(304, 'Double', '130'),
+(305, 'Double', '130'),
+(306, 'Double', '130'),
+(401, 'Executive', '195'),
+(402, 'Executive', '195'),
+(403, 'Executive', '195'),
+(404, 'Executive', '195'),
+(405, 'Executive', '195'),
+(406, 'Executive', '195');
 
 -- --------------------------------------------------------
 
@@ -43,6 +175,36 @@ INSERT INTO `roombooking` (`RoomNumber`, `BookNumber`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`BookNumber`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`CustNumber`);
+
+--
+-- Indexes for table `discount`
+--
+ALTER TABLE `discount`
+  ADD PRIMARY KEY (`DiscountID`);
+
+--
+-- Indexes for table `receptionist`
+--
+ALTER TABLE `receptionist`
+  ADD PRIMARY KEY (`RecID`);
+
+--
+-- Indexes for table `room`
+--
+ALTER TABLE `room`
+  ADD PRIMARY KEY (`RoomNumber`);
 
 --
 -- Indexes for table `roombooking`
