@@ -1,4 +1,4 @@
-package ie.lyit.database;
+package ie.lyit.threads;
 import ie.lyit.gui.MainFrame;
 import java.util.Date;
 import java.sql.Connection;
@@ -26,21 +26,21 @@ public class CheckStatus extends Thread{
     private String database = "localhost/hotel_db";
     
     // Just printing a start time
-    String startStamp = new SimpleDateFormat("dd.MM.yyyy -- HH.mm.ss").format(new Date());
+    String startStamp = new SimpleDateFormat("dd.MM.yyyy || HH:mm:ss a").format(new Date());
     String currentStamp;
 
     public void run(){
-        System.out.print("Started at: ["+startStamp+"]\n");
+        System.out.print("[Thread 1:]Started at: ["+startStamp+"]\n");
         while(running)
         try{
-            sleep(2000);
-            currentStamp = new SimpleDateFormat("HH.mm.ss").format(new Date());
+            sleep(3000);
+            currentStamp = new SimpleDateFormat("HH:mm:ss a").format(new Date());
             // Try connect to database...
             user = "root";
             pass = "password";
             myConn = DriverManager.getConnection("jdbc:mysql://"+database, user, pass);
             System.out.print("\n--------------------------------------------------------------");
-            System.out.print("\n[Thread 1:] Server check...Success!  ==> Time Stamp:["+currentStamp+"]\n");
+            System.out.print("\n[Thread 1:] Server check...Success :)  ==> Time Stamp:["+currentStamp+"]\n");
             System.out.print("--------------------------------------------------------------\n");
             // Pass in flag to change icon on footer
             frame.setStatus(running);

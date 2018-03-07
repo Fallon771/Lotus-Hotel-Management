@@ -7,6 +7,7 @@ package ie.lyit.users;
 import ie.lyit.database.Connect;
 import ie.lyit.database.DBConnections;
 import ie.lyit.gui.BookingPopup;
+import ie.lyit.hotel.Bill;
 import ie.lyit.hotel.CreditCard;
 import ie.lyit.hotel.Rooms;
 import java.awt.Color;
@@ -133,6 +134,9 @@ public class Receptionist implements DBConnections{
                popup.displayRoomTable();
                return 3;
         }          
+    }
+    public void addBill(Bill bill){
+        
     }
     public void addCreditCard(CreditCard card){
         

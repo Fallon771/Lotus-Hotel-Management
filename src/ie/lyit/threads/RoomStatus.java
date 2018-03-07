@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ie.lyit.database;
+package ie.lyit.threads;
 
 import ie.lyit.gui.MainFrame;
 import java.sql.Connection;
@@ -45,6 +45,7 @@ public class RoomStatus extends Thread{
          while(running){
            
          try{ 
+            System.out.print("[Thread 2:]Started.. :) \n");
             sleep(5000);
             myConn = DriverManager.getConnection("jdbc:mysql://"+database, user, pass);
             myStmt = myConn.createStatement();
@@ -52,7 +53,7 @@ public class RoomStatus extends Thread{
             
             while (myRs.next()) {
                     
-                    if(myRs.getInt("roomno") >= 100 && myRs.getInt("roomno") <= 307){
+                    if(myRs.getInt("roomno") >= 100 && myRs.getInt("roomno") <= 407){
                     roomNo.put(myRs.getInt("roomno"), myRs.getBoolean("booked"));
                     }
                 }       
