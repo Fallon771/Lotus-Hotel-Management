@@ -2321,7 +2321,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel38)
                     .addComponent(tfCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         searchRoom.setBackground(new java.awt.Color(153, 204, 255));
@@ -2397,7 +2397,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(roomNo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSearchRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 88, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -2450,7 +2450,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(searchScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(searchGuest, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
                     .addComponent(searchRoom, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         checkOutScreen.setBackground(new java.awt.Color(255, 255, 255));
@@ -3356,14 +3356,23 @@ public class MainFrame extends javax.swing.JFrame {
             pstmt.setString(1, roomNo.getText());
             rs = pstmt.executeQuery();
 
-            while(rs.next()){
+            while(rs.next()){                        
+                //tfAvailability.setText(rs.getString("booked"));
                 
-                tfAvailability.setText(rs.getString("booked"));
+                String room = rs.getString("booked");
+                
+                if(room=="1")
+                {
+                    tfAvailability.setText("Not Available");
+                }
+                else{
+                    tfAvailability.setText("Available");
+                }
+                
+                
                 String roomT = roomType.getText();
-               // String roomType = (String)jComboBox2.getSelectedItem();
                 tfRoomType.setText(roomT);
-                tfBooked.setText(rs.getString("fname"));
-     
+                tfBooked.setText(rs.getString("surname"));
                 tfAvailable.setText(rs.getString("checkout"));
                 
             }
