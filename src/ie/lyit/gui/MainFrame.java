@@ -16,7 +16,6 @@ import ie.lyit.hotel.Bill;
 import ie.lyit.hotel.CreditCard;
 import ie.lyit.hotel.Rooms;
 import ie.lyit.users.*;
-import ie.lyit.threads.PriceUpdate;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -75,7 +74,6 @@ public class MainFrame extends javax.swing.JFrame {
     GuestId id = new GuestId();
     DisplayTables display = new DisplayTables();
     RoomStatus rs = new RoomStatus();
-    PriceUpdate updatePrice = new PriceUpdate();
     CreditCard card;
     Bill bill = new Bill();
     Color c;
@@ -90,7 +88,6 @@ public class MainFrame extends javax.swing.JFrame {
         // Start our threads
         thread1.start();
         rs.start();   
-        updatePrice.start();
         // Initilizise JFrame & components
         initComponents();  
         updateGuestId(); 
@@ -230,15 +227,9 @@ public class MainFrame extends javax.swing.JFrame {
         totalCost = new javax.swing.JTextField();
         roomType = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        spaR = new javax.swing.JCheckBox();
-        valR = new javax.swing.JCheckBox();
-        summerR = new javax.swing.JCheckBox();
-        bankR = new javax.swing.JCheckBox();
-        meetingR = new javax.swing.JCheckBox();
         jSeparator11 = new javax.swing.JSeparator();
-        deal20 = new javax.swing.JRadioButton();
-        deal10 = new javax.swing.JRadioButton();
         jButton5 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         cardTable = new javax.swing.JTable();
@@ -434,12 +425,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(checkInIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(checkInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         checkPanelLayout.setVerticalGroup(
             checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(checkPanelLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkInIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -533,7 +524,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkOutPanelLayout.setVerticalGroup(
             checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checkOutPanelLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkOutIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkOutLab, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1573,110 +1564,39 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Packages & Addons"));
 
-        spaR.setBackground(new java.awt.Color(255, 255, 255));
-        spaR.setText("Spa Break");
-        spaR.setToolTipText("Cost 50");
-        spaR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                spaRActionPerformed(evt);
-            }
-        });
-
-        valR.setBackground(new java.awt.Color(255, 255, 255));
-        valR.setText("Valentines(+25%)");
-        valR.setToolTipText("Price increased +25%");
-        valR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                valRActionPerformed(evt);
-            }
-        });
-
-        summerR.setBackground(new java.awt.Color(255, 255, 255));
-        summerR.setText("Summer Deal(-15%)");
-        summerR.setToolTipText("Decrease in price  -15%");
-        summerR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                summerRActionPerformed(evt);
-            }
-        });
-
-        bankR.setBackground(new java.awt.Color(255, 255, 255));
-        bankR.setText("Bank Holiday(+50%)");
-        bankR.setToolTipText("Price increase by 50%");
-        bankR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bankRActionPerformed(evt);
-            }
-        });
-
-        meetingR.setBackground(new java.awt.Color(255, 255, 255));
-        meetingR.setText("Meeting Room");
-        meetingR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                meetingRActionPerformed(evt);
-            }
-        });
-
-        deal20.setBackground(new java.awt.Color(255, 255, 255));
-        dealsGroup.add(deal20);
-        deal20.setText("20% Discount");
-        deal20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deal20ActionPerformed(evt);
-            }
-        });
-
-        deal10.setBackground(new java.awt.Color(255, 255, 255));
-        dealsGroup.add(deal10);
-        deal10.setText("10% Discount");
-
         jButton5.setFont(new java.awt.Font("Dubai", 0, 10)); // NOI18N
-        jButton5.setText("Reset");
-        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton5.setText("Update Package");
+        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(0));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
 
+        jLabel15.setText("Update Latest Package");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(28, 28, 28)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spaR)
-                    .addComponent(bankR)
-                    .addComponent(summerR)
-                    .addComponent(meetingR)
-                    .addComponent(deal20)
+                    .addComponent(jLabel15)
                     .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deal10)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valR))
-                .addGap(0, 29, Short.MAX_VALUE))
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 33, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addComponent(meetingR)
-                .addGap(2, 2, 2)
-                .addComponent(spaR)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valR)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bankR)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(summerR)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deal20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deal10)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel15)
+                .addGap(28, 28, 28)
+                .addComponent(jButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel13.setBackground(new java.awt.Color(202, 229, 250));
@@ -1833,7 +1753,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(americanRad)
                         .addComponent(visaRad)
                         .addComponent(masterRad)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(warnLabel)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1865,15 +1785,21 @@ public class MainFrame extends javax.swing.JFrame {
         );
         checkinScreenLayout.setVerticalGroup(
             checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(checkinScreenLayout.createSequentialGroup()
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(checkinScreenLayout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(checkinScreenLayout.createSequentialGroup()
+                        .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
+            .addGroup(checkinScreenLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         homeScreen.setBackground(new java.awt.Color(255, 255, 255));
@@ -2131,7 +2057,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(homeScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(homeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dataTabPane)
+                    .addComponent(dataTabPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE)
                     .addGroup(homeScreenLayout.createSequentialGroup()
                         .addComponent(currentGuest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2253,7 +2179,7 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel40)
                                     .addComponent(jLabel41)
                                     .addComponent(Children))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                                 .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tfChildren)
                                     .addComponent(tfID)
@@ -2321,7 +2247,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel38)
                     .addComponent(tfCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         searchRoom.setBackground(new java.awt.Color(153, 204, 255));
@@ -2397,7 +2323,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(roomNo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSearchRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 99, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -2642,7 +2568,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layerPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1068, Short.MAX_VALUE)
+                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         layerPaneLayout.setVerticalGroup(
@@ -2653,7 +2579,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layerPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -2752,90 +2678,6 @@ public class MainFrame extends javax.swing.JFrame {
          checkOutPanel.setBackground(new java.awt.Color(84,140,196));
          
     }//GEN-LAST:event_checkOutPanelMouseMoved
-
-    private void spaRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spaRActionPerformed
-        // TODO add your handling code here:
-        
-        if(spaR.isSelected()){
-            totalPrice = totalPrice + bill.getSpaPrice();
-            packageTotal.setText(""+totalPrice);
-            packageCost.setText(""+totalPrice);
-        }
-        else if(!spaR.isSelected()){
-            totalPrice = totalPrice - bill.getSpaPrice();
-            packageTotal.setText(""+totalPrice);
-            packageCost.setText(""+totalPrice);
-        }
-    }//GEN-LAST:event_spaRActionPerformed
-
-    private void valRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valRActionPerformed
-        // TODO add your handling code here:
-        if(valR.isSelected()){
-           summerR.setSelected(false);
-           summerR.setEnabled(false);
-           deal20.setEnabled(false);
-           deal10.setEnabled(false);
-           deal10.setSelected(false);
-           deal20.setSelected(false);
-        }
-        else if(!valR.isSelected()){
-           deal20.setEnabled(true);
-           deal10.setEnabled(true);
-           summerR.setEnabled(true);
-        }
-    }//GEN-LAST:event_valRActionPerformed
-
-    private void summerRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summerRActionPerformed
-        // TODO add your handling code here:
-         if(summerR.isSelected()){
-           valR.setSelected(false);
-           valR.setEnabled(false);
-           deal20.setEnabled(false);
-           deal10.setEnabled(false);
-           deal10.setSelected(false);
-           deal20.setSelected(false);
-        }
-        else if(!summerR.isSelected()){
-           
-           valR.setEnabled(true);
-           deal20.setEnabled(true);
-           deal10.setEnabled(true);
-        }
-    }//GEN-LAST:event_summerRActionPerformed
-
-    private void bankRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bankRActionPerformed
-        // TODO add your handling code here:
-         if(bankR.isSelected()){
-           summerR.setEnabled(false);
-           valR.setEnabled(false);
-           deal20.setEnabled(false);
-           deal10.setEnabled(false);
-           deal10.setSelected(false);
-           deal20.setSelected(false);
-           valR.setSelected(false);
-           summerR.setSelected(false);
-        }
-        else if(!bankR.isSelected()){
-            summerR.setEnabled(true);
-            valR.setEnabled(true);
-            deal20.setEnabled(true);
-            deal10.setEnabled(true);
-        }
-    }//GEN-LAST:event_bankRActionPerformed
-
-    private void meetingRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meetingRActionPerformed
-        // TODO add your handling code here:
-        if(meetingR.isSelected()){
-            totalPrice = totalPrice + bill.getFuctionPrice();
-            packageTotal.setText(""+totalPrice);
-            packageCost.setText(""+totalPrice);
-        }
-        else if(!meetingR.isSelected()){
-            totalPrice = totalPrice - bill.getFuctionPrice();
-            packageTotal.setText(""+totalPrice);
-            packageCost.setText(""+totalPrice);
-        }
-    }//GEN-LAST:event_meetingRActionPerformed
 
     private void maxiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maxiMousePressed
         // TODO add your handling code here:
@@ -3460,11 +3302,6 @@ public class MainFrame extends javax.swing.JFrame {
         updateCheckMark(x);
     }//GEN-LAST:event_room304ActionPerformed
 
-    private void deal20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deal20ActionPerformed
-        // TODO add your handling code here:
-        System.out.println("sdfsd");
-    }//GEN-LAST:event_deal20ActionPerformed
-
     private void discountTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_discountTotalActionPerformed
@@ -3982,30 +3819,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
     public static void setTotal(double total){
         totalCost.setText(""+total);
-    }
-
-    public static JRadioButton getDeal10() {
-        return deal10;
-    }
-
-    public static JRadioButton getDeal20() {
-        return deal20;
-    }
-
-    public static JCheckBox getBankR() {
-        return bankR;
-    }
-
-    public static JCheckBox getSummerR() {
-        return summerR;
-    }
-
-    public static JCheckBox getValR() {
-        return valR;
-    }
-    
-    
-    
+    }   
     // Method to update the JLabel check mark when selecting a room on checkin screen
     public void updateCheckMark(int x){
         switch(x){
@@ -4046,7 +3860,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel addressLabel;
     private javax.swing.JSpinner adults;
     private javax.swing.JRadioButton americanRad;
-    private static javax.swing.JCheckBox bankR;
     private javax.swing.JPanel banner;
     private javax.swing.JLabel bannerTitle;
     private static javax.swing.JButton bookButt;
@@ -4076,8 +3889,6 @@ public class MainFrame extends javax.swing.JFrame {
     public void setStatus(){
         dbStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Filled Circle_Green_16px.png")));
     }
-    private static javax.swing.JRadioButton deal10;
-    private static javax.swing.JRadioButton deal20;
     private javax.swing.ButtonGroup dealsGroup;
     private javax.swing.JTextField discountTotal;
     private static javax.swing.JPanel doublePanel;
@@ -4111,6 +3922,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
@@ -4207,7 +4019,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lotusText;
     private javax.swing.JRadioButton masterRad;
     private javax.swing.JLabel maxi;
-    private javax.swing.JCheckBox meetingR;
     private javax.swing.JLabel mini;
     private javax.swing.JTextField nightsStay;
     private static javax.swing.JTextField packageCost;
@@ -4261,9 +4072,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel serverTime;
     private javax.swing.JPanel sideBar;
     public static javax.swing.JPanel singlePanel;
-    private javax.swing.JCheckBox spaR;
     private javax.swing.JButton sqlTest;
-    private static javax.swing.JCheckBox summerR;
     private java.awt.TextArea ta;
     private javax.swing.JTextField tfAdults;
     private javax.swing.JTextField tfAvailability;
@@ -4285,7 +4094,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel topPanel;
     private static javax.swing.JTextField totalCost;
-    private static javax.swing.JCheckBox valR;
     private javax.swing.JRadioButton visaRad;
     private javax.swing.JLabel warnLabel;
     // End of variables declaration//GEN-END:variables
