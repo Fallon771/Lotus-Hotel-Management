@@ -64,7 +64,7 @@ public class BookingPopup extends javax.swing.JFrame {
          DefaultTableModel model = (DefaultTableModel)bookingTable.getModel();
          
          try{
-         String sql = "SELECT DISTINCT * FROM `guest`, `rooms` WHERE `roomno` = '"+secondPart+"' && guest.id = rooms.id HAVING `booked` = 1";
+         String sql = "SELECT DISTINCT * FROM `guest`, `roombooked` WHERE `roomno` = '"+secondPart+"' && guest.id = roombooked.id HAVING `booked` = 1";
          list = display.displayGuestTable(sql);
          Object[] row = new Object[9];
          for(int i=0;i<list.size();i++){
