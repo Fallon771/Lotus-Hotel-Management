@@ -49,12 +49,12 @@ public class RoomStatus extends Thread{
             sleep(5000);
             myConn = DriverManager.getConnection("jdbc:mysql://"+database, user, pass);
             myStmt = myConn.createStatement();
-            myRs = myStmt.executeQuery("select `roomno`,`booked` from rooms");
+            myRs = myStmt.executeQuery("select `roomno`,`booking` from rooms,roombooked");
             
             while (myRs.next()) {
                     
                     if(myRs.getInt("roomno") >= 100 && myRs.getInt("roomno") <= 407){
-                    roomNo.put(myRs.getInt("roomno"), myRs.getBoolean("booked"));
+                    roomNo.put(myRs.getInt("roomno"), myRs.getBoolean("booking"));
                     }
                 }       
         }
