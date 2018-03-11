@@ -46,15 +46,15 @@ public class RoomStatus extends Thread{
            
          try{ 
             System.out.print("[Thread 2:]Started.. :) \n");
-            sleep(5000);
+            sleep(3000);
             myConn = DriverManager.getConnection("jdbc:mysql://"+database, user, pass);
             myStmt = myConn.createStatement();
-            myRs = myStmt.executeQuery("select `roomno`,`booking` from rooms,roombooked");
+            myRs = myStmt.executeQuery("select `roomno`,`booked` from rooms");
             
             while (myRs.next()) {
                     
                     if(myRs.getInt("roomno") >= 100 && myRs.getInt("roomno") <= 407){
-                    roomNo.put(myRs.getInt("roomno"), myRs.getBoolean("booking"));
+                    roomNo.put(myRs.getInt("roomno"), myRs.getBoolean("booked"));
                     }
                 }       
         }
@@ -75,9 +75,9 @@ public class RoomStatus extends Thread{
           if(myConn != null){
              try {
                  myRs.close();
-             } catch (SQLException ex) {
-                 Logger.getLogger(RoomStatus.class.getName()).log(Level.SEVERE, null, ex);
-             }
+                } catch (SQLException ex) {
+                    Logger.getLogger(RoomStatus.class.getName()).log(Level.SEVERE, null, ex);
+                }
              }
           if(myStmt != null){
              try {
