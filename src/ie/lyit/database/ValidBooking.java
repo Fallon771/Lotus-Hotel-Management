@@ -63,7 +63,7 @@ public class ValidBooking {
                 // Loop through all the guests that our either booked or checked into the choosen room.
                 // If the checkin date the user selected is after or before the guest currently staying...then set flag to false.
                     System.out.println("Listing dates on database => "+myRs.getDate("checkin"));
-                 if( dateIn.after(myRs.getDate("checkin")) && dateOut.before(myRs.getDate("checkout"))){
+                 if( dateIn.after(myRs.getDate("checkin")) && dateOut.before(myRs.getDate("checkout") )){
                     validDate = false;
                     System.out.println("\nInvalid date selected by user...");
                  } 
@@ -74,7 +74,7 @@ public class ValidBooking {
         } catch (Exception exc) {
             exc.printStackTrace();
             System.out.println("Error caught in valid booking.");
-                 System.out.println("Dates:"+checkin+"\n"+checkout);
+              
         } finally {
             if (myRs != null) {
                 myRs.close();
