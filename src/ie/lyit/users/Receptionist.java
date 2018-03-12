@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package ie.lyit.users;
-import ie.lyit.database.Connect;
+import ie.lyit.database.Insertions;
 import ie.lyit.database.DBConnections;
 import ie.lyit.gui.BookingPopup;
 import ie.lyit.hotel.Bill;
@@ -29,7 +29,7 @@ public class Receptionist implements DBConnections{
     private int id;
     BookingPopup popup;
    
-    Connect conn =new Connect();
+    Insertions conn =new Insertions();
     DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
    
     public Receptionist(){
@@ -82,7 +82,7 @@ public class Receptionist implements DBConnections{
     
     // Check in
     @Override
-    public void addGuest(Guest guest) {
+    public void addGuest(Guest guest,int guestNum) {
         
         // Get guest details
         String guestFName = guest.getfName();
@@ -93,7 +93,7 @@ public class Receptionist implements DBConnections{
         String guestTitle = guest.getTitle();
         Date guestCheckin = guest.getCheckIn();
         Date guestCheckout = guest.getCheckOut();
-        
+        System.out.println("DEBUGG:"+guestNum);
         //Parse date from string to correct format(SQL accepts only yyyy-mm-dd)
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         // Create strings and format date
@@ -104,8 +104,13 @@ public class Receptionist implements DBConnections{
                 + "`checkin`,`checkout`,`phone`,`email`) VALUES ('"+guestFName+"','"+guestSName+"',"
                 + "'"+guestAdress+"','"+guestTitle+"','"+in+"','"+out+"','"+phone+"','"+email+"');";
         
+        String sql2 = "INSERT INTO `gueststore` (`fname`, `surname`,`address`,`title`,"
+                + "`phone`,`email`) VALUES ('"+guestFName+"','"+guestSName+"',"
+                + "'"+guestAdress+"','"+guestTitle+"','"+phone+"','"+email+"');";
+        
         try{
-        conn.queryDatabase(sql);
+        conn.insertToDatabase(sql);
+        conn.insertToDatabase(sql2);
         }
         catch(Exception e){
             System.out.print("Error occured while adding...");
@@ -152,7 +157,7 @@ public class Receptionist implements DBConnections{
         
         // Pass in string
         try{
-               conn.queryDatabase(sql);
+               conn.insertToDatabase(sql);
            }
            catch(Exception e){
                JOptionPane.showMessageDialog(null, "Error adding card to database!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -172,7 +177,7 @@ public class Receptionist implements DBConnections{
                 + "('"+guestNo+"','"+book+"', '"+roomNo+"', '"+adults+"', '"+children+"');";
         
            try{
-               conn.queryDatabase(sql);
+               conn.insertToDatabase(sql);
            }
            catch(Exception e){
                System.out.print("Error occured while adding room...");
