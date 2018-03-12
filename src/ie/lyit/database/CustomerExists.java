@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +20,7 @@ public class CustomerExists {
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
+        boolean check = false;
         
         String user = "root";
         String pass = "password";
@@ -26,7 +28,7 @@ public class CustomerExists {
     public CustomerExists(){
     
     }      
-    public void checkForGuest(String sql) throws SQLException{
+    public boolean checkForGuest(String sql,String email) throws SQLException{
         // int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout
       
             try {
@@ -37,7 +39,9 @@ public class CustomerExists {
             myRs = myStmt.executeQuery(sql);
           
             while (myRs.next()) {
-               
+               if(myRs.getString("email").equals(email)){
+                   check = true;
+               }
             }
           
         } catch (Exception exc) {
@@ -52,6 +56,7 @@ public class CustomerExists {
             if (myConn != null) {   
                 myConn.close();
             }
-        } // End of finally block         
+        } // End of finally block    
+            return check;
     }   // End of method
 }
