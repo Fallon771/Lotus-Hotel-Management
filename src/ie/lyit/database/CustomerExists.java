@@ -21,18 +21,19 @@ public class CustomerExists {
         Statement myStmt = null;
         ResultSet myRs = null;
         boolean check = false;
+        Guest guest;
         
         String user = "root";
         String pass = "password";
-    
+        ArrayList<Guest> list = new ArrayList<>();
     public CustomerExists(){
     
     }      
-    public boolean checkForGuest(String sql,String email) throws SQLException{
+    public ArrayList<Guest> checkForGuest(String sql,String email) throws SQLException{
         // int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout
       
             try {
-           
+            list.clear();
             // 1. Get a connection to database
             myConn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
             myStmt = myConn.createStatement();
@@ -40,8 +41,19 @@ public class CustomerExists {
           
             while (myRs.next()) {
                if(myRs.getString("email").equals(email)){
-                   check = true;
+                  
+                   guest = new Guest(
+                        myRs.getString("title"),
+                        myRs.getString("fname"),
+                        myRs.getString("surname"),
+                        myRs.getString("address"),
+                        myRs.getString("phone"),
+                        myRs.getString("email"),
+                        myRs.getRow()
+                   );
+                   list.add(guest);     
                }
+               
             }
           
         } catch (Exception exc) {
@@ -57,6 +69,6 @@ public class CustomerExists {
                 myConn.close();
             }
         } // End of finally block    
-            return check;
+            return list;
     }   // End of method
 }
