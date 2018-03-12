@@ -74,6 +74,7 @@ public class MainFrame extends javax.swing.JFrame {
     GuestId id = new GuestId();
     DisplayTables display = new DisplayTables();
     RoomStatus rs = new RoomStatus();
+    CustomerExists cus = new CustomerExists();
     CreditCard card;
     Bill bill = new Bill();
     Color c;
@@ -206,6 +207,7 @@ public class MainFrame extends javax.swing.JFrame {
         payProcess = new javax.swing.JLabel();
         jSeparator13 = new javax.swing.JSeparator();
         existLabel = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         roomPriceTotal = new javax.swing.JTextField();
@@ -1217,18 +1219,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         emailLabel.setText("Email:");
 
-        email.setRequestFocusEnabled(false);
-        email.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                emailFocusLost(evt);
-            }
-        });
-        email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
-            }
-        });
-
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Help_22px.png"))); // NOI18N
         jLabel10.setToolTipText("Click to open help");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1242,9 +1232,17 @@ public class MainFrame extends javax.swing.JFrame {
         payProcess.setForeground(new java.awt.Color(0, 153, 0));
         payProcess.setText("Payment Processed");
 
-        existLabel.setFont(new java.awt.Font("DialogInput", 0, 10)); // NOI18N
-        existLabel.setForeground(new java.awt.Color(0, 51, 255));
-        existLabel.setText("Check if customer exists");
+        existLabel.setFont(new java.awt.Font("Dotum", 0, 12)); // NOI18N
+        existLabel.setForeground(new java.awt.Color(102, 153, 255));
+        existLabel.setText("Check if customer has stayed before");
+
+        jButton2.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 11)); // NOI18N
+        jButton2.setText("Check Guest");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout detailsPanelLayout = new javax.swing.GroupLayout(detailsPanel);
         detailsPanel.setLayout(detailsPanelLayout);
@@ -1264,11 +1262,6 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, detailsPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(detailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(existLabel)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(detailsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(detailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1314,18 +1307,26 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(payment, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(payProcess, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, detailsPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(detailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(existLabel)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
         detailsPanelLayout.setVerticalGroup(
             detailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(detailsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(existLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(detailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailLabel)
                     .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
                 .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(detailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3576,18 +3577,9 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_phoneActionPerformed
 
-    private void emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFocusLost
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Customer found in database", "Customer found:", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_emailFocusLost
-
     private void paymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_paymentActionPerformed
-
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
 
     private void checkInDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_checkInDatePropertyChange
         // TODO add your handling code here:
@@ -3603,6 +3595,35 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_checkInDatePropertyChange
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String sql = "SELECT * FROM gueststore WHERE `email` = '"+email.getText()+"'";
+        try{
+        ArrayList<Guest> list;
+        list = cus.checkForGuest(sql, email.getText());
+        
+            if(!list.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Customer found in database", "Customer found:", JOptionPane.INFORMATION_MESSAGE);
+                clearGuestFields();
+            
+                title.setSelectedItem(list.get(0).getTitle());
+                fName.setText(list.get(0).getfName());
+                sName.setText(list.get(0).getsName());
+                address.setText(list.get(0).getAddress());
+                phone.setText(list.get(0).getPhoneNo());
+                email.setText(email.getText());
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Customer not found in database", "7:", JOptionPane.INFORMATION_MESSAGE);
+               
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
@@ -3726,7 +3747,7 @@ public class MainFrame extends javax.swing.JFrame {
                 payment.setEnabled(true);
                 // If the dates are not conflicting & its a booking...
                 if(validBooking && booking){
-                    rep.addGuest(checkIn);
+                    rep.addGuest(checkIn,Integer.parseInt(guestId.getText()));
                     JOptionPane.showMessageDialog(null, "Guest booked in...", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
                     updateGuestId(); 
                     clearGuestFields();
@@ -3738,7 +3759,7 @@ public class MainFrame extends javax.swing.JFrame {
                 }
                   // If the dates are not conflicting & its a check-in...
                 if(!booking && validBooking){
-                    rep.addGuest(checkIn);
+                    rep.addGuest(checkIn,Integer.parseInt(guestId.getText()));
                     JOptionPane.showMessageDialog(null, "Guest added", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
                     updateGuestId(); 
                     clearGuestFields();
@@ -4002,6 +4023,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
