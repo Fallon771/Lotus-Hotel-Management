@@ -20,6 +20,7 @@ public class Guest {
     
     private String fName;
     private int id;
+    private int row;
     private String title;
     private String sName;
     private String address;
@@ -31,6 +32,16 @@ public class Guest {
    
     public Guest(){
          
+    }
+    
+    // Constructor for email check
+    public Guest(String title,String fName,String sName,String address,String phone,String email){
+        this.fName = fName;
+        this.sName = sName;
+        this.address = address;
+        this.title = title;
+        this.emailAddress = email;
+        this.phoneNo = phone;
     }
     
     // Constructor for JTables
@@ -75,7 +86,7 @@ public class Guest {
     public int getId() {
         return id;
     }
-
+    
     public void setId(int id) {
         this.id = id;
     }
