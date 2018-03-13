@@ -48,8 +48,8 @@ public class CustomerExists {
                         myRs.getString("surname"),
                         myRs.getString("address"),
                         myRs.getString("phone"),
-                        myRs.getString("email"),
-                        myRs.getRow()
+                        myRs.getString("email")
+                      
                    );
                    list.add(guest);     
                }
