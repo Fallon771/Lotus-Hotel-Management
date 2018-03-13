@@ -82,7 +82,7 @@ public class Receptionist implements DBConnections{
     
     // Check in
     @Override
-    public void addGuest(Guest guest,int guestNum) {
+    public void addGuest(Guest guest) {
         
         // Get guest details
         String guestFName = guest.getfName();
@@ -93,7 +93,7 @@ public class Receptionist implements DBConnections{
         String guestTitle = guest.getTitle();
         Date guestCheckin = guest.getCheckIn();
         Date guestCheckout = guest.getCheckOut();
-        System.out.println("DEBUGG:"+guestNum);
+
         //Parse date from string to correct format(SQL accepts only yyyy-mm-dd)
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         // Create strings and format date
