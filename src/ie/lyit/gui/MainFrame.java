@@ -318,10 +318,12 @@ public class MainFrame extends javax.swing.JFrame {
         tfRoomType = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
         tfCost = new javax.swing.JTextField();
-        jLabel46 = new javax.swing.JLabel();
-        tfAvailable = new javax.swing.JTextField();
-        jLabel47 = new javax.swing.JLabel();
+        lblUnder = new javax.swing.JLabel();
         tfBooked = new javax.swing.JTextField();
+        jLabel47 = new javax.swing.JLabel();
+        tfAvailable = new javax.swing.JTextField();
+        tfCustID = new javax.swing.JTextField();
+        lblCustID = new javax.swing.JLabel();
         checkOutScreen = new javax.swing.JPanel();
         CheckOutViaRoomNo = new javax.swing.JPanel();
         jLabel53 = new javax.swing.JLabel();
@@ -2314,6 +2316,15 @@ public class MainFrame extends javax.swing.JFrame {
         searchRoom.setBackground(new java.awt.Color(153, 204, 255));
         searchRoom.setBorder(javax.swing.BorderFactory.createTitledBorder("Search Room"));
         searchRoom.setPreferredSize(new java.awt.Dimension(495, 320));
+        searchRoom.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                searchRoomAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         jLabel42.setText("Room No.");
 
@@ -2341,13 +2352,17 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel46.setText("Available From:");
+        lblUnder.setText("Booked Under:");
+
+        tfBooked.setEditable(false);
+
+        jLabel47.setText("Available From:");
 
         tfAvailable.setEditable(false);
 
-        jLabel47.setText("Booked Under:");
+        tfCustID.setEditable(false);
 
-        tfBooked.setEditable(false);
+        lblCustID.setText("ID:");
 
         javax.swing.GroupLayout searchRoomLayout = new javax.swing.GroupLayout(searchRoom);
         searchRoom.setLayout(searchRoomLayout);
@@ -2357,38 +2372,40 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator10)
+                    .addGroup(searchRoomLayout.createSequentialGroup()
+                        .addComponent(jLabel42)
+                        .addGap(18, 18, 18)
+                        .addComponent(roomNo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSearchRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchRoomLayout.createSequentialGroup()
                         .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel43)
-                            .addComponent(jLabel47))
-                        .addGap(27, 27, 27)
-                        .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(tfAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tfAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tfBooked, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(searchRoomLayout.createSequentialGroup()
+                                .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel43)
+                                    .addComponent(jLabel47))
+                                .addGap(27, 27, 27)
+                                .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(tfAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tfBooked, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblUnder))
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel45)
-                            .addComponent(jLabel44))
+                            .addComponent(jLabel44)
+                            .addComponent(lblCustID))
                         .addGap(10, 10, 10)
                         .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tfCost, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                            .addComponent(tfRoomType)))
-                    .addGroup(searchRoomLayout.createSequentialGroup()
-                        .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel46)
-                            .addGroup(searchRoomLayout.createSequentialGroup()
-                                .addComponent(jLabel42)
-                                .addGap(18, 18, 18)
-                                .addComponent(roomNo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnSearchRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(tfRoomType)
+                            .addComponent(tfCustID))))
                 .addContainerGap())
         );
 
-        searchRoomLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {tfAvailability, tfBooked});
+        searchRoomLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {tfAvailability, tfAvailable});
 
         searchRoomLayout.setVerticalGroup(
             searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2409,13 +2426,16 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel47)
-                    .addComponent(tfBooked, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel45)
                     .addComponent(tfCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel46)
-                    .addComponent(tfAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblUnder)
+                    .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tfBooked, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblCustID))
+                    .addComponent(tfCustID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2428,7 +2448,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(searchGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(searchRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         searchScreenLayout.setVerticalGroup(
             searchScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2437,7 +2457,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(searchScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(searchGuest, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
                     .addComponent(searchRoom, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         checkOutScreen.setBackground(new java.awt.Color(255, 255, 255));
@@ -3280,8 +3300,8 @@ public class MainFrame extends javax.swing.JFrame {
                 String roomT = roomType.getText();
                 //String roomType = (String)jComboBox2.getSelectedItem();
                 tfRoomType.setText(roomT);
-                tfBooked.setText(rs.getString("fname"));
-                tfAvailable.setText(rs.getString("checkout"));
+                tfAvailable.setText(rs.getString("fname"));
+                tfBooked.setText(rs.getString("checkout"));
                
             }
         }
@@ -3317,31 +3337,48 @@ public class MainFrame extends javax.swing.JFrame {
             pstmt = conn.prepareStatement("select * from guest, rooms where guest.id = rooms.id AND rooms.roomno=?");
 
             pstmt.setString(1, roomNo.getText());
+            
             rs = pstmt.executeQuery();
+            
+            String rText= roomNo.getText();//get user input of room no
+            int inputNo = Integer.parseInt(rText);//conver user input to int
+                
 
             while(rs.next()){                        
-                //tfAvailability.setText(rs.getString("booked"));
                 
-                String room = rs.getString("booked");
-                
-                if(room=="1")
+                int booked= rs.getInt("booked");
+                int getRoom = rs.getInt("roomno"); //get room no from db
+               
+//                if(inputNo!=getRoom)
+//                    //JOptionPane.showMessageDialog(null,"No Room Found!");
+//                    System.out.print("No Room");
+        
+                if(inputNo==getRoom)
                 {
-                    tfAvailability.setText("Not Available");
+                    if(booked==1)
+                        {
+                        lblCustID.setVisible(true);
+                        tfCustID.setVisible(true);
+                        tfBooked.setVisible(true);   
+                        lblUnder.setVisible(true);   
+                        
+                        tfAvailability.setText("Not Available");
+                        tfBooked.setText(rs.getString("surname"));
+                        tfCustID.setText(rs.getString("id"));
+                        }
+                    else{
+                        tfAvailability.setText("Available");
+                        }
+                    String roomT = roomType.getText();
+                    tfRoomType.setText(roomT);
+                    tfAvailable.setText(rs.getString("checkout"));
+                                      
                 }
-                else{
-                    tfAvailability.setText("Available");
-                }
-                
-                
-                String roomT = roomType.getText();
-                tfRoomType.setText(roomT);
-                tfBooked.setText(rs.getString("surname"));
-                tfAvailable.setText(rs.getString("checkout"));
-                
+                                           
             }
         }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+         catch(Exception e){
+            JOptionPane.showMessageDialog(null,"No Room Found!");
         }
         finally{
             try {
@@ -3351,8 +3388,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
             catch(Exception e)
             {
+                //JOptionPane.showMessageDialog(null,"No Customer Found!");
             }
-
         }
     }//GEN-LAST:event_btnSearchRoomActionPerformed
 
@@ -3690,6 +3727,13 @@ public class MainFrame extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void searchRoomAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_searchRoomAncestorAdded
+        tfBooked.setVisible(false);   
+        lblUnder.setVisible(false);   
+        lblCustID.setVisible(false);
+        tfCustID.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_searchRoomAncestorAdded
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
@@ -4133,7 +4177,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
@@ -4198,6 +4241,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLayeredPane layerPane;
+    private javax.swing.JLabel lblCustID;
+    private javax.swing.JLabel lblUnder;
     private javax.swing.JLabel lotusText;
     private javax.swing.JRadioButton masterRad;
     private javax.swing.JLabel maxi;
@@ -4263,6 +4308,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField tfCheckin;
     private javax.swing.JTextField tfChildren;
     private javax.swing.JTextField tfCost;
+    private javax.swing.JTextField tfCustID;
     private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfFindGuest;
     private javax.swing.JTextField tfFname;
