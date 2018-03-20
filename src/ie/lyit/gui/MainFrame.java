@@ -2189,7 +2189,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel40.setText("Room Type:");
 
-        jLabel41.setText("Adults:");
+        jLabel41.setText("No. Of People");
+        jLabel41.setToolTipText("");
 
         tfCheckin.setEditable(false);
 
@@ -2448,7 +2449,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(searchGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(searchRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         searchScreenLayout.setVerticalGroup(
             searchScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2457,7 +2458,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(searchScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(searchGuest, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
                     .addComponent(searchRoom, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         checkOutScreen.setBackground(new java.awt.Color(255, 255, 255));
@@ -3233,33 +3234,54 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn=DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
-            //pstmt = conn.prepareStatement("select * from guest, rooms where guest.fname=?");
-            //pstmt.setString(1, guest);
-            //rs = pstmt.executeQuery();
-           
-            pstmt = conn.prepareStatement("select * from guest, rooms where guest.fname=? and guest.surname=?");
+
+            pstmt = conn.prepareStatement("select * from customer, room, booking, roombooking where booking.BookNumber=roombooking.BookNumber and customer.FName=? and customer.SName=?"); 
+
+            
+           //***FOR OLD VERSION OF DB***//
+//          pstmt = conn.prepareStatement("select * from guest, rooms where guest.fname=? and guest.surname=?"); 
             pstmt.setString(1, guests[0]);
             pstmt.setString(2, guests[1]);
             rs = pstmt.executeQuery();
             
-            while(rs.next()){
-                tfRoom.setText(rs.getString("roomno"));
-                tfID.setText(rs.getString("id"));
-                tfFname.setText(rs.getString("fname"));
-                tfSurname.setText(rs.getString("surname"));
-                tfPhone.setText(rs.getString("phone"));
-                tfEmail.setText(rs.getString("email"));
-                ta.setText(rs.getString("address"));
-
+                while(rs.next()){
+                tfRoom.setText(rs.getString("roombooking.RoomNumber"));
+                tfID.setText(rs.getString("CustNumber"));
+                tfFname.setText(rs.getString("FName"));
+                tfSurname.setText(rs.getString("SName"));
+                tfPhone.setText(rs.getString("PhoneNumber"));
+                tfEmail.setText(rs.getString("Email"));
                 
-                String roomT = roomType.getText();
-                tfType.setText(roomT);
+                //ta.setText(rs.getString("address"));
                 
-                tfCheckin.setText(rs.getString("checkin"));
-                tfAdults.setText(rs.getString("adults"));
-                tfChildren.setText(rs.getString("children"));
+                tfType.setText(rs.getString("RoomType"));
+                tfCheckin.setText(rs.getString("CheckInDate"));
+                tfAdults.setText(rs.getString("No of people"));
+                
 
             }
+            
+
+                
+                
+              //***FOR OLD VERSION OF DB***//
+//            while(rs.next()){
+//                tfRoom.setText(rs.getString("roomno"));
+//                tfID.setText(rs.getString("id"));
+//                tfFname.setText(rs.getString("fname"));
+//                tfSurname.setText(rs.getString("surname"));
+//                tfPhone.setText(rs.getString("phone"));
+//                tfEmail.setText(rs.getString("email"));
+//                ta.setText(rs.getString("address"));
+//                String roomT = roomType.getText();
+//                tfType.setText(roomT);
+//                tfCheckin.setText(rs.getString("checkin"));
+//                tfAdults.setText(rs.getString("adults"));
+//                tfChildren.setText(rs.getString("children"));
+//
+//            }
+
+
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"No Customer Found!");
@@ -3341,13 +3363,14 @@ public class MainFrame extends javax.swing.JFrame {
             rs = pstmt.executeQuery();
             
             String rText= roomNo.getText();//get user input of room no
-            int inputNo = Integer.parseInt(rText);//conver user input to int
+            int inputNo = Integer.parseInt(rText);//convert user input to int
                 
 
             while(rs.next()){                        
                 
                 int booked= rs.getInt("booked");
                 int getRoom = rs.getInt("roomno"); //get room no from db
+
                
 //                if(inputNo!=getRoom)
 //                    //JOptionPane.showMessageDialog(null,"No Room Found!");
@@ -3374,6 +3397,9 @@ public class MainFrame extends javax.swing.JFrame {
                     tfAvailable.setText(rs.getString("checkout"));
                                       
                 }
+                else{
+                    JOptionPane.showMessageDialog(null,"No Room Found!");
+                }
                                            
             }
         }
@@ -3388,7 +3414,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
             catch(Exception e)
             {
-                //JOptionPane.showMessageDialog(null,"No Customer Found!");
+                JOptionPane.showMessageDialog(null,"No Customer Found!");
             }
         }
     }//GEN-LAST:event_btnSearchRoomActionPerformed

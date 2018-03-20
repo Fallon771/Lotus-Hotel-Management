@@ -3128,7 +3128,7 @@
                       <Component id="searchGuest" min="-2" pref="520" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="searchRoom" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="61" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3140,7 +3140,7 @@
                           <Component id="searchGuest" pref="392" max="32767" attributes="0"/>
                           <Component id="searchRoom" pref="392" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="120" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3390,7 +3390,8 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel41">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Adults:"/>
+                    <Property name="text" type="java.lang.String" value="No. Of People"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCheckin">
