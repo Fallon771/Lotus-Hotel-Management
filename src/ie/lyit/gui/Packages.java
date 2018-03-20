@@ -1,5 +1,7 @@
 package ie.lyit.gui;
 
+import java.awt.Color;
+
 /**
  *
  * @author James Fallon
@@ -46,14 +48,18 @@ public class Packages extends javax.swing.JFrame {
         discountText = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
         disocuntLabel = new javax.swing.JLabel();
         slider = new javax.swing.JSlider();
         jScrollPane1 = new javax.swing.JScrollPane();
         commentsArea = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        clearButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        extraText = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        fixText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Packages & Deals");
@@ -63,28 +69,20 @@ public class Packages extends javax.swing.JFrame {
         packagePanel.setBackground(new java.awt.Color(255, 255, 255));
         packagePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Packages"));
 
-        packageText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                packageTextActionPerformed(evt);
-            }
-        });
-
-        discountText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                discountTextActionPerformed(evt);
-            }
-        });
+        discountText.setBackground(new java.awt.Color(255, 255, 102));
+        discountText.setText("0");
 
         jLabel2.setText("Package Name:");
 
-        jButton1.setText("Add");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addButton.setText("Add");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addButtonActionPerformed(evt);
             }
         });
 
-        disocuntLabel.setText("Discount / Increase:");
+        disocuntLabel.setBackground(new java.awt.Color(255, 255, 255));
+        disocuntLabel.setText("Discount / Increase Off Bill:");
 
         slider.setForeground(new java.awt.Color(0, 0, 0));
         slider.setMajorTickSpacing(25);
@@ -104,19 +102,35 @@ public class Packages extends javax.swing.JFrame {
 
         commentsArea.setColumns(20);
         commentsArea.setRows(5);
+        commentsArea.setText("Add comments here...");
         jScrollPane1.setViewportView(commentsArea);
 
         jLabel3.setText("Comments:");
 
-        jButton2.setText("Clear");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                clearButtonActionPerformed(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("%");
+
+        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox2.setText("Extra's           €");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+
+        extraText.setText("0.00");
+
+        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox1.setText("Fixed Price     €");
+
+        fixText.setText("0.00");
 
         javax.swing.GroupLayout packagePanelLayout = new javax.swing.GroupLayout(packagePanel);
         packagePanel.setLayout(packagePanelLayout);
@@ -126,7 +140,7 @@ public class Packages extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(packagePanelLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(packageText, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(packagePanelLayout.createSequentialGroup()
@@ -142,10 +156,21 @@ public class Packages extends javax.swing.JFrame {
             .addGroup(packagePanelLayout.createSequentialGroup()
                 .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(packagePanelLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(addButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(clearButton))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(packagePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(packagePanelLayout.createSequentialGroup()
+                                .addComponent(jCheckBox1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fixText, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(packagePanelLayout.createSequentialGroup()
+                                .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(extraText, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         packagePanelLayout.setVerticalGroup(
@@ -159,18 +184,26 @@ public class Packages extends javax.swing.JFrame {
                     .addComponent(disocuntLabel)
                     .addComponent(jLabel1)
                     .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, 45, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox2)
+                    .addComponent(extraText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox1)
+                    .addComponent(fixText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)))
+                    .addComponent(addButton)
+                    .addComponent(clearButton)))
         );
 
         javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
@@ -181,7 +214,9 @@ public class Packages extends javax.swing.JFrame {
         );
         contentPanelLayout.setVerticalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(packagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(contentPanelLayout.createSequentialGroup()
+                .addComponent(packagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -192,44 +227,62 @@ public class Packages extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void packageTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_packageTextActionPerformed
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_packageTextActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void discountTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_discountTextActionPerformed
+    }//GEN-LAST:event_addButtonActionPerformed
 
     private void sliderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliderMouseDragged
         // TODO add your handling code here:
         sliderNum = slider.getValue();
-        discountText.setText(""+sliderNum);
-        System.out.println(sliderNum);
+        
+        if(sliderNum < 0){
+            discountText.setBackground(Color.pink);
+            discountText.setText("-"+sliderNum);
+        }
+        else if(sliderNum > 0){
+            discountText.setBackground(Color.green);
+            discountText.setText("+"+sliderNum);
+        }
+        else{
+             discountText.setText(""+sliderNum);
+             discountText.setBackground(Color.yellow);
+        }
         repaint();
     }//GEN-LAST:event_sliderMouseDragged
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // Clear all fields to default..
+        fixText.setText("");
+        extraText.setText("");
+        discountText.setText("");
+        slider.setValue(0);
+        packageText.setText("");
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addButton;
+    private javax.swing.JButton clearButton;
     private javax.swing.JTextArea commentsArea;
     private javax.swing.JPanel contentPanel;
     private javax.swing.JTextField discountText;
     private javax.swing.JLabel disocuntLabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField extraText;
+    private javax.swing.JTextField fixText;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
