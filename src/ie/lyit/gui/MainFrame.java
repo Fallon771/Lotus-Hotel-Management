@@ -3236,7 +3236,6 @@ public class MainFrame extends javax.swing.JFrame {
             conn=DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass);
 
             pstmt = conn.prepareStatement("select * from customer, room, booking, roombooking where booking.BookNumber=roombooking.BookNumber and customer.FName=? and customer.SName=?"); 
-
             
            //***FOR OLD VERSION OF DB***//
 //          pstmt = conn.prepareStatement("select * from guest, rooms where guest.fname=? and guest.surname=?"); 
@@ -3260,9 +3259,7 @@ public class MainFrame extends javax.swing.JFrame {
                 
 
             }
-            
-
-                
+                          
                 
               //***FOR OLD VERSION OF DB***//
 //            while(rs.next()){
