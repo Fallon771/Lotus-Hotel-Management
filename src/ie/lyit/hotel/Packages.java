@@ -8,19 +8,21 @@ package ie.lyit.hotel;
 public class Packages {
     
     private String name;
+    private String comments;
     private int totalBill;
     private double fixIncrease;
     private double fixDecrease;
     private double extras;
     
     
-    public Packages(String name,int totalBill,double inc,double dec, double extras){
+    public Packages(String name,int totalBill,double inc,double dec, double extras,String comments){
        
         this.name = name;
         this.totalBill = totalBill;
         this.fixIncrease = inc;
         this.fixDecrease = dec;
         this.extras = extras;
+        this.comments = comments;
     } 
     
     // Getter's

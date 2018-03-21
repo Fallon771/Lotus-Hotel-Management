@@ -1,6 +1,7 @@
 package ie.lyit.gui;
 
 import ie.lyit.database.Insertions;
+import ie.lyit.hotel.Packages;
 import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -9,7 +10,7 @@ import javax.swing.JOptionPane;
  *
  * @author James Fallon
  */
-public class Packages extends javax.swing.JFrame {
+public class CustomPackages extends javax.swing.JFrame {
 
     private int sliderNum  = 0;
     private String name;
@@ -21,7 +22,7 @@ public class Packages extends javax.swing.JFrame {
     
     Insertions insert;
     
-    public Packages() {
+    public CustomPackages() {
         
         setLook();
         initComponents();
@@ -37,13 +38,13 @@ public class Packages extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Packages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomPackages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Packages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomPackages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Packages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomPackages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Packages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomPackages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }
     
@@ -420,6 +421,8 @@ public class Packages extends javax.swing.JFrame {
         increase = Double.parseDouble(incText.getText());
         decrease = Double.parseDouble(decText.getText());
         comments = commentsArea.getText();
+        
+        Packages pack = new Packages(name,(int)totalbill,increase,decrease,extras,comments);
        
         String sql = "INSERT INTO `packages` (`name`,`totalbill`,`extras`,`increase`,`decrease`,`comments`) VALUES "
                 + "('"+name+"','"+totalbill+"', '"+extras+"', '"+increase+"','"+decrease+"','"+comments+"');";
