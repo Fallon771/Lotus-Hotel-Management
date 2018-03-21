@@ -1,5 +1,6 @@
 package ie.lyit.gui;
 
+import ie.lyit.database.Insertions;
 import java.awt.Color;
 
 /**
@@ -8,10 +9,16 @@ import java.awt.Color;
  */
 public class Packages extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Packages
-     */
     private int sliderNum  = 0;
+    private String name;
+    private String comments;
+    private double totalbill;
+    private double increase;
+    private double decrease;
+    private double extras;
+    
+    Insertions insert;
+    
     public Packages() {
         
         setLook();
@@ -405,6 +412,23 @@ public class Packages extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
+        name = packageText.getText();
+        totalbill = slider.getValue();
+        extras = Double.parseDouble(extraText.getText());
+        increase = Double.parseDouble(incText.getText());
+        decrease = Double.parseDouble(decText.getText());
+        comments = commentsArea.getText();
+       
+        String sql = "INSERT INTO `packages` (`name`,`totalbill`,`extras`,`increase`,`decrease`,`comments`) VALUES "
+                + "('"+name+"','"+totalbill+"', '"+extras+"', '"+increase+"', '"+decrease+", '"+comments+"'');";
+        insert = new Insertions();
+        try{
+        insert.insertToDatabase(sql);
+        }
+        catch(Exception e){
+            System.out.println("Error while trying to add package to database..");
+            System.out.println("\n"+e.getMessage());
+        }
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void sliderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliderMouseDragged
