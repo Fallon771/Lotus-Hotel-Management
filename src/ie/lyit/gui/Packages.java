@@ -2,6 +2,8 @@ package ie.lyit.gui;
 
 import ie.lyit.database.Insertions;
 import java.awt.Color;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -119,7 +121,6 @@ public class Packages extends javax.swing.JFrame {
         slider.setMinorTickSpacing(5);
         slider.setPaintLabels(true);
         slider.setPaintTicks(true);
-        slider.setSnapToTicks(true);
         slider.setValue(0);
         slider.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         slider.setValueIsAdjusting(true);
@@ -411,7 +412,8 @@ public class Packages extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        // TODO add your handling code here:
+        // Passing user info into variables
+        insert = new Insertions();
         name = packageText.getText();
         totalbill = slider.getValue();
         extras = Double.parseDouble(extraText.getText());
@@ -420,15 +422,24 @@ public class Packages extends javax.swing.JFrame {
         comments = commentsArea.getText();
        
         String sql = "INSERT INTO `packages` (`name`,`totalbill`,`extras`,`increase`,`decrease`,`comments`) VALUES "
-                + "('"+name+"','"+totalbill+"', '"+extras+"', '"+increase+"', '"+decrease+", '"+comments+"'');";
-        insert = new Insertions();
-        try{
-        insert.insertToDatabase(sql);
+                + "('"+name+"','"+totalbill+"', '"+extras+"', '"+increase+"','"+decrease+"','"+comments+"');";
+        // Check to see if fields are filled
+        if(packageText.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Enter package name!", "No name entered", JOptionPane.ERROR_MESSAGE);
         }
-        catch(Exception e){
-            System.out.println("Error while trying to add package to database..");
-            System.out.println("\n"+e.getMessage());
+        else{
+            try{
+                insert.insertToDatabase(sql);
+                JOptionPane.showMessageDialog(null, "Package added to database!", "Packages Added", JOptionPane.INFORMATION_MESSAGE);
+                dispose();
+                }
+                catch(SQLException e){
+                    JOptionPane.showMessageDialog(null, "Error adding room to database!", "Error", JOptionPane.ERROR_MESSAGE);
+                    System.out.println("Error while trying to add package to database..");
+                    System.out.println("\n"+e.getMessage());
+                }
         }
+        
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void sliderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliderMouseDragged
