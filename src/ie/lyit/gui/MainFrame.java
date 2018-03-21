@@ -3291,9 +3291,7 @@ public class MainFrame extends javax.swing.JFrame {
             pstmt.setString(1, guests[0]);
             pstmt.setString(2, guests[1]);
             rs = pstmt.executeQuery();
-            
-            
-            
+    
             while(rs.next()){
              
             String getFname = rs.getString("customer.FName");
@@ -3348,9 +3346,7 @@ public class MainFrame extends javax.swing.JFrame {
           
             }
                 
-                 
-
-                
+          
               //***FOR OLD VERSION OF DB***//
 //            while(rs.next()){
 //                tfRoom.setText(rs.getString("roomno"));
@@ -3496,9 +3492,7 @@ public class MainFrame extends javax.swing.JFrame {
 //                    tfAvailable.setText(rs.getString("checkout"));
 //                                      
 //                }
-                
-                
-                                           
+                                     
             }
         }
          catch(Exception e){
