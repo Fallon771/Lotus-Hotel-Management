@@ -67,8 +67,14 @@ public class Packages extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Packages & Deals");
         setResizable(false);
 
@@ -77,8 +83,14 @@ public class Packages extends javax.swing.JFrame {
         packagePanel.setBackground(new java.awt.Color(255, 255, 153));
         packagePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Packages"));
 
-        discountText.setBackground(new java.awt.Color(255, 255, 102));
+        discountText.setEditable(false);
         discountText.setText("0");
+        discountText.setMargin(new java.awt.Insets(2, 19, 2, 1));
+        discountText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discountTextActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Package Name:");
 
@@ -170,7 +182,7 @@ public class Packages extends javax.swing.JFrame {
         jLabel4.setBackground(new java.awt.Color(204, 0, 0));
         jLabel4.setFont(new java.awt.Font("Tahoma", 2, 9)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel4.setText("( Food,drink etc.. )");
+        jLabel4.setText(" Food,drink etc.. ");
 
         decreaseCheck.setBackground(new java.awt.Color(255, 255, 153));
         decreaseCheck.setText("Fixed Decrease");
@@ -182,9 +194,9 @@ public class Packages extends javax.swing.JFrame {
 
         decText.setText("0");
         decText.setEnabled(false);
-        decText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                decTextActionPerformed(evt);
+        decText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                decTextFocusLost(evt);
             }
         });
 
@@ -201,6 +213,16 @@ public class Packages extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 2, 9)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel10.setText("Add a custom fixed price to bill...");
+
+        jLabel11.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel11.setFont(new java.awt.Font("Tahoma", 2, 9)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel11.setText("Subtract a custom fixed price from bill...");
+
         javax.swing.GroupLayout packagePanelLayout = new javax.swing.GroupLayout(packagePanel);
         packagePanel.setLayout(packagePanelLayout);
         packagePanelLayout.setHorizontalGroup(
@@ -209,15 +231,15 @@ public class Packages extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(packagePanelLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(packageText, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(packagePanelLayout.createSequentialGroup()
                         .addComponent(disocuntLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1))))
             .addComponent(slider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -254,7 +276,10 @@ public class Packages extends javax.swing.JFrame {
                     .addComponent(extraText, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(decText, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
+                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         packagePanelLayout.setVerticalGroup(
             packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,12 +288,12 @@ public class Packages extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(packageText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(disocuntLabel)
-                        .addComponent(jLabel1)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addComponent(disocuntLabel)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -281,13 +306,15 @@ public class Packages extends javax.swing.JFrame {
                                 .addComponent(increaseCheck))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(incText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel7)))
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel10)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(decreaseCheck)
                             .addComponent(jLabel8)
-                            .addComponent(decText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                            .addComponent(decText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
                         .addComponent(jLabel3))
                     .addGroup(packagePanelLayout.createSequentialGroup()
                         .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -305,17 +332,58 @@ public class Packages extends javax.swing.JFrame {
                     .addComponent(clearButton)))
         );
 
+        jPanel1.setBackground(new java.awt.Color(255, 204, 0));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Package Creator");
+
+        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Product_52px.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(28, 28, 28))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2)))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
         contentPanel.setLayout(contentPanelLayout);
         contentPanelLayout.setHorizontalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(packagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         contentPanelLayout.setVerticalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPanelLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(packagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(3, 3, 3))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -326,7 +394,9 @@ public class Packages extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -351,7 +421,7 @@ public class Packages extends javax.swing.JFrame {
         }
         else{
              discountText.setText(""+sliderNum);
-             discountText.setBackground(Color.yellow);
+             discountText.setBackground(Color.white);
         }
         repaint();
     }//GEN-LAST:event_sliderMouseDragged
@@ -362,8 +432,9 @@ public class Packages extends javax.swing.JFrame {
         extraText.setText("0.00");
         discountText.setText("0");
         slider.setValue(0);
-        commentsArea.setText("");
+        commentsArea.setText("Package Extras Include...");
         packageText.setText("");
+        decText.setText("0");
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void extraCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraCheckActionPerformed
@@ -378,16 +449,17 @@ public class Packages extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_incTextActionPerformed
 
-    private void decTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_decTextActionPerformed
-
     private void increaseCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_increaseCheckItemStateChanged
         // TODO add your handling code here:
   
         if(increaseCheck.isSelected()){
         incText.setEnabled(true);
         decText.setEnabled(false);
+        // Disable slider
+        slider.setValue(0);
+        slider.setEnabled(false);
+        discountText.setText("0");
+        discountText.setBackground(Color.white);
         
         decreaseCheck.setEnabled(false);
         }
@@ -395,6 +467,8 @@ public class Packages extends javax.swing.JFrame {
         decreaseCheck.setEnabled(true);
         incText.setEnabled(false);
         decText.setEnabled(false);
+        
+        slider.setEnabled(true);
         }
     }//GEN-LAST:event_increaseCheckItemStateChanged
 
@@ -404,13 +478,19 @@ public class Packages extends javax.swing.JFrame {
         if(decreaseCheck.isSelected()){
         incText.setEnabled(false);
         decText.setEnabled(true);
-        
         increaseCheck.setEnabled(false);
+         // Disable slider
+        slider.setValue(0);
+        slider.setEnabled(false);
+        discountText.setText("0");
+        discountText.setBackground(Color.white);
         }
         else if(!decreaseCheck.isSelected()){
         increaseCheck.setEnabled(true);
         decText.setEnabled(false);
         incText.setEnabled(false);
+        
+        slider.setEnabled(true);
         }
     }//GEN-LAST:event_decreaseCheckItemStateChanged
 
@@ -418,6 +498,8 @@ public class Packages extends javax.swing.JFrame {
         // TODO add your handling code here:
         slider.setValue(0);
         discountText.setText(""+0);
+        discountText.setBackground(Color.white);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void extraCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_extraCheckItemStateChanged
@@ -429,6 +511,22 @@ public class Packages extends javax.swing.JFrame {
            extraText.setEnabled(false);
        }
     }//GEN-LAST:event_extraCheckItemStateChanged
+
+    private void discountTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_discountTextActionPerformed
+
+    private void decTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_decTextFocusLost
+        // If user enters a positive number...convert it to negetive 
+        int num = 0;
+        num = Integer.parseInt(decText.getText());
+        if( num > 0){
+            num = (num * -1);
+            decText.setText(""+num);
+            repaint();
+            System.out.println("DEBUGGG"+num);
+        }
+    }//GEN-LAST:event_decTextFocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
@@ -445,14 +543,20 @@ public class Packages extends javax.swing.JFrame {
     private javax.swing.JCheckBox increaseCheck;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel packagePanel;
     private javax.swing.JTextField packageText;
     private javax.swing.JSlider slider;
