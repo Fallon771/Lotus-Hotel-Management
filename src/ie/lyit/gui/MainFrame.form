@@ -41,7 +41,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="layerPane" alignment="0" max="32767" attributes="0"/>
                   <Component id="topPanel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="banner" alignment="1" pref="1100" max="32767" attributes="0"/>
+                  <Component id="banner" alignment="1" pref="1104" max="32767" attributes="0"/>
                   <Component id="footer" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -59,7 +59,7 @@
               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Component id="footer" max="32767" attributes="0"/>
           </Group>
-          <Component id="sideBar" pref="750" max="32767" attributes="0"/>
+          <Component id="sideBar" pref="754" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -150,7 +150,7 @@
                       <Component id="homeIcon" min="-2" pref="42" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="homeLabel" min="-2" pref="95" max="-2" attributes="0"/>
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -217,7 +217,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkInIcon" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkInLabel" min="-2" pref="40" max="-2" attributes="0"/>
@@ -369,7 +369,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkOutIcon1" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkOutLab" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
@@ -730,11 +730,11 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="searchScreen" alignment="0" pref="1100" max="32767" attributes="0"/>
-              <Component id="homeScreen" alignment="0" pref="1100" max="32767" attributes="0"/>
+              <Component id="searchScreen" alignment="0" pref="1104" max="32767" attributes="0"/>
+              <Component id="homeScreen" alignment="0" pref="1104" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="checkinScreen" pref="1090" max="32767" attributes="0"/>
+                  <Component id="checkinScreen" pref="1092" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
@@ -748,8 +748,8 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="checkinScreen" min="-2" pref="521" max="-2" attributes="0"/>
-              <Component id="homeScreen" alignment="0" pref="521" max="32767" attributes="0"/>
-              <Component id="searchScreen" alignment="0" pref="521" max="32767" attributes="0"/>
+              <Component id="homeScreen" alignment="0" pref="525" max="32767" attributes="0"/>
+              <Component id="searchScreen" alignment="0" pref="525" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -805,6 +805,10 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
                           <Component id="jPanel13" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jPanel4" max="32767" attributes="0"/>
@@ -2637,7 +2641,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="dataTabPane" pref="1090" max="32767" attributes="0"/>
+                          <Component id="dataTabPane" pref="1092" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="currentGuest" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -3209,7 +3213,7 @@
                                               <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="Children" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace pref="20" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="tfChildren" max="32767" attributes="0"/>
                                               <Component id="tfID" alignment="0" max="32767" attributes="0"/>
@@ -3292,7 +3296,7 @@
                               <Component id="jLabel38" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfCheckin" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="93" max="32767" attributes="0"/>
+                          <EmptySpace pref="64" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3459,7 +3463,7 @@
                                   <Component id="roomNo" min="-2" pref="156" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="btnSearchRoom" min="-2" pref="125" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="99" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
