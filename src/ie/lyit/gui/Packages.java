@@ -56,13 +56,20 @@ public class Packages extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         clearButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        extraCheck = new javax.swing.JCheckBox();
         extraText = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        fixText = new javax.swing.JTextField();
+        increaseCheck = new javax.swing.JCheckBox();
+        incText = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        decreaseCheck = new javax.swing.JCheckBox();
+        decText = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Packages & Deals");
+        setResizable(false);
 
         contentPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -82,7 +89,8 @@ public class Packages extends javax.swing.JFrame {
         });
 
         disocuntLabel.setBackground(new java.awt.Color(255, 255, 255));
-        disocuntLabel.setText("Discount / Increase Off Bill:");
+        disocuntLabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        disocuntLabel.setText("Discount / Increase Off Total Bill:");
 
         slider.setForeground(new java.awt.Color(0, 0, 0));
         slider.setMajorTickSpacing(25);
@@ -101,13 +109,15 @@ public class Packages extends javax.swing.JFrame {
         });
 
         commentsArea.setColumns(20);
+        commentsArea.setFont(new java.awt.Font("Monospaced", 0, 10)); // NOI18N
         commentsArea.setRows(5);
-        commentsArea.setText("Add comments here...");
+        commentsArea.setText("Add comments for package...");
+        commentsArea.setAutoscrolls(false);
         jScrollPane1.setViewportView(commentsArea);
 
         jLabel3.setText("Comments:");
 
-        clearButton.setText("Clear");
+        clearButton.setText("Reset");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButtonActionPerformed(evt);
@@ -117,20 +127,63 @@ public class Packages extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("%");
 
-        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setText("Extra's           €");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        extraCheck.setBackground(new java.awt.Color(255, 255, 255));
+        extraCheck.setText("Extra's");
+        extraCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                extraCheckActionPerformed(evt);
             }
         });
 
         extraText.setText("0.00");
+        extraText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                extraTextActionPerformed(evt);
+            }
+        });
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Fixed Price     €");
+        increaseCheck.setBackground(new java.awt.Color(255, 255, 255));
+        increaseCheck.setText("Fixed Increase");
+        increaseCheck.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                increaseCheckItemStateChanged(evt);
+            }
+        });
 
-        fixText.setText("0.00");
+        incText.setText("0");
+        incText.setEnabled(false);
+        incText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                incTextActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 9)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel4.setText("( Food,drink etc.. )");
+
+        decreaseCheck.setBackground(new java.awt.Color(255, 255, 255));
+        decreaseCheck.setText("Fixed Decrease");
+        decreaseCheck.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                decreaseCheckItemStateChanged(evt);
+            }
+        });
+
+        decText.setText("0");
+        decText.setEnabled(false);
+        decText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                decTextActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("€");
+
+        jLabel7.setText("€");
+
+        jLabel8.setText("€");
 
         javax.swing.GroupLayout packagePanelLayout = new javax.swing.GroupLayout(packagePanel);
         packagePanel.setLayout(packagePanelLayout);
@@ -142,7 +195,7 @@ public class Packages extends javax.swing.JFrame {
                     .addGroup(packagePanelLayout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(packageText, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(packageText, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(packagePanelLayout.createSequentialGroup()
                         .addComponent(disocuntLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -154,24 +207,37 @@ public class Packages extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jSeparator1)
             .addGroup(packagePanelLayout.createSequentialGroup()
-                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(packagePanelLayout.createSequentialGroup()
-                        .addComponent(addButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(clearButton))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(packagePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(packagePanelLayout.createSequentialGroup()
-                                .addComponent(jCheckBox1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fixText, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(packagePanelLayout.createSequentialGroup()
-                                .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(extraText, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(packagePanelLayout.createSequentialGroup()
+                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(packagePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, packagePanelLayout.createSequentialGroup()
+                        .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(packagePanelLayout.createSequentialGroup()
+                                .addComponent(decreaseCheck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel8))
+                            .addGroup(packagePanelLayout.createSequentialGroup()
+                                .addComponent(extraCheck)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6)))
+                        .addGap(3, 3, 3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, packagePanelLayout.createSequentialGroup()
+                        .addComponent(increaseCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addGap(2, 2, 2)))
+                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(incText, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(extraText, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(decText, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
         );
         packagePanelLayout.setVerticalGroup(
             packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,24 +246,39 @@ public class Packages extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(packageText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(disocuntLabel)
-                    .addComponent(jLabel1)
-                    .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(disocuntLabel)
+                        .addComponent(jLabel1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox2)
-                    .addComponent(extraText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(fixText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(packagePanelLayout.createSequentialGroup()
+                        .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(packagePanelLayout.createSequentialGroup()
+                                .addComponent(extraCheck)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(increaseCheck))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(incText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(decreaseCheck)
+                            .addComponent(jLabel8)
+                            .addComponent(decText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(jLabel3))
+                    .addGroup(packagePanelLayout.createSequentialGroup()
+                        .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(extraText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel4))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -261,31 +342,82 @@ public class Packages extends javax.swing.JFrame {
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         // Clear all fields to default..
-        fixText.setText("");
-        extraText.setText("");
-        discountText.setText("");
+        incText.setText("0.00");
+        extraText.setText("0.00");
+        discountText.setText("0");
         slider.setValue(0);
+        commentsArea.setText("");
         packageText.setText("");
     }//GEN-LAST:event_clearButtonActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void extraCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraCheckActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_extraCheckActionPerformed
+
+    private void extraTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_extraTextActionPerformed
+
+    private void incTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_incTextActionPerformed
+
+    private void decTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_decTextActionPerformed
+
+    private void increaseCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_increaseCheckItemStateChanged
+        // TODO add your handling code here:
+  
+        if(increaseCheck.isSelected()){
+        incText.setEnabled(true);
+        decText.setEnabled(false);
+        
+        decreaseCheck.setEnabled(false);
+        }
+        else if(!increaseCheck.isSelected()){
+        decreaseCheck.setEnabled(true);
+        incText.setEnabled(false);
+        decText.setEnabled(false);
+        }
+    }//GEN-LAST:event_increaseCheckItemStateChanged
+
+    private void decreaseCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_decreaseCheckItemStateChanged
+        // TODO add your handling code here:
+        
+        if(decreaseCheck.isSelected()){
+        incText.setEnabled(false);
+        decText.setEnabled(true);
+        
+        increaseCheck.setEnabled(false);
+        }
+        else if(!decreaseCheck.isSelected()){
+        increaseCheck.setEnabled(true);
+        decText.setEnabled(false);
+        incText.setEnabled(false);
+        }
+    }//GEN-LAST:event_decreaseCheckItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JButton clearButton;
     private javax.swing.JTextArea commentsArea;
     private javax.swing.JPanel contentPanel;
+    private javax.swing.JTextField decText;
+    private javax.swing.JCheckBox decreaseCheck;
     private javax.swing.JTextField discountText;
     private javax.swing.JLabel disocuntLabel;
+    private javax.swing.JCheckBox extraCheck;
     private javax.swing.JTextField extraText;
-    private javax.swing.JTextField fixText;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JTextField incText;
+    private javax.swing.JCheckBox increaseCheck;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel packagePanel;
