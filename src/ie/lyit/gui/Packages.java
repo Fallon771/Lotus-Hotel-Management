@@ -66,6 +66,7 @@ public class Packages extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Packages & Deals");
@@ -73,7 +74,7 @@ public class Packages extends javax.swing.JFrame {
 
         contentPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        packagePanel.setBackground(new java.awt.Color(255, 255, 255));
+        packagePanel.setBackground(new java.awt.Color(255, 255, 153));
         packagePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Packages"));
 
         discountText.setBackground(new java.awt.Color(255, 255, 102));
@@ -81,6 +82,7 @@ public class Packages extends javax.swing.JFrame {
 
         jLabel2.setText("Package Name:");
 
+        addButton.setMnemonic('A');
         addButton.setText("Add");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,13 +113,14 @@ public class Packages extends javax.swing.JFrame {
         commentsArea.setColumns(20);
         commentsArea.setFont(new java.awt.Font("Monospaced", 0, 10)); // NOI18N
         commentsArea.setRows(5);
-        commentsArea.setText("Add comments for package...");
+        commentsArea.setText("Package Extras Include...");
         commentsArea.setAutoscrolls(false);
         jScrollPane1.setViewportView(commentsArea);
 
         jLabel3.setText("Comments:");
 
-        clearButton.setText("Reset");
+        clearButton.setMnemonic('C');
+        clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButtonActionPerformed(evt);
@@ -127,8 +130,13 @@ public class Packages extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("%");
 
-        extraCheck.setBackground(new java.awt.Color(255, 255, 255));
+        extraCheck.setBackground(new java.awt.Color(255, 255, 153));
         extraCheck.setText("Extra's");
+        extraCheck.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                extraCheckItemStateChanged(evt);
+            }
+        });
         extraCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 extraCheckActionPerformed(evt);
@@ -136,13 +144,14 @@ public class Packages extends javax.swing.JFrame {
         });
 
         extraText.setText("0.00");
+        extraText.setEnabled(false);
         extraText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 extraTextActionPerformed(evt);
             }
         });
 
-        increaseCheck.setBackground(new java.awt.Color(255, 255, 255));
+        increaseCheck.setBackground(new java.awt.Color(255, 255, 153));
         increaseCheck.setText("Fixed Increase");
         increaseCheck.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -163,7 +172,7 @@ public class Packages extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(204, 0, 0));
         jLabel4.setText("( Food,drink etc.. )");
 
-        decreaseCheck.setBackground(new java.awt.Color(255, 255, 255));
+        decreaseCheck.setBackground(new java.awt.Color(255, 255, 153));
         decreaseCheck.setText("Fixed Decrease");
         decreaseCheck.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -185,6 +194,13 @@ public class Packages extends javax.swing.JFrame {
 
         jLabel8.setText("€");
 
+        jButton1.setText("Reset");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout packagePanelLayout = new javax.swing.GroupLayout(packagePanel);
         packagePanel.setLayout(packagePanelLayout);
         packagePanelLayout.setHorizontalGroup(
@@ -202,7 +218,8 @@ public class Packages extends javax.swing.JFrame {
                         .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))))
             .addComponent(slider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jSeparator1)
@@ -250,7 +267,8 @@ public class Packages extends javax.swing.JFrame {
                     .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(disocuntLabel)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -308,9 +326,7 @@ public class Packages extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -398,6 +414,22 @@ public class Packages extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_decreaseCheckItemStateChanged
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        slider.setValue(0);
+        discountText.setText(""+0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void extraCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_extraCheckItemStateChanged
+        // TODO add your handling code here:
+       if(extraCheck.isSelected()){
+            extraText.setEnabled(true);
+        }
+       else if(!extraCheck.isSelected()){
+           extraText.setEnabled(false);
+       }
+    }//GEN-LAST:event_extraCheckItemStateChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JButton clearButton;
@@ -411,6 +443,7 @@ public class Packages extends javax.swing.JFrame {
     private javax.swing.JTextField extraText;
     private javax.swing.JTextField incText;
     private javax.swing.JCheckBox increaseCheck;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
