@@ -423,25 +423,26 @@ public class CustomPackages extends javax.swing.JFrame {
         comments = commentsArea.getText();
         
         Packages pack = new Packages(name,(int)totalbill,increase,decrease,extras,comments);
+        MainFrame.setPackageText(pack.getName());
        
-        String sql = "INSERT INTO `packages` (`name`,`totalbill`,`extras`,`increase`,`decrease`,`comments`) VALUES "
-                + "('"+name+"','"+totalbill+"', '"+extras+"', '"+increase+"','"+decrease+"','"+comments+"');";
-        // Check to see if fields are filled
-        if(packageText.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Enter package name!", "No name entered", JOptionPane.ERROR_MESSAGE);
-        }
-        else{
-            try{
-                insert.insertToDatabase(sql);
-                JOptionPane.showMessageDialog(null, "Package added to database!", "Packages Added", JOptionPane.INFORMATION_MESSAGE);
-                dispose();
-                }
-                catch(SQLException e){
-                    JOptionPane.showMessageDialog(null, "Error adding room to database!", "Error", JOptionPane.ERROR_MESSAGE);
-                    System.out.println("Error while trying to add package to database..");
-                    System.out.println("\n"+e.getMessage());
-                }
-        }
+//        String sql = "INSERT INTO `packages` (`name`,`totalbill`,`extras`,`increase`,`decrease`,`comments`) VALUES "
+//                + "('"+name+"','"+totalbill+"', '"+extras+"', '"+increase+"','"+decrease+"','"+comments+"');";
+//        // Check to see if fields are filled
+//        if(packageText.getText().equals("")){
+//                JOptionPane.showMessageDialog(null, "Enter package name!", "No name entered", JOptionPane.ERROR_MESSAGE);
+//        }
+//        else{
+//            try{
+//                insert.insertToDatabase(sql);
+//                JOptionPane.showMessageDialog(null, "Package added to database!", "Packages Added", JOptionPane.INFORMATION_MESSAGE);
+//                dispose();
+//                }
+//                catch(SQLException e){
+//                    JOptionPane.showMessageDialog(null, "Error adding room to database!", "Error", JOptionPane.ERROR_MESSAGE);
+//                    System.out.println("Error while trying to add package to database..");
+//                    System.out.println("\n"+e.getMessage());
+//                }
+//        }
         
     }//GEN-LAST:event_addButtonActionPerformed
 
