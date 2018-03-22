@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ie.lyit.gui;
 
 import ie.lyit.database.DisplayTables;
@@ -17,7 +12,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author jim
+ * @author James Fallon
  */
 public class BookingPopup extends javax.swing.JFrame {
 
@@ -64,7 +59,7 @@ public class BookingPopup extends javax.swing.JFrame {
          DefaultTableModel model = (DefaultTableModel)bookingTable.getModel();
          
          try{
-         String sql = "SELECT DISTINCT * FROM `guest`, `roombooked` WHERE `roomno` = '"+secondPart+"' && guest.id = roombooked.id HAVING `booked` = 1";
+         String sql = "SELECT DISTINCT * FROM `guest`, `rooms` WHERE `roomno` = '"+secondPart+"' && guest.id = rooms.id HAVING `booked` = 1";
          list = display.displayGuestTable(sql);
          Object[] row = new Object[9];
          for(int i=0;i<list.size();i++){
@@ -105,7 +100,7 @@ public class BookingPopup extends javax.swing.JFrame {
              list.clear();
          }
          catch(Exception e){
-         System.out.print("ERROR!!");
+         System.out.print(e.getMessage());
          }    
     }                                       
 
