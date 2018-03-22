@@ -45,4 +45,12 @@ public class Packages {
     public double getExtras() {
         return extras;
     }  
+
+    @Override
+    public String toString() {
+        return "Package:\n" + "Names:" + name + ", \nComments:" + comments + ", \nBill Multiplier:" + totalBill 
+                + ", \nFixed Increase:" + fixIncrease 
+                + ", \nFixed Decrease:" + fixDecrease 
+                + ", \nExtras:" + extras + '}';
+    } 
 }
