@@ -30,10 +30,8 @@ public class ValidBooking {
         String user = "root";
         String pass = "password";   
         
-        
         //System.out.println("\nDebug#\nValid Booking:Date In:"+in);
-        
-         
+      
         // int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout
             try {
                  
@@ -57,18 +55,36 @@ public class ValidBooking {
             myRs = myStmt.executeQuery(sql);
 
             // 4. Process the result set
-               
+            int count =0;
             while (myRs.next()) {
                 
                 // Loop through all the guests that our either booked or checked into the choosen room.
                 // If the checkin date the user selected is after or before the guest currently staying...then set flag to false.
-                    System.out.println("Listing dates on database => "+myRs.getDate("checkin"));
-                 if( dateIn.after(myRs.getDate("checkin")) && dateOut.before(myRs.getDate("checkout") )){
+                    System.out.println("Dates selected by user:"+dateIn +" --> " + dateOut);
+                    System.out.println("Count"+count);
+                    System.out.println("Listing dates on database => "+myRs.getDate("checkin")+ " -- "+myRs.getDate("checkout"));
+                    
+                 // Checks to make sure dates are valid ( Make as easy to read as possible)
+                
+                 if(dateIn.equals(myRs.getDate("checkout"))){
+                    count++;
+                 }   
+                 if(dateIn.equals(myRs.getDate("checkin"))){
+                    validDate = false;   
+                 }
+                 if(dateIn.before(myRs.getDate("checkin")) && dateOut.after(myRs.getDate("checkin"))){
+                    validDate = false;
+                 }
+                 if( dateIn.after(myRs.getDate("checkin")) && dateOut.before(myRs.getDate("checkout"))){
+                    validDate = false;
+                    System.out.println("\nInvalid date selected by user...");
+                 } 
+                 if( dateIn.after(myRs.getDate("checkin")) && dateOut.before(myRs.getDate("checkout")) && count > 1){
                     validDate = false;
                     System.out.println("\nInvalid date selected by user...");
                  } 
                  else{
-                     System.out.println("\nDate Lookup failed...");
+                     System.out.println("\nLooks fine");
                  }
             }     
         } catch (Exception exc) {
