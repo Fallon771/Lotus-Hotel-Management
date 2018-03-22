@@ -3690,7 +3690,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
         ArrayList<Guest> list;
         list = cus.checkForGuest(sql, email.getText());
-        
+        String tempEmail= email.getText();
             if(!list.isEmpty()){
                 JOptionPane.showMessageDialog(null, "Customer details have been found in database...", "Found Customer", JOptionPane.INFORMATION_MESSAGE);
                 clearGuestFields();
@@ -3700,7 +3700,7 @@ public class MainFrame extends javax.swing.JFrame {
                 sName.setText(list.get(0).getsName());
                 address.setText(list.get(0).getAddress());
                 phone.setText(list.get(0).getPhoneNo());
-                email.setText(email.getText());
+                email.setText(tempEmail);
             }
             else{
                 JOptionPane.showMessageDialog(null, "Customer not found in database", "New Guest...", JOptionPane.WARNING_MESSAGE);     

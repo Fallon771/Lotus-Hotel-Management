@@ -167,7 +167,7 @@ public class Receptionist implements DBConnections{
        int children = room.getChildren();
        
        int book = (booked) ? 1:0;
-      
+
         String sql = "INSERT INTO `rooms` (`id`,`booked`,`roomno`,`adults`,`children`) VALUES "
                 + "('"+guestNo+"','"+book+"', '"+roomNo+"', '"+adults+"', '"+children+"');";
         
