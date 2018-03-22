@@ -69,6 +69,9 @@ public class ValidBooking {
                  if(dateIn.equals(myRs.getDate("checkout"))){
                     count++;
                  }   
+                 if(dateIn.after(myRs.getDate("checkin")) && dateIn.before(myRs.getDate("checkout"))){
+                    validDate = false; 
+                 }
                  if(dateIn.equals(myRs.getDate("checkin"))){
                     validDate = false;   
                  }
