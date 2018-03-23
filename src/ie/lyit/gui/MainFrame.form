@@ -3162,7 +3162,7 @@
                           <Component id="searchGuest" pref="392" max="32767" attributes="0"/>
                           <Component id="searchRoom" pref="392" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="122" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3182,6 +3182,9 @@
                   <Dimension value="[495, 320]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="searchGuestAncestorAdded"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -3197,19 +3200,19 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
                                                       <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="lblR" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="lblA" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="lbRno" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="lbAdd" alignment="0" min="-2" max="-2" attributes="0"/>
                                                           <Component id="lblPh" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="lblFN" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lbFN" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="lblCheckin" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lbCI" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -3222,21 +3225,25 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblSN" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblRT" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblNoP" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblChildren" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbSN" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbType" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbNoP" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbChild" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbAdult" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="tfChildren" max="32767" attributes="0"/>
-                                              <Component id="tfID" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tfSurname" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tfType" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tfEmail" linkSize="6" alignment="0" pref="156" max="32767" attributes="0"/>
-                                              <Component id="tfAdults" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="tfAdults" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="tfChildren" max="32767" attributes="0"/>
+                                                  <Component id="tfID" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="tfSurname" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="tfType" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="tfEmail" linkSize="6" alignment="0" pref="156" max="32767" attributes="0"/>
+                                                  <Component id="tfNoP" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -3267,21 +3274,21 @@
                           <Component id="jSeparator9" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblR" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbRno" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfRoom" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblID" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbID" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfID" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="tfSurname" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblSN" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbSN" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfFname" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFN" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbFN" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfPhone" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblPh" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -3290,29 +3297,31 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblRT" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbType" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="tfType" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblNoP" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="tfAdults" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbNoP" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tfNoP" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblChildren" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbChild" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="tfChildren" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="lblA" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbAdd" min="-2" max="-2" attributes="0"/>
                               <Component id="ta" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblCheckin" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfCheckin" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lbAdult" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfCheckin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbCI" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfAdults" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="64" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3323,12 +3332,12 @@
                     <Property name="text" type="java.lang.String" value="Guest Name"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblR">
+                <Component class="javax.swing.JLabel" name="lbRno">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Room No:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblFN">
+                <Component class="javax.swing.JLabel" name="lbFN">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="First Name:"/>
                   </Properties>
@@ -3338,17 +3347,17 @@
                     <Property name="text" type="java.lang.String" value="Phone:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblID">
+                <Component class="javax.swing.JLabel" name="lbID">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="ID:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblSN">
+                <Component class="javax.swing.JLabel" name="lbSN">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Surname:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblEmail">
+                <Component class="javax.swing.JLabel" name="lbEmail">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Email:"/>
                   </Properties>
@@ -3390,7 +3399,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="findGuestActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblA">
+                <Component class="javax.swing.JLabel" name="lbAdd">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Address:"/>
                   </Properties>
@@ -3400,17 +3409,17 @@
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblCheckin">
+                <Component class="javax.swing.JLabel" name="lbCI">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Checked-In:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblRT">
+                <Component class="javax.swing.JLabel" name="lbType">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Room Type:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblNoP">
+                <Component class="javax.swing.JLabel" name="lbNoP">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="No. Of People"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -3426,7 +3435,7 @@
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="tfAdults">
+                <Component class="javax.swing.JTextField" name="tfNoP">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
@@ -3436,12 +3445,22 @@
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblChildren">
+                <Component class="javax.swing.JLabel" name="lbChild">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Children:"/>
                   </Properties>
                 </Component>
                 <Component class="java.awt.TextArea" name="ta">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbAdult">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Adult:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tfAdults">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
