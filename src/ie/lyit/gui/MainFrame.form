@@ -3150,7 +3150,7 @@
                       <Component id="searchGuest" min="-2" pref="520" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="searchRoom" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="73" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3197,19 +3197,19 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
                                                       <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel39" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="lblR" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="lblA" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="lblPh" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblFN" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblCheckin" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -3222,12 +3222,12 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel36" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="Children" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblSN" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblRT" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblNoP" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblChildren" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -3267,49 +3267,49 @@
                           <Component id="jSeparator9" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblR" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfRoom" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblID" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfID" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="tfSurname" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel36" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblSN" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfFname" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblFN" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfPhone" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblPh" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblRT" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="tfType" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNoP" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="tfAdults" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="Children" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblChildren" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="tfChildren" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblA" min="-2" max="-2" attributes="0"/>
                               <Component id="ta" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel38" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCheckin" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfCheckin" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="64" max="32767" attributes="0"/>
@@ -3323,32 +3323,32 @@
                     <Property name="text" type="java.lang.String" value="Guest Name"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel22">
+                <Component class="javax.swing.JLabel" name="lblR">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Room No:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel24">
+                <Component class="javax.swing.JLabel" name="lblFN">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="First Name:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel26">
+                <Component class="javax.swing.JLabel" name="lblPh">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Phone:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel35">
+                <Component class="javax.swing.JLabel" name="lblID">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="ID:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel36">
+                <Component class="javax.swing.JLabel" name="lblSN">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Surname:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel37">
+                <Component class="javax.swing.JLabel" name="lblEmail">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Email:"/>
                   </Properties>
@@ -3390,7 +3390,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="findGuestActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel39">
+                <Component class="javax.swing.JLabel" name="lblA">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Address:"/>
                   </Properties>
@@ -3400,17 +3400,17 @@
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel38">
+                <Component class="javax.swing.JLabel" name="lblCheckin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Checked-In:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel40">
+                <Component class="javax.swing.JLabel" name="lblRT">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Room Type:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel41">
+                <Component class="javax.swing.JLabel" name="lblNoP">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="No. Of People"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -3436,7 +3436,7 @@
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="Children">
+                <Component class="javax.swing.JLabel" name="lblChildren">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Children:"/>
                   </Properties>
@@ -3483,33 +3483,40 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="tfAvailability" linkSize="8" min="-2" pref="134" max="-2" attributes="0"/>
-                                                  <Component id="tfBooked" alignment="1" min="-2" pref="134" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="tfAvailable" linkSize="8" min="-2" pref="125" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <Component id="lblAvailablity" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblFrom" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblUnder" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCustID" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="tfAvailability" linkSize="8" min="-2" pref="134" max="-2" attributes="0"/>
+                                              <Component id="tfAvailable" linkSize="8" min="-2" pref="125" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblCost" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblType" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="tfFN" min="-2" pref="113" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="tfSN" min="-2" pref="106" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="tfCost" pref="124" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tfCost" pref="116" max="32767" attributes="0"/>
                                       <Component id="tfRoomType" max="32767" attributes="0"/>
-                                      <Component id="tfCustID" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                          <Component id="lblCustID" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="tfCustID" min="-2" pref="67" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -3530,28 +3537,29 @@
                           <Component id="jSeparator10" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblAvailablity" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfAvailability" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblType" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfRoomType" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblFrom" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfAvailable" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCost" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfCost" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblUnder" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="tfBooked" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfFN" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfSN" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblCustID" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="tfCustID" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="201" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3574,7 +3582,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchRoomActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel43">
+                <Component class="javax.swing.JLabel" name="lblAvailablity">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Availability:"/>
                   </Properties>
@@ -3584,7 +3592,7 @@
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel44">
+                <Component class="javax.swing.JLabel" name="lblType">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Type:"/>
                   </Properties>
@@ -3594,7 +3602,7 @@
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel45">
+                <Component class="javax.swing.JLabel" name="lblCost">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cost/Night:"/>
                   </Properties>
@@ -3612,12 +3620,12 @@
                     <Property name="text" type="java.lang.String" value="Booked Under:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="tfBooked">
+                <Component class="javax.swing.JTextField" name="tfFN">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel47">
+                <Component class="javax.swing.JLabel" name="lblFrom">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Available From:"/>
                   </Properties>
@@ -3635,6 +3643,11 @@
                 <Component class="javax.swing.JLabel" name="lblCustID">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="ID:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tfSN">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
