@@ -3907,7 +3907,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_loggedOnAlertActionPerformed
 
     private void addRecepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRecepActionPerformed
-    
+      
       String s1 = (String)JOptionPane.showInputDialog(null, "Please enter new receptionist ID :\n");
       String s2 = (String)JOptionPane.showInputDialog(null, "Please enter first name :\n");
       String s3 = (String)JOptionPane.showInputDialog(null, "Please enter surname :\n");
@@ -3926,10 +3926,12 @@ public class MainFrame extends javax.swing.JFrame {
        pst1.setString(3, s3);
        pst1.setString(3, s4); 
        pst1.executeUpdate("INSERT INTO receptionist (id, fname, surname, password)" + "VALUES ('" + s1 + "','" + s2 + "','" + s3 + "','" + s4 + "')");
+        JOptionPane.showMessageDialog(null, "Receptionist details have been entered into database", "Added Details", JOptionPane.INFORMATION_MESSAGE);
         }
-        catch(Exception e){   
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error in creating new receptionist", "Error", JOptionPane.WARNING_MESSAGE);     
            System.out.println(e.getMessage());
-        }   
+        }    
     }//GEN-LAST:event_addRecepActionPerformed
 
     private void removeRecepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeRecepActionPerformed
@@ -3942,10 +3944,13 @@ public class MainFrame extends javax.swing.JFrame {
          Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass2); 
          PreparedStatement st = conn.prepareStatement("DELETE FROM receptionist WHERE id = ?");
             st.setString(1,s1);
-            st.executeUpdate();  
+            st.executeUpdate(); 
+            
+         JOptionPane.showMessageDialog(null, "Receptionist details have removed from database", "Deleted receptionist", JOptionPane.INFORMATION_MESSAGE);   
      }
      catch(Exception e)
-     {   
+     {
+         JOptionPane.showMessageDialog(null, "Error in deleting receptionist", "Error", JOptionPane.WARNING_MESSAGE);     
          System.out.println(e);
      }
     }//GEN-LAST:event_removeRecepActionPerformed
