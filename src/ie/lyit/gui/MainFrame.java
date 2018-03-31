@@ -3914,20 +3914,20 @@ public class MainFrame extends javax.swing.JFrame {
             String user = "root";
             String pass2 = "password";
         
-       Class.forName("com.mysql.jdbc.Driver"); 
-       Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass2); 
-       String sql1 = "INSERT INTO receptionist (id, fname, surname, password) VALUES (?, ?, ?, ?)";
-       PreparedStatement pst1 = conn.prepareStatement(sql1);
-       pst1.setString(1, s1);
-       pst1.setString(2, s2);
-       pst1.setString(3, s3);
-       pst1.setString(3, s4); 
-       pst1.executeUpdate("INSERT INTO receptionist (id, fname, surname, password)" + "VALUES ('" + s1 + "','" + s2 + "','" + s3 + "','" + s4 + "')");
-        JOptionPane.showMessageDialog(null, "Receptionist details have been entered into database", "Added Details", JOptionPane.INFORMATION_MESSAGE);
+            Class.forName("com.mysql.jdbc.Driver"); 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass2); 
+            String sql1 = "INSERT INTO receptionist (id, fname, surname, password) VALUES (?, ?, ?, ?)";
+            PreparedStatement pst1 = conn.prepareStatement(sql1);
+            pst1.setString(1, s1);
+            pst1.setString(2, s2);
+            pst1.setString(3, s3);
+            pst1.setString(3, s4); 
+            pst1.executeUpdate("INSERT INTO receptionist (id, fname, surname, password)" + "VALUES ('" + s1 + "','" + s2 + "','" + s3 + "','" + s4 + "')");
+            JOptionPane.showMessageDialog(null, "Receptionist details have been successfully added into database", "Added Receptionist", JOptionPane.INFORMATION_MESSAGE);
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error in creating new receptionist", "Error", JOptionPane.WARNING_MESSAGE);     
-           System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }    
     }//GEN-LAST:event_addRecepActionPerformed
 
@@ -3935,20 +3935,19 @@ public class MainFrame extends javax.swing.JFrame {
         
        String s1 = (String)JOptionPane.showInputDialog(null, "Please enter receptionist ID to delete :\n");
      try {  
-         String user = "root";
-         String pass2 = "password";
-         Class.forName("com.mysql.jdbc.Driver");
-         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass2); 
-         PreparedStatement st = conn.prepareStatement("DELETE FROM receptionist WHERE id = ?");
+            String user = "root";
+            String pass2 = "password";
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass2); 
+            PreparedStatement st = conn.prepareStatement("DELETE FROM receptionist WHERE id = ?");
             st.setString(1,s1);
             st.executeUpdate(); 
-            
-         JOptionPane.showMessageDialog(null, "Receptionist details have removed from database", "Deleted receptionist", JOptionPane.INFORMATION_MESSAGE);   
+            JOptionPane.showMessageDialog(null, "Receptionist details have removed from database", "Deleted receptionist", JOptionPane.INFORMATION_MESSAGE);   
      }
      catch(Exception e)
      {
-         JOptionPane.showMessageDialog(null, "Error in deleting receptionist", "Error", JOptionPane.WARNING_MESSAGE);     
-         System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Error in deleting receptionist, details not found in database", "Error", JOptionPane.WARNING_MESSAGE);     
+            System.out.println(e);
      }
     }//GEN-LAST:event_removeRecepActionPerformed
 
