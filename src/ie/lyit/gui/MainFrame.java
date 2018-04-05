@@ -3575,13 +3575,27 @@ public class MainFrame extends javax.swing.JFrame {
             checkOutDate.setDate(null);
             }
        }
-       // Get the totla number of days guest is staying
-//       if(checkInDate.getDate() != null && checkOutDate.getDate() != null){
-//           getDays();
-//       }
+        Get the totla number of days guest is staying
+       if(checkInDate.getDate() != null && checkOutDate.getDate() != null){
+           getDays();
+       }
        
     }//GEN-LAST:event_checkOutDatePropertyChange
-   
+    public void getDays(){
+       Date startDate = checkInDate.getDate();
+       Date endDate = checkOutDate.getDate();
+       sT = startDate.getTime();
+       eT = endDate.getTime();
+       long difftime = sT - eT;
+       diffDays = difftime / (1000*60*60*24);
+       diffDays *= -1;
+       DateFormat dateFormat = DateFormat.getDateInstance();
+       System.out.println("The difference between "+
+       dateFormat.format(startDate)+" and "+
+       dateFormat.format(endDate)+" is "+
+       diffDays+" days.");
+       nightsStay.setText(""+(int)diffDays);
+    }
     public void mouseClicked(MouseEvent e) {
     if (e.getClickCount() == 2) {
       JTable target = (JTable)e.getSource();
