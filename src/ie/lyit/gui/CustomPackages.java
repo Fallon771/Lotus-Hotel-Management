@@ -21,7 +21,8 @@ public class CustomPackages extends javax.swing.JFrame {
     private double extras;
     
     Insertions insert;
-    
+    static Packages pack;
+     
     public CustomPackages() {
         
         setLook();
@@ -414,6 +415,7 @@ public class CustomPackages extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // Passing user info into variables
+       
         insert = new Insertions();
         name = packageText.getText();
         totalbill = slider.getValue();
@@ -422,30 +424,40 @@ public class CustomPackages extends javax.swing.JFrame {
         decrease = Double.parseDouble(decText.getText());
         comments = commentsArea.getText();
         
-        Packages pack = new Packages(name,(int)totalbill,increase,decrease,extras,comments);
+        //pack = new Packages(name,(int)totalbill,increase,decrease,extras,comments);
+        initObject(name,(int)totalbill,increase,decrease,extras,comments);
         MainFrame.setPackageText(pack.getName());
-       
-//        String sql = "INSERT INTO `packages` (`name`,`totalbill`,`extras`,`increase`,`decrease`,`comments`) VALUES "
-//                + "('"+name+"','"+totalbill+"', '"+extras+"', '"+increase+"','"+decrease+"','"+comments+"');";
-//        // Check to see if fields are filled
-//        if(packageText.getText().equals("")){
-//                JOptionPane.showMessageDialog(null, "Enter package name!", "No name entered", JOptionPane.ERROR_MESSAGE);
-//        }
-//        else{
-//            try{
-//                insert.insertToDatabase(sql);
-//                JOptionPane.showMessageDialog(null, "Package added to database!", "Packages Added", JOptionPane.INFORMATION_MESSAGE);
-//                dispose();
-//                }
-//                catch(SQLException e){
-//                    JOptionPane.showMessageDialog(null, "Error adding room to database!", "Error", JOptionPane.ERROR_MESSAGE);
-//                    System.out.println("Error while trying to add package to database..");
-//                    System.out.println("\n"+e.getMessage());
-//                }
-//        }
         
+        if(packageText.getText().equals("")){
+            
+            JOptionPane.showMessageDialog(null, "Enter package name!", "No name entered", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Package Created", "Package created...", JOptionPane.INFORMATION_MESSAGE);
+            dispose();  
+        }       
     }//GEN-LAST:event_addButtonActionPerformed
-
+    public static void initObject(String n,int tot,double inc,double dec,double extras,String comments){
+        pack = new Packages(n,tot,inc,dec,extras,comments);
+    }
+    
+    public void addPackageToDB(int cusId){
+         insert = new Insertions();
+         System.out.println("\n\n\nDEBUG Packages:"+pack.getName()+pack.getComments());
+         
+         String sql = "INSERT INTO `packages` (`packid`,`name`,`totalbill`,`extras`,`increase`,`decrease`,`comments`) VALUES "
+                + "('"+cusId+"','"+pack.getName()+"','"+pack.getTotalBill()+"', '"+pack.getExtras()+"', '"+pack.getFixIncrease()+"','"+pack.getFixDecrease()+"','"+pack.getComments()+"');";
+        
+         try{
+        insert.insertToDatabase(sql);
+        JOptionPane.showMessageDialog(null, "Package added to database!", "Packages Added", JOptionPane.INFORMATION_MESSAGE);
+         }
+        catch(SQLException e){
+        JOptionPane.showMessageDialog(null, "Error adding room to database!", "Error", JOptionPane.ERROR_MESSAGE);
+        System.out.println("Error while trying to add package to database..");
+        System.out.println("\n"+e.getMessage());
+        }     
+    }
     private void sliderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliderMouseDragged
         // TODO add your handling code here:
         sliderNum = slider.getValue();
