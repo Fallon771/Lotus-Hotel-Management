@@ -447,7 +447,9 @@ public class CustomPackages extends javax.swing.JFrame {
     public static void initObject(String n,int tot,double inc,double dec,double extras,String comments){
         pack = new Packages(n,tot,inc,dec,extras,comments);
     }
-    
+    public Packages getPackage(){
+        return pack;
+    }
     public void addPackageToDB(int cusId){
          insert = new Insertions();
          
