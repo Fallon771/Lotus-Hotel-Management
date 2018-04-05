@@ -45,6 +45,9 @@ public class Packages {
     public double getExtras() {
         return extras;
     }  
+    public String getComments(){
+        return comments;
+    }
 
     @Override
     public String toString() {
