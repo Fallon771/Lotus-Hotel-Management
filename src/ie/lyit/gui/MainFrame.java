@@ -3575,7 +3575,7 @@ public class MainFrame extends javax.swing.JFrame {
             checkOutDate.setDate(null);
             }
        }
-        Get the totla number of days guest is staying
+       // Get the totla number of days guest is staying
        if(checkInDate.getDate() != null && checkOutDate.getDate() != null){
            getDays();
        }
