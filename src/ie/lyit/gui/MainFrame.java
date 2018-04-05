@@ -4014,8 +4014,22 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_extraTextActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        
+        // If the user has selected a room
+        if(roomText.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Please select a room type for the guest...", "Select a room type", JOptionPane.INFORMATION_MESSAGE); 
+        }
+        else if(!roomText.getText().equals("")){
+            if(packageCheck.isSelected()){
+                updateBill();
+            }
+            else{
+                if(nightsStay.getText().equals("0")){
+                JOptionPane.showMessageDialog(null, "Please enter dates.", "Check dates", JOptionPane.WARNING_MESSAGE);
+                }
+                double cost = Double.parseDouble(roomCost.getText());
+                totalCost.setText(""+(cost*(int)diffDays));
+            }
+        } 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void setColor(javax.swing.JPanel panel){
