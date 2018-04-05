@@ -1630,6 +1630,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         packageCheck.setBackground(new java.awt.Color(255, 255, 153));
         packageCheck.setText("Include Package");
+        packageCheck.setEnabled(false);
+        packageCheck.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                packageCheckItemStateChanged(evt);
+            }
+        });
 
         packageText.setEditable(false);
         packageText.setBackground(new java.awt.Color(255, 255, 204));
@@ -1637,11 +1643,6 @@ public class MainFrame extends javax.swing.JFrame {
         packageText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         packageText.setText("None");
         packageText.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        packageText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                packageTextActionPerformed(evt);
-            }
-        });
 
         jSeparator1.setBackground(new java.awt.Color(102, 102, 0));
         jSeparator1.setForeground(new java.awt.Color(153, 153, 0));
@@ -3859,10 +3860,6 @@ public class MainFrame extends javax.swing.JFrame {
         tfCustID.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_searchRoomAncestorAdded
 
-    private void packageTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_packageTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_packageTextActionPerformed
-
     private void searchGuestAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_searchGuestAncestorAdded
         
         lbRno.setVisible(false); 
@@ -3950,11 +3947,21 @@ public class MainFrame extends javax.swing.JFrame {
      }
     }//GEN-LAST:event_removeRecepActionPerformed
 
+    private void packageCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_packageCheckItemStateChanged
+        // TODO add your handling code here:
+        if (packageText.getText().equals("")){
+            packageCheck.setEnabled(false);
+        }
+    }//GEN-LAST:event_packageCheckItemStateChanged
+
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
     }
     public void resetColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(67,73,159));
+    }
+    public static void setPackageCheck(){
+        packageCheck.setEnabled(true);
     }
    
     public static void main(String args[]) {
@@ -4059,14 +4066,14 @@ public class MainFrame extends javax.swing.JFrame {
                     +"\n\n" ), "Check & Confim Details", JOptionPane.OK_CANCEL_OPTION);
             
             // Check to see if room is booked
-           // if(booking){
+         
                     try{
                     validBooking = ValidBooking.checkForDoubleBook(checkInDate.getDate(),checkOutDate.getDate(), Integer.valueOf(roomText.getText()));
                     }
                     catch(Exception e){
                     System.out.print(e.getMessage());
                     }
-          //  }
+          
             // If OK was selected...add guest to database
             if(x == 0){
                 payProcess.setVisible(false);
@@ -4084,6 +4091,8 @@ public class MainFrame extends javax.swing.JFrame {
                      }
                     if(packageCheck.isSelected()){
                          System.out.println("Package Added..");
+                         packageCheck.setEnabled(false);
+                         packageCheck.setSelected(false);
                          cusPack.addPackageToDB(Integer.valueOf(guestId.getText())-1);
                      }
                 }
@@ -4101,6 +4110,8 @@ public class MainFrame extends javax.swing.JFrame {
                      if(packageCheck.isSelected()){
                          
                          System.out.println("Package Added..");
+                         packageCheck.setEnabled(false);
+                         packageCheck.setSelected(false);
                          cusPack.addPackageToDB(Integer.valueOf(guestId.getText())-1);
                      }
                 }
@@ -4477,7 +4488,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel mini;
     private javax.swing.JTextField nightsStay;
     private javax.swing.JButton packageButton;
-    private javax.swing.JCheckBox packageCheck;
+    public static javax.swing.JCheckBox packageCheck;
     private static javax.swing.JTextField packageCost;
     public static javax.swing.JTextField packageText;
     private javax.swing.JTextField packageTotal;
