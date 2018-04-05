@@ -137,6 +137,11 @@ public class CustomPackages extends javax.swing.JFrame {
         commentsArea.setRows(5);
         commentsArea.setText("Package Extras Include...");
         commentsArea.setAutoscrolls(false);
+        commentsArea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                commentsAreaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(commentsArea);
 
         jLabel3.setText("Comments:");
@@ -241,7 +246,7 @@ public class CustomPackages extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addGroup(packagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(packagePanelLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(packageText, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(packagePanelLayout.createSequentialGroup()
@@ -434,8 +439,10 @@ public class CustomPackages extends javax.swing.JFrame {
         }
         else{
             JOptionPane.showMessageDialog(null, "Package Created", "Package created...", JOptionPane.INFORMATION_MESSAGE);
-            dispose();  
-        }       
+            dispose();
+            MainFrame.setPackageCheck();
+        }   
+        
     }//GEN-LAST:event_addButtonActionPerformed
     public static void initObject(String n,int tot,double inc,double dec,double extras,String comments){
         pack = new Packages(n,tot,inc,dec,extras,comments);
@@ -443,7 +450,6 @@ public class CustomPackages extends javax.swing.JFrame {
     
     public void addPackageToDB(int cusId){
          insert = new Insertions();
-         System.out.println("\n\n\nDEBUG Packages:"+pack.getName()+pack.getComments());
          
          String sql = "INSERT INTO `packages` (`packid`,`name`,`totalbill`,`extras`,`increase`,`decrease`,`comments`) VALUES "
                 + "('"+cusId+"','"+pack.getName()+"','"+pack.getTotalBill()+"', '"+pack.getExtras()+"', '"+pack.getFixIncrease()+"','"+pack.getFixDecrease()+"','"+pack.getComments()+"');";
@@ -451,6 +457,7 @@ public class CustomPackages extends javax.swing.JFrame {
          try{
         insert.insertToDatabase(sql);
         JOptionPane.showMessageDialog(null, "Package added to database!", "Packages Added", JOptionPane.INFORMATION_MESSAGE);
+        
          }
         catch(SQLException e){
         JOptionPane.showMessageDialog(null, "Error adding room to database!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -578,6 +585,11 @@ public class CustomPackages extends javax.swing.JFrame {
             System.out.println("DEBUGGG"+num);
         }
     }//GEN-LAST:event_decTextFocusLost
+
+    private void commentsAreaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_commentsAreaMouseClicked
+        // TODO add your handling code here:
+        commentsArea.setText("");
+    }//GEN-LAST:event_commentsAreaMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;

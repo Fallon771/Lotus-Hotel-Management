@@ -295,6 +295,9 @@
                     <Property name="text" type="java.lang.String" value="Package Extras Include..."/>
                     <Property name="autoscrolls" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="commentsAreaMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
