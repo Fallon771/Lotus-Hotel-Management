@@ -1124,6 +1124,8 @@ public class MainFrame extends javax.swing.JFrame {
         detailsPanel.setBackground(new java.awt.Color(255, 255, 255));
         detailsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Guest Details"));
 
+        fName.setInheritsPopupMenu(true);
+
         title.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mr\t", "Mrs", "Miss", "Dr", "Ms" }));
 
         titleLabel.setText("Title:");
@@ -4081,8 +4083,8 @@ public class MainFrame extends javax.swing.JFrame {
                              rep.addCreditCard(card);
                      }
                     if(packageCheck.isSelected()){
-                         System.out.println("##########  Booking   ##########");
-                         cusPack.addPackageToDB(Integer.valueOf(guestId.getText()));
+                         System.out.println("Package Added..");
+                         cusPack.addPackageToDB(Integer.valueOf(guestId.getText())-1);
                      }
                 }
                   // If the dates are not conflicting & its a check-in...
@@ -4097,8 +4099,9 @@ public class MainFrame extends javax.swing.JFrame {
                         rep.addCreditCard(card);
                      }
                      if(packageCheck.isSelected()){
-                         System.out.println("##########  DEBUGGGGGGG   ##########");
-                         cusPack.addPackageToDB(Integer.valueOf(guestId.getText()));
+                         
+                         System.out.println("Package Added..");
+                         cusPack.addPackageToDB(Integer.valueOf(guestId.getText())-1);
                      }
                 }
                   // If the dates conflict..then display error message
