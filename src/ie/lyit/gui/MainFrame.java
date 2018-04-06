@@ -1634,10 +1634,11 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(euroLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(roomPriceTotal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(discountTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(euroLabel1))
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel11)
+                        .addComponent(euroLabel1)))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel29)
@@ -1919,7 +1920,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         checkinScreenLayout.setVerticalGroup(
             checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2222,12 +2223,12 @@ public class MainFrame extends javax.swing.JFrame {
         searchGuest.setBorder(javax.swing.BorderFactory.createTitledBorder("Search Guest"));
         searchGuest.setPreferredSize(new java.awt.Dimension(495, 320));
         searchGuest.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 searchGuestAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -2407,12 +2408,12 @@ public class MainFrame extends javax.swing.JFrame {
         searchRoom.setBorder(javax.swing.BorderFactory.createTitledBorder("Search Room"));
         searchRoom.setPreferredSize(new java.awt.Dimension(495, 320));
         searchRoom.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 searchRoomAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -4172,8 +4173,11 @@ public class MainFrame extends javax.swing.JFrame {
                     rep.addGuest(checkIn);
                     JOptionPane.showMessageDialog(null, "Guest booked in...", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
                     updateGuestId(); 
-                    clearGuestFields();
                     rep.addRoom(room);
+                    // check if they wish to book in again
+                    if(!bookAgain()){
+                        clearGuestFields();
+                    }
                     // Add card if card payment type is selected
                     if(addCard.isEnabled()){
                              rep.addCreditCard(card);
@@ -4211,6 +4215,17 @@ public class MainFrame extends javax.swing.JFrame {
             }
          }       
    }   
+   public boolean bookAgain(){
+       boolean bookAgain;
+       int x = JOptionPane.showConfirmDialog(null, "Book guest into another room?", "Book another room", JOptionPane.NO_OPTION);
+       if(x != 1){
+           bookAgain = true;
+       }
+       else{
+           bookAgain =false;
+       }
+       return bookAgain;
+   }
     // Set the boolean used in guest checkin
     public void setCheckRoomBoolean(int x){
      switch(x){
