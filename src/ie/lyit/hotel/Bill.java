@@ -7,27 +7,21 @@ public class Bill {
     
     private float amount;
     private Date date;
-    
+    private double totalBill;
     // Fixed prices 
-    private double fuctionPrice = 60.00;
-    private double spaPrice = 50.00;
-    private double singleR = 80.00;
-    private double doubleR = 130.00;
-    private double bridal = 250.00;
-    private double executive = 195.00;
     
-    
-    // Discounts & Increase
-    private double valentinePrice = 1.25;
-    private double bankPrice = 1.50;
-    private double summerDeal = 0.85;
-    
-    private double deal20 = 0.80;
-    private double deal10 = 0.90;
-
+    private double singleR;
+    private double doubleR;
+    private double bridal;
+    private double executive;
     
     public Bill(){
-    
+        
+        singleR = 80.00;
+        doubleR = 130.00;
+        bridal = 250.00;
+        executive = 195.00;
+        totalBill = 0.00;
     }
     public Bill(float amount,Date date){
         this.amount = amount;
@@ -42,7 +36,22 @@ public class Bill {
     public void setAmount(float amount) {
         this.amount = amount;
     }
+    // roomPrice,fixedTotal,extraText
+           // discountTotal,** nightsStay
+    public void setTotalBill(double roomPrice,double fixedTotal,double extras,int discountTotal,int nightsStay){
+        //totalBill = (((roomPrice+fixedTotal+extras) * (discountTotal/100)) * nightsStay);  
+        
+        totalBill = roomPrice * nightsStay;
+        if(discountTotal != 0){
+        totalBill = totalBill * (discountTotal/100);
+        }
 
+                
+        System.out.println("Total Bill:"+totalBill);
+    }
+    public double getTotalBill(){
+        return totalBill;
+    }
     public Date getDate() {
         return date;
     }
@@ -70,63 +79,7 @@ public class Bill {
     public String getFormattedBillAmount(){
         return "Bill Total: " + amount;
     }
-
-    public double getFuctionPrice() {
-        return fuctionPrice;
-    }
-
-    public void setFuctionPrice(double fuctionPrice) {
-        this.fuctionPrice = fuctionPrice;
-    }
-
-    public double getSpaPrice() {
-        return spaPrice;
-    }
-
-    public void setSpaPrice(double spaPrice) {
-        this.spaPrice = spaPrice;
-    }
-
-    public double getValentinePrice() {
-        return valentinePrice;
-    }
-
-    public void setValentinePrice(double valentinePrice) {
-        this.valentinePrice = valentinePrice;
-    }
-
-    public double getBankPrice() {
-        return bankPrice;
-    }
-
-    public void setBankPrice(double bankPrice) {
-        this.bankPrice = bankPrice;
-    }
-
-    public double getSummerDeal() {
-        return summerDeal;
-    }
-
-    public void setSummerDeal(double summerDeal) {
-        this.summerDeal = summerDeal;
-    }
-
-    public double getDeal20() {
-        return deal20;
-    }
-
-    public void setDeal20(double deal20) {
-        this.deal20 = deal20;
-    }
-
-    public double getDeal10() {
-        return deal10;
-    }
-
-    public void setDeal10(double deal10) {
-        this.deal10 = deal10;
-    }
-
+    
     public double getSingleR() {
         return singleR;
     }
