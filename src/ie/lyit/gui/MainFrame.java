@@ -94,6 +94,7 @@ public class MainFrame extends javax.swing.JFrame {
         // Initilizise JFrame & components
         initComponents();  
         updateGuestId(); 
+        loadGuestHomeTable();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -228,7 +229,7 @@ public class MainFrame extends javax.swing.JFrame {
         packageCost = new javax.swing.JTextField();
         nightsStay = new javax.swing.JTextField();
         totalCost = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        calculateBill = new javax.swing.JButton();
         roomType = new javax.swing.JTextField();
         euroLabel1 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -1500,11 +1501,11 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jButton2.setText("Calculate Bill");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        calculateBill.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        calculateBill.setText("Calculate Bill");
+        calculateBill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                calculateBillActionPerformed(evt);
             }
         });
 
@@ -1536,7 +1537,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(totalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(calculateBill)
                         .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
@@ -1559,7 +1560,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(totalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(calculateBill))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1919,7 +1920,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(checkinScreenLayout.createSequentialGroup()
                         .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap(206, Short.MAX_VALUE))
         );
         checkinScreenLayout.setVerticalGroup(
@@ -1934,7 +1935,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(detailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 510, Short.MAX_VALUE))
+                    .addComponent(detailsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -2879,7 +2880,7 @@ public class MainFrame extends javax.swing.JFrame {
         setState(ICONIFIED);
        
     }//GEN-LAST:event_miniMouseClicked
-
+    
     private void searchPanelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPanelMouseMoved
         // TODO add your handling code here:
         homePanel.setBackground(new java.awt.Color(34,104,153));
@@ -2947,7 +2948,33 @@ public class MainFrame extends javax.swing.JFrame {
         mini.setOpaque(false);
         repaint();
     }//GEN-LAST:event_closeMouseMoved
-
+    public void loadGuestHomeTable(){
+        ArrayList<Guest> list = new ArrayList<>();
+        DefaultTableModel model = (DefaultTableModel)guestTable.getModel();
+        
+         try{
+        // list.clear();
+         String sql = "SELECT DISTINCT * FROM `guest`";
+         list = display.displayGuestTable(sql);
+         for(int i=0;i<list.size();i++){
+         Object[] row = new Object[9];
+         row [0] = list.get(i).getId();
+         row [1] = list.get(i).getTitle();
+         row [2] = list.get(i).getfName();
+         row [3] = list.get(i).getsName();
+         row [4] = list.get(i).getAddress();
+         row [5] = list.get(i).getPhoneNo();
+         row [6] = list.get(i).getEmailAddress();
+         row [7] = list.get(i).getCheckIn();
+         row [8] = list.get(i).getCheckOut();
+         model.addRow(row);
+         }
+         list.clear();
+         }
+         catch(Exception e){
+         System.out.print(e.getMessage());
+         }    
+    }
     
     private void closeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_closeFocusLost
         // TODO add your handling code here:
@@ -4014,24 +4041,15 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_extraTextActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void calculateBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateBillActionPerformed
         // If the user has selected a room
         if(roomText.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Please select a room type for the guest...", "Select a room type", JOptionPane.INFORMATION_MESSAGE); 
         }
-        else if(!roomText.getText().equals("")){
-            if(packageCheck.isSelected()){
-                updateBill();
-            }
-            else{
-                if(nightsStay.getText().equals("0")){
-                JOptionPane.showMessageDialog(null, "Please enter dates.", "Check dates", JOptionPane.WARNING_MESSAGE);
-                }
-                double cost = Double.parseDouble(roomCost.getText());
-                totalCost.setText(""+(cost*(int)diffDays));
-            }
+        else if(nightsStay.getText().equals("0")){
+            JOptionPane.showMessageDialog(null, "Please enter dates.", "Check dates", JOptionPane.WARNING_MESSAGE);
         } 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_calculateBillActionPerformed
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
@@ -4425,6 +4443,7 @@ public class MainFrame extends javax.swing.JFrame {
     private static javax.swing.JButton bookButt;
     private static javax.swing.JPanel bridalPanel;
     private javax.swing.JButton btnSearchRoom;
+    private javax.swing.JButton calculateBill;
     private javax.swing.ButtonGroup cardGroup;
     private javax.swing.JTable cardTable;
     private javax.swing.JButton checkGuest;
@@ -4479,7 +4498,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel homeScreen;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;

@@ -2104,7 +2104,7 @@
                                           <Component id="jSeparator12" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace pref="38" max="32767" attributes="0"/>
-                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="calculateBill" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -2134,7 +2134,7 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jTextField10" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
                                   <Component id="totalCost" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="calculateBill" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -2271,7 +2271,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton2">
+                    <Component class="javax.swing.JButton" name="calculateBill">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Dialog" size="10" style="1"/>
@@ -2279,7 +2279,7 @@
                         <Property name="text" type="java.lang.String" value="Calculate Bill"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calculateBillActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
