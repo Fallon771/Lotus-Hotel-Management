@@ -584,7 +584,6 @@ public class CustomPackages extends javax.swing.JFrame {
             num = (num * -1);
             decText.setText(""+num);
             repaint();
-            System.out.println("DEBUGGG"+num);
         }
     }//GEN-LAST:event_decTextFocusLost
 

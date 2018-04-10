@@ -45,7 +45,7 @@ public class Guest {
     }
     
     // Constructor for JTables
-    public Guest(int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout){
+    public Guest(int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout,int room){
         
         this.fName = fName;
         this.sName = sName;
@@ -56,6 +56,7 @@ public class Guest {
         this.checkin = checkin;
         this.checkout = checkout;
         this.phoneNo = phone;
+        this.roomNumber = room;
         
     }
     // Constructor for adding guest
