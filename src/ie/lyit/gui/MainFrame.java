@@ -2980,7 +2980,7 @@ public class MainFrame extends javax.swing.JFrame {
         
          try{
         // list.clear();
-         String sql = "SELECT DISTINCT * FROM `guest`";
+         String sql = "SELECT DISTINCT * FROM `guest`,`rooms`";
          list = display.displayGuestTable(sql);
          for(int i=0;i<list.size();i++){
          Object[] row = new Object[9];
@@ -3001,22 +3001,23 @@ public class MainFrame extends javax.swing.JFrame {
          System.out.print(e.getMessage());
          }    
          // Bookings
-          DefaultTableModel model2 = (DefaultTableModel)bookingTable.getModel();
+         DefaultTableModel model2 = (DefaultTableModel)bookingTable.getModel();
           try{
          String sql = "SELECT DISTINCT * FROM `guest`, `rooms` WHERE  guest.id = rooms.id HAVING `booked` = 1";
          list = display.displayGuestTable(sql);
-         Object[] row = new Object[9];
+         Object[] row = new Object[10];
          for(int i=0;i<list.size();i++){
             row [0] = list.get(i).getId();
-            row [1] = list.get(i).getTitle();
-            row [2] = list.get(i).getfName();
-            row [3] = list.get(i).getsName();
-            row [4] = list.get(i).getAddress();
-            row [5] = list.get(i).getPhoneNo();
-            row [6] = list.get(i).getEmailAddress();
-            row [7] = list.get(i).getCheckIn();
-            row [8] = list.get(i).getCheckOut();
-            model.addRow(row);
+            row [1] = list.get(i).getRoomNumber();
+            row [2] = list.get(i).getTitle();
+            row [3] = list.get(i).getfName();
+            row [4] = list.get(i).getsName();
+            row [5] = list.get(i).getAddress();
+            row [6] = list.get(i).getPhoneNo();
+            row [7] = list.get(i).getEmailAddress();
+            row [8] = list.get(i).getCheckIn();
+            row [9] = list.get(i).getCheckOut();
+            model2.addRow(row);
             }
          }
          catch(Exception e){
