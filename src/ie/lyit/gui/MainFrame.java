@@ -266,6 +266,8 @@ public class MainFrame extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        bookingTable = new javax.swing.JTable();
         currentGuest = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -1998,7 +2000,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton10))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1019, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2018,7 +2020,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1035, Short.MAX_VALUE)
+            .addGap(0, 1043, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2027,15 +2029,53 @@ public class MainFrame extends javax.swing.JFrame {
 
         dataTabPane.addTab("Rooms", jPanel9);
 
+        bookingTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Guest Id", "Room No", "Title", "First Name", "Surname", "Address", "Phone No.", "Email", "Check-In", "Check-Out"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(bookingTable);
+        if (bookingTable.getColumnModel().getColumnCount() > 0) {
+            bookingTable.getColumnModel().getColumn(0).setPreferredWidth(60);
+            bookingTable.getColumnModel().getColumn(0).setMaxWidth(70);
+            bookingTable.getColumnModel().getColumn(2).setMinWidth(50);
+            bookingTable.getColumnModel().getColumn(2).setPreferredWidth(50);
+            bookingTable.getColumnModel().getColumn(2).setMaxWidth(40);
+        }
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1035, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 1019, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 189, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         dataTabPane.addTab("Booked", jPanel10);
@@ -2973,6 +3013,28 @@ public class MainFrame extends javax.swing.JFrame {
          }
          catch(Exception e){
          System.out.print(e.getMessage());
+         }    
+         // Bookings
+          DefaultTableModel model2 = (DefaultTableModel)bookingTable.getModel();
+          try{
+         String sql = "SELECT DISTINCT * FROM `guest`, `rooms` WHERE  guest.id = rooms.id HAVING `booked` = 1";
+         list = display.displayGuestTable(sql);
+         Object[] row = new Object[9];
+         for(int i=0;i<list.size();i++){
+            row [0] = list.get(i).getId();
+            row [1] = list.get(i).getTitle();
+            row [2] = list.get(i).getfName();
+            row [3] = list.get(i).getsName();
+            row [4] = list.get(i).getAddress();
+            row [5] = list.get(i).getPhoneNo();
+            row [6] = list.get(i).getEmailAddress();
+            row [7] = list.get(i).getCheckIn();
+            row [8] = list.get(i).getCheckOut();
+            model.addRow(row);
+            }
+         }
+         catch(Exception e){
+         System.out.print("ERROR!!");
          }    
     }
     
@@ -4441,6 +4503,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel banner;
     private javax.swing.JLabel bannerTitle;
     private static javax.swing.JButton bookButt;
+    private javax.swing.JTable bookingTable;
     private static javax.swing.JPanel bridalPanel;
     private javax.swing.JButton btnSearchRoom;
     private javax.swing.JButton calculateBill;
@@ -4556,6 +4619,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;

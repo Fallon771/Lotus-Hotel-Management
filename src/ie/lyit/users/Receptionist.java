@@ -99,10 +99,10 @@ public class Receptionist implements DBConnections{
                 + "`checkin`,`checkout`,`phone`,`email`) VALUES ('"+guestFName+"','"+guestSName+"',"
                 + "'"+guestAdress+"','"+guestTitle+"','"+in+"','"+out+"','"+phone+"','"+email+"');";
         
-        String sql2 = "INSERT INTO `gueststore` (`fname`, `surname`,`address`,`title`,"
+         String sql2 = "INSERT INTO `gueststore` (`fname`, `surname`,`address`,`title`,"
                 + "`phone`,`email`) VALUES ('"+guestFName+"','"+guestSName+"',"
                 + "'"+guestAdress+"','"+guestTitle+"','"+phone+"','"+email+"');";
-        
+       
         try{
         conn.insertToDatabase(sql);
         conn.insertToDatabase(sql2);
