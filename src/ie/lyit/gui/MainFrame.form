@@ -150,7 +150,7 @@
                       <Component id="homeIcon" min="-2" pref="42" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="homeLabel" min="-2" pref="95" max="-2" attributes="0"/>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <EmptySpace pref="16" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -217,7 +217,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkInIcon" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkInLabel" min="-2" pref="40" max="-2" attributes="0"/>
@@ -369,7 +369,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkOutIcon1" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkOutLab" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
@@ -738,7 +738,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="checkOutScreen" pref="510" max="32767" attributes="0"/>
+                      <Component id="checkOutScreen" pref="511" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -773,10 +773,10 @@
                           <Group type="102" attributes="0">
                               <Component id="roomInfo" min="-2" pref="367" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jPanel6" pref="0" max="32767" attributes="0"/>
+                              <Component id="jPanel6" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                      <EmptySpace pref="204" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -795,7 +795,7 @@
                                   <Component id="jPanel4" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="detailsPanel" alignment="0" pref="510" max="32767" attributes="0"/>
+                          <Component id="detailsPanel" alignment="0" pref="511" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -2434,6 +2434,9 @@
                     <Property name="text" type="java.lang.String" value="Include Package"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="packageCheckItemStateChanged"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -2768,7 +2771,7 @@
                               <Component id="removeRecep" min="-2" pref="16" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="121" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3324,7 +3327,7 @@
                       <Component id="searchGuest" min="-2" pref="520" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="searchRoom" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="715" max="32767" attributes="0"/>
+                      <EmptySpace pref="719" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3407,7 +3410,7 @@
                                               <Component id="lbChild" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="lbAdult" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace pref="20" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="tfAdults" max="32767" attributes="0"/>
                                               <Component id="tfChildren" max="32767" attributes="0"/>
@@ -3493,7 +3496,7 @@
                               <Component id="lbCI" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfAdults" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="91" max="32767" attributes="0"/>
+                          <EmptySpace pref="99" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3696,7 +3699,7 @@
                                           <Component id="tfFN" min="-2" pref="113" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="tfSN" min="-2" pref="106" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -3705,7 +3708,7 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                           <Component id="lblCustID" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="26" max="32767" attributes="0"/>
+                                          <EmptySpace pref="33" max="32767" attributes="0"/>
                                           <Component id="tfCustID" min="-2" pref="67" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
