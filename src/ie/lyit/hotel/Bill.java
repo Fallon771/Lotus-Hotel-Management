@@ -9,7 +9,7 @@ public class Bill {
     private Date date;
     private double totalBill;
     // Fixed prices 
-    
+    private double cancelFee;
     private double singleR;
     private double doubleR;
     private double bridal;
@@ -17,6 +17,7 @@ public class Bill {
     
     public Bill(){
         
+        cancelFee = 50;
         singleR = 80.00;
         doubleR = 130.00;
         bridal = 250.00;
@@ -38,15 +39,22 @@ public class Bill {
     }
     // roomPrice,fixedTotal,extraText
            // discountTotal,** nightsStay
-    public void setTotalBill(double roomPrice,double fixedTotal,double extras,int discountTotal,int nightsStay){
+    public void setTotalBill(double roomPrice,double fixedTotal,double extras,int discount,int nightsStay){
         //totalBill = (((roomPrice+fixedTotal+extras) * (discountTotal/100)) * nightsStay);  
-        
-        totalBill = roomPrice * nightsStay;
+//        if(discount < 0){
+//        discount = discount * -1;
+//        }
+        totalBill = (roomPrice * nightsStay);
+        double discountTotal = (double)discount/100;
         if(discountTotal != 0){
-        totalBill = totalBill * (discountTotal/100);
+        totalBill = (totalBill * discountTotal)+totalBill;
         }
-
-                
+        
+        System.out.println("RoomPrice:"+roomPrice); 
+        System.out.println("Nights:"+nightsStay);
+        System.out.println("Discont:"+discountTotal); 
+        System.out.println("Extras:"+extras); 
+        System.out.println("FixedTotal:"+fixedTotal); 
         System.out.println("Total Bill:"+totalBill);
     }
     public double getTotalBill(){
