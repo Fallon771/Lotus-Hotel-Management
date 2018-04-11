@@ -337,7 +337,7 @@ public class BookingPopup extends javax.swing.JFrame {
              row = bookingTable.getSelectedRow();
              value = bookingTable.getModel().getValueAt(row, 0).toString();
         }
-    
+        
         System.out.println("ROW:"+row);
         //String value = bookingTable.getModel().getValueAt(row, 0).toString();
         String sql = "DELETE FROM `guest` WHERE id = '"+value+"'";
