@@ -488,13 +488,13 @@ public class CustomPackages extends javax.swing.JFrame {
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         // Clear all fields to default..
-        incText.setText("0.00");
-        extraText.setText("0.00");
-        discountText.setText("0");
+        incText.setText(""+0.00);
+        extraText.setText(""+0.00);
+        discountText.setText(""+0.00);
         slider.setValue(0);
         commentsArea.setText("Package Extras Include...");
         packageText.setText("");
-        decText.setText("0");
+        decText.setText(""+0.00);
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void extraCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraCheckActionPerformed
