@@ -4056,7 +4056,7 @@ public class MainFrame extends javax.swing.JFrame {
         r.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         r.setSize(300, 200);
         r.setResizable(false);
-        r.setLocationByPlatform(true);
+        r.setLocationRelativeTo(null);
         r.setVisible(true);
         r.setBackground(Color.blue); 
      
