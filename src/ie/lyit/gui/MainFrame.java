@@ -20,6 +20,7 @@ import ie.lyit.users.*;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -39,7 +40,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JCheckBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -4036,40 +4040,83 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_searchGuestAncestorAdded
 
     private void loggedOnAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loggedOnAlertActionPerformed
-       
-        //String sql = "SELECT * FROM receptionist WHERE `password` = '"rep.getText()+"'";
-        
+             
     }//GEN-LAST:event_loggedOnAlertActionPerformed
 
     private void addRecepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRecepActionPerformed
       
-      String s1 = (String)JOptionPane.showInputDialog(null, "Please enter new receptionist ID :\n");
-      String s2 = (String)JOptionPane.showInputDialog(null, "Please enter first name :\n");
-      String s3 = (String)JOptionPane.showInputDialog(null, "Please enter surname :\n");
-      String s4 = (String)JOptionPane.showInputDialog(null, "Please enter password :\n");
+      JTextField IdField = new JTextField(5);
+      JTextField fNameField = new JTextField(15);
+      JTextField surnameField = new JTextField(15);  
+      JTextField passwordField = new JPasswordField(15);
+      JButton ok = new JButton("OK");
+      JButton cancel = new JButton("Cancel");
       
-        try{
-            String user = "root";
-            String pass2 = "password";
+      JFrame r = new JFrame("Add new receptionist details");
+        r.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        r.setSize(300, 200);
+        r.setResizable(false);
+        r.setLocationByPlatform(true);
+        r.setVisible(true);
+        r.setBackground(Color.blue); 
+     
         
-            Class.forName("com.mysql.jdbc.Driver"); 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass2); 
-            String sql1 = "INSERT INTO receptionist (id, fname, surname, password) VALUES (?, ?, ?, ?)";
-            PreparedStatement pst1 = conn.prepareStatement(sql1);
-            pst1.setString(1, s1);
-            pst1.setString(2, s2);
-            pst1.setString(3, s3);
-            pst1.setString(3, s4); 
-            pst1.executeUpdate("INSERT INTO receptionist (id, fname, surname, password)" + "VALUES ('" + s1 + "','" + s2 + "','" + s3 + "','" + s4 + "')");
-            conn.close();
-            JOptionPane.showMessageDialog(null, "Receptionist details have been successfully added into database", "Added Receptionist", JOptionPane.INFORMATION_MESSAGE);
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Error in creating new receptionist", "Error", JOptionPane.WARNING_MESSAGE);     
-            System.out.println(e.getMessage());
-        }    
+      JPanel addRecep = new JPanel();
+      JPanel addRecep2 = new JPanel();
+      JPanel addRecep3 = new JPanel();
+      JPanel addRecep4 = new JPanel();
+      JPanel addRecep5 = new JPanel();
+      JPanel addRecep6 = new JPanel();
+      JPanel addRecep7 = new JPanel();
+      JPanel addRecep8 = new JPanel();
+      JPanel addRecep9 = new JPanel();
+      JPanel addRecep10 = new JPanel();
+      
+      addRecep.add(new JLabel("ID: "));
+      addRecep2.add(IdField = new JTextField(10));
+      addRecep3.add(new JLabel("First Name: "));
+      addRecep4.add(fNameField = new JTextField(10));
+      addRecep5.add(new JLabel("Surname: "));
+      addRecep6.add(surnameField = new JTextField(10));
+      addRecep7.add(new JLabel("Password: "));
+      addRecep8.add(passwordField = new JPasswordField(10));
+      addRecep9.add(ok);
+      addRecep10.add(cancel);
+      
+      String s1 = IdField.getText();
+      String s2 = fNameField.getText();
+      String s3 = surnameField.getText();
+        //char[] pass = passwordField.getPassword();
+        //String pwd = String.copyValueOf(pass);  
+      String s4 = passwordField.getText();
+      
+      r.add(addRecep);
+      r.add(addRecep2);
+      r.add(addRecep3);
+      r.add(addRecep4);
+      r.add(addRecep5);
+      r.add(addRecep6);
+      r.add(addRecep7);
+      r.add(addRecep8);
+      r.add(addRecep9);
+      r.add(addRecep10);
+      r.setLayout(new GridLayout(5,2));
+      
+      // ListenerClass listener = new ListenerClass();  
+      
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+            });
+        cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelActionPerformed(evt);
+            }
+            });
     }//GEN-LAST:event_addRecepActionPerformed
 
+    
     private void removeRecepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeRecepActionPerformed
         
        String s1 = (String)JOptionPane.showInputDialog(null, "Please enter receptionist ID to delete :\n");
@@ -4094,7 +4141,52 @@ public class MainFrame extends javax.swing.JFrame {
     private void roomPriceTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomPriceTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_roomPriceTotalActionPerformed
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {                                              
+      JTextField IdField = new JTextField();
+      JTextField fNameField = new JTextField();
+      JTextField surnameField = new JTextField();  
+      JTextField passwordField = new JPasswordField();
+      
+      String s1 = IdField.getText();
+      String s2 = fNameField.getText();
+      String s3 = surnameField.getText();
+      String s4 = passwordField.getText();
 
+        //char[] pass = passwordField.getPassword();
+        //String pwd = String.copyValueOf(pass);  
+        //String s4 = pwd;
+        
+      //IdField.setText(""+IdField.getText());
+      //fNameField.setText(""+fNameField.getText());
+      //surnameField.setText(""+surnameField.getText());
+      //passwordField.setText(""+passwordField.getText());
+      
+        try{
+            String user = "root";
+            String pass2 = "password";
+        
+            Class.forName("com.mysql.jdbc.Driver"); 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass2); 
+            String sql1 = "INSERT INTO receptionist (id, fname, surname, password) VALUES (?, ?, ?, ?)";
+            PreparedStatement pst1 = conn.prepareStatement(sql1);
+            pst1.setString(1, s1);
+            pst1.setString(2, s2);
+            pst1.setString(3, s3);
+            pst1.setString(3, s4); 
+            pst1.executeUpdate("INSERT INTO receptionist (id, fname, surname, password)" + "VALUES ('" + s1 + "','" + s2 + "','" + s3 + "','" + s4 + "')");
+            conn.close();
+            JOptionPane.showMessageDialog(null, "Receptionist details have been successfully added into database", "Added Receptionist", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error in creating new receptionist", "Error", JOptionPane.WARNING_MESSAGE);     
+            System.out.println(e.getMessage());
+        }    
+    }    
+    
+     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        
+    } 
+        
     private void extraTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_extraTextActionPerformed
