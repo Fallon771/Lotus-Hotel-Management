@@ -2763,8 +2763,8 @@
                               <Component id="currentGuest" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
-                              <Component id="loggedOnAlert" min="-2" pref="176" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="386" max="-2" attributes="0"/>
+                              <Component id="loggedOnAlert" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="addRecep" min="-2" pref="19" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -3277,7 +3277,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="66" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Logged on as: "/>
+                <Property name="text" type="java.lang.String" value="Logged on"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>

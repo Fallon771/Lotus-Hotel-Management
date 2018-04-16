@@ -2181,7 +2181,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         loggedOnAlert.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         loggedOnAlert.setForeground(new java.awt.Color(51, 102, 255));
-        loggedOnAlert.setText("Logged on as: ");
+        loggedOnAlert.setText("Logged on");
         loggedOnAlert.setBorder(null);
         loggedOnAlert.setCaretColor(new java.awt.Color(255, 255, 255));
         loggedOnAlert.setOpaque(false);
@@ -2225,8 +2225,8 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(currentGuest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(290, 290, 290)
-                        .addComponent(loggedOnAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(386, 386, 386)
+                        .addComponent(loggedOnAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
                         .addComponent(addRecep, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
