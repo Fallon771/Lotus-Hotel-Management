@@ -91,7 +91,7 @@ public class CustomPackages extends javax.swing.JFrame {
 
         contentPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        packagePanel.setBackground(new java.awt.Color(255, 255, 153));
+        packagePanel.setBackground(new java.awt.Color(153, 204, 255));
         packagePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Packages"));
 
         discountText.setEditable(false);
@@ -157,7 +157,7 @@ public class CustomPackages extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("%");
 
-        extraCheck.setBackground(new java.awt.Color(255, 255, 153));
+        extraCheck.setBackground(new java.awt.Color(153, 204, 255));
         extraCheck.setText("Extra's");
         extraCheck.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -178,7 +178,7 @@ public class CustomPackages extends javax.swing.JFrame {
             }
         });
 
-        increaseCheck.setBackground(new java.awt.Color(255, 255, 153));
+        increaseCheck.setBackground(new java.awt.Color(153, 204, 255));
         increaseCheck.setText("Fixed Increase");
         increaseCheck.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -199,7 +199,7 @@ public class CustomPackages extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(204, 0, 0));
         jLabel4.setText(" Food,drink etc.. ");
 
-        decreaseCheck.setBackground(new java.awt.Color(255, 255, 153));
+        decreaseCheck.setBackground(new java.awt.Color(153, 204, 255));
         decreaseCheck.setText("Fixed Decrease");
         decreaseCheck.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -347,7 +347,7 @@ public class CustomPackages extends javax.swing.JFrame {
                     .addComponent(clearButton)))
         );
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
