@@ -4043,8 +4043,9 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_loggedOnAlertActionPerformed
 
     private void addRecepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRecepActionPerformed
+// when user clicks the add receptionist button a new window appears 
 
-    
+    // creating JFrame and button 
       JButton ok = new JButton("OK");
       JFrame r = new JFrame("Add new receptionist details");
         r.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -4054,6 +4055,7 @@ public class MainFrame extends javax.swing.JFrame {
         r.setVisible(true);
         r.setBackground(Color.blue); 
         
+      // adding JPanels for textfields and labels  
       JPanel addRecep = new JPanel();
       JPanel addRecep2 = new JPanel();
       JPanel addRecep3 = new JPanel();
@@ -4065,6 +4067,7 @@ public class MainFrame extends javax.swing.JFrame {
       JPanel addRecep9 = new JPanel();
       JPanel addRecep10 = new JPanel();
       
+      //adding labels and textfields to JPanels
       addRecep.add(new JLabel("ID: "));
       addRecep2.add(IdField = new JTextField(10));
       addRecep3.add(new JLabel("First Name: "));
@@ -4075,6 +4078,7 @@ public class MainFrame extends javax.swing.JFrame {
       addRecep8.add(passwordField = new JPasswordField(10));
       addRecep9.add(ok);
    
+      //adding the JPanels to the JFrame
       r.add(addRecep);
       r.add(addRecep2);
       r.add(addRecep3);
@@ -4085,9 +4089,11 @@ public class MainFrame extends javax.swing.JFrame {
       r.add(addRecep8);
       r.add(addRecep9);
       r.add(addRecep10);
+      
+      //setting Layout of JFrame
       r.setLayout(new GridLayout(5,2));
 ;
-       
+       // action listener for add receptionist 
         ok.addActionListener(new java.awt.event.ActionListener() {
           //@Override
           public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4099,8 +4105,12 @@ public class MainFrame extends javax.swing.JFrame {
 
     
     private void removeRecepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeRecepActionPerformed
-        
-       String s1 = (String)JOptionPane.showInputDialog(null, "Please enter receptionist ID to delete :\n");
+   // action commands for when user clicks the remove receptionist button     
+   
+     // pop up asking for details
+     String s1 = (String)JOptionPane.showInputDialog(null, "Please enter receptionist ID to delete :\n");
+       
+     // connection to database + SQL statement
      try {  
             String user = "root";
             String pass2 = "password";
@@ -4123,7 +4133,9 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_roomPriceTotalActionPerformed
        public void okActionPerformed(java.awt.event.ActionEvent evt) {    
-        
+     // action commands for when user clicks the ok button that is inside of the add new receptionist pop up
+     
+        // connection to database + SQL statement
         try{
             String user = "root";
             String pass2 = "password";
