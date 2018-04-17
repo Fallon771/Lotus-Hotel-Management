@@ -1657,11 +1657,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(32, 32, 32))
         );
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel4.setBackground(new java.awt.Color(153, 204, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Packages & Addons"));
 
-        packageButton.setBackground(new java.awt.Color(255, 255, 0));
+        packageButton.setBackground(new java.awt.Color(102, 153, 255));
         packageButton.setFont(new java.awt.Font("Dubai", 0, 10)); // NOI18N
+        packageButton.setForeground(new java.awt.Color(255, 255, 255));
         packageButton.setMnemonic('C');
         packageButton.setText("Custom Package Creator");
         packageButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -1674,7 +1675,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Euphemia", 0, 12)); // NOI18N
         jLabel15.setText("Create Package");
 
-        packageCheck.setBackground(new java.awt.Color(255, 255, 153));
+        packageCheck.setBackground(new java.awt.Color(153, 204, 255));
         packageCheck.setText("Include Package");
         packageCheck.setEnabled(false);
         packageCheck.addItemListener(new java.awt.event.ItemListener() {
@@ -1684,7 +1685,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         packageText.setEditable(false);
-        packageText.setBackground(new java.awt.Color(255, 255, 204));
+        packageText.setBackground(new java.awt.Color(204, 255, 255));
         packageText.setFont(new java.awt.Font("Kalinga", 0, 12)); // NOI18N
         packageText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         packageText.setText("None");
