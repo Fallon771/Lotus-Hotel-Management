@@ -2188,11 +2188,6 @@ public class MainFrame extends javax.swing.JFrame {
         loggedOnAlert.setBorder(null);
         loggedOnAlert.setCaretColor(new java.awt.Color(255, 255, 255));
         loggedOnAlert.setOpaque(false);
-        loggedOnAlert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loggedOnAlertActionPerformed(evt);
-            }
-        });
 
         addRecep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/plus.png"))); // NOI18N
         addRecep.addActionListener(new java.awt.event.ActionListener() {
@@ -4038,10 +4033,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_searchGuestAncestorAdded
 
-    private void loggedOnAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loggedOnAlertActionPerformed
-             
-    }//GEN-LAST:event_loggedOnAlertActionPerformed
-
     private void addRecepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRecepActionPerformed
 // when user clicks the add receptionist button a new window appears 
 
@@ -4092,7 +4083,6 @@ public class MainFrame extends javax.swing.JFrame {
       
       //setting Layout of JFrame
       r.setLayout(new GridLayout(5,2));
-;
        // action listener for add receptionist 
         ok.addActionListener(new java.awt.event.ActionListener() {
           //@Override
@@ -4133,7 +4123,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_roomPriceTotalActionPerformed
        public void okActionPerformed(java.awt.event.ActionEvent evt) {    
-     // action commands for when user clicks the ok button that is inside of the add new receptionist pop up
+     // action commands for when user clicks the ok button . . . 
+     // which is inside of the add new receptionist pop up
      
         // connection to database + SQL statement
         try{
@@ -4187,6 +4178,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_packageCheckItemStateChanged
 
     private void LogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutButtonActionPerformed
+        // commands for when the user clicks the logout button 
         
         dispose();
         frame = new LogOnPage();
