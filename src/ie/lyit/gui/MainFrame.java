@@ -4060,12 +4060,16 @@ public class MainFrame extends javax.swing.JFrame {
       
       //adding labels and textfields to JPanels
       addRecep.add(new JLabel("ID: "));
+      addRecep.setForeground(Color.WHITE);
       addRecep2.add(IdField = new JTextField(10));
       addRecep3.add(new JLabel("First Name: "));
+      addRecep3.setForeground(Color.WHITE);
       addRecep4.add(fNameField = new JTextField(10));
       addRecep5.add(new JLabel("Surname: "));
+      addRecep5.setForeground(Color.WHITE);
       addRecep6.add(surnameField = new JTextField(10));
       addRecep7.add(new JLabel("Password: "));
+      addRecep7.setForeground(Color.WHITE);
       addRecep8.add(passwordField = new JPasswordField(10));
       addRecep9.add(ok);
    
@@ -4083,6 +4087,19 @@ public class MainFrame extends javax.swing.JFrame {
       
       //setting Layout of JFrame
       r.setLayout(new GridLayout(5,2));
+      
+      //setting background color of panels
+      addRecep.setBackground(new java.awt.Color(84,140,196));
+      addRecep2.setBackground(new java.awt.Color(84,140,196));
+      addRecep3.setBackground(new java.awt.Color(84,140,196));
+      addRecep4.setBackground(new java.awt.Color(84,140,196));
+      addRecep5.setBackground(new java.awt.Color(84,140,196));
+      addRecep6.setBackground(new java.awt.Color(84,140,196));
+      addRecep7.setBackground(new java.awt.Color(84,140,196));
+      addRecep8.setBackground(new java.awt.Color(84,140,196));
+      addRecep9.setBackground(new java.awt.Color(84,140,196));
+      addRecep10.setBackground(new java.awt.Color(84,140,196));
+      
        // action listener for add receptionist 
         ok.addActionListener(new java.awt.event.ActionListener() {
           //@Override
