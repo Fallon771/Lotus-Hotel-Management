@@ -4038,7 +4038,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     // creating JFrame and button 
       JButton ok = new JButton("OK");
-      JFrame r = new JFrame("Add new receptionist details");
+      JFrame r = new JFrame("Enter new Receptionist details");
         r.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         r.setSize(300, 200);
         r.setResizable(false);
@@ -4110,7 +4110,7 @@ public class MainFrame extends javax.swing.JFrame {
             st.setString(1,s1);
             st.executeUpdate(); 
             conn.close();
-            JOptionPane.showMessageDialog(null, "Receptionist details have removed from database", "Deleted receptionist", JOptionPane.INFORMATION_MESSAGE);   
+            JOptionPane.showMessageDialog(null, "Receptionist has been removed from database", "Deleted receptionist", JOptionPane.INFORMATION_MESSAGE);   
      }
      catch(Exception e)
      {

@@ -7,7 +7,6 @@ package ie.lyit.gui;
 
 import javax.swing.JOptionPane;
 import ie.lyit.database.*;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -74,12 +73,6 @@ public class LogOnPage extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Gisha", 2, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Password:");
-
-        username.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Gisha", 2, 21)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -159,12 +152,15 @@ public class LogOnPage extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        //check for correct details when "Log-In" button is pressed
+        //commands for when the user clicks the log-in button
        
+        //sets input to values
+        // **JPassword field's get Password method returns a char array instead of string
         char[] pass = password.getPassword();
         String pwd = String.copyValueOf(pass);
         String logInID = username.getText();
         
+        // if statement for handeling different options based on user input
         if(validateLogIn(logInID, pwd)){
             dispose();
             frame = new MainFrame();
@@ -184,12 +180,12 @@ public class LogOnPage extends javax.swing.JFrame {
         }
         System.out.print("");
     }                                        
-
-    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {                                         
-
-    }                                        
+                               
 
 private boolean validateLogIn(String logInID,String pwd) {
+    // validate method which takes in user inputted values and checks for them in database
+    
+     // connection to database + SQL statement
    try{           
         String user = "root";
         String pass2 = "password";
@@ -212,13 +208,7 @@ private boolean validateLogIn(String logInID,String pwd) {
    
 }
 
-// public String getName() {
-//     return this.fname;
-// }
 
-// public String getSurname() {
-//     return this.surname;
-// }
     /**
      * @param args the command line arguments
      */
