@@ -414,7 +414,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(homeIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(homeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         homePanelLayout.setVerticalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -459,7 +459,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkPanelLayout.setVerticalGroup(
             checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(checkPanelLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(checkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkInIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkInLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -553,7 +553,7 @@ public class MainFrame extends javax.swing.JFrame {
         checkOutPanelLayout.setVerticalGroup(
             checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, checkOutPanelLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(checkOutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkOutIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkOutLab, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1926,7 +1926,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
         checkinScreenLayout.setVerticalGroup(
             checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1940,7 +1940,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(detailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 512, Short.MAX_VALUE))
+                    .addComponent(detailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 513, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -2236,7 +2236,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(removeRecep, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         homeScreenLayout.setVerticalGroup(
             homeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2373,7 +2373,7 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(lbNoP)
                                     .addComponent(lbChild)
                                     .addComponent(lbAdult))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                                 .addGroup(searchGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tfAdults)
                                     .addComponent(tfChildren)
@@ -2444,7 +2444,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(tfCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbCI)
                     .addComponent(tfAdults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         searchRoom.setBackground(new java.awt.Color(153, 204, 255));
@@ -2535,14 +2535,14 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(tfFN, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tfSN, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 4, Short.MAX_VALUE)))
+                                .addGap(0, 10, Short.MAX_VALUE)))
                         .addGroup(searchRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfCost)
                             .addComponent(tfRoomType)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchRoomLayout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(lblCustID)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                                 .addComponent(tfCustID, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
@@ -2591,7 +2591,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(searchGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(searchRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(715, Short.MAX_VALUE))
+                .addContainerGap(719, Short.MAX_VALUE))
         );
         searchScreenLayout.setVerticalGroup(
             searchScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2868,7 +2868,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layerPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)))
+                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -4043,14 +4043,9 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_loggedOnAlertActionPerformed
 
     private void addRecepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRecepActionPerformed
-      
-      JTextField IdField = new JTextField(5);
-      JTextField fNameField = new JTextField(15);
-      JTextField surnameField = new JTextField(15);  
-      JTextField passwordField = new JPasswordField(15);
+
+    
       JButton ok = new JButton("OK");
-      JButton cancel = new JButton("Cancel");
-      
       JFrame r = new JFrame("Add new receptionist details");
         r.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         r.setSize(300, 200);
@@ -4058,7 +4053,6 @@ public class MainFrame extends javax.swing.JFrame {
         r.setLocationRelativeTo(null);
         r.setVisible(true);
         r.setBackground(Color.blue); 
-     
         
       JPanel addRecep = new JPanel();
       JPanel addRecep2 = new JPanel();
@@ -4080,15 +4074,7 @@ public class MainFrame extends javax.swing.JFrame {
       addRecep7.add(new JLabel("Password: "));
       addRecep8.add(passwordField = new JPasswordField(10));
       addRecep9.add(ok);
-      addRecep10.add(cancel);
-      
-      String s1 = IdField.getText();
-      String s2 = fNameField.getText();
-      String s3 = surnameField.getText();
-        //char[] pass = passwordField.getPassword();
-        //String pwd = String.copyValueOf(pass);  
-      String s4 = passwordField.getText();
-      
+   
       r.add(addRecep);
       r.add(addRecep2);
       r.add(addRecep3);
@@ -4100,19 +4086,15 @@ public class MainFrame extends javax.swing.JFrame {
       r.add(addRecep9);
       r.add(addRecep10);
       r.setLayout(new GridLayout(5,2));
-      
-      // ListenerClass listener = new ListenerClass();  
-      
+;
+       
         ok.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                okActionPerformed(evt);
-            }
+          //@Override
+          public void actionPerformed(java.awt.event.ActionEvent evt) {
+              okActionPerformed(evt);
+          }
             });
-        cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelActionPerformed(evt);
-            }
-            });
+    
     }//GEN-LAST:event_addRecepActionPerformed
 
     
@@ -4140,39 +4122,16 @@ public class MainFrame extends javax.swing.JFrame {
     private void roomPriceTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomPriceTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_roomPriceTotalActionPerformed
-    private void okActionPerformed(java.awt.event.ActionEvent evt) {                                              
-      JTextField IdField = new JTextField();
-      JTextField fNameField = new JTextField();
-      JTextField surnameField = new JTextField();  
-      JTextField passwordField = new JPasswordField();
-      
-      String s1 = IdField.getText();
-      String s2 = fNameField.getText();
-      String s3 = surnameField.getText();
-      String s4 = passwordField.getText();
-
-        //char[] pass = passwordField.getPassword();
-        //String pwd = String.copyValueOf(pass);  
-        //String s4 = pwd;
+       public void okActionPerformed(java.awt.event.ActionEvent evt) {    
         
-      //IdField.setText(""+IdField.getText());
-      //fNameField.setText(""+fNameField.getText());
-      //surnameField.setText(""+surnameField.getText());
-      //passwordField.setText(""+passwordField.getText());
-      
         try{
             String user = "root";
             String pass2 = "password";
         
             Class.forName("com.mysql.jdbc.Driver"); 
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass2); 
-            String sql1 = "INSERT INTO receptionist (id, fname, surname, password) VALUES (?, ?, ?, ?)";
-            PreparedStatement pst1 = conn.prepareStatement(sql1);
-            pst1.setString(1, s1);
-            pst1.setString(2, s2);
-            pst1.setString(3, s3);
-            pst1.setString(3, s4); 
-            pst1.executeUpdate("INSERT INTO receptionist (id, fname, surname, password)" + "VALUES ('" + s1 + "','" + s2 + "','" + s3 + "','" + s4 + "')");
+            Statement statement = conn.createStatement();
+            statement.executeUpdate("INSERT INTO receptionist (id, fname, surname, password) VALUES('" + IdField.getText() + "','" + fNameField.getText() + "','" + surnameField.getText() + "','" + passwordField.getText() + "')");
             conn.close();
             JOptionPane.showMessageDialog(null, "Receptionist details have been successfully added into database", "Added Receptionist", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -4181,10 +4140,6 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }    
     }    
-    
-     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        
-    } 
         
     private void extraTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraTextActionPerformed
         // TODO add your handling code here:
@@ -4621,7 +4576,11 @@ public class MainFrame extends javax.swing.JFrame {
         flag2 = true;
         }
     }
-
+    
+    public javax.swing.JTextField IdField;
+    public javax.swing.JTextField fNameField;
+    public javax.swing.JTextField surnameField;
+    public javax.swing.JPasswordField passwordField;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CheckOutViaRoomNo;
     private javax.swing.JPanel abiPanel;
