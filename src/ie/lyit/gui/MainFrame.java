@@ -4059,17 +4059,25 @@ public class MainFrame extends javax.swing.JFrame {
       JPanel addRecep10 = new JPanel();
       
       //adding labels and textfields to JPanels
-      addRecep.add(new JLabel("ID: "));
-      addRecep.setForeground(Color.WHITE);
+      
+      JLabel label = new JLabel ("ID: ");
+      label.setForeground (Color.white);
+      addRecep.add(label);
       addRecep2.add(IdField = new JTextField(10));
-      addRecep3.add(new JLabel("First Name: "));
-      addRecep3.setForeground(Color.WHITE);
+
+      JLabel label2 = new JLabel ("First Name: ");
+      label2.setForeground (Color.white);
+      addRecep3.add(label2);
       addRecep4.add(fNameField = new JTextField(10));
-      addRecep5.add(new JLabel("Surname: "));
-      addRecep5.setForeground(Color.WHITE);
+      
+      JLabel label3 = new JLabel ("Surname: ");
+      label3.setForeground (Color.white);
+      addRecep5.add(label3);
       addRecep6.add(surnameField = new JTextField(10));
-      addRecep7.add(new JLabel("Password: "));
-      addRecep7.setForeground(Color.WHITE);
+      
+      JLabel label4 = new JLabel ("Password: ");
+      label4.setForeground (Color.white);
+      addRecep7.add(label4);
       addRecep8.add(passwordField = new JPasswordField(10));
       addRecep9.add(ok);
    
