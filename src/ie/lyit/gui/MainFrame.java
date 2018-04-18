@@ -4158,6 +4158,10 @@ public class MainFrame extends javax.swing.JFrame {
      // action commands for when user clicks the ok button . . . 
      // which is inside of the add new receptionist pop up
      
+     if (IdField.getText().length()==0 || fNameField.getText().length()==0 || fNameField.getText().length()==0 || surnameField.getText().length()==0 || passwordField.getText().length()==0 ){
+         JOptionPane.showMessageDialog(null, "Please fill out all fields to add a new Receptionist", "Error", JOptionPane.INFORMATION_MESSAGE);   
+     }
+     else{
         // connection to database + SQL statement
         try{
             String user = "root";
@@ -4175,7 +4179,7 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }    
     }    
-        
+   }    
     private void extraTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extraTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_extraTextActionPerformed
