@@ -4161,7 +4161,7 @@ public class MainFrame extends javax.swing.JFrame {
      // which is inside of the add new receptionist pop up
      
      // if any fields are empty display error message on click
-     if (IdField.getText().length()==0 || fNameField.getText().length()==0 || fNameField.getText().length()==0 || surnameField.getText().length()==0 || passwordField.getText().length()==0 ){
+     if (IdField.getText().length()==0 || IdField.getText().length()==0 || fNameField.getText().length()==0 || surnameField.getText().length()==0 || passwordField.getText().length()==0 ){
          JOptionPane.showMessageDialog(null, "Please fill out all fields to add a new Receptionist", "Error", JOptionPane.INFORMATION_MESSAGE);   
      }
      else{
