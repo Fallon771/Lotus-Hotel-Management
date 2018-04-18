@@ -2190,6 +2190,7 @@ public class MainFrame extends javax.swing.JFrame {
         loggedOnAlert.setOpaque(false);
 
         addRecep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/plus.png"))); // NOI18N
+        addRecep.setToolTipText("Add receptionist to database");
         addRecep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addRecepActionPerformed(evt);
@@ -2197,13 +2198,14 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         removeRecep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minus.PNG"))); // NOI18N
+        removeRecep.setToolTipText("remove receptionist from database");
         removeRecep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeRecepActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoutIcon4.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogOutIcon5.png"))); // NOI18N
         jButton2.setToolTipText("Log-out of session");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
