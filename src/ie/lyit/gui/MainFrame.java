@@ -4127,11 +4127,13 @@ public class MainFrame extends javax.swing.JFrame {
      // pop up asking for details
      String s1 = (String)JOptionPane.showInputDialog(null, "Please enter receptionist ID to delete :\n");
        
-     // connection to database + SQL statement
+     // if field is empty display error message
      if (s1.equals("")){
                 JOptionPane.showMessageDialog(null, "Please enter Staff ID of receptionist to delete", "Error", JOptionPane.INFORMATION_MESSAGE);   
      }
      else{
+         // if field is not empty continue with procedure
+         // connection to database + SQL statement
         try {  
                String user = "root";
                String pass2 = "password";
@@ -4158,10 +4160,12 @@ public class MainFrame extends javax.swing.JFrame {
      // action commands for when user clicks the ok button . . . 
      // which is inside of the add new receptionist pop up
      
+     // if any fields are empty display error message on click
      if (IdField.getText().length()==0 || fNameField.getText().length()==0 || fNameField.getText().length()==0 || surnameField.getText().length()==0 || passwordField.getText().length()==0 ){
          JOptionPane.showMessageDialog(null, "Please fill out all fields to add a new Receptionist", "Error", JOptionPane.INFORMATION_MESSAGE);   
      }
      else{
+        // if field is not empty continue with procedure
         // connection to database + SQL statement
         try{
             String user = "root";
