@@ -4128,22 +4128,27 @@ public class MainFrame extends javax.swing.JFrame {
      String s1 = (String)JOptionPane.showInputDialog(null, "Please enter receptionist ID to delete :\n");
        
      // connection to database + SQL statement
-     try {  
-            String user = "root";
-            String pass2 = "password";
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass2); 
-            PreparedStatement st = conn.prepareStatement("DELETE FROM receptionist WHERE id = ?");
-            st.setString(1,s1);
-            st.executeUpdate(); 
-            conn.close();
-            JOptionPane.showMessageDialog(null, "Receptionist has been removed from database", "Deleted receptionist", JOptionPane.INFORMATION_MESSAGE);   
+     if (s1.equals("")){
+                JOptionPane.showMessageDialog(null, "Please enter Staff ID of receptionist to delete", "Error", JOptionPane.INFORMATION_MESSAGE);   
      }
-     catch(Exception e)
-     {
-            JOptionPane.showMessageDialog(null, "Error in deleting receptionist, details not found in database", "Error", JOptionPane.WARNING_MESSAGE);     
-            System.out.println(e);
-     }
+     else{
+        try {  
+               String user = "root";
+               String pass2 = "password";
+               Class.forName("com.mysql.jdbc.Driver");
+               Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/hotel_db", user, pass2); 
+               PreparedStatement st = conn.prepareStatement("DELETE FROM receptionist WHERE id = ?");
+               st.setString(1,s1);
+               st.executeUpdate(); 
+               conn.close();
+               JOptionPane.showMessageDialog(null, "Receptionist has been removed from database", "Deleted receptionist", JOptionPane.INFORMATION_MESSAGE);   
+        }
+        catch(Exception e)
+        {
+               JOptionPane.showMessageDialog(null, "Error in deleting receptionist, details not found in database", "Error", JOptionPane.WARNING_MESSAGE);     
+               System.out.println(e);
+        }
+     }  
     }//GEN-LAST:event_removeRecepActionPerformed
     
     private void roomPriceTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomPriceTotalActionPerformed
