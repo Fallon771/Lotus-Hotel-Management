@@ -1940,7 +1940,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(detailsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE))
+                    .addComponent(detailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 513, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -2242,7 +2242,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(removeRecep, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         homeScreenLayout.setVerticalGroup(
             homeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4254,14 +4254,48 @@ public class MainFrame extends javax.swing.JFrame {
             //ResultSet r = pstmt.executeQuery("select count(*) from rooms");
          
             rs = pstmt.executeQuery();
-            
 
-            while(rs.next()){              
+
+            while(rs.next()){     
+                
 
                 noAdults.setText(rs.getString("adults"));
                 noChildren.setText(rs.getString("children"));
+                noRes.setText("2");   
                 //int count = rs.getRow();
-                //noRes.setText(r.getString(count));                    
+                //noRes.setText(r.getString(count));   
+                int [] room = {200,201, 202, 203, 204, 205, 206, 207, 301,302, 303, 304, 305, 306, 100, 102, 103, 401, 402, 403, 405, 406};
+                int [] single = {200,201, 202, 203, 204, 205, 206, 207};
+                int [] doubles = {301,302, 303, 304, 305, 306};
+                int [] bridal = {100, 102, 103};
+                int [] excecutive = {401, 402, 403, 405, 406};
+                     
+                int rCount = room.length;
+                String n1 = Integer.toString(rCount);
+                int s = single.length;
+                String s1 = Integer.toString(s);
+                int d = doubles.length;
+                String d1 = Integer.toString(d);
+                int b = bridal.length;
+                String b1 = Integer.toString(b);
+                int e = excecutive.length;
+                String e1 = Integer.toString(e);
+  
+                totalFree.setText(n1); 
+                singleRoom.setText(s1);
+                doubleRoom.setText(d1);
+                bridalRoom.setText(b1);
+                executiveRoom.setText(e1);
+                
+                
+                          
+//                 if(room.equals(rs.getString("roomno"))){
+//                    rCount--;
+//                    String num = Integer.toString(rCount);
+//                    totalFree.setText(rs.getString("roomno"));   
+//                        }
+//                else
+//                    totalFree.setText(num1); 
                 
             }
         }
