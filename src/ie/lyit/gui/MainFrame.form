@@ -59,7 +59,7 @@
               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Component id="footer" max="32767" attributes="0"/>
           </Group>
-          <Component id="sideBar" pref="753" max="32767" attributes="0"/>
+          <Component id="sideBar" pref="755" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -150,7 +150,7 @@
                       <Component id="homeIcon" min="-2" pref="42" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="homeLabel" min="-2" pref="95" max="-2" attributes="0"/>
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -217,7 +217,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkInIcon" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkInLabel" min="-2" pref="40" max="-2" attributes="0"/>
@@ -369,7 +369,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="checkOutIcon1" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="checkOutLab" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
@@ -732,9 +732,9 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="checkinScreen" alignment="0" pref="524" max="32767" attributes="0"/>
-              <Component id="searchScreen" alignment="1" pref="524" max="32767" attributes="0"/>
-              <Component id="homeScreen" alignment="1" pref="524" max="32767" attributes="0"/>
+              <Component id="checkinScreen" alignment="0" pref="526" max="32767" attributes="0"/>
+              <Component id="searchScreen" alignment="1" pref="526" max="32767" attributes="0"/>
+              <Component id="homeScreen" alignment="1" pref="526" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -776,7 +776,7 @@
                               <Component id="jPanel6" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="204" max="32767" attributes="0"/>
+                      <EmptySpace pref="192" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1975,7 +1975,7 @@
                               <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jPanel2" min="-2" pref="132" max="-2" attributes="0"/>
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2136,7 +2136,7 @@
                                   <Component id="totalCost" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="calculateBill" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="25" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2751,6 +2751,9 @@
               <Dimension value="[964, 406]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="homeScreenAncestorAdded"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
           </AuxValues>
@@ -2776,7 +2779,7 @@
                               <Component id="jButton2" min="-2" pref="21" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="121" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2801,7 +2804,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="100" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="dataTabPane" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -3098,9 +3101,9 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField13" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="jTextField20" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="jTextField19" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="noRes" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="noChildren" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="noAdults" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="71" max="32767" attributes="0"/>
                       </Group>
@@ -3112,11 +3115,11 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jTextField19" min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Component id="noAdults" min="-2" pref="16" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField20" min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Component id="noChildren" min="-2" pref="16" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField13" min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Component id="noRes" min="-2" pref="16" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -3147,11 +3150,11 @@
                     <Property name="text" type="java.lang.String" value="Reservations:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField20">
+                <Component class="javax.swing.JTextField" name="noChildren">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField13">
+                <Component class="javax.swing.JTextField" name="noRes">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField19">
+                <Component class="javax.swing.JTextField" name="noAdults">
                 </Component>
               </SubComponents>
             </Container>
@@ -3182,17 +3185,17 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField12" min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="jTextField15" min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="jTextField16" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="jTextField18" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="bridalRoom" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="executiveRoom" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="doubleRoom" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="singleRoom" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField17" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="totalFree" min="-2" pref="36" max="-2" attributes="0"/>
                           <EmptySpace pref="77" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -3202,30 +3205,30 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace pref="16" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField17" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                              <Component id="totalFree" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                               <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jSeparator5" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField18" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                              <Component id="singleRoom" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                               <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField16" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                              <Component id="doubleRoom" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                               <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField12" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                              <Component id="bridalRoom" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                               <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField15" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                              <Component id="executiveRoom" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       </Group>
@@ -3248,7 +3251,7 @@
                     <Property name="text" type="java.lang.String" value="Executive:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField12">
+                <Component class="javax.swing.JTextField" name="bridalRoom">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel33">
                   <Properties>
@@ -3257,13 +3260,13 @@
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator5">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField15">
+                <Component class="javax.swing.JTextField" name="executiveRoom">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField16">
+                <Component class="javax.swing.JTextField" name="doubleRoom">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField17">
+                <Component class="javax.swing.JTextField" name="totalFree">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField18">
+                <Component class="javax.swing.JTextField" name="singleRoom">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel34">
                   <Properties>
@@ -3343,7 +3346,7 @@
                       <Component id="searchGuest" min="-2" pref="520" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="searchRoom" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="719" max="32767" attributes="0"/>
+                      <EmptySpace pref="715" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3426,7 +3429,7 @@
                                               <Component id="lbChild" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="lbAdult" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace pref="20" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="tfAdults" max="32767" attributes="0"/>
                                               <Component id="tfChildren" max="32767" attributes="0"/>
@@ -3512,7 +3515,7 @@
                               <Component id="lbCI" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfAdults" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="99" max="32767" attributes="0"/>
+                          <EmptySpace pref="70" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3715,7 +3718,7 @@
                                           <Component id="tfFN" min="-2" pref="113" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="tfSN" min="-2" pref="106" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -3724,7 +3727,7 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                           <Component id="lblCustID" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="33" max="32767" attributes="0"/>
+                                          <EmptySpace pref="20" max="32767" attributes="0"/>
                                           <Component id="tfCustID" min="-2" pref="67" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
