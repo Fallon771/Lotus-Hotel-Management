@@ -16,6 +16,7 @@ import ie.lyit.hotel.Bill;
 import ie.lyit.hotel.CreditCard;
 import ie.lyit.hotel.Packages;
 import ie.lyit.hotel.Rooms;
+import ie.lyit.threads.Checkout;
 import ie.lyit.users.*;
 import java.awt.Color;
 import java.awt.Component;
@@ -1927,7 +1928,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         checkinScreenLayout.setVerticalGroup(
             checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2667,6 +2668,11 @@ public class MainFrame extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout CheckOutViaRoomNoLayout = new javax.swing.GroupLayout(CheckOutViaRoomNo);
         CheckOutViaRoomNo.setLayout(CheckOutViaRoomNoLayout);
@@ -2721,6 +2727,12 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jLabel55.setText("Room Cost:");
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
 
         jLabel58.setText("Comments:");
 
@@ -2857,7 +2869,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(checkOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(975, Short.MAX_VALUE))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
         checkOutScreenLayout.setVerticalGroup(
             checkOutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2872,7 +2884,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(377, Short.MAX_VALUE))
         );
 
         layerPane.setLayer(checkinScreen, javax.swing.JLayeredPane.POPUP_LAYER);
@@ -3678,7 +3690,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchRoomActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
+        ie.lyit.threads.PrintUtilities.printComponent(this);
+               
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
@@ -4350,6 +4363,32 @@ public class MainFrame extends javax.swing.JFrame {
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField11ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+      //ie.lyit.threads.Checkout C = new Checkout();
+      //ResultSet myRs = null;
+     //String roomno = "roomno";
+     //String id = "id";
+     //String booked = "booked";
+     
+     //myRs= C.ResultSet.run(jTextField1.getText());
+     //try{
+     //    if(myRs.next())
+      //   {
+       ////              }
+    // }
+      
+     
+     
+      
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
