@@ -3690,8 +3690,35 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchRoomActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        ie.lyit.threads.PrintUtilities.printComponent(this);
-               
+        
+        String roomCost=jTextField2.getText();
+        String Nights = jTextField4.getText();
+        String Discount =jTextField3.getText();
+        String TPrice=jTextField11.getText();
+        
+        if(roomCost == null)
+        {
+            JOptionPane.showMessageDialog(null,"Error Printing");
+        }
+        
+        if( Nights == null)
+        {
+            JOptionPane.showMessageDialog(null,"Error Printing");
+        }
+        
+        if( Discount == null)
+        {
+            JOptionPane.showMessageDialog(null,"Error Printing");
+        }
+        
+        if( TPrice == null)
+        {
+            JOptionPane.showMessageDialog(null,"Error Printing");
+        }
+        
+        else{
+        ie.lyit.threads.PrintUtilities.printComponent(jPanel1);
+        }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
