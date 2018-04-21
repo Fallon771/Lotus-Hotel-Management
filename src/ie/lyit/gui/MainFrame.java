@@ -3755,6 +3755,14 @@ public class MainFrame extends javax.swing.JFrame {
                     +"\n\nDefault logins:\nUser: root\nPassword: password", "Connection Error", JOptionPane.ERROR_MESSAGE);
             }
         }
+        
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        layerPane.setSize(screenSize.width, screenSize.height);
+        setExtendedState(MainFrame.MAXIMIZED_BOTH);
+        
+        setResizable(false);
+        System.out.print("Screen Test");
+        repaint();
     }//GEN-LAST:event_serverTestActionPerformed
 
     private void americanRadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_americanRadActionPerformed
