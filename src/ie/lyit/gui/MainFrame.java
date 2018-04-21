@@ -1685,14 +1685,14 @@ public class MainFrame extends javax.swing.JFrame {
         packageText.setText("None");
         packageText.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jSeparator1.setBackground(new java.awt.Color(102, 102, 0));
-        jSeparator1.setForeground(new java.awt.Color(153, 153, 0));
+        jSeparator1.setBackground(new java.awt.Color(0, 51, 204));
+        jSeparator1.setForeground(new java.awt.Color(153, 255, 255));
 
         jLabel20.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         jLabel20.setText("Current Package:");
 
-        jSeparator11.setBackground(new java.awt.Color(102, 102, 0));
-        jSeparator11.setForeground(new java.awt.Color(153, 153, 0));
+        jSeparator11.setBackground(new java.awt.Color(51, 51, 255));
+        jSeparator11.setForeground(new java.awt.Color(153, 204, 255));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1920,7 +1920,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         checkinScreenLayout.setVerticalGroup(
             checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1934,7 +1934,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(detailsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE))
+                    .addComponent(detailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 514, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -2769,7 +2769,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 1074, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2790,7 +2790,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(checkOutScreenLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 608, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         checkOutScreenLayout.setVerticalGroup(
@@ -2834,7 +2834,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layerPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(checkOutScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 514, Short.MAX_VALUE)))
+                    .addComponent(checkOutScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
