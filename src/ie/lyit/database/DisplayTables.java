@@ -54,8 +54,8 @@ public class DisplayTables {
                         myRs.getString("phone"),
                         myRs.getString("email"),
                         myRs.getDate("checkin"),
-                        myRs.getDate("checkout"),
-                        myRs.getInt("roomno"));
+                        myRs.getDate("checkout"));
+                       // myRs.getInt("roomno"));
                 list.add(guest);
             }
           

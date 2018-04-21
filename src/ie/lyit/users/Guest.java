@@ -44,6 +44,19 @@ public class Guest {
         this.phoneNo = phone;
     }
     
+     public Guest(int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout){
+        
+        this.fName = fName;
+        this.sName = sName;
+        this.address = address;
+        this.title = title;
+        this.id = id;
+        this.emailAddress = email;
+        this.checkin = checkin;
+        this.checkout = checkout;
+        this.phoneNo = phone;    
+    }
+    
     // Constructor for JTables
     public Guest(int id,String title,String fName,String sName,String address,String phone,String email,Date checkin,Date checkout,int room){
         

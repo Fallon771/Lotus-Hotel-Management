@@ -71,6 +71,8 @@ public class ValidBooking {
                  }   
                  if(dateIn.after(myRs.getDate("checkin")) && dateIn.before(myRs.getDate("checkout"))){
                     validDate = false; 
+                     System.out.println("DEEBUG 2:");
+                     System.out.println(myRs.getDate("checkout")+"\n"+myRs.getDate("checkin"));
                  }
                  if(dateIn.equals(myRs.getDate("checkin"))){
                     validDate = false;   

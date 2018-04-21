@@ -3041,7 +3041,7 @@ public class MainFrame extends javax.swing.JFrame {
         
          try{
         // list.clear();
-         String sql = "SELECT DISTINCT * FROM `guest`,`rooms`";
+         String sql = "SELECT DISTINCT `id`,`title`,`fname`,`surname`,`address`,`phone`,`email`,`checkin`,`checkout` FROM `guest`";
          list = display.displayGuestTable(sql);
          for(int i=0;i<list.size();i++){
          Object[] row = new Object[9];

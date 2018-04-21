@@ -21,11 +21,8 @@ public class ScreenSize {
     public ScreenSize(){
        
         xScreen = screenSize.getWidth();
-        yScreen = screenSize.getHeight();
-        
+        yScreen = screenSize.getHeight();   
     }
-    
-    
    
     public double getScreenWidth(){
         return xScreen;
