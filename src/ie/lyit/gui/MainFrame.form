@@ -59,7 +59,7 @@
               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Component id="footer" max="32767" attributes="0"/>
           </Group>
-          <Component id="sideBar" pref="755" max="32767" attributes="0"/>
+          <Component id="sideBar" pref="759" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -732,13 +732,13 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="checkinScreen" alignment="0" pref="526" max="32767" attributes="0"/>
-              <Component id="searchScreen" alignment="1" pref="526" max="32767" attributes="0"/>
-              <Component id="homeScreen" alignment="1" pref="526" max="32767" attributes="0"/>
+              <Component id="checkinScreen" alignment="0" pref="529" max="32767" attributes="0"/>
+              <Component id="searchScreen" alignment="1" pref="529" max="32767" attributes="0"/>
+              <Component id="homeScreen" alignment="1" pref="529" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="checkOutScreen" pref="514" max="32767" attributes="0"/>
+                      <Component id="checkOutScreen" pref="517" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -795,7 +795,7 @@
                                   <Component id="jPanel4" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="detailsPanel" alignment="0" pref="514" max="32767" attributes="0"/>
+                          <Component id="detailsPanel" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -2558,7 +2558,7 @@
                                   <Component id="masterRad" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="warnLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -2840,7 +2840,7 @@
                                   <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane2" alignment="0" min="-2" pref="1019" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2848,8 +2848,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" pref="139" max="-2" attributes="0"/>
-                              <EmptySpace pref="45" max="32767" attributes="0"/>
+                              <Component id="jScrollPane2" pref="178" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -2865,6 +2865,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="guestTable">
                           <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="66" green="ff" red="66" type="rgb"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="9" rowCount="0">
                                 <Column editable="false" title="Guest Id" type="java.lang.Integer"/>
@@ -2963,8 +2966,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane4" pref="196" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane4" min="-2" pref="155" max="-2" attributes="0"/>
+                              <EmptySpace pref="55" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2979,6 +2982,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="roomTable">
                           <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="66" green="ff" red="ff" type="rgb"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="4" rowCount="8">
                                 <Column editable="false" title="Single" type="java.lang.Integer">
@@ -3095,6 +3101,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="bookingTable">
                           <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="99" red="66" type="rgb"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="10" rowCount="0">
                                 <Column editable="false" title="Guest Id" type="java.lang.Integer"/>
@@ -4212,7 +4221,7 @@
                               <Renderer/>
                             </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title value="Room number"/>
+                              <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
