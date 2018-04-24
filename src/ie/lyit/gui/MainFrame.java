@@ -819,6 +819,11 @@ public class MainFrame extends javax.swing.JFrame {
         roomText.setEditable(false);
         roomText.setText("201");
         roomText.setToolTipText("Room number");
+        roomText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roomTextActionPerformed(evt);
+            }
+        });
 
         jLabel16.setText("Adults:");
 
@@ -1569,6 +1574,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         roomType.setEditable(false);
         roomType.setText("Single");
+        roomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roomTypeActionPerformed(evt);
+            }
+        });
 
         euroLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         euroLabel1.setText("%");
@@ -1667,7 +1677,7 @@ public class MainFrame extends javax.swing.JFrame {
         packageButton.setForeground(new java.awt.Color(255, 255, 255));
         packageButton.setMnemonic('C');
         packageButton.setText("Custom Package Creator");
-        packageButton.setBorder(new javax.swing.border.SoftBevelBorder(0));
+        packageButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         packageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 packageButtonActionPerformed(evt);
@@ -1691,7 +1701,7 @@ public class MainFrame extends javax.swing.JFrame {
         packageText.setFont(new java.awt.Font("Kalinga", 0, 12)); // NOI18N
         packageText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         packageText.setText("None");
-        packageText.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        packageText.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jSeparator1.setBackground(new java.awt.Color(102, 102, 0));
         jSeparator1.setForeground(new java.awt.Color(153, 153, 0));
@@ -1928,7 +1938,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(roomInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         checkinScreenLayout.setVerticalGroup(
             checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1942,7 +1952,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(checkinScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(detailsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE))
+                    .addComponent(detailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 515, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -3722,11 +3732,15 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
+        nightsStay.getText();
+     
+           // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
+
+     discountTotal.getText();
+       // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -4388,11 +4402,19 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_homeScreenAncestorAdded
 
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
+       
+        bill.setTotalBill(Double.parseDouble(roomPriceTotal.getText())
+                   ,Double.parseDouble(fixedTotal.getText())
+                   ,Double.parseDouble(extraText.getText())
+                   ,Integer.parseInt(discountTotal.getText())
+                   ,Integer.parseInt(nightsStay.getText()));
+     
+      totalCost.setText(""+bill.getTotalBill());
     }//GEN-LAST:event_jTextField11ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
+      
       //ie.lyit.threads.Checkout C = new Checkout();
       //ResultSet myRs = null;
      //String roomno = "roomno";
@@ -4416,6 +4438,14 @@ public class MainFrame extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void roomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roomTypeActionPerformed
+
+    private void roomTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roomTextActionPerformed
 
     public void setColor(javax.swing.JPanel panel){
         panel.setBackground(new java.awt.Color(153, 53, 200));
